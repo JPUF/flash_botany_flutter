@@ -35,7 +35,6 @@ class _FlashAppState extends State<FlashApp> {
                 final theme = ThemeProvider.of(context);
                 return MaterialApp.router(
                   debugShowCheckedModeBanner: false,
-                  title: 'Flutter Demo',
                   theme: theme.light(settings.value.sourceColor),
                   darkTheme: theme.dark(settings.value.sourceColor),
                   themeMode: theme.themeMode(),

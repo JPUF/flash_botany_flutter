@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:material_color_utilities/material_color_utilities.dart';
 
+import '../extensions.dart';
+
 class NoAnimationPageTransitionsBuilder extends PageTransitionsBuilder {
   const NoAnimationPageTransitionsBuilder();
 
@@ -106,12 +108,13 @@ class ThemeProvider extends InheritedWidget {
 
   TabBarTheme tabBarTheme(ColorScheme colors) {
     return TabBarTheme(
-      labelColor: colors.onBackground,
-      unselectedLabelColor: colors.tertiary,
+      labelColor: colors.tertiary,
+      labelStyle: const TextStyle(fontWeight: FontWeight.bold),
+      unselectedLabelColor: colors.onBackground,
       indicator: BoxDecoration(
         border: Border(
           bottom: BorderSide(
-            color: colors.onBackground,
+            color: colors.tertiary,
             width: 2,
           ),
         ),

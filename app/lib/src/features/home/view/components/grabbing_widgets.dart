@@ -26,7 +26,7 @@ class BottomGrabbingWidget extends StatelessWidget {
             height: 7,
             width: 60,
             decoration:  BoxDecoration(
-              color: colors.onSurfaceVariant,
+              color: colors.tertiary,
               borderRadius: const BorderRadius.all(Radius.circular(5)),
             ),
           )
@@ -63,7 +63,7 @@ class SideGrabbingWidget extends StatelessWidget {
               angle: -sheetExpansionPercent * math.pi,
               child: Icon(
                 Icons.chevron_right_rounded,
-                color: colors.surface,
+                color: colors.tertiary,
                 size: 32,
               )),
         ],

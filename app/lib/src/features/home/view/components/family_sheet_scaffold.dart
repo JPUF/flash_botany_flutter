@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'family_info.dart';
+
 class FamilySheetContent extends StatelessWidget {
   const FamilySheetContent({
     Key? key,
@@ -21,19 +23,20 @@ class FamilySheetContent extends StatelessWidget {
                 Tab(text: '<FamilyName2>'),
                 Tab(text: '<FamilyName3>'),
                 Tab(text: '<FamilyName4>'),
-                Tab(text: '<FamilyName4>'),
               ],
             ),
           ),
         ),
-        body: TabBarView(
-          children: [
-            Container(color: colors.surfaceVariant, child: const Placeholder(color: Colors.pink)),
-            Container(color: colors.surfaceVariant, child: const Placeholder(color: Colors.blue)),
-            Container(color: colors.surfaceVariant, child: const Placeholder(color: Colors.purple)),
-            Container(color: colors.surfaceVariant, child: const Placeholder(color: Colors.yellow)),
-            Container(color: colors.surfaceVariant, child: const Placeholder(color: Colors.amber)),
-          ],
+        body: Container(
+          color: colors.surfaceVariant,
+          child: const TabBarView(
+            children: [
+              FamilyInfo(),
+              FamilyInfo(),
+              FamilyInfo(),
+              FamilyInfo(),
+            ],
+          ),
         ),
       ),
     );
