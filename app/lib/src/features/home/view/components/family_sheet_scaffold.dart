@@ -29,7 +29,7 @@ class FamilySheetContent extends StatelessWidget {
         ),
         body: Container(
           color: colors.surfaceVariant,
-          child: const TabBarView(
+          child: TabBarView(
             children: [
               FamilyInfo(),
               FamilyInfo(),

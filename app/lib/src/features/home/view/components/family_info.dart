@@ -1,4 +1,3 @@
-import 'package:external_app_launcher/external_app_launcher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -6,25 +5,29 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../../../shared/extensions.dart';
 
 class FamilyInfo extends StatelessWidget {
-  const FamilyInfo({
+  FamilyInfo({
     Key? key,
   }) : super(key: key);
+  final infoScroller = ScrollController();
+  final galleryScroller = ScrollController();
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: const BoxConstraints(minWidth: 200),
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: ListView(
         shrinkWrap: true,
         scrollDirection: Axis.vertical,
+        controller: infoScroller,
         children: [
           Center(
             child: SizedBox(
               height: 200,
               child: ListView(
                 shrinkWrap: true,
+                physics: const ClampingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
+                controller: galleryScroller,
                 children: [
                   Container(color: Colors.blue, width: 200),
                   Container(color: Colors.black, width: 200),
@@ -48,7 +51,7 @@ class FamilyInfo extends StatelessWidget {
     );
   }
 
-  Row buildTitleRow(BuildContext context) {
+  Widget buildTitleRow(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
