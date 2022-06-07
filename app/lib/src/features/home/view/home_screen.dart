@@ -6,7 +6,7 @@ import '../../../shared/strings.dart';
 import '../../../shared/views/views.dart';
 import 'components/family_sheet_scaffold.dart';
 import 'components/grabbing_widgets.dart';
-import 'components/home_content.dart';
+import 'components/flash_container.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -44,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
               actions: const [BrightnessToggle()],
             ),
             body: SnappingSheet(
-              child: const HomeContentMobile(),
+              child: const FlashContainerMobile(),
               grabbingHeight: 60,
               grabbing: const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16),
@@ -77,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
               });
             },
             child:
-                HomeContentDesktop(sheetRelativePosition: horizontalPosition),
+                FlashContainerDesktop(sheetRelativePosition: horizontalPosition),
             grabbingWidth: 50,
             grabbing: Padding(
               padding: const EdgeInsets.symmetric(vertical: 32),
