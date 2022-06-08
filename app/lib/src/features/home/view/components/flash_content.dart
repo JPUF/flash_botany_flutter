@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../shared/extensions.dart';
 import 'answer_button.dart';
 
 class FlashContent extends StatelessWidget {
@@ -25,26 +26,21 @@ class AnswerOptions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = Theme.of(context).colorScheme;
-    final tableBorder = BorderSide(width: 10, color: colors.surface);
-    return Table(
-      defaultColumnWidth: const FractionColumnWidth(0.5),
-      border: TableBorder(
-        verticalInside: tableBorder,
-        horizontalInside: tableBorder,
-        left: tableBorder,
-        right: tableBorder,
-      ),
-      children: const [
-        TableRow(children: [
-          AnswerButton(answerTitle: 'Testeraceae'),
-          AnswerButton(answerTitle: 'Lesteraceae'),
-        ]),
-        TableRow(children: [
-          AnswerButton(answerTitle: 'Besteraceae'),
-          AnswerButton(answerTitle: 'Festeraceae'),
-        ])
-      ],
-    );
+    return LayoutBuilder(builder: (context, constraints) {
+      final columnWidth = constraints.isMobile ? 0.5 : 0.25;
+      return Table(
+        defaultColumnWidth: FractionColumnWidth(columnWidth),
+        children: const [
+          TableRow(children: [
+            AnswerButton(answerTitle: 'Testeraceae'),
+            AnswerButton(answerTitle: 'Lesteraceae'),
+          ]),
+          TableRow(children: [
+            AnswerButton(answerTitle: 'Besteraceae'),
+            AnswerButton(answerTitle: 'Festeraceae'),
+          ])
+        ],
+      );
+    });
   }
 }

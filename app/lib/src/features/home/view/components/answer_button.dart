@@ -12,14 +12,19 @@ class AnswerButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 70,
-      width: double.infinity,
-      color: Colors.purple,
-      alignment: AlignmentDirectional.center,
-      child: Text(
-        answerTitle,
-        style: context.labelLarge,
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: InkWell(
+        onTap: () {},
+        child: Container(
+          height: 70,
+          width: double.infinity,
+          alignment: AlignmentDirectional.center,
+          child: Text(
+            answerTitle,
+            style: context.headlineSmall?.apply(fontStyle: FontStyle.italic),
+          ),
+        ),
       ),
     );
   }
