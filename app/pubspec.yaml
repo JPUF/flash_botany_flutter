@@ -21,6 +21,7 @@ dependencies:
   snapping_sheet: ^3.1.0
   flutter_svg: ^1.1.0
   url_launcher: ^6.1.2
+  card_swiper: ^2.0.4
 
 dev_dependencies:
   build_runner: ^2.1.7
