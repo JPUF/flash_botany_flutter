@@ -8,8 +8,6 @@ class FamilyInfo extends StatelessWidget {
   FamilyInfo({
     Key? key,
   }) : super(key: key);
-  final infoScroller = ScrollController();
-  final galleryScroller = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -18,24 +16,7 @@ class FamilyInfo extends StatelessWidget {
       child: ListView(
         shrinkWrap: true,
         scrollDirection: Axis.vertical,
-        controller: infoScroller,
         children: [
-          Center(
-            child: SizedBox(
-              height: 200,
-              child: ListView(
-                shrinkWrap: true,
-                physics: const ClampingScrollPhysics(),
-                scrollDirection: Axis.horizontal,
-                controller: galleryScroller,
-                children: [
-                  Container(color: Colors.blue, width: 200),
-                  Container(color: Colors.black, width: 200),
-                  Container(color: Colors.deepOrange, width: 200),
-                ],
-              ),
-            ),
-          ),
           const SizedBox(height: 16),
           buildTitleRow(context),
           Text('Daisy Family, Sunflower Family, Compositae',

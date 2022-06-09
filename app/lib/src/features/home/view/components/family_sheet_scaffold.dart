@@ -13,6 +13,7 @@ class FamilySheetContent extends StatelessWidget {
     return DefaultTabController(
       length: 4,
       child: Scaffold(
+        backgroundColor: colors.surfaceVariant,
         appBar: AppBar(
           backgroundColor: colors.surfaceVariant,
           flexibleSpace: const SafeArea(
@@ -27,16 +28,14 @@ class FamilySheetContent extends StatelessWidget {
             ),
           ),
         ),
-        body: Container(
-          color: colors.surfaceVariant,
-          child: TabBarView(
-            children: [
-              FamilyInfo(),
-              FamilyInfo(),
-              FamilyInfo(),
-              FamilyInfo(),
-            ],
-          ),
+        body: TabBarView(
+          physics: const NeverScrollableScrollPhysics(),
+          children: [
+            FamilyInfo(),
+            FamilyInfo(),
+            FamilyInfo(),
+            FamilyInfo(),
+          ],
         ),
       ),
     );

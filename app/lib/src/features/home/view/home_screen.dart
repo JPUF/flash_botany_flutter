@@ -46,16 +46,10 @@ class _HomeScreenState extends State<HomeScreen> {
             body: SnappingSheet(
               child: const FlashContainerMobile(),
               grabbingHeight: 60,
-              grabbing: const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16),
-                child: BottomGrabbingWidget(),
-              ),
+              grabbing: const BottomGrabbingWidget(),
               sheetBelow: SnappingSheetContent(
                 draggable: false,
-                child: const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16),
-                  child: FamilySheetContent(),
-                ),
+                child: const FamilySheetContent(),
               ),
             ),
           );
