@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 
@@ -18,9 +19,21 @@ class PromptContent extends StatelessWidget {
     return Swiper(
       itemCount: 3,
       itemBuilder: (context, index) {
-        return Image.network(
-          imgUrls[index],
-          fit: BoxFit.contain,
+        return CachedNetworkImage(
+          imageUrl: imgUrls[index],
+          imageBuilder: (context, imageProvider) => Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: imageProvider,
+                  fit: BoxFit.contain),
+            ),
+          ),
+          placeholder: (context, url) => Container(
+              alignment: Alignment.center,
+              height: 32,
+              width: 32,
+              child: const CircularProgressIndicator()),
+          errorWidget: (context, url, dynamic error) => const Icon(Icons.error),
         );
       },
       pagination: SwiperPagination(
