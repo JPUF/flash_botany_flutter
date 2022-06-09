@@ -15,6 +15,8 @@ class AnswerButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: InkWell(
+        customBorder:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         onTap: () {},
         child: Container(
           height: 70,
