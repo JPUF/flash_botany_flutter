@@ -23,14 +23,15 @@ class PromptContent extends StatelessWidget {
           fit: BoxFit.contain,
         );
       },
-      pagination: SwiperCustomPagination(
-        builder: (c, config) {
-          return DotSwiperPaginationBuilder(
-                  color: colors.onSurface, activeColor: colors.tertiary)
-              .build(c, config);
-        },
-      ),
+      pagination: SwiperPagination(
+          alignment: Alignment.bottomCenter,
+          builder: SwiperCustomPagination(builder: (c, config) {
+            return const DotSwiperPaginationBuilder(
+                    color: Colors.white, activeColor: Colors.white)
+                .build(c, config);
+          })),
       control: SwiperControl(color: colors.onSurface),
+      indicatorLayout: PageIndicatorLayout.SCALE,
     );
   }
 }

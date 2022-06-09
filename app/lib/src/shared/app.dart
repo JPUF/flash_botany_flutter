@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'providers/theme.dart';
 import 'router.dart';
+import 'scroll_behaviour.dart';
 
 class FlashApp extends StatefulWidget {
   const FlashApp({Key? key}) : super(key: key);
@@ -35,6 +36,7 @@ class _FlashAppState extends State<FlashApp> {
                 final theme = ThemeProvider.of(context);
                 return MaterialApp.router(
                   debugShowCheckedModeBanner: false,
+                  scrollBehavior: AppScrollBehavior(),
                   theme: theme.light(settings.value.sourceColor),
                   darkTheme: theme.dark(settings.value.sourceColor),
                   themeMode: theme.themeMode(),
