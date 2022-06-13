@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../shared/extensions.dart';
-import 'prompt_content.dart';
+import '../flash/prompt_content.dart';
 
 class PromptScaffold extends StatelessWidget {
   const PromptScaffold({

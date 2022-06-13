@@ -64,6 +64,24 @@
       <excludeFolder url="file://$MODULE_DIR$/app/windows/flutter/ephemeral/.plugin_symlinks/dynamic_color/example/build" />
       <excludeFolder url="file://$MODULE_DIR$/app/windows/flutter/ephemeral/.plugin_symlinks/dynamic_color/example/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/app/windows/flutter/ephemeral/.plugin_symlinks/dynamic_color/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/app/macos/Flutter/ephemeral/.symlinks/plugins/url_launcher_macos/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/app/macos/Flutter/ephemeral/.symlinks/plugins/url_launcher_macos/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/app/macos/Flutter/ephemeral/.symlinks/plugins/url_launcher_macos/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/app/macos/Flutter/ephemeral/.symlinks/plugins/path_provider_macos/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/app/macos/Flutter/ephemeral/.symlinks/plugins/path_provider_macos/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/app/macos/Flutter/ephemeral/.symlinks/plugins/path_provider_macos/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/app/macos/Flutter/ephemeral/.symlinks/plugins/dynamic_color/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/app/macos/Flutter/ephemeral/.symlinks/plugins/dynamic_color/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/app/macos/Flutter/ephemeral/.symlinks/plugins/dynamic_color/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/app/macos/Flutter/ephemeral/.symlinks/plugins/dynamic_color/build" />
+      <excludeFolder url="file://$MODULE_DIR$/app/macos/Flutter/ephemeral/.symlinks/plugins/dynamic_color/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/app/macos/Flutter/ephemeral/.symlinks/plugins/dynamic_color/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/app/macos/Flutter/ephemeral/.symlinks/plugins/url_launcher_macos/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/app/macos/Flutter/ephemeral/.symlinks/plugins/url_launcher_macos/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/app/macos/Flutter/ephemeral/.symlinks/plugins/url_launcher_macos/build" />
+      <excludeFolder url="file://$MODULE_DIR$/app/macos/Flutter/ephemeral/.symlinks/plugins/path_provider_macos/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/app/macos/Flutter/ephemeral/.symlinks/plugins/path_provider_macos/build" />
+      <excludeFolder url="file://$MODULE_DIR$/app/macos/Flutter/ephemeral/.symlinks/plugins/path_provider_macos/.dart_tool" />
     </content>
     <orderEntry type="jdk" jdkName="Android API 32 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -4,9 +4,9 @@ import 'package:snapping_sheet/snapping_sheet.dart';
 import '../../../shared/extensions.dart';
 import '../../../shared/strings.dart';
 import '../../../shared/views/views.dart';
-import 'components/family_sheet_scaffold.dart';
+import 'family/family_sheet_scaffold.dart';
 import 'components/grabbing_widgets.dart';
-import 'components/flash_container.dart';
+import 'flash/flash_container.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
