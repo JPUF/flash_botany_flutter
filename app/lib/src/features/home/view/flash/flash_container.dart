@@ -31,11 +31,6 @@ class FlashContainerMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: const [
-        Expanded(child: FlashContent()),
-        SizedBox(height: 80),
-      ],
-    );
+    return const FractionallySizedBox(heightFactor: 0.9, child: FlashContent());
   }
 }

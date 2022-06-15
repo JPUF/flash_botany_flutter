@@ -1,30 +1,26 @@
 import 'package:flutter/material.dart';
 
-import '../../../../shared/extensions.dart';
-import 'answer_button.dart';
+import 'custom_button.dart';
 
 class AnswerOptions extends StatelessWidget {
-  const AnswerOptions({
-    Key? key,
-  }) : super(key: key);
+  const AnswerOptions({Key? key, required this.onAnswerSelected})
+      : super(key: key);
+
+  final VoidCallback onAnswerSelected;
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
-      final columnWidth = constraints.isMobile ? 0.5 : 0.25;
-      return Table(
-        defaultColumnWidth: FractionColumnWidth(columnWidth),
-        children: const [
-          TableRow(children: [
-            AnswerButton(answerTitle: 'Testeraceae'),
-            AnswerButton(answerTitle: 'Lesteraceae'),
-          ]),
-          TableRow(children: [
-            AnswerButton(answerTitle: 'Besteraceae'),
-            AnswerButton(answerTitle: 'Festeraceae'),
-          ])
-        ],
-      );
-    });
+    return Table(
+      children: [
+        TableRow(children: [
+          CustomButton(title: 'Testeraceae', onTapped: onAnswerSelected),
+          CustomButton(title: 'Lesteraceae', onTapped: onAnswerSelected),
+        ]),
+        TableRow(children: [
+          CustomButton(title: 'Besteraceae', onTapped: onAnswerSelected),
+          CustomButton(title: 'Festeraceae', onTapped: onAnswerSelected),
+        ])
+      ],
+    );
   }
 }
