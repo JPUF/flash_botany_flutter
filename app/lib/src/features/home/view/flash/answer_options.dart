@@ -10,17 +10,19 @@ class AnswerOptions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Table(
-      children: [
-        TableRow(children: [
-          CustomButton(title: 'Testeraceae', onTapped: onAnswerSelected),
-          CustomButton(title: 'Lesteraceae', onTapped: onAnswerSelected),
-        ]),
-        TableRow(children: [
-          CustomButton(title: 'Besteraceae', onTapped: onAnswerSelected),
-          CustomButton(title: 'Festeraceae', onTapped: onAnswerSelected),
-        ])
-      ],
+    return Center(
+      child: Table(
+        children: [
+          TableRow(children: [
+            CustomButton(title: 'Testeraceae', onTapped: onAnswerSelected),
+            CustomButton(title: 'Lesteraceae', onTapped: onAnswerSelected),
+          ]),
+          TableRow(children: [
+            CustomButton(title: 'Besteraceae', onTapped: onAnswerSelected),
+            CustomButton(title: 'Festeraceae', onTapped: onAnswerSelected),
+          ])
+        ],
+      ),
     );
   }
 }

@@ -14,23 +14,48 @@ class FeedbackContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text('Correct, it\'s Asteraceae!',
+                style: context.headlineMedium)),
+        Row(
+          children: [
+            const Expanded(flex: 2, child: FeedbackSpecies()),
+            Expanded(
+              child: CustomButton(
+                title: 'Next',
+                bgColor: colors.tertiaryContainer,
+                onTapped: onNext,
+              ),
+            )
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class FeedbackSpecies extends StatelessWidget {
+  const FeedbackSpecies({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8),
+      padding: const EdgeInsets.only(left: 16),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Correct, it\'s Asteraceae!', style: context.headlineMedium),
-          Text('Encelia farinosa',
-              style: context.headlineSmall?.apply(fontStyle: FontStyle.italic)),
-          FractionallySizedBox(
-            widthFactor: 0.33,
-            child: CustomButton(
-              title: 'Next',
-              bgColor: colors.tertiaryContainer,
-              onTapped: onNext,
-            ),
-          )
+          Text(
+            'Encelia farinosa',
+            style: context.headlineSmall?.apply(fontStyle: FontStyle.italic),
+          ),
+          Text('Brittlebush', style: context.headlineSmall),
         ],
       ),
     );
