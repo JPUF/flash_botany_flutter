@@ -87,9 +87,10 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             sheetLeft: SnappingSheetContent(
               draggable: false,
-              child: const Padding(
-                padding: EdgeInsets.symmetric(vertical: 32),
-                child: FamilySheetContent(),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 32),
+                child: FamilySheetContent(
+                    sheetExpansionPercent: horizontalExpansion),
               ),
             ),
           ),

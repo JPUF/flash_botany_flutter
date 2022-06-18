@@ -5,7 +5,10 @@ import 'family_info.dart';
 class FamilySheetContent extends StatelessWidget {
   const FamilySheetContent({
     Key? key,
+    this.sheetExpansionPercent,
   }) : super(key: key);
+
+  final double? sheetExpansionPercent;
 
   @override
   Widget build(BuildContext context) {
@@ -28,16 +31,28 @@ class FamilySheetContent extends StatelessWidget {
             ),
           ),
         ),
-        body: TabBarView(
-          physics: const NeverScrollableScrollPhysics(),
-          children: [
-            FamilyInfo(),
-            FamilyInfo(),
-            FamilyInfo(),
-            FamilyInfo(),
-          ],
+        body: Opacity(
+          opacity: getOpacityPercentage(sheetExpansionPercent ?? 1),
+          child: TabBarView(
+            physics: const NeverScrollableScrollPhysics(),
+            children: [
+              FamilyInfo(),
+              FamilyInfo(),
+              FamilyInfo(),
+              FamilyInfo(),
+            ],
+          ),
         ),
       ),
     );
+  }
+
+  double getOpacityPercentage(double sheetExpansion) {
+    const minimum = 0.75;
+    double opacity = (sheetExpansion - minimum);
+    if (opacity < 0) opacity = 0;
+    opacity *= 1 / (1 - minimum);
+    if (opacity > 1) opacity = 1;
+    return opacity;
   }
 }

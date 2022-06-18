@@ -16,10 +16,11 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Padding(
       padding: const EdgeInsets.all(8),
       child: Material(
-        color: bgColor,
+        color: bgColor ?? colors.onInverseSurface,
         borderRadius: BorderRadius.circular(8),
         child: InkWell(
           customBorder:
