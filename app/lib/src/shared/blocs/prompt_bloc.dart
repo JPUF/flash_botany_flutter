@@ -37,12 +37,19 @@ class PromptBloc extends Bloc<PromptEvent, PromptState> {
     on<PromptEvent>(
       (event, emit) => event.map(
         nextPrompt: (event) => _nextPrompt(event, emit),
+        getFeedback: (event) => _getFeedback(event, emit),
       ),
     );
   }
 
   void _nextPrompt(NextPrompt event, Emitter<PromptState> emit) {
     emit(state.copyWith(promptSpecies: _getNextSpecies()));
+  }
+
+  void _getFeedback(GetFeedback event, Emitter<PromptState> emit) {
+    final family = event.selectedFamily;
+    final correct = family == state.promptSpecies?.family;
+    emit(state.copyWith(correct: correct));
   }
 
   Species _getNextSpecies() {

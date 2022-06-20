@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../shared/blocs/prompt_bloc.dart';
 import '../../../../shared/extensions.dart';
 import 'custom_button.dart';
 
@@ -41,10 +43,7 @@ class _FeedbackContainerState extends State<FeedbackContainer> {
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8),
-            child: FittedBox(
-                fit: BoxFit.scaleDown,
-                child: Text('Correct, it\'s Asteraceae!',
-                    style: context.headlineMedium)),
+            child: _feedbackText(),
           ),
           Row(
             children: [
@@ -60,6 +59,23 @@ class _FeedbackContainerState extends State<FeedbackContainer> {
           ),
         ],
       ),
+    );
+  }
+
+  BlocBuilder<PromptBloc, PromptState> _feedbackText() {
+    return BlocBuilder<PromptBloc, PromptState>(
+      builder: (context, state) {
+        String feedback = '';
+        final correct = state.correct;
+        final species = state.promptSpecies;
+        if (correct != null) {
+          if (species != null) {
+            final prefix = correct ? 'Correct' : 'Not quite';
+            feedback = '$prefix, it\'s ${species.family.name}!';
+          }
+        }
+        return FittedBox(child: Text(feedback, style: context.headlineMedium));
+      },
     );
   }
 }

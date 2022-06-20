@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../shared/extensions.dart';
+import '../../../../shared/models/family.dart';
 import 'answer_options.dart';
 import 'feedback_container.dart';
 import 'prompt_content.dart';
@@ -41,6 +42,8 @@ class _FlashContentState extends State<FlashContent> {
 
   void onAnswerSelected() {
     setState(() => _isAnswering = false);
+    BlocProvider.of<PromptBloc>(context)
+        .add(const PromptEvent.getFeedback(Family.asteraceae));
   }
 
   void onNext() {

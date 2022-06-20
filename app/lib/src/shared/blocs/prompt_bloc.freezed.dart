@@ -19,32 +19,38 @@ mixin _$PromptEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() nextPrompt,
+    required TResult Function(Family selectedFamily) getFeedback,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? nextPrompt,
+    TResult Function(Family selectedFamily)? getFeedback,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? nextPrompt,
+    TResult Function(Family selectedFamily)? getFeedback,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(NextPrompt value) nextPrompt,
+    required TResult Function(GetFeedback value) getFeedback,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(NextPrompt value)? nextPrompt,
+    TResult Function(GetFeedback value)? getFeedback,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(NextPrompt value)? nextPrompt,
+    TResult Function(GetFeedback value)? getFeedback,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +113,7 @@ class _$NextPrompt implements NextPrompt {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() nextPrompt,
+    required TResult Function(Family selectedFamily) getFeedback,
   }) {
     return nextPrompt();
   }
@@ -115,6 +122,7 @@ class _$NextPrompt implements NextPrompt {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? nextPrompt,
+    TResult Function(Family selectedFamily)? getFeedback,
   }) {
     return nextPrompt?.call();
   }
@@ -123,6 +131,7 @@ class _$NextPrompt implements NextPrompt {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? nextPrompt,
+    TResult Function(Family selectedFamily)? getFeedback,
     required TResult orElse(),
   }) {
     if (nextPrompt != null) {
@@ -135,6 +144,7 @@ class _$NextPrompt implements NextPrompt {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(NextPrompt value) nextPrompt,
+    required TResult Function(GetFeedback value) getFeedback,
   }) {
     return nextPrompt(this);
   }
@@ -143,6 +153,7 @@ class _$NextPrompt implements NextPrompt {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(NextPrompt value)? nextPrompt,
+    TResult Function(GetFeedback value)? getFeedback,
   }) {
     return nextPrompt?.call(this);
   }
@@ -151,6 +162,7 @@ class _$NextPrompt implements NextPrompt {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(NextPrompt value)? nextPrompt,
+    TResult Function(GetFeedback value)? getFeedback,
     required TResult orElse(),
   }) {
     if (nextPrompt != null) {
@@ -165,8 +177,143 @@ abstract class NextPrompt implements PromptEvent {
 }
 
 /// @nodoc
+abstract class _$$GetFeedbackCopyWith<$Res> {
+  factory _$$GetFeedbackCopyWith(
+          _$GetFeedback value, $Res Function(_$GetFeedback) then) =
+      __$$GetFeedbackCopyWithImpl<$Res>;
+  $Res call({Family selectedFamily});
+}
+
+/// @nodoc
+class __$$GetFeedbackCopyWithImpl<$Res> extends _$PromptEventCopyWithImpl<$Res>
+    implements _$$GetFeedbackCopyWith<$Res> {
+  __$$GetFeedbackCopyWithImpl(
+      _$GetFeedback _value, $Res Function(_$GetFeedback) _then)
+      : super(_value, (v) => _then(v as _$GetFeedback));
+
+  @override
+  _$GetFeedback get _value => super._value as _$GetFeedback;
+
+  @override
+  $Res call({
+    Object? selectedFamily = freezed,
+  }) {
+    return _then(_$GetFeedback(
+      selectedFamily == freezed
+          ? _value.selectedFamily
+          : selectedFamily // ignore: cast_nullable_to_non_nullable
+              as Family,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetFeedback implements GetFeedback {
+  const _$GetFeedback(this.selectedFamily);
+
+  @override
+  final Family selectedFamily;
+
+  @override
+  String toString() {
+    return 'PromptEvent.getFeedback(selectedFamily: $selectedFamily)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetFeedback &&
+            const DeepCollectionEquality()
+                .equals(other.selectedFamily, selectedFamily));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(selectedFamily));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$GetFeedbackCopyWith<_$GetFeedback> get copyWith =>
+      __$$GetFeedbackCopyWithImpl<_$GetFeedback>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() nextPrompt,
+    required TResult Function(Family selectedFamily) getFeedback,
+  }) {
+    return getFeedback(selectedFamily);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? nextPrompt,
+    TResult Function(Family selectedFamily)? getFeedback,
+  }) {
+    return getFeedback?.call(selectedFamily);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? nextPrompt,
+    TResult Function(Family selectedFamily)? getFeedback,
+    required TResult orElse(),
+  }) {
+    if (getFeedback != null) {
+      return getFeedback(selectedFamily);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NextPrompt value) nextPrompt,
+    required TResult Function(GetFeedback value) getFeedback,
+  }) {
+    return getFeedback(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(NextPrompt value)? nextPrompt,
+    TResult Function(GetFeedback value)? getFeedback,
+  }) {
+    return getFeedback?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NextPrompt value)? nextPrompt,
+    TResult Function(GetFeedback value)? getFeedback,
+    required TResult orElse(),
+  }) {
+    if (getFeedback != null) {
+      return getFeedback(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetFeedback implements PromptEvent {
+  const factory GetFeedback(final Family selectedFamily) = _$GetFeedback;
+
+  Family get selectedFamily => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$GetFeedbackCopyWith<_$GetFeedback> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$PromptState {
   Species? get promptSpecies => throw _privateConstructorUsedError;
+  bool? get correct => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PromptStateCopyWith<PromptState> get copyWith =>
@@ -178,7 +325,7 @@ abstract class $PromptStateCopyWith<$Res> {
   factory $PromptStateCopyWith(
           PromptState value, $Res Function(PromptState) then) =
       _$PromptStateCopyWithImpl<$Res>;
-  $Res call({Species? promptSpecies});
+  $Res call({Species? promptSpecies, bool? correct});
 
   $SpeciesCopyWith<$Res>? get promptSpecies;
 }
@@ -194,12 +341,17 @@ class _$PromptStateCopyWithImpl<$Res> implements $PromptStateCopyWith<$Res> {
   @override
   $Res call({
     Object? promptSpecies = freezed,
+    Object? correct = freezed,
   }) {
     return _then(_value.copyWith(
       promptSpecies: promptSpecies == freezed
           ? _value.promptSpecies
           : promptSpecies // ignore: cast_nullable_to_non_nullable
               as Species?,
+      correct: correct == freezed
+          ? _value.correct
+          : correct // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 
@@ -222,7 +374,7 @@ abstract class _$$_PromptStateCopyWith<$Res>
           _$_PromptState value, $Res Function(_$_PromptState) then) =
       __$$_PromptStateCopyWithImpl<$Res>;
   @override
-  $Res call({Species? promptSpecies});
+  $Res call({Species? promptSpecies, bool? correct});
 
   @override
   $SpeciesCopyWith<$Res>? get promptSpecies;
@@ -241,12 +393,17 @@ class __$$_PromptStateCopyWithImpl<$Res> extends _$PromptStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? promptSpecies = freezed,
+    Object? correct = freezed,
   }) {
     return _then(_$_PromptState(
       promptSpecies: promptSpecies == freezed
           ? _value.promptSpecies
           : promptSpecies // ignore: cast_nullable_to_non_nullable
               as Species?,
+      correct: correct == freezed
+          ? _value.correct
+          : correct // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -254,15 +411,18 @@ class __$$_PromptStateCopyWithImpl<$Res> extends _$PromptStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_PromptState implements _PromptState {
-  const _$_PromptState({this.promptSpecies = null});
+  const _$_PromptState({this.promptSpecies = null, this.correct = null});
 
   @override
   @JsonKey()
   final Species? promptSpecies;
+  @override
+  @JsonKey()
+  final bool? correct;
 
   @override
   String toString() {
-    return 'PromptState(promptSpecies: $promptSpecies)';
+    return 'PromptState(promptSpecies: $promptSpecies, correct: $correct)';
   }
 
   @override
@@ -271,12 +431,15 @@ class _$_PromptState implements _PromptState {
         (other.runtimeType == runtimeType &&
             other is _$_PromptState &&
             const DeepCollectionEquality()
-                .equals(other.promptSpecies, promptSpecies));
+                .equals(other.promptSpecies, promptSpecies) &&
+            const DeepCollectionEquality().equals(other.correct, correct));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(promptSpecies));
+      runtimeType,
+      const DeepCollectionEquality().hash(promptSpecies),
+      const DeepCollectionEquality().hash(correct));
 
   @JsonKey(ignore: true)
   @override
@@ -285,10 +448,13 @@ class _$_PromptState implements _PromptState {
 }
 
 abstract class _PromptState implements PromptState {
-  const factory _PromptState({final Species? promptSpecies}) = _$_PromptState;
+  const factory _PromptState(
+      {final Species? promptSpecies, final bool? correct}) = _$_PromptState;
 
   @override
   Species? get promptSpecies => throw _privateConstructorUsedError;
+  @override
+  bool? get correct => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_PromptStateCopyWith<_$_PromptState> get copyWith =>
