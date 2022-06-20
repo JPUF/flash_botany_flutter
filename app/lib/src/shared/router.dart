@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../features/home/home.dart';
+import '../features/home/view/home_screen.dart';
 
 const _pageKey = ValueKey('_pageKey');
 

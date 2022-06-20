@@ -3,7 +3,7 @@ import 'package:snapping_sheet/snapping_sheet.dart';
 
 import '../../../shared/extensions.dart';
 import '../../../shared/strings.dart';
-import '../../../shared/views/views.dart';
+import '../../../shared/views/brightness_toggle.dart';
 import 'components/grabbing_widgets.dart';
 import 'family/family_sheet_scaffold.dart';
 import 'flash/flash_container.dart';
