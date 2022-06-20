@@ -30,7 +30,7 @@ class _PromptContentState extends State<PromptContent> {
         return BlocBuilder<PromptBloc, PromptState>(
           builder: (context, state) {
             final urls = state.promptSpecies?.imageUrls ?? [];
-            if(urls.isNotEmpty) {
+            if (urls.isNotEmpty) {
               return PromptNetworkImage(imgUrls: urls, index: index);
             } else {
               return const SizedLoadSpinner();
@@ -45,7 +45,8 @@ class _PromptContentState extends State<PromptContent> {
                     color: Colors.white, activeColor: Colors.white)
                 .build(c, config);
           })),
-      control: SwiperControl(color: colors.onSurface),
+      control: SwiperControl(
+          color: colors.onSurface, padding: const EdgeInsets.only(left: 8)),
       indicatorLayout: PageIndicatorLayout.SCALE,
     );
   }

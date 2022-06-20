@@ -37,12 +37,15 @@ class _FeedbackContainerState extends State<FeedbackContainer> {
       duration: _duration,
       opacity: _visible ? 1.0 : 0.0,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          FittedBox(
-              fit: BoxFit.scaleDown,
-              child: Text('Correct, it\'s Asteraceae!',
-                  style: context.headlineMedium)),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text('Correct, it\'s Asteraceae!',
+                    style: context.headlineMedium)),
+          ),
           Row(
             children: [
               const Expanded(flex: 2, child: FeedbackSpecies()),
