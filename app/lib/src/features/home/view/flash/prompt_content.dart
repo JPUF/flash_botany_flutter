@@ -17,10 +17,6 @@ class _PromptContentState extends State<PromptContent> {
   @override
   void initState() {
     super.initState();
-    _nextPrompt();
-  }
-
-  void _nextPrompt() {
     BlocProvider.of<PromptBloc>(context).add(const PromptEvent.nextPrompt());
   }
 
@@ -28,19 +24,17 @@ class _PromptContentState extends State<PromptContent> {
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
 
-    final imgUrls = [
-      'http://www.davidalbeck.com/photos/2010/mansfield/i020.jpg',
-      'http://www.davidalbeck.com/photos/2015/pond_april/i011.jpg',
-      'http://www.davidalbeck.com/photos/2014/pond19sept/i008.jpg',
-    ];
     return Swiper(
       itemCount: 3,
       itemBuilder: (context, index) {
         return BlocBuilder<PromptBloc, PromptState>(
-          bloc: BlocProvider.of<PromptBloc>(context),
           builder: (context, state) {
             final urls = state.promptSpecies?.imageUrls ?? [];
-            return PromptNetworkImage(imgUrls: urls, index: index);
+            if(urls.isNotEmpty) {
+              return PromptNetworkImage(imgUrls: urls, index: index);
+            } else {
+              return const SizedLoadSpinner();
+            }
           },
         );
       },
@@ -76,12 +70,23 @@ class PromptNetworkImage extends StatelessWidget {
           image: DecorationImage(image: imageProvider, fit: BoxFit.contain),
         ),
       ),
-      placeholder: (context, url) => Container(
-          alignment: Alignment.center,
-          height: 32,
-          width: 32,
-          child: const CircularProgressIndicator()),
+      placeholder: (context, url) => const SizedLoadSpinner(),
       errorWidget: (context, url, dynamic error) => const Icon(Icons.error),
     );
+  }
+}
+
+class SizedLoadSpinner extends StatelessWidget {
+  const SizedLoadSpinner({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        alignment: Alignment.center,
+        height: 32,
+        width: 32,
+        child: const CircularProgressIndicator());
   }
 }

@@ -1,4 +1,6 @@
+import 'package:flash_botany/src/shared/blocs/prompt_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../shared/extensions.dart';
 import 'answer_options.dart';
@@ -28,25 +30,21 @@ class _FlashContentState extends State<FlashContent> {
             Expanded(
               flex: 2,
               child: _isAnswering
-                  ? AnswerOptions(
-                      onAnswerSelected: () {
-                        setState(() {
-                          _isAnswering = false;
-                        });
-                      },
-                    )
-                  : FeedbackContainer(
-                      onNext: () {
-                        setState(() {
-                          _isAnswering = true;
-                        });
-                      },
-                    ),
+                  ? AnswerOptions(onAnswerSelected: onAnswerSelected)
+                  : FeedbackContainer(onNext: onNext),
             ),
-            // Expanded(flex: 2, child: AnswerOptions()),
           ],
         ),
       );
     });
+  }
+
+  void onAnswerSelected() {
+    setState(() => _isAnswering = false);
+  }
+
+  void onNext() {
+    setState(() => _isAnswering = true);
+    BlocProvider.of<PromptBloc>(context).add(const PromptEvent.nextPrompt());
   }
 }
