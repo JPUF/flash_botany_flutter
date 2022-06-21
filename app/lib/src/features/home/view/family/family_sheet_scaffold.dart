@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../shared/blocs/prompt_bloc.dart';
+import '../flash/prompt_content.dart';
 import 'family_info.dart';
 
 class FamilySheetContent extends StatelessWidget {
@@ -19,28 +22,33 @@ class FamilySheetContent extends StatelessWidget {
         backgroundColor: colors.surfaceVariant,
         appBar: AppBar(
           backgroundColor: colors.surfaceVariant,
-          flexibleSpace: const SafeArea(
-            child: TabBar(
-              isScrollable: true,
-              tabs: [
-                Tab(text: '<FamilyName1>'),
-                Tab(text: '<FamilyName2>'),
-                Tab(text: '<FamilyName3>'),
-                Tab(text: '<FamilyName4>'),
-              ],
+          flexibleSpace: SafeArea(
+            child: BlocBuilder<PromptBloc, PromptState>(
+              builder: (context, state) {
+                final families = state.familyOptions;
+                return families != null && families.length == 4
+                    ? TabBar(
+                        isScrollable: true,
+                        tabs: families.map((f) => Tab(text: f.latinName)).toList(),
+                      )
+                    : Container();
+              },
             ),
           ),
         ),
         body: Opacity(
           opacity: getOpacityPercentage(sheetExpansionPercent ?? 1),
-          child: TabBarView(
-            physics: const NeverScrollableScrollPhysics(),
-            children: [
-              FamilyInfo(),
-              FamilyInfo(),
-              FamilyInfo(),
-              FamilyInfo(),
-            ],
+          child: BlocBuilder<PromptBloc, PromptState>(
+            builder: (context, state) {
+              final families = state.familyOptions;
+              return families != null && families.length == 4
+                  ? TabBarView(
+                      physics: const NeverScrollableScrollPhysics(),
+                      children:
+                          families.map((f) => FamilyInfo(family: f)).toList(),
+                    )
+                  : const SizedLoadSpinner();
+            },
           ),
         ),
       ),

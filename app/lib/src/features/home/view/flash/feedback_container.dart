@@ -3,7 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../shared/blocs/prompt_bloc.dart';
 import '../../../../shared/extensions.dart';
+import '../../../../shared/models/species.dart';
 import 'custom_button.dart';
+import 'prompt_content.dart';
 
 class FeedbackContainer extends StatefulWidget {
   const FeedbackContainer({
@@ -37,7 +39,7 @@ class _FeedbackContainerState extends State<FeedbackContainer> {
       duration: _duration,
       opacity: _visible ? 1.0 : 0.0,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -45,7 +47,16 @@ class _FeedbackContainerState extends State<FeedbackContainer> {
           ),
           Row(
             children: [
-              const Expanded(flex: 2, child: FeedbackSpecies()),
+              Expanded(
+                  flex: 2,
+                  child: BlocBuilder<PromptBloc, PromptState>(
+                    builder: (context, state) {
+                      final species = state.promptSpecies;
+                      return species != null
+                          ? FeedbackSpecies(species: species)
+                          : const SizedLoadSpinner();
+                    },
+                  )),
               Expanded(
                 child: CustomButton(
                   title: 'Next',
@@ -69,7 +80,7 @@ class _FeedbackContainerState extends State<FeedbackContainer> {
         if (correct != null) {
           if (species != null) {
             final prefix = correct ? 'Correct' : 'Not quite';
-            feedback = '$prefix, it\'s ${species.family.name}!';
+            feedback = '$prefix, it\'s ${species.family.latinName}!';
           }
         }
         return FittedBox(child: Text(feedback, style: context.headlineMedium));
@@ -81,7 +92,10 @@ class _FeedbackContainerState extends State<FeedbackContainer> {
 class FeedbackSpecies extends StatelessWidget {
   const FeedbackSpecies({
     Key? key,
+    required this.species,
   }) : super(key: key);
+
+  final Species species;
 
   @override
   Widget build(BuildContext context) {
@@ -89,13 +103,13 @@ class FeedbackSpecies extends StatelessWidget {
       padding: const EdgeInsets.only(left: 16),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            'Encelia farinosa',
+            species.latinName,
             style: context.headlineSmall?.apply(fontStyle: FontStyle.italic),
           ),
-          Text('Brittlebush', style: context.headlineSmall),
+          Text(species.commonName, style: context.headlineSmall),
         ],
       ),
     );
