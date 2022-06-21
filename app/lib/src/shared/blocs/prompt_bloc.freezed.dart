@@ -313,6 +313,7 @@ abstract class GetFeedback implements PromptEvent {
 /// @nodoc
 mixin _$PromptState {
   Species? get promptSpecies => throw _privateConstructorUsedError;
+  List<Family>? get familyOptions => throw _privateConstructorUsedError;
   bool? get correct => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -325,7 +326,8 @@ abstract class $PromptStateCopyWith<$Res> {
   factory $PromptStateCopyWith(
           PromptState value, $Res Function(PromptState) then) =
       _$PromptStateCopyWithImpl<$Res>;
-  $Res call({Species? promptSpecies, bool? correct});
+  $Res call(
+      {Species? promptSpecies, List<Family>? familyOptions, bool? correct});
 
   $SpeciesCopyWith<$Res>? get promptSpecies;
 }
@@ -341,6 +343,7 @@ class _$PromptStateCopyWithImpl<$Res> implements $PromptStateCopyWith<$Res> {
   @override
   $Res call({
     Object? promptSpecies = freezed,
+    Object? familyOptions = freezed,
     Object? correct = freezed,
   }) {
     return _then(_value.copyWith(
@@ -348,6 +351,10 @@ class _$PromptStateCopyWithImpl<$Res> implements $PromptStateCopyWith<$Res> {
           ? _value.promptSpecies
           : promptSpecies // ignore: cast_nullable_to_non_nullable
               as Species?,
+      familyOptions: familyOptions == freezed
+          ? _value.familyOptions
+          : familyOptions // ignore: cast_nullable_to_non_nullable
+              as List<Family>?,
       correct: correct == freezed
           ? _value.correct
           : correct // ignore: cast_nullable_to_non_nullable
@@ -374,7 +381,8 @@ abstract class _$$_PromptStateCopyWith<$Res>
           _$_PromptState value, $Res Function(_$_PromptState) then) =
       __$$_PromptStateCopyWithImpl<$Res>;
   @override
-  $Res call({Species? promptSpecies, bool? correct});
+  $Res call(
+      {Species? promptSpecies, List<Family>? familyOptions, bool? correct});
 
   @override
   $SpeciesCopyWith<$Res>? get promptSpecies;
@@ -393,6 +401,7 @@ class __$$_PromptStateCopyWithImpl<$Res> extends _$PromptStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? promptSpecies = freezed,
+    Object? familyOptions = freezed,
     Object? correct = freezed,
   }) {
     return _then(_$_PromptState(
@@ -400,6 +409,10 @@ class __$$_PromptStateCopyWithImpl<$Res> extends _$PromptStateCopyWithImpl<$Res>
           ? _value.promptSpecies
           : promptSpecies // ignore: cast_nullable_to_non_nullable
               as Species?,
+      familyOptions: familyOptions == freezed
+          ? _value._familyOptions
+          : familyOptions // ignore: cast_nullable_to_non_nullable
+              as List<Family>?,
       correct: correct == freezed
           ? _value.correct
           : correct // ignore: cast_nullable_to_non_nullable
@@ -411,18 +424,32 @@ class __$$_PromptStateCopyWithImpl<$Res> extends _$PromptStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_PromptState implements _PromptState {
-  const _$_PromptState({this.promptSpecies = null, this.correct = null});
+  const _$_PromptState(
+      {this.promptSpecies = null,
+      final List<Family>? familyOptions = null,
+      this.correct = null})
+      : _familyOptions = familyOptions;
 
   @override
   @JsonKey()
   final Species? promptSpecies;
+  final List<Family>? _familyOptions;
+  @override
+  @JsonKey()
+  List<Family>? get familyOptions {
+    final value = _familyOptions;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   @JsonKey()
   final bool? correct;
 
   @override
   String toString() {
-    return 'PromptState(promptSpecies: $promptSpecies, correct: $correct)';
+    return 'PromptState(promptSpecies: $promptSpecies, familyOptions: $familyOptions, correct: $correct)';
   }
 
   @override
@@ -432,6 +459,8 @@ class _$_PromptState implements _PromptState {
             other is _$_PromptState &&
             const DeepCollectionEquality()
                 .equals(other.promptSpecies, promptSpecies) &&
+            const DeepCollectionEquality()
+                .equals(other._familyOptions, _familyOptions) &&
             const DeepCollectionEquality().equals(other.correct, correct));
   }
 
@@ -439,6 +468,7 @@ class _$_PromptState implements _PromptState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(promptSpecies),
+      const DeepCollectionEquality().hash(_familyOptions),
       const DeepCollectionEquality().hash(correct));
 
   @JsonKey(ignore: true)
@@ -449,10 +479,14 @@ class _$_PromptState implements _PromptState {
 
 abstract class _PromptState implements PromptState {
   const factory _PromptState(
-      {final Species? promptSpecies, final bool? correct}) = _$_PromptState;
+      {final Species? promptSpecies,
+      final List<Family>? familyOptions,
+      final bool? correct}) = _$_PromptState;
 
   @override
   Species? get promptSpecies => throw _privateConstructorUsedError;
+  @override
+  List<Family>? get familyOptions => throw _privateConstructorUsedError;
   @override
   bool? get correct => throw _privateConstructorUsedError;
   @override

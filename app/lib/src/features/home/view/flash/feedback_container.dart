@@ -25,9 +25,7 @@ class _FeedbackContainerState extends State<FeedbackContainer> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      setState(() {
-        _visible = true;
-      });
+      setState(() => _visible = true);
     });
   }
 

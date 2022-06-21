@@ -31,7 +31,7 @@ class _FlashContentState extends State<FlashContent> {
             Expanded(
               flex: 2,
               child: _isAnswering
-                  ? AnswerOptions(onAnswerSelected: onAnswerSelected)
+                  ? AnswerOptions(onAnswerSelected: (f) => onAnswerSelected(f))
                   : FeedbackContainer(onNext: onNext),
             ),
           ],
@@ -40,10 +40,9 @@ class _FlashContentState extends State<FlashContent> {
     });
   }
 
-  void onAnswerSelected() {
+  void onAnswerSelected(Family family) {
     setState(() => _isAnswering = false);
-    BlocProvider.of<PromptBloc>(context)
-        .add(const PromptEvent.getFeedback(Family.asteraceae));
+    BlocProvider.of<PromptBloc>(context).add(PromptEvent.getFeedback(family));
   }
 
   void onNext() {

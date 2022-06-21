@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -43,7 +45,11 @@ class PromptBloc extends Bloc<PromptEvent, PromptState> {
   }
 
   void _nextPrompt(NextPrompt event, Emitter<PromptState> emit) {
-    emit(state.copyWith(promptSpecies: _getNextSpecies()));
+    final nextSpecies = _getNextSpecies();
+    emit(state.copyWith(
+      promptSpecies: nextSpecies,
+      familyOptions: _getFamilyOptions(nextSpecies.family),
+    ));
   }
 
   void _getFeedback(GetFeedback event, Emitter<PromptState> emit) {
@@ -56,5 +62,19 @@ class PromptBloc extends Bloc<PromptEvent, PromptState> {
     final species = _speciesList[_currentIndex++];
     _currentIndex %= _speciesList.length;
     return species;
+  }
+
+  List<Family> _getFamilyOptions(Family correctFamily) {
+    final newOptions = <Family>[];
+    final r = Random();
+    List<Family> remainingFamilies = Family.values.toList();
+    remainingFamilies.remove(correctFamily);
+    remainingFamilies.shuffle();
+    final correctIndex = r.nextInt(4);
+    for (int i = 0; i < 4; i++) {
+      final isCorrect = i == correctIndex;
+      newOptions.add(isCorrect ? correctFamily : remainingFamilies[i]);
+    }
+    return newOptions;
   }
 }
