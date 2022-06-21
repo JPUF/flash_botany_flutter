@@ -32,7 +32,17 @@ class PromptBloc extends Bloc<PromptEvent, PromptState> {
         'https://upload.wikimedia.org/wikipedia/commons/b/bd/Illustration_Senecio_jacobaea.jpg',
         'https://live.staticflickr.com/4083/5031491295_97063acda1_b.jpg',
       ],
-    )
+    ),
+    Species(
+      latinName: 'Cardamine pratensis',
+      commonName: 'Cuckooflower',
+      family: Family.brassicaceae,
+      imageUrls: [
+        'https://c.pxhere.com/photos/a8/95/cardamine_pratensis_cuckooflower_lady\'s_smock_wildflower_inflorescence_botany_flora_species-868862.jpg!d',
+        'https://upload.wikimedia.org/wikipedia/commons/9/91/WWB-0030-010-Cardamine_pratensis-crop.png',
+        'http://www.floredefrance.com/imgs/2010/04/Cardamine_pratensis_40807-Med.jpg',
+      ],
+    ),
   ];
 
   PromptBloc() : super(PromptState.initial()) {

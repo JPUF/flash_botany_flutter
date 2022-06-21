@@ -45,7 +45,7 @@ class ButtonText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 70,
-      padding: const EdgeInsets.symmetric(horizontal: 4),
+      padding: const EdgeInsets.symmetric(horizontal: 8),
       width: double.infinity,
       alignment: AlignmentDirectional.center,
       child: FittedBox(
