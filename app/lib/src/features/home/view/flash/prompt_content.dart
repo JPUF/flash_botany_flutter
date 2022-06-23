@@ -1,8 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:card_swiper/card_swiper.dart';
-import 'package:flash_botany/src/shared/blocs/prompt_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../shared/blocs/prompt_bloc.dart';
 
 class PromptContent extends StatefulWidget {
   const PromptContent({

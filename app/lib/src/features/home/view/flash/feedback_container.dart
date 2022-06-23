@@ -105,11 +105,14 @@ class FeedbackSpecies extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(
-            species.latinName,
-            style: context.headlineSmall?.apply(fontStyle: FontStyle.italic),
+          FittedBox(
+            child: Text(
+              species.latinName,
+              style: context.headlineSmall?.apply(fontStyle: FontStyle.italic),
+            ),
           ),
-          Text(species.commonName, style: context.headlineSmall),
+          FittedBox(
+              child: Text(species.commonName, style: context.headlineSmall)),
         ],
       ),
     );

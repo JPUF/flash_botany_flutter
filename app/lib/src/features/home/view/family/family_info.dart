@@ -32,20 +32,24 @@ class FamilyInfo extends StatelessWidget {
 
   Widget buildTitleRow(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(family.latinName,
-            style: context.headlineLarge?.apply(fontStyle: FontStyle.italic)),
-        IconButton(
-          onPressed: () => launchExternalUrl(family.wikiUrl),
-          icon: SvgPicture.asset(
-            'assets/images/wiki_logo.svg',
-            semanticsLabel: 'Wikipedia',
-            color: colors.onBackground,
-          ),
-        )
-      ],
+    return FittedBox(
+      alignment: AlignmentDirectional.centerStart,
+      fit: BoxFit.scaleDown,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(family.latinName,
+              style: context.headlineLarge?.apply(fontStyle: FontStyle.italic)),
+          IconButton(
+            onPressed: () => launchExternalUrl(family.wikiUrl),
+            icon: SvgPicture.asset(
+              'assets/images/wiki_logo.svg',
+              semanticsLabel: 'Wikipedia',
+              color: colors.onBackground,
+            ),
+          )
+        ],
+      ),
     );
   }
 }
