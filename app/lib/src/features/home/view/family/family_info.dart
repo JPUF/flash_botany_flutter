@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -13,6 +14,7 @@ class FamilyInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: ListView(
@@ -28,9 +30,45 @@ class FamilyInfo extends StatelessWidget {
           const SizedBox(height: 32),
           FamilyInfoImages(urls: family.exampleUrls),
           const SizedBox(height: 32),
+          _dummyRichText(context, colors),
+          const SizedBox(height: 32),
         ],
       ),
     );
+  }
+
+  RichText _dummyRichText(BuildContext context, ColorScheme colors) {
+    return RichText(
+        text: TextSpan(
+      children: [
+        TextSpan(
+            style: context.bodyMedium,
+            text:
+                'The disk of florets is typically surrounded by one or many series/layers of '),
+        TextSpan(
+            style: context.bodyMedium?.apply(
+              color: colors.tertiary,
+              fontWeightDelta: 200,
+            ),
+            text: 'bracts',
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                showDialog<AlertDialog>(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                          title: const Text('Bract'),
+                          content: const Text('A papery little leafy thing'),
+                          actions: [
+                            TextButton(
+                              onPressed: () => Navigator.pop(context),
+                              child: const Text('OK'),
+                            )
+                          ],
+                        ));
+              }),
+        TextSpan(style: context.bodyMedium, text: '.'),
+      ],
+    ));
   }
 
   Widget buildTitleRow(BuildContext context) {
