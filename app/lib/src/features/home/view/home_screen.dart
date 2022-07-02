@@ -3,9 +3,9 @@ import 'package:snapping_sheet/snapping_sheet.dart';
 
 import '../../../shared/extensions.dart';
 import '../../../shared/strings.dart';
-import '../../../shared/views/views.dart';
-import 'family/family_sheet_scaffold.dart';
+import '../../../shared/views/brightness_toggle.dart';
 import 'components/grabbing_widgets.dart';
+import 'family/family_sheet_scaffold.dart';
 import 'flash/flash_container.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -70,14 +70,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 horizontalExpansion = position.relativeToSnappingPositions;
               });
             },
-            child:
-                FlashContainerDesktop(sheetRelativePosition: horizontalPosition),
+            child: FlashContainerDesktop(
+                sheetRelativePosition: horizontalPosition),
             grabbingWidth: 50,
             grabbing: Padding(
               padding: const EdgeInsets.symmetric(vertical: 32),
               child: GestureDetector(
                   onTap: () {
-                    if(!_sheetController.isAttached) return;
+                    if (!_sheetController.isAttached) return;
                     final nextSnap = snappingPositions.firstWhere(
                         (e) => e != _sheetController.currentSnappingPosition);
                     _sheetController.snapToPosition(nextSnap);
@@ -87,9 +87,10 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             sheetLeft: SnappingSheetContent(
               draggable: false,
-              child: const Padding(
-                padding: EdgeInsets.symmetric(vertical: 32),
-                child: FamilySheetContent(),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 32),
+                child: FamilySheetContent(
+                    sheetExpansionPercent: horizontalExpansion),
               ),
             ),
           ),

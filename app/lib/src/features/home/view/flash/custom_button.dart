@@ -16,25 +16,42 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(8),
       child: Material(
-        color: bgColor,
+        color: bgColor ?? colors.onInverseSurface,
         borderRadius: BorderRadius.circular(8),
         child: InkWell(
           customBorder:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           onTap: onTapped,
-          child: Container(
-            height: 70,
-            width: double.infinity,
-            alignment: AlignmentDirectional.center,
-            child: Text(
-              title,
-              style:
-                  context.headlineSmall?.apply(fontStyle: FontStyle.italic),
-            ),
-          ),
+          child: ButtonText(title: title),
+        ),
+      ),
+    );
+  }
+}
+
+class ButtonText extends StatelessWidget {
+  const ButtonText({
+    Key? key,
+    required this.title,
+  }) : super(key: key);
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 70,
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      width: double.infinity,
+      alignment: AlignmentDirectional.center,
+      child: FittedBox(
+        child: Text(
+          title,
+          style: context.headlineSmall?.apply(fontStyle: FontStyle.italic),
         ),
       ),
     );

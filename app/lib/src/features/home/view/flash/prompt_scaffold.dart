@@ -14,11 +14,8 @@ class PromptScaffold extends StatelessWidget {
       if (constraints.isMobile) {
         return const PromptContent();
       } else {
-        return Row(children: [
-          Expanded(flex: 1, child: Container()),
-          const Expanded(flex: 2, child: PromptContent()),
-          Expanded(flex: 1, child: Container()),
-        ]);
+        return const FractionallySizedBox(
+            widthFactor: 0.5, child: PromptContent());
       }
     });
   }

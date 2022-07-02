@@ -25,12 +25,15 @@ class FlashContainerDesktop extends StatelessWidget {
 }
 
 class FlashContainerMobile extends StatelessWidget {
-  const FlashContainerMobile({
-    Key? key,
-  }) : super(key: key);
+  const FlashContainerMobile({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const FractionallySizedBox(heightFactor: 0.9, child: FlashContent());
+    return Column(
+      children: const [
+        Expanded(child: FlashContent()),
+        SizedBox(height: 68),
+      ],
+    );
   }
 }
