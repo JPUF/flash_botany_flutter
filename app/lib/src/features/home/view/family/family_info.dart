@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import '../../../../shared/extensions.dart';
 import '../../../../shared/external.dart';
 import '../../../../shared/models/family.dart';
+import '../family_button.dart';
 import 'family_info_images.dart';
 import 'useful_terms.dart';
 
@@ -27,6 +28,8 @@ class FamilyInfo extends StatelessWidget {
           const SizedBox(height: 32),
           Text(family.description, style: context.bodyMedium),
           const SizedBox(height: 32),
+          dummyFamilyButton(),
+          const SizedBox(height: 32),
           family.glossaryTerms.isNotEmpty
               ? Text('Useful terms:', style: context.headlineSmall)
               : const SizedBox(height: 0),
@@ -37,6 +40,33 @@ class FamilyInfo extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Widget dummyFamilyButton() {
+    if (family.assetImgPath.isNotEmpty) {
+      return Table(
+        children: [
+          TableRow(children: [
+            FamilyButton(family: family),
+            FamilyButton(family: family),
+          ]),
+          const TableRow(children: [
+            FamilyButton(family: Family.asteraceae),
+            FamilyButton(family: Family.apiaceae),
+          ]),
+          const TableRow(children: [
+            FamilyButton(family: Family.boraginaceae),
+            FamilyButton(family: Family.brassicaceae),
+          ]),
+          const TableRow(children: [
+            FamilyButton(family: Family.caryophyllaceae),
+            FamilyButton(family: Family.lamiaceae),
+          ]),
+        ],
+      );
+    } else {
+      return Container();
+    }
   }
 
   Widget buildTitleRow(BuildContext context) {
