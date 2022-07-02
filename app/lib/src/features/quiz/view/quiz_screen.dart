@@ -8,14 +8,14 @@ import 'components/grabbing_widgets.dart';
 import 'family/family_sheet_scaffold.dart';
 import 'flash/flash_container.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class QuizScreen extends StatefulWidget {
+  const QuizScreen({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<QuizScreen> createState() => _QuizScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _QuizScreenState extends State<QuizScreen> {
   double horizontalPosition = 0;
   double horizontalExpansion = 0;
 

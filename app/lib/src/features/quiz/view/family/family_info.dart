@@ -44,8 +44,9 @@ class FamilyInfo extends StatelessWidget {
   }
 
   Widget dummyFamilyButton() {
-    if (family.assetImgPath.isNotEmpty) {
-      return Table(
+    return Visibility(
+      visible: family.assetImgPath.isNotEmpty,
+      child: Table(
         children: [
           TableRow(children: [
             FamilyButton(family: family),
@@ -64,10 +65,8 @@ class FamilyInfo extends StatelessWidget {
             FamilyButton(family: Family.lamiaceae),
           ]),
         ],
-      );
-    } else {
-      return Container();
-    }
+      ),
+    );
   }
 
   Widget buildTitleRow(BuildContext context) {
