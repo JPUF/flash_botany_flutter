@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:shimmer_animation/shimmer_animation.dart';
 
 class FamilyInfoImages extends StatelessWidget {
   const FamilyInfoImages({Key? key, required this.urls}) : super(key: key);
@@ -8,6 +9,7 @@ class FamilyInfoImages extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return ListView.separated(
       separatorBuilder: (_, __) => const SizedBox(height: 16),
       scrollDirection: Axis.vertical,
@@ -16,7 +18,17 @@ class FamilyInfoImages extends StatelessWidget {
       itemCount: urls.length,
       itemBuilder: (_, i) => ClipRRect(
           borderRadius: const BorderRadius.all(Radius.circular(8)),
-          child: CachedNetworkImage(imageUrl: urls[i])),
+          child: AspectRatio(
+            aspectRatio: 12 / 9,
+            child: CachedNetworkImage(
+              imageUrl: urls[i],
+              placeholder: (context, url) => Shimmer(
+                child: Container(
+                  color: colors.onInverseSurface,
+                ),
+              ),
+            ),
+          )),
     );
   }
 }

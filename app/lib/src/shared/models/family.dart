@@ -12,8 +12,8 @@ enum Family {
     ],
     [
       'https://c.pxhere.com/photos/87/e7/flowers_yellow_wild_flowers_wild_plant_anthemis_tinctoria_cota_tinctoria_dyer_hundskamille_composites-1121407.jpg!d',
-      'https://c.pxhere.com/photos/d9/7a/mountain_crumpled_bluets_centaurea_montana_daisy_family_asteraceae_compositae_flower_meadow-603817.jpg!d',
       'https://c.pxhere.com/photos/6b/98/wool_head_creeping_thistle_flower_blossom_bloom_purple_violet_corolla_tube_tubular_flowers-1416082.jpg!d',
+      'https://c.pxhere.com/photos/d9/7a/mountain_crumpled_bluets_centaurea_montana_daisy_family_asteraceae_compositae_flower_meadow-603817.jpg!d',
     ],
     'assets/images/asteraceae.png',
   ),
