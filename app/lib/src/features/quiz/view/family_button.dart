@@ -7,16 +7,18 @@ class FamilyButton extends StatelessWidget {
   const FamilyButton({
     Key? key,
     required this.family,
+    required this.onTap,
   }) : super(key: key);
 
   final Family family;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: 100,
       child: InkWell(
-        onTap: () {},
+        onTap: onTap,
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
           child: Stack(

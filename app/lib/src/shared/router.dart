@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../features/family/family_screen.dart';
 import '../features/home/home_screen.dart';
 import '../features/quiz/view/quiz_screen.dart';
 import 'destinations.dart';
+import 'models/family.dart';
 
 class NavigationDestination {
   const NavigationDestination({
@@ -36,6 +38,16 @@ final appRouter = GoRouter(
       pageBuilder: (context, state) => MaterialPage<void>(
         key: Destination.quiz.key,
         child: const QuizScreen(),
+      ),
+    ),
+    //FamilyScreen
+    GoRoute(
+      path: Destination.family.path + '/:$familyParameter',
+      pageBuilder: (context, state) => MaterialPage<void>(
+        key: Destination.family.key,
+        child: FamilyScreen(
+          family: Family.values.firstWhere((f) => f.latinName == state.params[familyParameter]),
+        ),
       ),
     ),
   ],

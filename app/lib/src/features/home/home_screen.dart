@@ -42,17 +42,17 @@ class HomeScreenContent extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext c) {
     return ListView(
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
       children: [
         FloatingActionButton(onPressed: () {
-          GoRouter.of(context).go(Destination.quiz.path);
+          GoRouter.of(c).go(Destination.quiz.path);
         }),
         const SizedBox(height: 32),
         TextField(
-          style: context.bodyMedium,
+          style: c.bodyMedium,
           decoration: const InputDecoration(
               suffixIcon: Icon(Icons.search),
               border: OutlineInputBorder(borderSide: BorderSide(width: 0.5)),
@@ -60,23 +60,45 @@ class HomeScreenContent extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         Table(
-          children: const [
+          children: [
             TableRow(children: [
-              FamilyButton(family: Family.asteraceae),
-              FamilyButton(family: Family.apiaceae),
+              FamilyButton(
+                family: Family.asteraceae,
+                onTap: () => _navigateToFamilyScreen(c, Family.asteraceae),
+              ),
+              FamilyButton(
+                family: Family.apiaceae,
+                onTap: () => _navigateToFamilyScreen(c, Family.apiaceae),
+              ),
             ]),
             TableRow(children: [
-              FamilyButton(family: Family.boraginaceae),
-              FamilyButton(family: Family.brassicaceae),
+              FamilyButton(
+                family: Family.boraginaceae,
+                onTap: () => _navigateToFamilyScreen(c, Family.boraginaceae),
+              ),
+              FamilyButton(
+                family: Family.brassicaceae,
+                onTap: () => _navigateToFamilyScreen(c, Family.brassicaceae),
+              ),
             ]),
             TableRow(children: [
-              FamilyButton(family: Family.caryophyllaceae),
-              FamilyButton(family: Family.lamiaceae),
+              FamilyButton(
+                family: Family.caryophyllaceae,
+                onTap: () => _navigateToFamilyScreen(c, Family.caryophyllaceae),
+              ),
+              FamilyButton(
+                family: Family.lamiaceae,
+                onTap: () => _navigateToFamilyScreen(c, Family.lamiaceae),
+              ),
             ]),
           ],
         ),
         const SizedBox(height: 32),
       ],
     );
+  }
+
+  void _navigateToFamilyScreen(BuildContext c, Family family) {
+    GoRouter.of(c).go(Destination.family.path + '/${family.latinName}');
   }
 }

@@ -28,8 +28,6 @@ class FamilyInfo extends StatelessWidget {
           const SizedBox(height: 32),
           Text(family.description, style: context.bodyMedium),
           const SizedBox(height: 32),
-          dummyFamilyButton(),
-          const SizedBox(height: 32),
           Visibility(
             visible: family.glossaryTerms.isNotEmpty,
             child: Text('Useful terms:', style: context.headlineSmall),
@@ -38,32 +36,6 @@ class FamilyInfo extends StatelessWidget {
           const SizedBox(height: 32),
           FamilyInfoImages(urls: family.exampleUrls),
           const SizedBox(height: 32),
-        ],
-      ),
-    );
-  }
-
-  Widget dummyFamilyButton() {
-    return Visibility(
-      visible: family.assetImgPath.isNotEmpty,
-      child: Table(
-        children: [
-          TableRow(children: [
-            FamilyButton(family: family),
-            FamilyButton(family: family),
-          ]),
-          const TableRow(children: [
-            FamilyButton(family: Family.asteraceae),
-            FamilyButton(family: Family.apiaceae),
-          ]),
-          const TableRow(children: [
-            FamilyButton(family: Family.boraginaceae),
-            FamilyButton(family: Family.brassicaceae),
-          ]),
-          const TableRow(children: [
-            FamilyButton(family: Family.caryophyllaceae),
-            FamilyButton(family: Family.lamiaceae),
-          ]),
         ],
       ),
     );
