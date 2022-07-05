@@ -22,38 +22,61 @@ class HomeScreen extends StatelessWidget {
         ),
         body: SizedBox.expand(
           child: FractionallySizedBox(
-            widthFactor: 0.5,
-            child: SizedBox.expand(
-              child: Placeholder(
-                child: Column(
-                  children: [
-                    Table(
-                      children: const [
-                        TableRow(children: [
-                          FamilyButton(family: Family.asteraceae),
-                          FamilyButton(family: Family.apiaceae),
-                        ]),
-                        TableRow(children: [
-                          FamilyButton(family: Family.boraginaceae),
-                          FamilyButton(family: Family.brassicaceae),
-                        ]),
-                        TableRow(children: [
-                          FamilyButton(family: Family.caryophyllaceae),
-                          FamilyButton(family: Family.lamiaceae),
-                        ]),
-                      ],
-                    ),
-                    FloatingActionButton(
-                        onPressed: () {
-                          GoRouter.of(context).go(Destination.quiz.path);
-                        }),
-                  ],
-                ),
+            widthFactor: constraints.isMobile ? 1 : 0.5,
+            child: const SizedBox.expand(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8),
+                child: HomeScreenContent(),
               ),
             ),
           ),
         ),
       );
     });
+  }
+}
+
+class HomeScreenContent extends StatelessWidget {
+  const HomeScreenContent({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      scrollDirection: Axis.vertical,
+      shrinkWrap: true,
+      children: [
+        FloatingActionButton(onPressed: () {
+          GoRouter.of(context).go(Destination.quiz.path);
+        }),
+        const SizedBox(height: 32),
+        TextField(
+          style: context.bodyMedium,
+          decoration: const InputDecoration(
+              suffixIcon: Icon(Icons.search),
+              border: OutlineInputBorder(borderSide: BorderSide(width: 0.5)),
+              hintText: 'Family search:'),
+        ),
+        const SizedBox(height: 16),
+        Table(
+          children: const [
+            TableRow(children: [
+              FamilyButton(family: Family.asteraceae),
+              FamilyButton(family: Family.apiaceae),
+            ]),
+            TableRow(children: [
+              FamilyButton(family: Family.boraginaceae),
+              FamilyButton(family: Family.brassicaceae),
+            ]),
+            TableRow(children: [
+              FamilyButton(family: Family.caryophyllaceae),
+              FamilyButton(family: Family.lamiaceae),
+            ]),
+          ],
+        ),
+        const SizedBox(height: 32),
+      ],
+    );
   }
 }

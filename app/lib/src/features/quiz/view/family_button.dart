@@ -13,11 +13,20 @@ class FamilyButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {},
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
-        child: FamilyButtonForeground(family: family),
+    return SizedBox(
+      width: 100,
+      child: InkWell(
+        onTap: () {},
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
+          child: Stack(
+            alignment: Alignment.bottomCenter,
+            children: [
+              const FamilyButtonBackground(),
+              FamilyButtonForeground(family: family),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -34,31 +43,41 @@ class FamilyButtonForeground extends StatelessWidget {
     final textStyle = context.headlineSmall?.apply(fontStyle: FontStyle.italic);
     return Column(
       children: [
-        BorderedCircleImage(family: family),
-        Text(family.latinName, style: textStyle),
+        CircleAvatar(
+          radius: 75,
+          foregroundImage: AssetImage(family.assetImgPath),
+          backgroundColor: Colors.transparent,
+        ),
+        Padding(
+          padding: const EdgeInsets.all(4),
+          child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(family.latinName, style: textStyle)),
+        ),
       ],
     );
   }
 }
 
-class BorderedCircleImage extends StatelessWidget {
-  const BorderedCircleImage({Key? key, required this.family}) : super(key: key);
-
-  final Family family;
+class FamilyButtonBackground extends StatelessWidget {
+  const FamilyButtonBackground({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        CircleAvatar(
-          backgroundColor: colors.onSecondary,
-          radius: 50,
+    return SizedBox(
+      height: 150,
+      width: double.infinity,
+      child: FractionallySizedBox(
+        heightFactor: 0.6,
+        alignment: Alignment.bottomCenter,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(8),
+          child: Container(
+            color: colors.onInverseSurface,
+          ),
         ),
-        CircleAvatar(
-            radius: 42, foregroundImage: AssetImage(family.assetImgPath)),
-      ],
+      ),
     );
   }
 }

@@ -15,7 +15,7 @@ enum Family {
       'https://c.pxhere.com/photos/d9/7a/mountain_crumpled_bluets_centaurea_montana_daisy_family_asteraceae_compositae_flower_meadow-603817.jpg!d',
       'https://c.pxhere.com/photos/6b/98/wool_head_creeping_thistle_flower_blossom_bloom_purple_violet_corolla_tube_tubular_flowers-1416082.jpg!d',
     ],
-    'assets/images/asteraceae.jpg',
+    'assets/images/asteraceae.png',
   ),
   apiaceae(
     'Apiaceae',
@@ -24,7 +24,7 @@ enum Family {
     'Carrot family innit',
     [],
     [],
-    'assets/images/apiaceae.jpg',
+    'assets/images/apiaceae.png',
   ),
   boraginaceae(
     'Boraginaceae',
@@ -33,7 +33,7 @@ enum Family {
     'Borage & Forget-Me-Not family innit',
     [],
     [],
-    'assets/images/boraginaceae.jpg',
+    'assets/images/boraginaceae.png',
   ),
   brassicaceae(
     'Brassicaceae',
@@ -42,7 +42,7 @@ enum Family {
     'Mustard family innit',
     [],
     [],
-    'assets/images/brassicaceae.jpg',
+    'assets/images/brassicaceae.png',
   ),
   caryophyllaceae(
     'Caryophyllaceae',
@@ -51,7 +51,7 @@ enum Family {
     'Pink family innit',
     [],
     [],
-    'assets/images/caryophyllaceae.jpg',
+    'assets/images/caryophyllaceae.png',
   ),
   lamiaceae(
     'Lamiaceae',
@@ -60,7 +60,7 @@ enum Family {
     'Mint family innit',
     [],
     [],
-    'assets/images/lamiaceae.jpg',
+    'assets/images/lamiaceae.png',
   );
 
   final String latinName;
