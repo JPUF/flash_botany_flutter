@@ -43,12 +43,13 @@ class FamilyButtonForeground extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textStyle = context.headlineSmall?.apply(fontStyle: FontStyle.italic);
+    final colors = Theme.of(context).colorScheme;
     return Column(
       children: [
         CircleAvatar(
           radius: 75,
           foregroundImage: AssetImage(family.assetImgPath),
-          backgroundColor: Colors.transparent,
+          backgroundColor: colors.onInverseSurface,
         ),
         Padding(
           padding: const EdgeInsets.all(4),
@@ -71,7 +72,7 @@ class FamilyButtonBackground extends StatelessWidget {
       height: 150,
       width: double.infinity,
       child: FractionallySizedBox(
-        heightFactor: 0.6,
+        heightFactor: 0.8,
         alignment: Alignment.bottomCenter,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(8),

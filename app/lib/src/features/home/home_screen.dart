@@ -6,7 +6,7 @@ import '../../shared/extensions.dart';
 import '../../shared/models/family.dart';
 import '../../shared/strings.dart';
 import '../../shared/views/brightness_toggle.dart';
-import '../quiz/view/family_button.dart';
+import 'components/family_button.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
