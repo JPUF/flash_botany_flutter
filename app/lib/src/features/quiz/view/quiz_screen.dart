@@ -4,6 +4,7 @@ import 'package:snapping_sheet/snapping_sheet.dart';
 import '../../../shared/extensions.dart';
 import '../../../shared/strings.dart';
 import '../../../shared/views/brightness_toggle.dart';
+import '../../../shared/views/custom_app_bar.dart';
 import 'components/grabbing_widgets.dart';
 import 'family/family_sheet_scaffold.dart';
 import 'flash/flash_container.dart';
@@ -38,11 +39,7 @@ class _QuizScreenState extends State<QuizScreen> {
       builder: (context, constraints) {
         if (constraints.isMobile) {
           return Scaffold(
-            appBar: AppBar(
-              centerTitle: false,
-              title: Text(Strings.appName, style: context.headlineSmall),
-              actions: const [BrightnessToggle()],
-            ),
+            appBar: const CustomAppBar(showBackButton: true),
             body: SnappingSheet(
               child: const FlashContainerMobile(),
               grabbingHeight: 60,

@@ -6,7 +6,9 @@ import '../../shared/extensions.dart';
 import '../../shared/models/family.dart';
 import '../../shared/strings.dart';
 import '../../shared/views/brightness_toggle.dart';
+import '../../shared/views/custom_app_bar.dart';
 import 'components/family_button.dart';
+import 'components/hero_quiz_button.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -15,11 +17,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
       return Scaffold(
-        appBar: AppBar(
-          centerTitle: false,
-          title: Text(Strings.appName, style: context.headlineSmall),
-          actions: const [BrightnessToggle()],
-        ),
+        appBar: const CustomAppBar(showBackButton: false),
         body: SizedBox.expand(
           child: FractionallySizedBox(
             widthFactor: constraints.isMobile ? 1 : 0.5,
@@ -47,7 +45,7 @@ class HomeScreenContent extends StatelessWidget {
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
       children: [
-        FloatingActionButton(onPressed: () {
+        HeroQuizButton(onTap: () {
           GoRouter.of(c).go(Destination.quiz.path);
         }),
         const SizedBox(height: 32),

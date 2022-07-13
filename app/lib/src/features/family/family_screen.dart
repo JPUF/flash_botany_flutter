@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../shared/extensions.dart';
 import '../../shared/models/family.dart';
-import '../../shared/strings.dart';
-import '../../shared/views/brightness_toggle.dart';
+import '../../shared/views/custom_app_bar.dart';
 import '../quiz/view/family/family_info.dart';
 
 class FamilyScreen extends StatelessWidget {
@@ -15,11 +14,7 @@ class FamilyScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
       return Scaffold(
-        appBar: AppBar(
-          centerTitle: false,
-          title: Text(Strings.appName, style: context.headlineSmall),
-          actions: const [BrightnessToggle()],
-        ),
+        appBar: const CustomAppBar(showBackButton: true),
         body: SizedBox.expand(
           child: FractionallySizedBox(
             widthFactor: constraints.isMobile ? 1 : 0.5,
