@@ -36,6 +36,8 @@ class HomeScreenContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<TableRow> rows = _filteredFamilyButtons();
+
     return ScrollConfiguration(
       behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
       child: ListView(
@@ -54,53 +56,24 @@ class HomeScreenContent extends StatelessWidget {
                 hintText: 'Family search:'),
           ),
           const SizedBox(height: 16),
-          Table(
-            children: [
-              TableRow(children: [
-                FamilyButton(
-                  family: Family.asteraceae,
-                  onTap: () =>
-                      _navigateToFamilyScreen(context, Family.asteraceae),
-                ),
-                FamilyButton(
-                  family: Family.apiaceae,
-                  onTap: () =>
-                      _navigateToFamilyScreen(context, Family.apiaceae),
-                ),
-              ]),
-              TableRow(children: [
-                FamilyButton(
-                  family: Family.boraginaceae,
-                  onTap: () =>
-                      _navigateToFamilyScreen(context, Family.boraginaceae),
-                ),
-                FamilyButton(
-                  family: Family.brassicaceae,
-                  onTap: () =>
-                      _navigateToFamilyScreen(context, Family.brassicaceae),
-                ),
-              ]),
-              TableRow(children: [
-                FamilyButton(
-                  family: Family.caryophyllaceae,
-                  onTap: () =>
-                      _navigateToFamilyScreen(context, Family.caryophyllaceae),
-                ),
-                FamilyButton(
-                  family: Family.lamiaceae,
-                  onTap: () =>
-                      _navigateToFamilyScreen(context, Family.lamiaceae),
-                ),
-              ]),
-            ],
-          ),
+          Table(children: rows),
           const SizedBox(height: 32),
         ],
       ),
     );
   }
 
-  void _navigateToFamilyScreen(BuildContext c, Family family) {
-    GoRouter.of(c).go(Destination.family.path + '/${family.latinName}');
+  List<TableRow> _filteredFamilyButtons() {
+    List<TableRow> rows = [];
+    const families = Family.values;
+    for (int i = 0; i < families.length; i += 2) {
+      rows.add(TableRow(children: [
+        FamilyButton(family: families[i]),
+        i + 1 < families.length
+            ? FamilyButton(family: families[i + 1])
+            : Container(),
+      ]));
+    }
+    return rows;
   }
 }

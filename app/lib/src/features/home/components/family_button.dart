@@ -1,24 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../shared/destinations.dart';
 import '../../../shared/extensions.dart';
 import '../../../shared/models/family.dart';
 
 class FamilyButton extends StatelessWidget {
-  const FamilyButton({
-    Key? key,
-    required this.family,
-    required this.onTap,
-  }) : super(key: key);
+  const FamilyButton({Key? key, required this.family}) : super(key: key);
 
   final Family family;
-  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: 100,
       child: InkWell(
-        onTap: onTap,
+        onTap: () => _navigateToFamilyScreen(context, family),
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
           child: Stack(
@@ -31,6 +28,10 @@ class FamilyButton extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _navigateToFamilyScreen(BuildContext c, Family family) {
+    GoRouter.of(c).go(Destination.family.path + '/${family.latinName}');
   }
 }
 
