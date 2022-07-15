@@ -81,3 +81,7 @@ enum Family {
     this.assetImgPath,
   );
 }
+
+extension FamilyExtension on Family {
+
+}

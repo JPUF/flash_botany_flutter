@@ -29,14 +29,21 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class HomeScreenContent extends StatelessWidget {
+class HomeScreenContent extends StatefulWidget {
   const HomeScreenContent({
     Key? key,
   }) : super(key: key);
 
   @override
+  State<HomeScreenContent> createState() => _HomeScreenContentState();
+}
+
+class _HomeScreenContentState extends State<HomeScreenContent> {
+  String searchTerm = '';
+
+  @override
   Widget build(BuildContext context) {
-    final List<TableRow> rows = _filteredFamilyButtons();
+    List<TableRow> rows = _filteredFamilyButtons(searchTerm);
 
     return ScrollConfiguration(
       behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
@@ -49,6 +56,9 @@ class HomeScreenContent extends StatelessWidget {
           }),
           const SizedBox(height: 32),
           TextField(
+            onChanged: (text) {
+              setState(() => searchTerm = text);
+            },
             style: context.bodyMedium,
             decoration: const InputDecoration(
                 suffixIcon: Icon(Icons.search),
@@ -63,9 +73,10 @@ class HomeScreenContent extends StatelessWidget {
     );
   }
 
-  List<TableRow> _filteredFamilyButtons() {
+  List<TableRow> _filteredFamilyButtons(String searchTerm) {
     List<TableRow> rows = [];
-    const families = Family.values;
+    final families =
+        searchTerm.isEmpty ? Family.values : _filterFamilies(searchTerm);
     for (int i = 0; i < families.length; i += 2) {
       rows.add(TableRow(children: [
         FamilyButton(family: families[i]),
@@ -75,5 +86,12 @@ class HomeScreenContent extends StatelessWidget {
       ]));
     }
     return rows;
+  }
+
+  List<Family> _filterFamilies(String searchTerm) {
+    return Family.values
+        .where(
+            (f) => f.latinName.toLowerCase().contains(searchTerm.toLowerCase()))
+        .toList();
   }
 }
