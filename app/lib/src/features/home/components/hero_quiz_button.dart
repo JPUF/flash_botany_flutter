@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../shared/extensions.dart';
+import '../../../shared/strings.dart';
 
 class HeroQuizButton extends StatelessWidget {
   const HeroQuizButton({
@@ -38,13 +39,12 @@ class HeroButtonContent extends StatelessWidget {
           alignment: Alignment.center,
           children: [
             Text(
-              'Learn all!',
+              Strings.heroCta,
               textAlign: TextAlign.center,
-              style:
-              context.headlineMedium,
+              style: context.headlineMedium,
             ),
             const Align(
-              alignment: AlignmentDirectional.centerEnd,
+                alignment: AlignmentDirectional.centerEnd,
                 child: Icon(Icons.chevron_right_rounded, size: 64)),
           ],
         ));

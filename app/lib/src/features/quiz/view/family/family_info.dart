@@ -4,7 +4,6 @@ import 'package:flutter_svg/svg.dart';
 import '../../../../shared/extensions.dart';
 import '../../../../shared/external.dart';
 import '../../../../shared/models/family.dart';
-import '../../../home/components/family_button.dart';
 import 'family_info_images.dart';
 import 'useful_terms.dart';
 

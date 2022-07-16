@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../../shared/destinations.dart';
 import '../../shared/extensions.dart';
 import '../../shared/models/family.dart';
+import '../../shared/strings.dart';
 import '../../shared/views/custom_app_bar.dart';
 import 'components/family_button.dart';
 import 'components/hero_quiz_button.dart';
@@ -55,15 +56,18 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
             GoRouter.of(context).go(Destination.quiz.path);
           }),
           const SizedBox(height: 32),
-          TextField(
-            onChanged: (text) {
-              setState(() => searchTerm = text);
-            },
-            style: context.bodyMedium,
-            decoration: const InputDecoration(
-                suffixIcon: Icon(Icons.search),
-                border: OutlineInputBorder(borderSide: BorderSide(width: 0.5)),
-                hintText: 'Family search:'),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: TextField(
+              onChanged: (text) {
+                setState(() => searchTerm = text);
+              },
+              style: context.bodyMedium,
+              decoration: const InputDecoration(
+                  suffixIcon: Icon(Icons.search),
+                  border: OutlineInputBorder(borderSide: BorderSide(width: 0.5)),
+                  hintText: Strings.familySearchHint),
+            ),
           ),
           const SizedBox(height: 16),
           Table(children: rows),
