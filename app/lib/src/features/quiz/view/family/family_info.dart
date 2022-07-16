@@ -27,9 +27,10 @@ class FamilyInfo extends StatelessWidget {
           const SizedBox(height: 32),
           Text(family.description, style: context.bodyMedium),
           const SizedBox(height: 32),
-          family.glossaryTerms.isNotEmpty
-              ? Text('Useful terms:', style: context.headlineSmall)
-              : const SizedBox(height: 0),
+          Visibility(
+            visible: family.glossaryTerms.isNotEmpty,
+            child: Text('Useful terms:', style: context.headlineSmall),
+          ),
           UsefulTerms(terms: family.glossaryTerms),
           const SizedBox(height: 32),
           FamilyInfoImages(urls: family.exampleUrls),
