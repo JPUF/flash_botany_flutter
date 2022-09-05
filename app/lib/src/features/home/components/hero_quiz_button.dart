@@ -13,6 +13,7 @@ class HeroQuizButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Card(
       elevation: 4,
       margin: const EdgeInsets.all(8),
@@ -32,9 +33,11 @@ class HeroButtonContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Container(
         padding: const EdgeInsets.all(16),
         height: 150,
+        color: colors.onInverseSurface,
         child: Stack(
           alignment: Alignment.center,
           children: [

@@ -29,11 +29,15 @@ class FlashContainerMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: const [
-        Expanded(child: FlashContent()),
-        SizedBox(height: 68),
-      ],
+    final colors = Theme.of(context).colorScheme;
+    return Container(
+      color: colors.surface,
+      child: Column(
+        children: const [
+          Expanded(child: FlashContent()),
+          SizedBox(height: 68),
+        ],
+      ),
     );
   }
 }

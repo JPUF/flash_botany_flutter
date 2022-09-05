@@ -17,11 +17,13 @@ class HomeScreen extends StatelessWidget {
     return LayoutBuilder(builder: (context, constraints) {
       return Scaffold(
         appBar: const CustomAppBar(showBackButton: false),
-        body: Scrollbar(
-          child: SizedBox.expand(
-            child: FractionallySizedBox(
-              widthFactor: constraints.isMobile ? 1 : 0.5,
-              child: const SizedBox.expand(child: HomeScreenContent()),
+        body: SafeArea(
+          child: Scrollbar(
+            child: SizedBox.expand(
+              child: FractionallySizedBox(
+                widthFactor: constraints.isMobile ? 1 : 0.5,
+                child: const SizedBox.expand(child: HomeScreenContent()),
+              ),
             ),
           ),
         ),
@@ -49,6 +51,7 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
     return ScrollConfiguration(
       behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
       child: ListView(
+        padding: const EdgeInsets.symmetric(horizontal: 12),
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
         children: [
@@ -56,19 +59,7 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
             GoRouter.of(context).go(Destination.quiz.path);
           }),
           const SizedBox(height: 32),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8),
-            child: TextField(
-              onChanged: (text) {
-                setState(() => searchTerm = text);
-              },
-              style: context.bodyMedium,
-              decoration: const InputDecoration(
-                  suffixIcon: Icon(Icons.search),
-                  border: OutlineInputBorder(borderSide: BorderSide(width: 0.5)),
-                  hintText: Strings.familySearchHint),
-            ),
-          ),
+          _familySearchField(),
           const SizedBox(height: 16),
           Table(children: rows),
           const SizedBox(height: 32),
@@ -77,10 +68,40 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
     );
   }
 
+  Widget _familySearchField() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      child: TextField(
+        onChanged: (text) {
+          setState(() => searchTerm = text);
+        },
+        style: context.bodyMedium,
+        decoration: InputDecoration(
+            suffixIcon: searchTerm.isEmpty
+                ? const Icon(Icons.search)
+                : IconButton(
+                    icon: const Icon(Icons.clear),
+                    onPressed: () => setState(() => searchTerm = '')),
+            border:
+                const OutlineInputBorder(borderSide: BorderSide(width: 0.5)),
+            hintText: Strings.familySearchHint),
+      ),
+    );
+  }
+
   List<TableRow> _filteredFamilyButtons(String searchTerm) {
     List<TableRow> rows = [];
     final families =
         searchTerm.isEmpty ? Family.values : _filterFamilies(searchTerm);
+    if (families.isEmpty) {
+      rows.add(TableRow(children: [
+        Text(
+          'No search results',
+          style: context.bodyLarge,
+          textAlign: TextAlign.center,
+        )
+      ]));
+    }
     for (int i = 0; i < families.length; i += 2) {
       rows.add(TableRow(children: [
         FamilyButton(family: families[i]),

@@ -4,6 +4,7 @@ import 'package:snapping_sheet/snapping_sheet.dart';
 import '../../../shared/extensions.dart';
 import '../../../shared/strings.dart';
 import '../../../shared/views/brightness_toggle.dart';
+import '../../../shared/views/coloured_safe_area.dart';
 import '../../../shared/views/custom_app_bar.dart';
 import 'components/grabbing_widgets.dart';
 import 'family/family_sheet_scaffold.dart';
@@ -35,18 +36,22 @@ class _QuizScreenState extends State<QuizScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return LayoutBuilder(
       builder: (context, constraints) {
         if (constraints.isMobile) {
           return Scaffold(
             appBar: const CustomAppBar(showBackButton: true),
-            body: SnappingSheet(
-              child: const FlashContainerMobile(),
-              grabbingHeight: 60,
-              grabbing: const BottomGrabbingWidget(),
-              sheetBelow: SnappingSheetContent(
-                draggable: false,
-                child: const FamilySheetContent(),
+            body: ColouredSafeArea(
+              color: colors.surfaceVariant,
+              child: SnappingSheet(
+                child: const FlashContainerMobile(),
+                grabbingHeight: 60,
+                grabbing: const BottomGrabbingWidget(),
+                sheetBelow: SnappingSheetContent(
+                  draggable: false,
+                  child: const FamilySheetContent(),
+                ),
               ),
             ),
           );
