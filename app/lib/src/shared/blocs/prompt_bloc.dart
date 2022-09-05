@@ -12,35 +12,37 @@ part 'prompt_state.dart';
 
 class PromptBloc extends Bloc<PromptEvent, PromptState> {
   int _currentIndex = 0;
-  final _speciesList = const [
-    Species(
+
+  static const _baseImageUrl = 'https://f003.backblazeb2.com/file/prompt-images/';
+  final _speciesList = [
+    const Species(
       latinName: 'Bellis perennis',
       commonName: 'Daisy',
       family: Family.asteraceae,
       imageUrls: [
-        'https://c.pxhere.com/photos/1b/a0/bellis_perennis_english_daisy_common_daisy_lawn_daisy_woundwort_bruisewort_flora_wildflower-870762.jpg!d',
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Bellis_perennis_twin_Macro_1.jpg/512px-Bellis_perennis_twin_Macro_1.jpg',
-        'https://pictures.snsb.info/BBGschimmitatcoll/web/SCHIM-4-169/SCHIM-4-169-5-2_20050131_173112.jpg',
+        _baseImageUrl + 'bellis_perennis_1.jpg',
+        _baseImageUrl + 'bellis_perennis_2.jpg',
+        _baseImageUrl + 'bellis_perennis_3.jpg',
       ],
     ),
-    Species(
+    const Species(
       latinName: 'Jacobaea vulgaris',
       commonName: 'Ragwort',
       family: Family.asteraceae,
       imageUrls: [
-        'https://www.publicdomainpictures.net/pictures/320000/velka/jakobskreuzkraut-giftig-blume-blute-1584435855TkZ.jpg',
-        'https://upload.wikimedia.org/wikipedia/commons/b/bd/Illustration_Senecio_jacobaea.jpg',
-        'https://live.staticflickr.com/4083/5031491295_97063acda1_b.jpg',
+        _baseImageUrl + 'jacobaea_vulgaris_1.jpg',
+        _baseImageUrl + 'jacobaea_vulgaris_2.jpg',
+        _baseImageUrl + 'jacobaea_vulgaris_3.jpg',
       ],
     ),
-    Species(
+    const Species(
       latinName: 'Cardamine pratensis',
       commonName: 'Cuckooflower',
       family: Family.brassicaceae,
       imageUrls: [
-        'https://c.pxhere.com/photos/a8/95/cardamine_pratensis_cuckooflower_lady\'s_smock_wildflower_inflorescence_botany_flora_species-868862.jpg!d',
-        'https://upload.wikimedia.org/wikipedia/commons/9/91/WWB-0030-010-Cardamine_pratensis-crop.png',
-        'http://www.floredefrance.com/imgs/2010/04/Cardamine_pratensis_40807-Med.jpg',
+        _baseImageUrl + 'cardamine_pratensis_1.jpg',
+        _baseImageUrl + 'cardamine_pratensis_2.jpg',
+        _baseImageUrl + 'cardamine_pratensis_3.jpg',
       ],
     ),
   ];
