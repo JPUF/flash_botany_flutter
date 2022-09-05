@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../data/species_data.dart';
 import '../models/family.dart';
 import '../models/species.dart';
 
@@ -12,40 +13,6 @@ part 'prompt_state.dart';
 
 class PromptBloc extends Bloc<PromptEvent, PromptState> {
   int _currentIndex = 0;
-
-  static const _baseImageUrl = 'https://f003.backblazeb2.com/file/prompt-images/';
-  final _speciesList = [
-    const Species(
-      latinName: 'Bellis perennis',
-      commonName: 'Daisy',
-      family: Family.asteraceae,
-      imageUrls: [
-        _baseImageUrl + 'bellis_perennis_1.jpg',
-        _baseImageUrl + 'bellis_perennis_2.jpg',
-        _baseImageUrl + 'bellis_perennis_3.jpg',
-      ],
-    ),
-    const Species(
-      latinName: 'Jacobaea vulgaris',
-      commonName: 'Ragwort',
-      family: Family.asteraceae,
-      imageUrls: [
-        _baseImageUrl + 'jacobaea_vulgaris_1.jpg',
-        _baseImageUrl + 'jacobaea_vulgaris_2.jpg',
-        _baseImageUrl + 'jacobaea_vulgaris_3.jpg',
-      ],
-    ),
-    const Species(
-      latinName: 'Cardamine pratensis',
-      commonName: 'Cuckooflower',
-      family: Family.brassicaceae,
-      imageUrls: [
-        _baseImageUrl + 'cardamine_pratensis_1.jpg',
-        _baseImageUrl + 'cardamine_pratensis_2.jpg',
-        _baseImageUrl + 'cardamine_pratensis_3.jpg',
-      ],
-    ),
-  ];
 
   PromptBloc() : super(PromptState.initial()) {
     on<PromptEvent>(
@@ -71,8 +38,8 @@ class PromptBloc extends Bloc<PromptEvent, PromptState> {
   }
 
   Species _getNextSpecies() {
-    final species = _speciesList[_currentIndex++];
-    _currentIndex %= _speciesList.length;
+    final species = SpeciesData.allSpecies[_currentIndex++];
+    _currentIndex %= SpeciesData.allSpecies.length;
     return species;
   }
 
