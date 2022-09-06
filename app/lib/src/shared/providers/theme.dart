@@ -2,6 +2,9 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:material_color_utilities/material_color_utilities.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../strings.dart';
 
 class NoAnimationPageTransitionsBuilder extends PageTransitionsBuilder {
   const NoAnimationPageTransitionsBuilder();
@@ -182,6 +185,23 @@ class ThemeProvider extends InheritedWidget {
       scaffoldBackgroundColor: _colors.background,
       useMaterial3: true,
     );
+  }
+
+  Future<ThemeMode> storedThemeMode() async {
+    final prefs = await SharedPreferences.getInstance();
+    final isDark = prefs.getBool(Strings.darkModeKey) ?? true;
+    return isDark ? ThemeMode.dark : ThemeMode.light;
+  }
+
+  void initialThemeMode(bool? isDark, BuildContext context) {
+    if (isDark != null) {
+      final themeMode = isDark ? ThemeMode.dark : ThemeMode.light;
+      final newSettings = ThemeSettings(
+        sourceColor: settings.value.sourceColor,
+        themeMode: themeMode,
+      );
+      ThemeSettingChange(settings: newSettings).dispatch(context);
+    }
   }
 
   ThemeMode themeMode() {

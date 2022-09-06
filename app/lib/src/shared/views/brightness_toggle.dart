@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../extensions.dart';
 import '../providers/providers.dart';
+import '../strings.dart';
 
 class BrightnessToggle extends StatelessWidget {
   const BrightnessToggle({Key? key}) : super(key: key);
@@ -14,6 +16,7 @@ class BrightnessToggle extends StatelessWidget {
           ? const Icon(Icons.brightness_2_rounded)
           : const Icon(Icons.brightness_7_rounded),
       onPressed: () {
+        _saveThemePreference(!isDark);
         final themeProvider = ThemeProvider.of(context);
         final settings = themeProvider.settings.value;
         final newSettings = ThemeSettings(
@@ -23,5 +26,10 @@ class BrightnessToggle extends StatelessWidget {
         ThemeSettingChange(settings: newSettings).dispatch(context);
       },
     );
+  }
+
+  Future<void> _saveThemePreference(bool isDark) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(Strings.darkModeKey, isDark);
   }
 }
