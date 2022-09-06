@@ -10,13 +10,18 @@ import 'scroll_behaviour.dart';
 import 'strings.dart';
 
 class FlashApp extends StatefulWidget {
-  const FlashApp({Key? key}) : super(key: key);
+  const FlashApp({Key? key, this.isDark}) : super(key: key);
+
+  final bool? isDark;
 
   @override
   State<FlashApp> createState() => _FlashAppState();
 }
 
 class _FlashAppState extends State<FlashApp> {
+
+  bool initialThemeSet = false;
+
   final settings = ValueNotifier(ThemeSettings(
     sourceColor: const Color(0xFF0C5814),
     themeMode: ThemeMode.system,
@@ -34,13 +39,25 @@ class _FlashAppState extends State<FlashApp> {
             settings: settings,
             child: NotificationListener<ThemeSettingChange>(
               onNotification: (notification) {
-                settings.value = notification.settings;
+                final isDark = widget.isDark;
+                if(isDark != null && !initialThemeSet) {
+                  settings.value = ThemeSettings(
+                      sourceColor: notification.settings.sourceColor,
+                      themeMode: isDark ? ThemeMode.dark : ThemeMode.light
+                  );
+                  initialThemeSet = true;
+                } else {
+                  settings.value = notification.settings;
+                }
                 return true;
               },
               child: ValueListenableBuilder<ThemeSettings>(
                 valueListenable: settings,
                 builder: (context, value, _) {
                   final theme = ThemeProvider.of(context);
+                  if(!initialThemeSet) {
+                    theme.initialThemeMode(widget.isDark, context);
+                  }
                   return MaterialApp.router(
                     title: Strings.appName,
                     debugShowCheckedModeBanner: false,
