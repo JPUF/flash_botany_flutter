@@ -1,5 +1,6 @@
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'blocs/prompt_bloc.dart';
@@ -22,6 +23,7 @@ class _FlashAppState extends State<FlashApp> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     return BlocProvider<PromptBloc>(
       create: (context) => PromptBloc(),
       child: DynamicColorBuilder(
