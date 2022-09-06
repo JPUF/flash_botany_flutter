@@ -31,6 +31,7 @@ dependencies:
 
 dev_dependencies:
   build_runner: ^2.1.7
+  flutter_native_splash: ^2.2.8
   flutter_lints: ^1.0.0
   flutter_test:
     sdk: flutter
@@ -47,6 +48,10 @@ flutter_icons:
     image_path: "assets/images/flower_web.png"
     background_color: "#FFAABBCC"
     theme_color: "#FFCCBBAA"
+
+flutter_native_splash:
+  image: "assets/images/flower_fg.png"
+  color: "#2f312d"
 
 flutter:
   uses-material-design: true
