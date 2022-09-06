@@ -7,6 +7,7 @@ import 'blocs/prompt_bloc.dart';
 import 'providers/theme.dart';
 import 'router.dart';
 import 'scroll_behaviour.dart';
+import 'strings.dart';
 
 class FlashApp extends StatefulWidget {
   const FlashApp({Key? key}) : super(key: key);
@@ -41,6 +42,7 @@ class _FlashAppState extends State<FlashApp> {
                 builder: (context, value, _) {
                   final theme = ThemeProvider.of(context);
                   return MaterialApp.router(
+                    title: Strings.appName,
                     debugShowCheckedModeBanner: false,
                     scrollBehavior: AppScrollBehavior(),
                     theme: theme.light(settings.value.sourceColor),
