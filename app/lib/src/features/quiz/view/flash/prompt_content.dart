@@ -16,6 +16,9 @@ class PromptContent extends StatefulWidget {
 }
 
 class _PromptContentState extends State<PromptContent> {
+  int currentIndex = 0;
+  bool showAttribution = false;
+
   @override
   void initState() {
     super.initState();
@@ -31,10 +34,17 @@ class _PromptContentState extends State<PromptContent> {
       children: [
         Swiper(
           itemCount: 3,
+          onIndexChanged: (index) {
+            setState(() {
+              currentIndex = index;
+              showAttribution = false;
+            });
+          },
           itemBuilder: (context, index) {
             return BlocBuilder<PromptBloc, PromptState>(
               builder: (context, state) {
-                final urls = state.promptSpecies?.imageUrls ?? [];
+                final attributedUrls = state.promptSpecies?.images ?? [];
+                final urls = attributedUrls.map((a) => a.url).toList();
                 if (urls.isNotEmpty) {
                   return PromptNetworkImage(imgUrls: urls, index: index);
                 } else {
@@ -54,7 +64,20 @@ class _PromptContentState extends State<PromptContent> {
               color: colors.onSurface, padding: const EdgeInsets.only(left: 8)),
           indicatorLayout: PageIndicatorLayout.SCALE,
         ),
-        const AttributionContainer(),
+        BlocBuilder<PromptBloc, PromptState>(
+          builder: (context, state) {
+            final attributedUrls = state.promptSpecies?.images ?? [];
+            final credits = attributedUrls.map((a) => a.attribution).toList();
+            return AttributionContainer(
+              attributions: credits,
+              index: currentIndex,
+              showAttribution: showAttribution,
+              toggleVisibility: () {
+                setState(() => showAttribution = !showAttribution);
+              },
+            );
+          },
+        ),
       ],
     );
   }
@@ -63,20 +86,26 @@ class _PromptContentState extends State<PromptContent> {
 class AttributionContainer extends StatefulWidget {
   const AttributionContainer({
     Key? key,
+    required this.attributions,
+    required this.index,
+    required this.showAttribution,
+    required this.toggleVisibility,
   }) : super(key: key);
+
+  final List<String?> attributions;
+  final int index;
+  final bool showAttribution;
+  final VoidCallback toggleVisibility;
 
   @override
   State<AttributionContainer> createState() => _AttributionContainerState();
 }
 
 class _AttributionContainerState extends State<AttributionContainer> {
-
-  bool showAttribution = false;
-
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
-
+    final attribution = widget.attributions[widget.index];
     return SizedBox(
       width: double.infinity,
       child: Row(
@@ -84,27 +113,29 @@ class _AttributionContainerState extends State<AttributionContainer> {
         children: [
           const SizedBox(width: 50),
           Visibility(
-            visible: showAttribution,
+            visible: widget.showAttribution && attribution != null,
             child: Expanded(
               child: attributionText(
+                attribution,
                 colors.onInverseSurface,
                 context.attributionLabel,
               ),
             ),
           ),
-          GestureDetector(
-            onTap: () {
-              setState(() => showAttribution = !showAttribution);
-            },
-            child: Container(
-              width: 50,
-              height: 50,
-              alignment: AlignmentDirectional.bottomEnd,
-              padding: const EdgeInsets.all(8),
-              child: Icon(
-                Icons.info_outline,
-                size: 20,
-                color: colors.surfaceVariant,
+          Visibility(
+            visible: attribution != null,
+            child: GestureDetector(
+              onTap: () => widget.toggleVisibility(),
+              child: Container(
+                width: 50,
+                height: 50,
+                alignment: AlignmentDirectional.bottomEnd,
+                padding: const EdgeInsets.all(8),
+                child: Icon(
+                  Icons.info_outline,
+                  size: 20,
+                  color: colors.surfaceVariant,
+                ),
               ),
             ),
           ),
@@ -113,13 +144,17 @@ class _AttributionContainerState extends State<AttributionContainer> {
     );
   }
 
-  Widget attributionText(Color bgColor, TextStyle? fgStyle) {
+  Widget attributionText(
+      String? attribution, Color bgColor, TextStyle? fgStyle) {
     return Card(
       elevation: 4,
       color: bgColor,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Text('Credit: Rob Routledge, Sault College, Bugwood.org', style: fgStyle),
+        child: Text(
+          'Credit: $attribution',
+          style: fgStyle,
+        ),
       ),
     );
   }
