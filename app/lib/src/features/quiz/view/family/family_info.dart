@@ -14,6 +14,7 @@ class FamilyInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: ListView(
@@ -24,6 +25,8 @@ class FamilyInfo extends StatelessWidget {
           buildTitleRow(context),
           Text(family.commonName,
               style: context.labelLarge?.apply(fontStyle: FontStyle.italic)),
+          const SizedBox(height: 32),
+          familyCircleImage(colors.onInverseSurface),
           const SizedBox(height: 32),
           Text(family.description, style: context.bodyMedium),
           const SizedBox(height: 32),
@@ -38,6 +41,22 @@ class FamilyInfo extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Container familyCircleImage(Color color) {
+    return Container(
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: color,
+          ),
+          child: ClipOval(
+            child: Image(
+              image: AssetImage(family.assetImgPath),
+              width: 75,
+              height: 75,
+            ),
+          ),
+        );
   }
 
   Widget buildTitleRow(BuildContext context) {

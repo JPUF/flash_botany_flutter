@@ -7,15 +7,21 @@ enum Family {
     'Asteraceae',
     'Daisy Family, Sunflower Family, Compositae',
     'https://en.wikipedia.org/wiki/Asteraceae',
-    'What appears as one flower is actually a composite of many individual florets, growing on a disk.\n\nThe disk of florets is typically surrounded by one or many series/layers of bracts.',
+    'What appears as one flower is actually a composite (capitulum) of many individual florets, arranged as a disc.\n\n'
+        'These florets can be ray florets or disc florets.\n\n'
+        'The capitulum is surrounded by an involucre.\n\n'
+        'Leaves are variable.',
     [
       GlossaryTerm.floret,
+      GlossaryTerm.rayFloret,
+      GlossaryTerm.discFloret,
+      GlossaryTerm.involucre,
       GlossaryTerm.bract,
     ],
     [
-      'https://c.pxhere.com/photos/87/e7/flowers_yellow_wild_flowers_wild_plant_anthemis_tinctoria_cota_tinctoria_dyer_hundskamille_composites-1121407.jpg!d',
-      'https://c.pxhere.com/photos/6b/98/wool_head_creeping_thistle_flower_blossom_bloom_purple_violet_corolla_tube_tubular_flowers-1416082.jpg!d',
-      'https://c.pxhere.com/photos/d9/7a/mountain_crumpled_bluets_centaurea_montana_daisy_family_asteraceae_compositae_flower_meadow-603817.jpg!d',
+      _baseUrl + 'asteraceae_anuus.jpg',
+      _baseUrl + 'asteraceae_arnica.jpg',
+      _baseUrl + 'asteraceae_centaurea.jpg',
     ],
     'assets/images/asteraceae.png',
   ),
