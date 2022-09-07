@@ -1,5 +1,7 @@
 import 'glossary_term.dart';
 
+const _baseUrl = 'https://f003.backblazeb2.com/file/family-images/';
+
 enum Family {
   asteraceae(
     'Asteraceae',
@@ -57,9 +59,23 @@ enum Family {
     'Lamiaceae',
     'Mint Family, Sage Family',
     'https://en.wikipedia.org/wiki/Lamiaceae',
-    'Mint family innit',
-    [],
-    [],
+    'Zygomorphic flowers. Arranged in whorls around the stem. '
+        'Petals often fused into a tube, with an upper & lower lip.\n\n'
+        'The lower lip can act as a landing pad for pollinators.\n\n'
+        'Usually 4 stamens, in pairs, with one pair shorter in length. 1 style. '
+        'Sepals fused to form a calyx.\n\n'
+        'Plant stems are square in cross–section. With serrate leaves in opposite pairs.',
+    [
+      GlossaryTerm.zygomorphic,
+      GlossaryTerm.serrate,
+      GlossaryTerm.whorl,
+      GlossaryTerm.calyx
+    ],
+    [
+      _baseUrl + 'lamiaceae_melittis.jpg',
+      _baseUrl + 'lamiaceae_salvia.jpg',
+      _baseUrl + 'lamiaceae_stachys.jpg',
+    ],
     'assets/images/lamiaceae.png',
   );
 
@@ -80,8 +96,4 @@ enum Family {
     this.exampleUrls,
     this.assetImgPath,
   );
-}
-
-extension FamilyExtension on Family {
-
 }

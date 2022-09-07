@@ -88,6 +88,18 @@
       <excludeFolder url="file://$MODULE_DIR$/app/ios/.symlinks/plugins/sqflite/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/app/ios/.symlinks/plugins/sqflite/build" />
       <excludeFolder url="file://$MODULE_DIR$/app/ios/.symlinks/plugins/sqflite/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/app/ios/.symlinks/plugins/flutter_native_splash/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/app/ios/.symlinks/plugins/flutter_native_splash/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/app/ios/.symlinks/plugins/flutter_native_splash/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/app/windows/flutter/ephemeral/.plugin_symlinks/shared_preferences_windows/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/app/windows/flutter/ephemeral/.plugin_symlinks/shared_preferences_windows/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/app/windows/flutter/ephemeral/.plugin_symlinks/shared_preferences_windows/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/app/ios/.symlinks/plugins/flutter_native_splash/build" />
+      <excludeFolder url="file://$MODULE_DIR$/app/ios/.symlinks/plugins/flutter_native_splash/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/app/ios/.symlinks/plugins/flutter_native_splash/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/app/windows/flutter/ephemeral/.plugin_symlinks/shared_preferences_windows/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/app/windows/flutter/ephemeral/.plugin_symlinks/shared_preferences_windows/build" />
+      <excludeFolder url="file://$MODULE_DIR$/app/windows/flutter/ephemeral/.plugin_symlinks/shared_preferences_windows/.pub" />
     </content>
     <orderEntry type="jdk" jdkName="Android API 32 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />

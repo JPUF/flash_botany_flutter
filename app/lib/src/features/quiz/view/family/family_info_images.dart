@@ -19,7 +19,7 @@ class FamilyInfoImages extends StatelessWidget {
       itemBuilder: (_, i) => ClipRRect(
           borderRadius: const BorderRadius.all(Radius.circular(8)),
           child: AspectRatio(
-            aspectRatio: 12 / 9,
+            aspectRatio: 3 / 2,
             child: CachedNetworkImage(
               imageUrl: urls[i],
               placeholder: (context, url) => Shimmer(
