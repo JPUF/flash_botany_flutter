@@ -39,9 +39,21 @@ enum Family {
     'Boraginaceae',
     'Borage Family, Forget-Me-Not Family',
     'https://en.wikipedia.org/wiki/Boraginaceae',
-    'Borage & Forget-Me-Not family innit',
-    [],
-    [],
+    'Actinomorphic flowers. 5 petals, which can be fused to form a bell shaped corolla. Often blue.\n\n'
+        'Flowers grow on a scorpioid cyme. 5 stamens. Superior ovary.\n\n'
+        'Its simple leaves are arranged alternately on the stem. Leaves and stems are often covered in bristly hairs.',
+    [
+      GlossaryTerm.actinomorphic,
+      GlossaryTerm.corolla,
+      GlossaryTerm.scorpioidCyme,
+      GlossaryTerm.superiorOvary,
+      GlossaryTerm.simpleLeaf,
+    ],
+    [
+      AttributedUrl(_baseUrl + 'boraginaceae_phacelia.jpg', 'commons.wikimedia.org/wiki/User:Stan_Shebs'),
+      AttributedUrl(_baseUrl + 'boraginaceae_amsinckia.jpg', 'Mary Ellen (Mel) Harte, Bugwood.org'),
+      AttributedUrl(_baseUrl + 'boraginaceae_symphytum.jpg'),
+    ],
     'assets/images/boraginaceae.png',
   ),
   brassicaceae(
