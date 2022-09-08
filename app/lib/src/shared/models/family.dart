@@ -20,9 +20,9 @@ enum Family {
       GlossaryTerm.bract,
     ],
     [
-      AttributedUrl(_baseUrl + 'asteraceae_anuus.jpg', 'a'),
-      AttributedUrl(_baseUrl + 'asteraceae_arnica.jpg'),
-      AttributedUrl(_baseUrl + 'asteraceae_centaurea.jpg', 'c'),
+      AttributedUrl(_baseUrl + 'asteraceae_anuus.jpg', 'commons.wikimedia.org/wiki/User:Dalgial'),
+      AttributedUrl(_baseUrl + 'asteraceae_arnica.jpg', 'Mary Ellen (Mel) Harte, Bugwood.org'),
+      AttributedUrl(_baseUrl + 'asteraceae_centaurea.jpg', 'Rob Routledge, Sault College, Bugwood.org'),
     ],
     'assets/images/asteraceae.png',
   ),
@@ -79,9 +79,9 @@ enum Family {
       GlossaryTerm.calyx
     ],
     [
-      AttributedUrl(_baseUrl + 'lamiaceae_melittis.jpg'),
-      AttributedUrl(_baseUrl + 'lamiaceae_salvia.jpg', '2'),
-      AttributedUrl(_baseUrl + 'lamiaceae_stachys.jpg', '3'),
+      AttributedUrl(_baseUrl + 'lamiaceae_melittis.jpg', 'Pilar Alonso'),
+      AttributedUrl(_baseUrl + 'lamiaceae_salvia.jpg', 'Dobromir K. commons.wikimedia.org/wiki/File:Salvia_flower.jpg'),
+      AttributedUrl(_baseUrl + 'lamiaceae_stachys.jpg', 'commons.wikimedia.org/wiki/File:Stachys_palustris20110630_07.jpg'),
     ],
     'assets/images/lamiaceae.png',
   );

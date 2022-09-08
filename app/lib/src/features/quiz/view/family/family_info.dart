@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import '../../../../shared/extensions.dart';
 import '../../../../shared/external.dart';
 import '../../../../shared/models/family.dart';
+import '../../../../shared/strings.dart';
 import 'family_info_images.dart';
 import 'useful_terms.dart';
 
@@ -21,13 +22,16 @@ class FamilyInfo extends StatelessWidget {
               visible: i.attribution != null,
               child: Text(
                 i.attribution ?? '',
-                style: context.attributionLabel,
+                style: context.attributionLabelFaded,
               ),
             ))
         .toList();
     final attributionColumn = Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Column(children: attributionTexts),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: attributionTexts,
+      ),
     );
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -46,7 +50,7 @@ class FamilyInfo extends StatelessWidget {
           const SizedBox(height: 16),
           Visibility(
             visible: family.glossaryTerms.isNotEmpty,
-            child: Text('Useful terms:', style: context.headlineSmall),
+            child: Text(Strings.usefulTerms, style: context.headlineSmall),
           ),
           UsefulTerms(terms: family.glossaryTerms),
           const SizedBox(height: 32),
@@ -57,7 +61,10 @@ class FamilyInfo extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Image attributions:', style: context.attributionLabel),
+                Text(
+                  Strings.attributions,
+                  style: context.attributionLabelFaded,
+                ),
                 attributionColumn,
                 const SizedBox(height: 8),
               ],

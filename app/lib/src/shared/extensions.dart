@@ -62,7 +62,7 @@ extension TypographyUtils on BuildContext {
       );
 
   TextStyle? get attributionLabelFaded => textTheme.labelSmall?.copyWith(
-        color: colors.inverseSurface,
+        color: colors.tertiary,
         letterSpacing: 0,
       );
 
