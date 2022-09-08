@@ -1,4 +1,4 @@
-import '../models/attributedUrl.dart';
+import '../models/attributed_url.dart';
 import '../models/family.dart';
 import '../models/species.dart';
 import 'species_data.dart';
@@ -6,7 +6,7 @@ import 'species_data.dart';
 class BrassicaceaeData {
   static const base = SpeciesData.baseImageUrl;
   static final speciesList = [
-    Species(
+    const Species(
       latinName: 'Cardamine pratensis',
       commonName: 'Cuckooflower',
       family: Family.brassicaceae,

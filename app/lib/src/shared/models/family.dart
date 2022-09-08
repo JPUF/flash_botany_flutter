@@ -1,3 +1,4 @@
+import 'attributed_url.dart';
 import 'glossary_term.dart';
 
 const _baseUrl = 'https://f003.backblazeb2.com/file/family-images/';
@@ -19,9 +20,9 @@ enum Family {
       GlossaryTerm.bract,
     ],
     [
-      _baseUrl + 'asteraceae_anuus.jpg',
-      _baseUrl + 'asteraceae_arnica.jpg',
-      _baseUrl + 'asteraceae_centaurea.jpg',
+      AttributedUrl(_baseUrl + 'asteraceae_anuus.jpg', 'a'),
+      AttributedUrl(_baseUrl + 'asteraceae_arnica.jpg'),
+      AttributedUrl(_baseUrl + 'asteraceae_centaurea.jpg', 'c'),
     ],
     'assets/images/asteraceae.png',
   ),
@@ -78,9 +79,9 @@ enum Family {
       GlossaryTerm.calyx
     ],
     [
-      _baseUrl + 'lamiaceae_melittis.jpg',
-      _baseUrl + 'lamiaceae_salvia.jpg',
-      _baseUrl + 'lamiaceae_stachys.jpg',
+      AttributedUrl(_baseUrl + 'lamiaceae_melittis.jpg'),
+      AttributedUrl(_baseUrl + 'lamiaceae_salvia.jpg', '2'),
+      AttributedUrl(_baseUrl + 'lamiaceae_stachys.jpg', '3'),
     ],
     'assets/images/lamiaceae.png',
   );
@@ -90,7 +91,7 @@ enum Family {
   final String wikiUrl;
   final String description;
   final List<GlossaryTerm> glossaryTerms;
-  final List<String> exampleUrls;
+  final List<AttributedUrl> images;
   final String assetImgPath;
 
   const Family(
@@ -99,7 +100,7 @@ enum Family {
     this.wikiUrl,
     this.description,
     this.glossaryTerms,
-    this.exampleUrls,
+    this.images,
     this.assetImgPath,
   );
 }

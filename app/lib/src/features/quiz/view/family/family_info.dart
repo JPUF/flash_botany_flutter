@@ -15,6 +15,20 @@ class FamilyInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
+
+    final List<Widget> attributionTexts = family.images
+        .map((i) => Visibility(
+              visible: i.attribution != null,
+              child: Text(
+                i.attribution ?? '',
+                style: context.attributionLabel,
+              ),
+            ))
+        .toList();
+    final attributionColumn = Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Column(children: attributionTexts),
+    );
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: ListView(
@@ -26,18 +40,29 @@ class FamilyInfo extends StatelessWidget {
           Text(family.commonName,
               style: context.labelLarge?.apply(fontStyle: FontStyle.italic)),
           const SizedBox(height: 32),
-          familyCircleImage(colors.onInverseSurface),
-          const SizedBox(height: 32),
           Text(family.description, style: context.bodyMedium),
-          const SizedBox(height: 32),
+          const SizedBox(height: 16),
+          familyCircleImage(colors.onInverseSurface),
+          const SizedBox(height: 16),
           Visibility(
             visible: family.glossaryTerms.isNotEmpty,
             child: Text('Useful terms:', style: context.headlineSmall),
           ),
           UsefulTerms(terms: family.glossaryTerms),
           const SizedBox(height: 32),
-          FamilyInfoImages(urls: family.exampleUrls),
-          const SizedBox(height: 32),
+          FamilyInfoImages(urls: family.images.map((i) => i.url).toList()),
+          const SizedBox(height: 16),
+          Visibility(
+            visible: attributionTexts.isNotEmpty,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Image attributions:', style: context.attributionLabel),
+                attributionColumn,
+                const SizedBox(height: 8),
+              ],
+            ),
+          )
         ],
       ),
     );
@@ -45,18 +70,18 @@ class FamilyInfo extends StatelessWidget {
 
   Container familyCircleImage(Color color) {
     return Container(
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: color,
-          ),
-          child: ClipOval(
-            child: Image(
-              image: AssetImage(family.assetImgPath),
-              width: 75,
-              height: 75,
-            ),
-          ),
-        );
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: color,
+      ),
+      child: ClipOval(
+        child: Image(
+          image: AssetImage(family.assetImgPath),
+          width: 75,
+          height: 75,
+        ),
+      ),
+    );
   }
 
   Widget buildTitleRow(BuildContext context) {

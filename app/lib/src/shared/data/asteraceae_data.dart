@@ -1,11 +1,11 @@
-import '../models/attributedUrl.dart';
+import '../models/attributed_url.dart';
 import '../models/family.dart';
 import '../models/species.dart';
 import 'species_data.dart';
 
 class AsteraceaeData {
   static const base = SpeciesData.baseImageUrl;
-  static final speciesList = [
+  static const speciesList = [
     Species(
       latinName: 'Bellis perennis',
       commonName: 'Daisy',

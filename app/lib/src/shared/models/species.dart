@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'attributedUrl.dart';
+import 'attributed_url.dart';
 import 'family.dart';
 
 part 'species.freezed.dart';
