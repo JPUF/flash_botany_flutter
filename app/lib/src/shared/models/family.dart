@@ -20,9 +20,12 @@ enum Family {
       GlossaryTerm.bract,
     ],
     [
-      AttributedUrl(_baseUrl + 'asteraceae_anuus.jpg', 'commons.wikimedia.org/wiki/User:Dalgial'),
-      AttributedUrl(_baseUrl + 'asteraceae_arnica.jpg', 'Mary Ellen (Mel) Harte, Bugwood.org'),
-      AttributedUrl(_baseUrl + 'asteraceae_centaurea.jpg', 'Rob Routledge, Sault College, Bugwood.org'),
+      AttributedUrl(_baseUrl + 'asteraceae_anuus.jpg',
+          'commons.wikimedia.org/wiki/User:Dalgial'),
+      AttributedUrl(_baseUrl + 'asteraceae_arnica.jpg',
+          'Mary Ellen (Mel) Harte, Bugwood.org'),
+      AttributedUrl(_baseUrl + 'asteraceae_centaurea.jpg',
+          'Rob Routledge, Sault College, Bugwood.org'),
     ],
     'assets/images/asteraceae.png',
   ),
@@ -30,9 +33,21 @@ enum Family {
     'Apiaceae',
     'Carrot Family, Umbellifers',
     'https://en.wikipedia.org/wiki/Apiaceae',
-    'Carrot family innit',
-    [],
-    [],
+    'Umbel inflorescence. Each individual flower is small. 5 petals, often white or similarly pale.\n\n'
+        '5 stamens and 2 stigmas. Inferior ovary.\n\n'
+        'Stems are often lanky and hollow. Leaves are divided into leaflets.',
+    [
+      GlossaryTerm.umbel,
+      GlossaryTerm.inflorescence,
+      GlossaryTerm.inferiorOvary,
+    ],
+    [
+      AttributedUrl(_baseUrl + 'apiaceae_anethum.jpg'),
+      AttributedUrl(_baseUrl + 'apiaceae_heracleum.jpg',
+          'commons.wikimedia.org/wiki/User:Llez'),
+      AttributedUrl(_baseUrl + 'apiaceae_osmorhiza.jpg',
+          'Mary Ellen (Mel) Harte, Bugwood.org'),
+    ],
     'assets/images/apiaceae.png',
   ),
   boraginaceae(
@@ -50,8 +65,10 @@ enum Family {
       GlossaryTerm.simpleLeaf,
     ],
     [
-      AttributedUrl(_baseUrl + 'boraginaceae_phacelia.jpg', 'commons.wikimedia.org/wiki/User:Stan_Shebs'),
-      AttributedUrl(_baseUrl + 'boraginaceae_amsinckia.jpg', 'Mary Ellen (Mel) Harte, Bugwood.org'),
+      AttributedUrl(_baseUrl + 'boraginaceae_phacelia.jpg',
+          'commons.wikimedia.org/wiki/User:Stan_Shebs'),
+      AttributedUrl(_baseUrl + 'boraginaceae_amsinckia.jpg',
+          'Mary Ellen (Mel) Harte, Bugwood.org'),
       AttributedUrl(_baseUrl + 'boraginaceae_symphytum.jpg'),
     ],
     'assets/images/boraginaceae.png',
@@ -60,18 +77,41 @@ enum Family {
     'Brassicaceae',
     'Mustard Family, Cabbage Family, Crucifers',
     'https://en.wikipedia.org/wiki/Brassicaceae',
-    'Mustard family innit',
-    [],
-    [],
+    'Flowers in clusters. 4 equal sized petals arranged in a cross, usually yellow, white, or pale.\n\n'
+        '4 sepals which alternate between the petals.\n\n'
+        'Usually 5 stamens. Superior ovary, which matures into a silique.\n\n'
+        'Leaves alternate up the stem.',
+    [
+      GlossaryTerm.superiorOvary,
+      GlossaryTerm.silique,
+    ],
+    [
+      AttributedUrl(_baseUrl + 'brassicaceae_coincya.jpg',
+          'commons.wikimedia.org/wiki/User:Hectonichus'),
+      AttributedUrl(_baseUrl + 'brassicaceae_erysimum.jpg'),
+      AttributedUrl(_baseUrl + 'brassicaceae_nasturtium.jpg',
+          'Leslie J. Mehrhoff, University of Connecticut, Bugwood.org'),
+    ],
     'assets/images/brassicaceae.png',
   ),
   caryophyllaceae(
     'Caryophyllaceae',
     'Pink Family, Carnation Family',
     'https://en.wikipedia.org/wiki/Caryophyllaceae',
-    'Pink family innit',
-    [],
-    [],
+    'Actinomorphic flower. Most with 5 petals and 5 sepals. Each petal is often notched or divided. Usually white or pink.\n\n'
+        'Most have 10 stamens. Superior ovary, which ripens into a dry capsule, opened at the top.\n\n'
+        'The leaves are simple, and in opposite pairs.',
+    [
+      GlossaryTerm.actinomorphic,
+      GlossaryTerm.superiorOvary,
+      GlossaryTerm.simpleLeaf,
+
+    ],
+    [
+      AttributedUrl(_baseUrl + 'caryophyllaceae_cerastium.jpg', 'montereywildflowers.com/caryophyllaceae-misc'),
+      AttributedUrl(_baseUrl + 'caryophyllaceae_silene.jpg', 'www.stridvall.se'),
+      AttributedUrl(_baseUrl + 'caryophyllaceae_dianthus.jpg', 'David Cappaert, Bugwood.org'),
+    ],
     'assets/images/caryophyllaceae.png',
   ),
   lamiaceae(
@@ -92,8 +132,10 @@ enum Family {
     ],
     [
       AttributedUrl(_baseUrl + 'lamiaceae_melittis.jpg', 'Pilar Alonso'),
-      AttributedUrl(_baseUrl + 'lamiaceae_salvia.jpg', 'Dobromir K. commons.wikimedia.org/wiki/File:Salvia_flower.jpg'),
-      AttributedUrl(_baseUrl + 'lamiaceae_stachys.jpg', 'commons.wikimedia.org/wiki/File:Stachys_palustris20110630_07.jpg'),
+      AttributedUrl(_baseUrl + 'lamiaceae_salvia.jpg',
+          'Dobromir K. commons.wikimedia.org/wiki/File:Salvia_flower.jpg'),
+      AttributedUrl(_baseUrl + 'lamiaceae_stachys.jpg',
+          'commons.wikimedia.org/wiki/File:Stachys_palustris20110630_07.jpg'),
     ],
     'assets/images/lamiaceae.png',
   );
