@@ -1,6 +1,7 @@
 enum GlossaryTerm {
   actinomorphic('Actinomorphic', 'Radially symmetrical. The flower is mirrored in 3 planes or more.'),
   zygomorphic('Zygomorphic', 'Bilaterally symmetrical. The flower is only mirrored in one plane.'),
+  openFlower('Open flower', 'When the reproductive parts are visible, with unfolded organs. E.g. no tubes.'),
   inflorescence('Inflorescence', 'A grouped unit of numerous individual flowers.'),
   bract('Bract', 'A small leaf-like structure beneath a flower. Sometimes called a phyllary.'),
   involucre('Involucre', 'A cup formed of one or many layers/series of bracts/phyllaries.'),
@@ -17,6 +18,7 @@ enum GlossaryTerm {
   inferiorOvary('Inferior ovary', 'The seed containing organ is beneath where other organs (petals, sepals, etc) are attached.'),
   silique('Silique', 'A long and thin seed capsule or fruit.'),
   simpleLeaf('Simple leaf', 'The leaf is not divided.'),
+  compoundLeaf('Compound leaf', 'The leaf is divided into 2 or more leaflets.'),
   floret('Floret', 'A flower that is part of a cluster or collection of flowers.'),
   rayFloret('Ray floret', 'Florets with a conspicuous petal (5 petals fused). '
       'These often form the outermost ring of a capitulum.'),

@@ -167,6 +167,28 @@ enum Family {
           'commons.wikimedia.org/wiki/File:Stachys_palustris20110630_07.jpg'),
     ],
     'assets/images/lamiaceae.png',
+  ),
+  rosaceae(
+    'Rosaceae',
+    'Rose Family',
+    'https://en.wikipedia.org/wiki/Rosaceae',
+    'Zygomorphic and open flowers. Usually 5 petals and sepals. '
+        'Often characterised by a large number of stamens.\n\n'
+        'The serrated leaves can be simple or compound. '
+        'They alternate on the steam, and often have thorns or similar.',
+    [
+      GlossaryTerm.zygomorphic,
+      GlossaryTerm.openFlower,
+      GlossaryTerm.serrate,
+      GlossaryTerm.simpleLeaf,
+      GlossaryTerm.compoundLeaf,
+    ],
+    [
+      AttributedUrl(_baseUrl + 'rosaceae_rubus.jpg', 'Ansel Oommen, Bugwood.org'),
+      AttributedUrl(_baseUrl + 'rosaceae_rosa.jpg', 'William M. Ciesla, Forest Health Management International, Bugwood.org'),
+      AttributedUrl(_baseUrl + 'rosaceae_raphiolepsis.jpg', 'Dryas — commons.wikimedia.org/wiki/File:Rhaphiolepis_indica_RBGK.JPG'),
+    ],
+    'assets/images/rosaceae.png',
   );
 
   final String latinName;
