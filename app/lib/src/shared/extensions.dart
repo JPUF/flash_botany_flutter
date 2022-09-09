@@ -56,6 +56,16 @@ extension TypographyUtils on BuildContext {
         color: colors.onSurface,
       );
 
+  TextStyle? get attributionLabel => textTheme.labelSmall?.copyWith(
+        color: colors.inverseSurface,
+        letterSpacing: 0,
+      );
+
+  TextStyle? get attributionLabelFaded => textTheme.labelSmall?.copyWith(
+        color: colors.tertiary,
+        letterSpacing: 0,
+      );
+
   TextStyle? get bodyLarge => textTheme.bodyLarge?.copyWith(
         color: colors.onSurface,
       );

@@ -304,7 +304,7 @@ class _$GetFeedback implements GetFeedback {
 abstract class GetFeedback implements PromptEvent {
   const factory GetFeedback(final Family selectedFamily) = _$GetFeedback;
 
-  Family get selectedFamily => throw _privateConstructorUsedError;
+  Family get selectedFamily;
   @JsonKey(ignore: true)
   _$$GetFeedbackCopyWith<_$GetFeedback> get copyWith =>
       throw _privateConstructorUsedError;
@@ -484,11 +484,11 @@ abstract class _PromptState implements PromptState {
       final bool? correct}) = _$_PromptState;
 
   @override
-  Species? get promptSpecies => throw _privateConstructorUsedError;
+  Species? get promptSpecies;
   @override
-  List<Family>? get familyOptions => throw _privateConstructorUsedError;
+  List<Family>? get familyOptions;
   @override
-  bool? get correct => throw _privateConstructorUsedError;
+  bool? get correct;
   @override
   @JsonKey(ignore: true)
   _$$_PromptStateCopyWith<_$_PromptState> get copyWith =>

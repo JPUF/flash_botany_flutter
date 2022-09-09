@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'attributed_url.dart';
 import 'family.dart';
 
 part 'species.freezed.dart';
@@ -10,6 +11,6 @@ class Species with _$Species {
     required String latinName,
     required String commonName,
     required Family family,
-    required List<String> imageUrls,
+    required List<AttributedUrl> images,
   }) = _Species;
 }

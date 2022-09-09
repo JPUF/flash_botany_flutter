@@ -19,7 +19,7 @@ mixin _$Species {
   String get latinName => throw _privateConstructorUsedError;
   String get commonName => throw _privateConstructorUsedError;
   Family get family => throw _privateConstructorUsedError;
-  List<String> get imageUrls => throw _privateConstructorUsedError;
+  List<AttributedUrl> get images => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SpeciesCopyWith<Species> get copyWith => throw _privateConstructorUsedError;
@@ -33,7 +33,7 @@ abstract class $SpeciesCopyWith<$Res> {
       {String latinName,
       String commonName,
       Family family,
-      List<String> imageUrls});
+      List<AttributedUrl> images});
 }
 
 /// @nodoc
@@ -49,7 +49,7 @@ class _$SpeciesCopyWithImpl<$Res> implements $SpeciesCopyWith<$Res> {
     Object? latinName = freezed,
     Object? commonName = freezed,
     Object? family = freezed,
-    Object? imageUrls = freezed,
+    Object? images = freezed,
   }) {
     return _then(_value.copyWith(
       latinName: latinName == freezed
@@ -64,10 +64,10 @@ class _$SpeciesCopyWithImpl<$Res> implements $SpeciesCopyWith<$Res> {
           ? _value.family
           : family // ignore: cast_nullable_to_non_nullable
               as Family,
-      imageUrls: imageUrls == freezed
-          ? _value.imageUrls
-          : imageUrls // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+      images: images == freezed
+          ? _value.images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<AttributedUrl>,
     ));
   }
 }
@@ -82,7 +82,7 @@ abstract class _$$_SpeciesCopyWith<$Res> implements $SpeciesCopyWith<$Res> {
       {String latinName,
       String commonName,
       Family family,
-      List<String> imageUrls});
+      List<AttributedUrl> images});
 }
 
 /// @nodoc
@@ -99,7 +99,7 @@ class __$$_SpeciesCopyWithImpl<$Res> extends _$SpeciesCopyWithImpl<$Res>
     Object? latinName = freezed,
     Object? commonName = freezed,
     Object? family = freezed,
-    Object? imageUrls = freezed,
+    Object? images = freezed,
   }) {
     return _then(_$_Species(
       latinName: latinName == freezed
@@ -114,10 +114,10 @@ class __$$_SpeciesCopyWithImpl<$Res> extends _$SpeciesCopyWithImpl<$Res>
           ? _value.family
           : family // ignore: cast_nullable_to_non_nullable
               as Family,
-      imageUrls: imageUrls == freezed
-          ? _value._imageUrls
-          : imageUrls // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+      images: images == freezed
+          ? _value._images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<AttributedUrl>,
     ));
   }
 }
@@ -129,8 +129,8 @@ class _$_Species implements _Species {
       {required this.latinName,
       required this.commonName,
       required this.family,
-      required final List<String> imageUrls})
-      : _imageUrls = imageUrls;
+      required final List<AttributedUrl> images})
+      : _images = images;
 
   @override
   final String latinName;
@@ -138,16 +138,16 @@ class _$_Species implements _Species {
   final String commonName;
   @override
   final Family family;
-  final List<String> _imageUrls;
+  final List<AttributedUrl> _images;
   @override
-  List<String> get imageUrls {
+  List<AttributedUrl> get images {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_imageUrls);
+    return EqualUnmodifiableListView(_images);
   }
 
   @override
   String toString() {
-    return 'Species(latinName: $latinName, commonName: $commonName, family: $family, imageUrls: $imageUrls)';
+    return 'Species(latinName: $latinName, commonName: $commonName, family: $family, images: $images)';
   }
 
   @override
@@ -159,8 +159,7 @@ class _$_Species implements _Species {
             const DeepCollectionEquality()
                 .equals(other.commonName, commonName) &&
             const DeepCollectionEquality().equals(other.family, family) &&
-            const DeepCollectionEquality()
-                .equals(other._imageUrls, _imageUrls));
+            const DeepCollectionEquality().equals(other._images, _images));
   }
 
   @override
@@ -169,7 +168,7 @@ class _$_Species implements _Species {
       const DeepCollectionEquality().hash(latinName),
       const DeepCollectionEquality().hash(commonName),
       const DeepCollectionEquality().hash(family),
-      const DeepCollectionEquality().hash(_imageUrls));
+      const DeepCollectionEquality().hash(_images));
 
   @JsonKey(ignore: true)
   @override
@@ -182,16 +181,16 @@ abstract class _Species implements Species {
       {required final String latinName,
       required final String commonName,
       required final Family family,
-      required final List<String> imageUrls}) = _$_Species;
+      required final List<AttributedUrl> images}) = _$_Species;
 
   @override
-  String get latinName => throw _privateConstructorUsedError;
+  String get latinName;
   @override
-  String get commonName => throw _privateConstructorUsedError;
+  String get commonName;
   @override
-  Family get family => throw _privateConstructorUsedError;
+  Family get family;
   @override
-  List<String> get imageUrls => throw _privateConstructorUsedError;
+  List<AttributedUrl> get images;
   @override
   @JsonKey(ignore: true)
   _$$_SpeciesCopyWith<_$_Species> get copyWith =>

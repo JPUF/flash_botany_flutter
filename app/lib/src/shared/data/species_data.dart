@@ -6,7 +6,7 @@ class SpeciesData {
   static const baseImageUrl =
       'https://f003.backblazeb2.com/file/prompt-images/';
 
-  static const List<Species> allSpecies = [
+  static final List<Species> allSpecies = [
     ...AsteraceaeData.speciesList,
     ...BrassicaceaeData.speciesList
   ];

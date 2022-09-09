@@ -4,6 +4,8 @@ import 'package:flutter_svg/svg.dart';
 import '../../../../shared/extensions.dart';
 import '../../../../shared/external.dart';
 import '../../../../shared/models/family.dart';
+import '../../../../shared/strings.dart';
+import '../../../../shared/util_widgets.dart';
 import 'family_info_images.dart';
 import 'useful_terms.dart';
 
@@ -14,6 +16,24 @@ class FamilyInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
+
+    final List<Widget> attributionTexts = family.images
+        .map((i) => Visibility(
+              visible: i.attribution != null,
+              child: Text(
+                i.attribution ?? '',
+                style: context.attributionLabelFaded,
+              ),
+            ))
+        .toList();
+    final attributionColumn = Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: attributionTexts,
+      ),
+    );
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: ListView(
@@ -21,21 +41,62 @@ class FamilyInfo extends StatelessWidget {
         scrollDirection: Axis.vertical,
         children: [
           const SizedBox(height: 16),
-          buildTitleRow(context),
-          Text(family.commonName,
-              style: context.labelLarge?.apply(fontStyle: FontStyle.italic)),
-          const SizedBox(height: 32),
-          Text(family.description, style: context.bodyMedium),
-          const SizedBox(height: 32),
-          Visibility(
-            visible: family.glossaryTerms.isNotEmpty,
-            child: Text('Useful terms:', style: context.headlineSmall),
+          PlatformSized(child: buildTitleRow(context)),
+          PlatformSized(
+            child: Text(family.commonName,
+                style: context.labelLarge?.apply(fontStyle: FontStyle.italic)),
           ),
-          UsefulTerms(terms: family.glossaryTerms),
           const SizedBox(height: 32),
-          FamilyInfoImages(urls: family.exampleUrls),
+          PlatformSized(
+              child: Text(family.description, style: context.bodyMedium)),
+          const SizedBox(height: 16),
+          PlatformSized(child: familyCircleImage(colors.onInverseSurface)),
+          const SizedBox(height: 16),
+          PlatformSized(
+            child: Visibility(
+              visible: family.glossaryTerms.isNotEmpty,
+              child: Text(Strings.usefulTerms, style: context.headlineSmall),
+            ),
+          ),
+          PlatformSized(child: UsefulTerms(terms: family.glossaryTerms)),
           const SizedBox(height: 32),
+          PlatformSized(
+              child: FamilyInfoImages(
+                  urls: family.images.map((i) => i.url).toList())),
+          const SizedBox(height: 16),
+          PlatformSized(
+            child: Visibility(
+              visible: attributionTexts.isNotEmpty,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    Strings.attributions,
+                    style: context.attributionLabelFaded,
+                  ),
+                  attributionColumn,
+                  const SizedBox(height: 8),
+                ],
+              ),
+            ),
+          )
         ],
+      ),
+    );
+  }
+
+  Container familyCircleImage(Color color) {
+    return Container(
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: color,
+      ),
+      child: ClipOval(
+        child: Image(
+          image: AssetImage(family.assetImgPath),
+          width: 75,
+          height: 75,
+        ),
       ),
     );
   }
