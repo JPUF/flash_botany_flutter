@@ -105,14 +105,43 @@ enum Family {
       GlossaryTerm.actinomorphic,
       GlossaryTerm.superiorOvary,
       GlossaryTerm.simpleLeaf,
-
     ],
     [
-      AttributedUrl(_baseUrl + 'caryophyllaceae_cerastium.jpg', 'montereywildflowers.com/caryophyllaceae-misc'),
-      AttributedUrl(_baseUrl + 'caryophyllaceae_silene.jpg', 'www.stridvall.se'),
-      AttributedUrl(_baseUrl + 'caryophyllaceae_dianthus.jpg', 'David Cappaert, Bugwood.org'),
+      AttributedUrl(_baseUrl + 'caryophyllaceae_cerastium.jpg',
+          'montereywildflowers.com/caryophyllaceae-misc'),
+      AttributedUrl(
+          _baseUrl + 'caryophyllaceae_silene.jpg', 'www.stridvall.se'),
+      AttributedUrl(_baseUrl + 'caryophyllaceae_dianthus.jpg',
+          'David Cappaert, Bugwood.org'),
     ],
     'assets/images/caryophyllaceae.png',
+  ),
+  fabaceae(
+    'Fabaceae',
+    'Pea Family, Legumes',
+    'https://en.wikipedia.org/wiki/Fabaceae',
+    'Zygomorphic flowers. 5 petals in a characteristic layout, the banner, wings, and keel.\n\n'
+        'The banner is the top petal, typically the largest.\n'
+        'The 2 wings spread side to side.\n'
+        'The keel is 2 petals fused to form a tube.\n\n'
+        'The keel houses 10 stamens (often fused) and a style. '
+        'Its superior ovary matures into typical pea pods.\n\n'
+        'Leaves are pinnate or trifoliate, or pinnate.',
+    [
+      GlossaryTerm.zygomorphic,
+      GlossaryTerm.superiorOvary,
+      GlossaryTerm.trifoliate,
+      GlossaryTerm.pinnate,
+      GlossaryTerm.midrib,
+    ],
+    [
+      AttributedUrl(
+          _baseUrl + 'fabaceae_adesmia.jpg', 'Juan Campá, MGAP, Bugwood.org'),
+      AttributedUrl(_baseUrl + 'fabaceae_hedysarum.jpg',
+          'commons.wikimedia.org/wiki/User:Hectonichus'),
+      AttributedUrl(_baseUrl + 'fabaceae_lathyrus.jpg'),
+    ],
+    'assets/images/fabaceae.png',
   ),
   lamiaceae(
     'Lamiaceae',

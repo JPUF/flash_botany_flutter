@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../shared/blocs/prompt_bloc.dart';
 import '../../../../shared/extensions.dart';
+import '../../../../shared/strings.dart';
 
 class PromptContent extends StatefulWidget {
   const PromptContent({
@@ -105,7 +106,11 @@ class _AttributionContainerState extends State<AttributionContainer> {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
-    final attribution = widget.attributions[widget.index];
+    final attributionCount = widget.attributions.length;
+    String? attribution;
+    if (attributionCount > 0 && widget.index < attributionCount) {
+      attribution = widget.attributions[widget.index];
+    }
     return SizedBox(
       width: double.infinity,
       child: Row(
@@ -145,14 +150,17 @@ class _AttributionContainerState extends State<AttributionContainer> {
   }
 
   Widget attributionText(
-      String? attribution, Color bgColor, TextStyle? fgStyle) {
+    String? attribution,
+    Color bgColor,
+    TextStyle? fgStyle,
+  ) {
     return Card(
       elevation: 4,
       color: bgColor,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Text(
-          'Credit: $attribution',
+          Strings.credit(attribution),
           style: fgStyle,
         ),
       ),
