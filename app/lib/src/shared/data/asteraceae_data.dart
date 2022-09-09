@@ -4,16 +4,16 @@ import '../models/species.dart';
 import 'species_data.dart';
 
 class AsteraceaeData {
-  static const base = SpeciesData.baseImageUrl;
+  static const _base = SpeciesData.baseImageUrl;
   static const speciesList = [
     Species(
       latinName: 'Bellis perennis',
       commonName: 'Daisy',
       family: Family.asteraceae,
       images: [
-        AttributedUrl(base + 'bellis_perennis_1.jpg', 'joe bloggs'),
-        AttributedUrl(base + 'bellis_perennis_2.jpg'),
-        AttributedUrl(base + 'bellis_perennis_3.jpg', 'anthea turner'),
+        AttributedUrl(_base + 'bellis_perennis_1.jpg', 'Jürgen Schimmitat, bayernflora.de'),
+        AttributedUrl(_base + 'bellis_perennis_2.jpg', 'Jürgen Schimmitat, bayernflora.de'),
+        AttributedUrl(_base + 'bellis_perennis_3.jpg', 'Paulo Ventura Araújo, flora-on.pt'),
       ],
     ),
     Species(
@@ -21,9 +21,9 @@ class AsteraceaeData {
       commonName: 'Ragwort',
       family: Family.asteraceae,
       images: [
-        AttributedUrl(base + 'jacobaea_vulgaris_1.jpg', 'David Dimbleby'),
-        AttributedUrl(base + 'jacobaea_vulgaris_2.jpg', 'Fred Dibnah'),
-        AttributedUrl(base + 'jacobaea_vulgaris_3.jpg', 'Blind Sided Billy Silent'),
+        AttributedUrl(_base + 'jacobaea_vulgaris_1.jpg', 'commons.wikimedia.org/wiki/User:Strobilomyces'),
+        AttributedUrl(_base + 'jacobaea_vulgaris_2.jpg'),
+        AttributedUrl(_base + 'jacobaea_vulgaris_3.jpg', 'commons.wikimedia.org/wiki/User:Julia_W'),
       ],
     )
   ];
