@@ -5,6 +5,7 @@ import '../../shared/destinations.dart';
 import '../../shared/extensions.dart';
 import '../../shared/models/family.dart';
 import '../../shared/strings.dart';
+import '../../shared/util_widgets.dart';
 import '../../shared/views/custom_app_bar.dart';
 import 'components/family_button.dart';
 import 'components/hero_quiz_button.dart';
@@ -14,21 +15,16 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
-      return Scaffold(
-        appBar: const CustomAppBar(showBackButton: false),
-        body: SafeArea(
-          child: Scrollbar(
-            child: SizedBox.expand(
-              child: FractionallySizedBox(
-                widthFactor: constraints.isMobile ? 1 : 0.5,
-                child: const SizedBox.expand(child: HomeScreenContent()),
-              ),
-            ),
+    return const Scaffold(
+      appBar: CustomAppBar(showBackButton: false),
+      body: SafeArea(
+        child: Scrollbar(
+          child: SizedBox.expand(
+            child: SizedBox.expand(child: HomeScreenContent()),
           ),
         ),
-      );
-    });
+      ),
+    );
   }
 }
 
@@ -55,13 +51,15 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
         children: [
-          HeroQuizButton(onTap: () {
-            GoRouter.of(context).go(Destination.quiz.path);
-          }),
+          PlatformSized(
+            child: HeroQuizButton(onTap: () {
+              GoRouter.of(context).go(Destination.quiz.path);
+            }),
+          ),
           const SizedBox(height: 32),
-          _familySearchField(),
+          PlatformSized(child: _familySearchField()),
           const SizedBox(height: 16),
-          Table(children: rows),
+          PlatformSized(child: Table(children: rows)),
           const SizedBox(height: 32),
         ],
       ),
