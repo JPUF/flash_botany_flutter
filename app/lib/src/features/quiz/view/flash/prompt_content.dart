@@ -180,15 +180,18 @@ class PromptNetworkImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CachedNetworkImage(
-      imageUrl: imgUrls[index],
-      imageBuilder: (context, imageProvider) => Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(image: imageProvider, fit: BoxFit.contain),
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(8),
+      child: CachedNetworkImage(
+        imageUrl: imgUrls[index],
+        imageBuilder: (context, imageProvider) => Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(image: imageProvider, fit: BoxFit.contain),
+          ),
         ),
+        placeholder: (context, url) => const SizedLoadSpinner(),
+        errorWidget: (context, url, dynamic error) => const Icon(Icons.error),
       ),
-      placeholder: (context, url) => const SizedLoadSpinner(),
-      errorWidget: (context, url, dynamic error) => const Icon(Icons.error),
     );
   }
 }
