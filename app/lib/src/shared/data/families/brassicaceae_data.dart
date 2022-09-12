@@ -1,7 +1,7 @@
-import '../models/attributed_url.dart';
-import '../models/family.dart';
-import '../models/species.dart';
-import 'species_data.dart';
+import '../../models/attributed_url.dart';
+import '../../models/family.dart';
+import '../../models/species.dart';
+import '../species_data.dart';
 
 class BrassicaceaeData {
   static const _base = SpeciesData.baseImageUrl;
