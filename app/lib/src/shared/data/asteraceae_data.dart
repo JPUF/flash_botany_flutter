@@ -45,6 +45,15 @@ class AsteraceaeData {
         AttributedUrl(_base + 'tussilago_farfara_2.jpg', '© eliegaget (CC-BY-NC)'),
         AttributedUrl(_base + 'tussilago_farfara_3.jpg', '© Peter Jessen (CC-BY-NC)'),
       ],
+    ),
+    Species(
+      latinName: 'Pilosella aurantiaca',
+      commonName: 'Fox-and-Cubs',
+      family: Family.asteraceae,
+      images: [
+        AttributedUrl(_base + 'pilosella_aurantica_1.jpg', '© Andrea Kreuzhage (CC-BY-NC)'),
+        AttributedUrl(_base + 'pilosella_aurantica_2.jpg', '© Andrea Kreuzhage (CC-BY-NC)'),
+      ],
     )
   ];
 }
