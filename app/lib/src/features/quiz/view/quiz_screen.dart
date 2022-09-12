@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:snapping_sheet/snapping_sheet.dart';
 
+import '../../../shared/blocs/prompt_bloc.dart';
 import '../../../shared/destinations.dart';
 import '../../../shared/extensions.dart';
 import '../../../shared/strings.dart';
@@ -37,74 +39,86 @@ class _QuizScreenState extends State<QuizScreen> {
   ];
 
   @override
+  void initState() {
+    super.initState();
+    BlocProvider.of<PromptBloc>(context).add(const PromptEvent.nextPrompt());
+  }
+
+  @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        if (constraints.isMobile) {
-          return Scaffold(
-            appBar: const CustomAppBar(showBackButton: true),
-            body: ColouredSafeArea(
-              color: colors.surfaceVariant,
-              child: SnappingSheet(
-                child: const FlashContainerMobile(),
-                grabbingHeight: 60,
-                grabbing: const BottomGrabbingWidget(),
-                sheetBelow: SnappingSheetContent(
+    return BlocBuilder<PromptBloc, PromptState>(
+      builder: (context, state) {
+        return LayoutBuilder(
+          builder: (context, constraints) {
+            if (constraints.isMobile) {
+              return Scaffold(
+                appBar: const CustomAppBar(showBackButton: true),
+                body: ColouredSafeArea(
+                  color: colors.surfaceVariant,
+                  child: SnappingSheet(
+                    child: FlashContainerMobile(promptState: state),
+                    grabbingHeight: 60,
+                    grabbing: const BottomGrabbingWidget(),
+                    sheetBelow: SnappingSheetContent(
+                      draggable: false,
+                      child: const FamilySheetContent(),
+                    ),
+                  ),
+                ),
+              );
+            }
+            return Scaffold(
+              appBar: AppBar(
+                centerTitle: false,
+                title: TextButton(
+                  child: Text(Strings.appName, style: context.headlineSmall),
+                  onPressed: () {
+                    //FIXME should really pop back stack in some fashion
+                    // May need to get a singleton of GoRouter.of(context). So it's the same router pushing and popping.
+                    GoRouter.of(context).go(Destination.home.path);
+                  },
+                ),
+                actions: const [BrightnessToggle()],
+              ),
+              body: SnappingSheet.horizontal(
+                controller: _sheetController,
+                lockOverflowDrag: true,
+                snappingPositions: snappingPositions,
+                onSheetMoved: (position) {
+                  setState(() {
+                    horizontalPosition = position.relativeToSheetHeight;
+                    horizontalExpansion = position.relativeToSnappingPositions;
+                  });
+                },
+                child: FlashContainerDesktop(
+                  promptState: state,
+                  sheetRelativePosition: horizontalPosition,
+                ),
+                grabbingWidth: 50,
+                grabbing: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 32),
+                  child: GestureDetector(
+                      onTap: () {
+                        if (!_sheetController.isAttached) return;
+                        final nextSnap = snappingPositions.firstWhere((e) =>
+                            e != _sheetController.currentSnappingPosition);
+                        _sheetController.snapToPosition(nextSnap);
+                      },
+                      child: SideGrabbingWidget(
+                          sheetExpansionPercent: horizontalExpansion)),
+                ),
+                sheetLeft: SnappingSheetContent(
                   draggable: false,
-                  child: const FamilySheetContent(),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 32),
+                    child: FamilySheetContent(
+                        sheetExpansionPercent: horizontalExpansion),
+                  ),
                 ),
               ),
-            ),
-          );
-        }
-        return Scaffold(
-          appBar: AppBar(
-            centerTitle: false,
-            title: TextButton(
-              child: Text(Strings.appName, style: context.headlineSmall),
-              onPressed: () {
-                //FIXME should really pop back stack in some fashion
-                // May need to get a singleton of GoRouter.of(context). So it's the same router pushing and popping.
-                GoRouter.of(context).go(Destination.home.path);
-              },
-            ),
-            actions: const [BrightnessToggle()],
-          ),
-          body: SnappingSheet.horizontal(
-            controller: _sheetController,
-            lockOverflowDrag: true,
-            snappingPositions: snappingPositions,
-            onSheetMoved: (position) {
-              setState(() {
-                horizontalPosition = position.relativeToSheetHeight;
-                horizontalExpansion = position.relativeToSnappingPositions;
-              });
-            },
-            child: FlashContainerDesktop(
-                sheetRelativePosition: horizontalPosition),
-            grabbingWidth: 50,
-            grabbing: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 32),
-              child: GestureDetector(
-                  onTap: () {
-                    if (!_sheetController.isAttached) return;
-                    final nextSnap = snappingPositions.firstWhere(
-                        (e) => e != _sheetController.currentSnappingPosition);
-                    _sheetController.snapToPosition(nextSnap);
-                  },
-                  child: SideGrabbingWidget(
-                      sheetExpansionPercent: horizontalExpansion)),
-            ),
-            sheetLeft: SnappingSheetContent(
-              draggable: false,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 32),
-                child: FamilySheetContent(
-                    sheetExpansionPercent: horizontalExpansion),
-              ),
-            ),
-          ),
+            );
+          },
         );
       },
     );

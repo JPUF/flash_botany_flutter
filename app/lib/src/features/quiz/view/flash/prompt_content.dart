@@ -8,9 +8,9 @@ import '../../../../shared/extensions.dart';
 import '../../../../shared/strings.dart';
 
 class PromptContent extends StatefulWidget {
-  const PromptContent({
-    Key? key,
-  }) : super(key: key);
+  const PromptContent({Key? key, required this.promptState}) : super(key: key);
+
+  final PromptState promptState;
 
   @override
   State<PromptContent> createState() => _PromptContentState();
@@ -19,12 +19,6 @@ class PromptContent extends StatefulWidget {
 class _PromptContentState extends State<PromptContent> {
   int currentIndex = 0;
   bool showAttribution = false;
-
-  @override
-  void initState() {
-    super.initState();
-    BlocProvider.of<PromptBloc>(context).add(const PromptEvent.nextPrompt());
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,17 +36,13 @@ class _PromptContentState extends State<PromptContent> {
             });
           },
           itemBuilder: (context, index) {
-            return BlocBuilder<PromptBloc, PromptState>(
-              builder: (context, state) {
-                final attributedUrls = state.promptSpecies?.images ?? [];
-                final urls = attributedUrls.map((a) => a.url).toList();
-                if (urls.isNotEmpty) {
-                  return PromptNetworkImage(imgUrls: urls, index: index);
-                } else {
-                  return const SizedLoadSpinner();
-                }
-              },
-            );
+            final attributedUrls = widget.promptState.promptSpecies?.images ?? [];
+            final urls = attributedUrls.map((a) => a.url).toList();
+            if (urls.isNotEmpty) {
+              return PromptNetworkImage(imgUrls: urls, index: index);
+            } else {
+              return const SizedLoadSpinner();
+            }
           },
           pagination: SwiperPagination(
               alignment: Alignment.bottomCenter,

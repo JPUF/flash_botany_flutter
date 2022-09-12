@@ -9,9 +9,9 @@ import 'feedback_container.dart';
 import 'prompt_content.dart';
 
 class FlashContent extends StatefulWidget {
-  const FlashContent({
-    Key? key,
-  }) : super(key: key);
+  const FlashContent({Key? key, required this.promptState}) : super(key: key);
+
+  final PromptState promptState;
 
   @override
   State<FlashContent> createState() => _FlashContentState();
@@ -27,7 +27,10 @@ class _FlashContentState extends State<FlashContent> {
         widthFactor: constraints.isMobile ? 1 : 0.5,
         child: Column(
           children: [
-            const Expanded(flex: 5, child: PromptContent()),
+            Expanded(
+              flex: 5,
+              child: PromptContent(promptState: widget.promptState),
+            ),
             Expanded(
               flex: 2,
               child: _isAnswering

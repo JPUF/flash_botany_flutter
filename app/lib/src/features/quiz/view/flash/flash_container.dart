@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 
+import '../../../../shared/blocs/prompt_bloc.dart';
 import 'flash_content.dart';
 
 class FlashContainerDesktop extends StatelessWidget {
   const FlashContainerDesktop({
     Key? key,
+    required this.promptState,
     required this.sheetRelativePosition,
   }) : super(key: key);
 
+  final PromptState promptState;
   final double sheetRelativePosition;
 
   @override
@@ -16,8 +19,8 @@ class FlashContainerDesktop extends StatelessWidget {
     return Row(
       children: [
         SizedBox(width: sheetRelativePosition * screenWidth),
-        const Expanded(
-          child: FlashContent(),
+        Expanded(
+          child: FlashContent(promptState: promptState),
         ),
       ],
     );
@@ -25,7 +28,10 @@ class FlashContainerDesktop extends StatelessWidget {
 }
 
 class FlashContainerMobile extends StatelessWidget {
-  const FlashContainerMobile({Key? key}) : super(key: key);
+  const FlashContainerMobile({Key? key, required this.promptState})
+      : super(key: key);
+
+  final PromptState promptState;
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +39,9 @@ class FlashContainerMobile extends StatelessWidget {
     return Container(
       color: colors.surface,
       child: Column(
-        children: const [
-          Expanded(child: FlashContent()),
-          SizedBox(height: 68),
+        children: [
+          Expanded(child: FlashContent(promptState: promptState)),
+          const SizedBox(height: 68),
         ],
       ),
     );
