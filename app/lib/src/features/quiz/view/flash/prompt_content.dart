@@ -23,54 +23,54 @@ class _PromptContentState extends State<PromptContent> {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
-
-    return Stack(
-      alignment: AlignmentDirectional.bottomEnd,
-      children: [
-        Swiper(
-          itemCount: 3,
-          onIndexChanged: (index) {
-            setState(() {
-              currentIndex = index;
-              showAttribution = false;
-            });
-          },
-          itemBuilder: (context, index) {
-            final attributedUrls = widget.promptState.promptSpecies?.images ?? [];
-            final urls = attributedUrls.map((a) => a.url).toList();
-            if (urls.isNotEmpty) {
+    final attributedUrls = widget.promptState.promptSpecies?.images ?? [];
+    final urls = attributedUrls.map((a) => a.url).toList();
+    if (urls.isNotEmpty) {
+      return Stack(
+        alignment: AlignmentDirectional.bottomEnd,
+        children: [
+          Swiper(
+            itemCount: urls.length,
+            onIndexChanged: (index) {
+              setState(() {
+                currentIndex = index;
+                showAttribution = false;
+              });
+            },
+            itemBuilder: (context, index) {
               return PromptNetworkImage(imgUrls: urls, index: index);
-            } else {
-              return const SizedLoadSpinner();
-            }
-          },
-          pagination: SwiperPagination(
-              alignment: Alignment.bottomCenter,
-              builder: SwiperCustomPagination(builder: (c, config) {
-                return const DotSwiperPaginationBuilder(
-                        color: Colors.white, activeColor: Colors.white)
-                    .build(c, config);
-              })),
-          control: SwiperControl(
-              color: colors.onSurface, padding: const EdgeInsets.only(left: 8)),
-          indicatorLayout: PageIndicatorLayout.SCALE,
-        ),
-        BlocBuilder<PromptBloc, PromptState>(
-          builder: (context, state) {
-            final attributedUrls = state.promptSpecies?.images ?? [];
-            final credits = attributedUrls.map((a) => a.attribution).toList();
-            return AttributionContainer(
-              attributions: credits,
-              index: currentIndex,
-              showAttribution: showAttribution,
-              toggleVisibility: () {
-                setState(() => showAttribution = !showAttribution);
-              },
-            );
-          },
-        ),
-      ],
-    );
+            },
+            pagination: SwiperPagination(
+                alignment: Alignment.bottomCenter,
+                builder: SwiperCustomPagination(builder: (c, config) {
+                  return const DotSwiperPaginationBuilder(
+                          color: Colors.white, activeColor: Colors.white)
+                      .build(c, config);
+                })),
+            control: SwiperControl(
+                color: colors.onSurface,
+                padding: const EdgeInsets.only(left: 8)),
+            indicatorLayout: PageIndicatorLayout.SCALE,
+          ),
+          BlocBuilder<PromptBloc, PromptState>(
+            builder: (context, state) {
+              final attributedUrls = state.promptSpecies?.images ?? [];
+              final credits = attributedUrls.map((a) => a.attribution).toList();
+              return AttributionContainer(
+                attributions: credits,
+                index: currentIndex,
+                showAttribution: showAttribution,
+                toggleVisibility: () {
+                  setState(() => showAttribution = !showAttribution);
+                },
+              );
+            },
+          ),
+        ],
+      );
+    } else {
+      return const SizedLoadSpinner();
+    }
   }
 }
 

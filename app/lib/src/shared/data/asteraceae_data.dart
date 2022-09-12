@@ -38,7 +38,7 @@ class AsteraceaeData {
     ),
     Species(
       latinName: 'Tussilago farfara',
-      commonName: 'Colt’s foot',
+      commonName: 'Colt’s Foot',
       family: Family.asteraceae,
       images: [
         AttributedUrl(_base + 'tussilago_farfara_1.jpg', '© lydwin, some rights reserved (CC-BY-NC)'),
