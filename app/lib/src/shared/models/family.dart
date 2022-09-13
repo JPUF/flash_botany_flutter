@@ -120,7 +120,7 @@ enum Family {
     'Fabaceae',
     'Pea Family, Legumes',
     'https://en.wikipedia.org/wiki/Fabaceae',
-    'Zygomorphic flowers. 5 petals in a characteristic layout, the banner, wings, and keel.\n\n'
+    'Zygomorphic flowers. 5 petals in a characteristic layout: the banner, wings, and keel.\n\n'
         'The banner is the top petal, typically the largest.\n'
         'The 2 wings spread side to side.\n'
         'The keel is 2 petals fused to form a tube.\n\n'
