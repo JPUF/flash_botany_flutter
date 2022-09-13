@@ -5,6 +5,7 @@ import 'families/boraginaceae_data.dart';
 import 'families/brassicaceae_data.dart';
 import 'families/caryophyllaceae_data.dart';
 import 'families/fabaceae_data.dart';
+import 'families/lamiaceae_data.dart';
 
 class SpeciesData {
   static const baseImageUrl =
@@ -16,6 +17,7 @@ class SpeciesData {
     // ...ApiaceaeData.speciesList,
     // ...BoraginaceaeData.speciesList,
     // ...CaryophyllaceaeData.speciesList,
-    ...FabaceaeData.speciesList,
+    // ...FabaceaeData.speciesList,
+    ...LamiaceaeData.speciesList,
   ];
 }

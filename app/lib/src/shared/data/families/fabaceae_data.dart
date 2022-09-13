@@ -8,7 +8,7 @@ class FabaceaeData {
   static const speciesList = [
     Species(
       latinName: 'Lotus corniculatus',
-      commonName: ' Common Bird’s-foot Trefoil',
+      commonName: 'Common Bird’s-foot Trefoil',
       family: Family.fabaceae,
       images: [
         AttributedUrl(_base + 'lotus_corniculatus_1.jpg', '© Martin A. Prinz (CC-BY-NC)'),
