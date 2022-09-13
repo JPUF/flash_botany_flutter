@@ -1,4 +1,4 @@
-package com.example.app
+package com.jlbennett.flashbotany2
 
 import io.flutter.embedding.android.FlutterActivity
 
