@@ -4,14 +4,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../shared/blocs/prompt_bloc.dart';
 import '../../../../shared/extensions.dart';
 import '../../../../shared/models/family.dart';
+import '../../../../shared/models/species.dart';
 import 'answer_options.dart';
 import 'feedback_container.dart';
 import 'prompt_content.dart';
 
 class FlashContent extends StatefulWidget {
-  const FlashContent({
-    Key? key,
-  }) : super(key: key);
+  const FlashContent({Key? key, required this.promptState}) : super(key: key);
+
+  final PromptState promptState;
 
   @override
   State<FlashContent> createState() => _FlashContentState();
@@ -27,12 +28,17 @@ class _FlashContentState extends State<FlashContent> {
         widthFactor: constraints.isMobile ? 1 : 0.5,
         child: Column(
           children: [
-            const Expanded(flex: 5, child: PromptContent()),
+            Expanded(
+              flex: 5,
+              child: PromptContent(promptState: widget.promptState),
+            ),
             Expanded(
               flex: 2,
               child: _isAnswering
                   ? AnswerOptions(onAnswerSelected: (f) => onAnswerSelected(f))
-                  : FeedbackContainer(onNext: onNext),
+                  : FeedbackContainer(onNext: () {
+                      onNext(widget.promptState.promptSpecies);
+                    }),
             ),
           ],
         ),
@@ -45,8 +51,9 @@ class _FlashContentState extends State<FlashContent> {
     BlocProvider.of<PromptBloc>(context).add(PromptEvent.getFeedback(family));
   }
 
-  void onNext() {
+  void onNext(Species? currentSpecies) {
     setState(() => _isAnswering = true);
-    BlocProvider.of<PromptBloc>(context).add(const PromptEvent.nextPrompt());
+    BlocProvider.of<PromptBloc>(context)
+        .add(PromptEvent.nextPrompt(currentSpecies));
   }
 }

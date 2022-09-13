@@ -1,6 +1,12 @@
 import '../models/species.dart';
-import 'asteraceae_data.dart';
-import 'brassicaceae_data.dart';
+import 'families/apiaceae_data.dart';
+import 'families/asteraceae_data.dart';
+import 'families/boraginaceae_data.dart';
+import 'families/brassicaceae_data.dart';
+import 'families/caryophyllaceae_data.dart';
+import 'families/fabaceae_data.dart';
+import 'families/lamiaceae_data.dart';
+import 'families/rosaceae_data.dart';
 
 class SpeciesData {
   static const baseImageUrl =
@@ -8,6 +14,12 @@ class SpeciesData {
 
   static final List<Species> allSpecies = [
     ...AsteraceaeData.speciesList,
-    ...BrassicaceaeData.speciesList
+    ...BrassicaceaeData.speciesList,
+    ...ApiaceaeData.speciesList,
+    ...BoraginaceaeData.speciesList,
+    ...CaryophyllaceaeData.speciesList,
+    ...FabaceaeData.speciesList,
+    ...LamiaceaeData.speciesList,
+    ...RosaceaeData.speciesList,
   ];
 }

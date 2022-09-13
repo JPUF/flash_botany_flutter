@@ -12,8 +12,6 @@ part 'prompt_event.dart';
 part 'prompt_state.dart';
 
 class PromptBloc extends Bloc<PromptEvent, PromptState> {
-  int _currentIndex = 0;
-
   PromptBloc() : super(PromptState.initial()) {
     on<PromptEvent>(
       (event, emit) => event.map(
@@ -24,7 +22,7 @@ class PromptBloc extends Bloc<PromptEvent, PromptState> {
   }
 
   void _nextPrompt(NextPrompt event, Emitter<PromptState> emit) {
-    final nextSpecies = _getNextSpecies();
+    final nextSpecies = _getNextSpecies(event.prevSpecies);
     emit(state.copyWith(
       promptSpecies: nextSpecies,
       familyOptions: _getFamilyOptions(nextSpecies.family),
@@ -37,10 +35,12 @@ class PromptBloc extends Bloc<PromptEvent, PromptState> {
     emit(state.copyWith(correct: correct));
   }
 
-  Species _getNextSpecies() {
-    final species = SpeciesData.allSpecies[_currentIndex++];
-    _currentIndex %= SpeciesData.allSpecies.length;
-    return species;
+  Species _getNextSpecies(Species? prevSpecies) {
+    List<Species> localAllSpecies = SpeciesData.allSpecies.toList();
+    if (prevSpecies != null) {
+      localAllSpecies.remove(prevSpecies);
+    }
+    return localAllSpecies[Random().nextInt(localAllSpecies.length)];
   }
 
   List<Family> _getFamilyOptions(Family correctFamily) {
