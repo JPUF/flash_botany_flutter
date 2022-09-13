@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../shared/blocs/prompt_bloc.dart';
 import '../../../../shared/extensions.dart';
 import '../../../../shared/models/family.dart';
+import '../../../../shared/models/species.dart';
 import 'answer_options.dart';
 import 'feedback_container.dart';
 import 'prompt_content.dart';
@@ -35,7 +36,9 @@ class _FlashContentState extends State<FlashContent> {
               flex: 2,
               child: _isAnswering
                   ? AnswerOptions(onAnswerSelected: (f) => onAnswerSelected(f))
-                  : FeedbackContainer(onNext: onNext),
+                  : FeedbackContainer(onNext: () {
+                      onNext(widget.promptState.promptSpecies);
+                    }),
             ),
           ],
         ),
@@ -48,8 +51,9 @@ class _FlashContentState extends State<FlashContent> {
     BlocProvider.of<PromptBloc>(context).add(PromptEvent.getFeedback(family));
   }
 
-  void onNext() {
+  void onNext(Species? currentSpecies) {
     setState(() => _isAnswering = true);
-    BlocProvider.of<PromptBloc>(context).add(const PromptEvent.nextPrompt());
+    BlocProvider.of<PromptBloc>(context)
+        .add(PromptEvent.nextPrompt(currentSpecies));
   }
 }

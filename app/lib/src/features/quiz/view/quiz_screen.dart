@@ -41,7 +41,8 @@ class _QuizScreenState extends State<QuizScreen> {
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<PromptBloc>(context).add(const PromptEvent.nextPrompt());
+    BlocProvider.of<PromptBloc>(context)
+        .add(const PromptEvent.nextPrompt(null));
   }
 
   @override

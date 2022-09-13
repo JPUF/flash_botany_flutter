@@ -13,13 +13,13 @@ class SpeciesData {
       'https://f003.backblazeb2.com/file/prompt-images/';
 
   static final List<Species> allSpecies = [
-    // ...AsteraceaeData.speciesList,
-    // ...BrassicaceaeData.speciesList,
-    // ...ApiaceaeData.speciesList,
-    // ...BoraginaceaeData.speciesList,
-    // ...CaryophyllaceaeData.speciesList,
-    // ...FabaceaeData.speciesList,
-    // ...LamiaceaeData.speciesList,
+    ...AsteraceaeData.speciesList,
+    ...BrassicaceaeData.speciesList,
+    ...ApiaceaeData.speciesList,
+    ...BoraginaceaeData.speciesList,
+    ...CaryophyllaceaeData.speciesList,
+    ...FabaceaeData.speciesList,
+    ...LamiaceaeData.speciesList,
     ...RosaceaeData.speciesList,
   ];
 }
