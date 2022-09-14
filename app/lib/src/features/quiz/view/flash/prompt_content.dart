@@ -19,40 +19,27 @@ class _PromptContentState extends State<PromptContent> {
   int currentIndex = 0;
   bool showAttribution = false;
 
+  final _customPagination = SwiperPagination(
+    alignment: Alignment.bottomCenter,
+    builder: SwiperCustomPagination(builder: (c, config) {
+      return const DotSwiperPaginationBuilder(
+        color: Colors.white,
+        activeColor: Colors.white,
+      ).build(c, config);
+    }),
+  );
+
   @override
   Widget build(BuildContext context) {
-    final colors = Theme.of(context).colorScheme;
     final attributedUrls = widget.promptState.promptSpecies?.images ?? [];
     final urls = attributedUrls.map((a) => a.url).toList();
     final credits = attributedUrls.map((a) => a.attribution).toList();
+
     if (urls.isNotEmpty) {
       return Stack(
         alignment: AlignmentDirectional.bottomEnd,
         children: [
-          Swiper(
-            itemCount: urls.length,
-            onIndexChanged: (index) {
-              setState(() {
-                currentIndex = index;
-                showAttribution = false;
-              });
-            },
-            itemBuilder: (context, index) {
-              return PromptNetworkImage(imgUrls: urls, index: index);
-            },
-            pagination: SwiperPagination(
-                alignment: Alignment.bottomCenter,
-                builder: SwiperCustomPagination(builder: (c, config) {
-                  return const DotSwiperPaginationBuilder(
-                    color: Colors.white,
-                    activeColor: Colors.white,
-                  ).build(c, config);
-                })),
-            control: SwiperControl(
-                color: colors.onSurface,
-                padding: const EdgeInsets.only(left: 8)),
-            indicatorLayout: PageIndicatorLayout.SCALE,
-          ),
+          buildImageSwiper(urls),
           AttributionContainer(
             attributions: credits,
             index: currentIndex,
@@ -66,6 +53,27 @@ class _PromptContentState extends State<PromptContent> {
     } else {
       return const SizedLoadSpinner();
     }
+  }
+
+  Swiper buildImageSwiper(List<String> urls) {
+    final colors = Theme.of(context).colorScheme;
+    return Swiper(
+      index: currentIndex,
+      itemCount: urls.length,
+      onIndexChanged: (index) {
+        setState(() {
+          currentIndex = index;
+          showAttribution = false;
+        });
+      },
+      itemBuilder: (context, index) {
+        return PromptNetworkImage(imgUrls: urls, index: index);
+      },
+      pagination: _customPagination,
+      control: SwiperControl(
+          color: colors.onSurface, padding: const EdgeInsets.only(left: 8)),
+      indicatorLayout: PageIndicatorLayout.SCALE,
+    );
   }
 }
 
