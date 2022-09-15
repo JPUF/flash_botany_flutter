@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../shared/blocs/prompt_bloc.dart';
 import '../../../../shared/extensions.dart';
@@ -16,49 +17,45 @@ class PromptContent extends StatefulWidget {
 }
 
 class _PromptContentState extends State<PromptContent> {
-  int currentIndex = 0;
-  bool showAttribution = false;
+  int _currentIndex = 0;
+  bool _showAttribution = false;
+  final _swipeController = SwiperController();
+
+  final _customPagination = SwiperPagination(
+    alignment: Alignment.bottomCenter,
+    builder: SwiperCustomPagination(builder: (c, config) {
+      return const DotSwiperPaginationBuilder(
+        color: Colors.white,
+        activeColor: Colors.white,
+      ).build(c, config);
+    }),
+  );
 
   @override
   Widget build(BuildContext context) {
-    final colors = Theme.of(context).colorScheme;
     final attributedUrls = widget.promptState.promptSpecies?.images ?? [];
     final urls = attributedUrls.map((a) => a.url).toList();
     final credits = attributedUrls.map((a) => a.attribution).toList();
+
     if (urls.isNotEmpty) {
       return Stack(
         alignment: AlignmentDirectional.bottomEnd,
         children: [
-          Swiper(
-            itemCount: urls.length,
-            onIndexChanged: (index) {
-              setState(() {
-                currentIndex = index;
-                showAttribution = false;
-              });
+          BlocListener<PromptBloc, PromptState>(
+            listenWhen: (previous, current) {
+              return previous.promptSpecies != current.promptSpecies;
             },
-            itemBuilder: (context, index) {
-              return PromptNetworkImage(imgUrls: urls, index: index);
+            listener: (_, __) {
+              _swipeController.move(0, animation: true);
             },
-            pagination: SwiperPagination(
-                alignment: Alignment.bottomCenter,
-                builder: SwiperCustomPagination(builder: (c, config) {
-                  return const DotSwiperPaginationBuilder(
-                    color: Colors.white,
-                    activeColor: Colors.white,
-                  ).build(c, config);
-                })),
-            control: SwiperControl(
-                color: colors.onSurface,
-                padding: const EdgeInsets.only(left: 8)),
-            indicatorLayout: PageIndicatorLayout.SCALE,
+            child: buildImageSwiper(urls),
           ),
           AttributionContainer(
             attributions: credits,
-            index: currentIndex,
-            showAttribution: showAttribution,
+            index: _currentIndex,
+            showAttribution: _showAttribution,
             toggleVisibility: () {
-              setState(() => showAttribution = !showAttribution);
+              setState(() => _showAttribution = !_showAttribution);
             },
           ),
         ],
@@ -66,6 +63,27 @@ class _PromptContentState extends State<PromptContent> {
     } else {
       return const SizedLoadSpinner();
     }
+  }
+
+  Swiper buildImageSwiper(List<String> urls) {
+    final colors = Theme.of(context).colorScheme;
+    return Swiper(
+      itemCount: urls.length,
+      onIndexChanged: (index) {
+        setState(() {
+          _currentIndex = index;
+          _showAttribution = false;
+        });
+      },
+      itemBuilder: (context, index) {
+        return PromptNetworkImage(imgUrls: urls, index: index);
+      },
+      pagination: _customPagination,
+      control: SwiperControl(
+          color: colors.onSurface, padding: const EdgeInsets.only(left: 8)),
+      indicatorLayout: PageIndicatorLayout.SCALE,
+      controller: _swipeController,
+    );
   }
 }
 
