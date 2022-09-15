@@ -27,8 +27,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
             visible: widget.showBackButton && constraints.isMobile,
             child: IconButton(
                 onPressed: () {
-                  //FIXME should really pop back stack in some fashion.
-                  GoRouter.of(baseContext).go(Destination.home.path);
+                  GoRouter.of(baseContext).pop();
                 },
                 icon: const Icon(Icons.chevron_left_rounded, size: 32))),
         centerTitle: true,

@@ -31,7 +31,7 @@ class FamilyButton extends StatelessWidget {
   }
 
   void _navigateToFamilyScreen(BuildContext c, Family family) {
-    GoRouter.of(c).go(Destination.family.path + '/${family.latinName}');
+    GoRouter.of(c).push(Destination.family.path + '/${family.latinName}');
   }
 }
 
