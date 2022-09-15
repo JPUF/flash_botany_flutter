@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:snapping_sheet/snapping_sheet.dart';
 
 import '../../../shared/blocs/prompt_bloc.dart';
-import '../../../shared/destinations.dart';
 import '../../../shared/extensions.dart';
 import '../../../shared/strings.dart';
 import '../../../shared/views/brightness_toggle.dart';
@@ -75,9 +74,7 @@ class _QuizScreenState extends State<QuizScreen> {
                 title: TextButton(
                   child: Text(Strings.appName, style: context.headlineSmall),
                   onPressed: () {
-                    //FIXME should really pop back stack in some fashion
-                    // May need to get a singleton of GoRouter.of(context). So it's the same router pushing and popping.
-                    GoRouter.of(context).go(Destination.home.path);
+                    GoRouter.of(context).pop();
                   },
                 ),
                 actions: const [BrightnessToggle()],

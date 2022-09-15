@@ -53,7 +53,7 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
         children: [
           PlatformSized(
             child: HeroQuizButton(onTap: () {
-              GoRouter.of(context).go(Destination.quiz.path);
+              GoRouter.of(context).push(Destination.quiz.path);
             }),
           ),
           const SizedBox(height: 32),
