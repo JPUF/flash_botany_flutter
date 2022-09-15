@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../shared/blocs/prompt_bloc.dart';
 import '../../../../shared/extensions.dart';
@@ -16,8 +17,9 @@ class PromptContent extends StatefulWidget {
 }
 
 class _PromptContentState extends State<PromptContent> {
-  int currentIndex = 0;
-  bool showAttribution = false;
+  int _currentIndex = 0;
+  bool _showAttribution = false;
+  final _swipeController = SwiperController();
 
   final _customPagination = SwiperPagination(
     alignment: Alignment.bottomCenter,
@@ -39,13 +41,21 @@ class _PromptContentState extends State<PromptContent> {
       return Stack(
         alignment: AlignmentDirectional.bottomEnd,
         children: [
-          buildImageSwiper(urls),
+          BlocListener<PromptBloc, PromptState>(
+            listenWhen: (previous, current) {
+              return previous.promptSpecies != current.promptSpecies;
+            },
+            listener: (_, __) {
+              _swipeController.move(0, animation: true);
+            },
+            child: buildImageSwiper(urls),
+          ),
           AttributionContainer(
             attributions: credits,
-            index: currentIndex,
-            showAttribution: showAttribution,
+            index: _currentIndex,
+            showAttribution: _showAttribution,
             toggleVisibility: () {
-              setState(() => showAttribution = !showAttribution);
+              setState(() => _showAttribution = !_showAttribution);
             },
           ),
         ],
@@ -58,12 +68,11 @@ class _PromptContentState extends State<PromptContent> {
   Swiper buildImageSwiper(List<String> urls) {
     final colors = Theme.of(context).colorScheme;
     return Swiper(
-      index: currentIndex,
       itemCount: urls.length,
       onIndexChanged: (index) {
         setState(() {
-          currentIndex = index;
-          showAttribution = false;
+          _currentIndex = index;
+          _showAttribution = false;
         });
       },
       itemBuilder: (context, index) {
@@ -73,6 +82,7 @@ class _PromptContentState extends State<PromptContent> {
       control: SwiperControl(
           color: colors.onSurface, padding: const EdgeInsets.only(left: 8)),
       indicatorLayout: PageIndicatorLayout.SCALE,
+      controller: _swipeController,
     );
   }
 }
