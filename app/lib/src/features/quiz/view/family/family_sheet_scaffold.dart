@@ -50,7 +50,6 @@ class _FamilySheetContentState extends State<FamilySheetContent>
         return families != null && families.length == 4
             ? TabBarView(
                 controller: _tabController,
-                physics: const NeverScrollableScrollPhysics(),
                 children: families.map((f) => FamilyInfo(family: f)).toList(),
               )
             : const SizedLoadSpinner();
