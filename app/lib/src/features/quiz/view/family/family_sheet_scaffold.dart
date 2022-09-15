@@ -34,46 +34,53 @@ class _FamilySheetContentState extends State<FamilySheetContent>
       length: 4,
       child: Scaffold(
         backgroundColor: colors.surfaceVariant,
-        appBar: AppBar(
-          backgroundColor: colors.surfaceVariant,
-          flexibleSpace: SafeArea(
-            child: BlocListener<PromptBloc, PromptState>(
-              listenWhen: (previous, current) {
-                return previous.promptSpecies != current.promptSpecies;
-              },
-              listener: (_, __) {
-                _tabController.index = 0;
-              },
-              child: BlocBuilder<PromptBloc, PromptState>(
-                builder: (context, state) {
-                  final families = state.familyOptions;
-                  return families != null && families.length == 4
-                      ? TabBar(
-                          controller: _tabController,
-                          isScrollable: true,
-                          tabs: families
-                              .map((f) => Tab(text: f.latinName))
-                              .toList(),
-                        )
-                      : Container();
-                },
-              ),
-            ),
-          ),
-        ),
+        appBar: _familySheetAppBar(colors.surfaceVariant),
         body: Opacity(
           opacity: getOpacityPercentage(widget.sheetExpansionPercent ?? 1),
+          child: _familySheetBody(),
+        ),
+      ),
+    );
+  }
+
+  BlocBuilder<PromptBloc, PromptState> _familySheetBody() {
+    return BlocBuilder<PromptBloc, PromptState>(
+      builder: (context, state) {
+        final families = state.familyOptions;
+        return families != null && families.length == 4
+            ? TabBarView(
+                controller: _tabController,
+                physics: const NeverScrollableScrollPhysics(),
+                children: families.map((f) => FamilyInfo(family: f)).toList(),
+              )
+            : const SizedLoadSpinner();
+      },
+    );
+  }
+
+  AppBar _familySheetAppBar(Color bgColor) {
+    return AppBar(
+      automaticallyImplyLeading: false,
+      backgroundColor: bgColor,
+      flexibleSpace: SafeArea(
+        child: BlocListener<PromptBloc, PromptState>(
+          listenWhen: (previous, current) {
+            return previous.promptSpecies != current.promptSpecies;
+          },
+          listener: (_, __) {
+            _tabController.index = 0;
+          },
           child: BlocBuilder<PromptBloc, PromptState>(
             builder: (context, state) {
               final families = state.familyOptions;
               return families != null && families.length == 4
-                  ? TabBarView(
+                  ? TabBar(
                       controller: _tabController,
-                      physics: const NeverScrollableScrollPhysics(),
-                      children:
-                          families.map((f) => FamilyInfo(family: f)).toList(),
+                      isScrollable: true,
+                      tabs:
+                          families.map((f) => Tab(text: f.latinName)).toList(),
                     )
-                  : const SizedLoadSpinner();
+                  : Container();
             },
           ),
         ),

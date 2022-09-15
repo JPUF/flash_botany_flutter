@@ -21,32 +21,44 @@ class NavigationDestination {
   final Widget? child;
 }
 
+final _slide = Tween<Offset>(
+  begin: const Offset(1, 0),
+  end: Offset.zero,
+).chain(CurveTween(curve: Curves.easeInOut));
+
 final appRouter = GoRouter(
   navigatorBuilder: (context, state, child) => child,
   routes: [
     // HomeScreen
     GoRoute(
       path: Destination.home.path,
-      pageBuilder: (context, state) => MaterialPage<void>(
+      pageBuilder: (context, state) => CustomTransitionPage<void>(
         key: Destination.home.key,
+        transitionsBuilder: (_, animation, __, child) =>
+            SlideTransition(position: animation.drive(_slide), child: child),
         child: const HomeScreen(),
       ),
     ),
     //QuizScreen
     GoRoute(
       path: Destination.quiz.path,
-      pageBuilder: (context, state) => MaterialPage<void>(
+      pageBuilder: (context, state) => CustomTransitionPage<void>(
         key: Destination.quiz.key,
+        transitionsBuilder: (_, animation, __, child) =>
+            SlideTransition(position: animation.drive(_slide), child: child),
         child: const QuizScreen(),
       ),
     ),
     //FamilyScreen
     GoRoute(
       path: Destination.family.path + '/:$familyParameter',
-      pageBuilder: (context, state) => MaterialPage<void>(
+      pageBuilder: (context, state) => CustomTransitionPage<void>(
         key: Destination.family.key,
+        transitionsBuilder: (_, animation, __, child) =>
+            SlideTransition(position: animation.drive(_slide), child: child),
         child: FamilyScreen(
-          family: Family.values.firstWhere((f) => f.latinName == state.params[familyParameter]),
+          family: Family.values
+              .firstWhere((f) => f.latinName == state.params[familyParameter]),
         ),
       ),
     ),
