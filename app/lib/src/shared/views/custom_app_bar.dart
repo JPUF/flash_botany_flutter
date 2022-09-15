@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../destinations.dart';
 import '../extensions.dart';
 import '../strings.dart';
 import 'brightness_toggle.dart';

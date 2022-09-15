@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -34,8 +35,10 @@ final appRouter = GoRouter(
       path: Destination.home.path,
       pageBuilder: (context, state) => CustomTransitionPage<void>(
         key: Destination.home.key,
-        transitionsBuilder: (_, animation, __, child) =>
-            SlideTransition(position: animation.drive(_slide), child: child),
+        transitionsBuilder: (_, anim, __, child) {
+          if (kIsWeb) return child;
+          return SlideTransition(position: anim.drive(_slide), child: child);
+        },
         child: const HomeScreen(),
       ),
     ),
@@ -44,8 +47,10 @@ final appRouter = GoRouter(
       path: Destination.quiz.path,
       pageBuilder: (context, state) => CustomTransitionPage<void>(
         key: Destination.quiz.key,
-        transitionsBuilder: (_, animation, __, child) =>
-            SlideTransition(position: animation.drive(_slide), child: child),
+        transitionsBuilder: (_, anim, __, child) {
+          if (kIsWeb) return child;
+          return SlideTransition(position: anim.drive(_slide), child: child);
+        },
         child: const QuizScreen(),
       ),
     ),
@@ -54,8 +59,10 @@ final appRouter = GoRouter(
       path: Destination.family.path + '/:$familyParameter',
       pageBuilder: (context, state) => CustomTransitionPage<void>(
         key: Destination.family.key,
-        transitionsBuilder: (_, animation, __, child) =>
-            SlideTransition(position: animation.drive(_slide), child: child),
+        transitionsBuilder: (_, anim, __, child) {
+          if (kIsWeb) return child;
+          return SlideTransition(position: anim.drive(_slide), child: child);
+        },
         child: FamilyScreen(
           family: Family.values
               .firstWhere((f) => f.latinName == state.params[familyParameter]),
