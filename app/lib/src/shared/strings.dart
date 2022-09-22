@@ -5,11 +5,13 @@ class Strings {
   static const darkModeKey = 'darkMode';
   static const usefulTerms = 'Useful terms:';
   static const attributions = 'Image attributions:';
-  static const morphologyTitle = 'Flower Basics';
+  static const morphologyReproductive = 'Reproductive Parts';
   static const morphologyBody =
-      'Most flowers are ‘perfect’ , they have both male and female parts.\n\n'
-      'The male part is called the stamen. This is responsible for distributing pollen, often onto pollinating insects.\n\n'
-      'The female part is called the pistil. This receives pollen, and develops into a fruit with seeds.';
+      'Stamen: Male — distributes pollen.\n\n'
+      'Pistil: Female — receives pollen, and develops into a fruit with seeds.';
+  static const morphologyCalyx = 'Calyx';
+  static const morphologySepals = 'Many flowers have a protective ‘cup’ called a calyx. These are made of numerous sepals.';
+  static const morphologyCredit = 'Image credit:\n© Alexander Dubynin, (CC-BY-NC)\n© arlybenitez, (CC-BY-NC)';
 
   static String credit(String? attribution) => 'Credit: $attribution';
 }

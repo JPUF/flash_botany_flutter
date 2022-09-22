@@ -11,7 +11,7 @@ class MorphologyScreen extends StatelessWidget {
   Widget build(BuildContext context) => const Scaffold(
         appBar: CustomAppBar(showBackButton: true),
         body: SafeArea(
-          child: MorphologyContent(),
+          child: SingleChildScrollView(child: MorphologyContent()),
         ),
       );
 }
@@ -28,8 +28,8 @@ class MorphologyContent extends StatelessWidget {
       children: [
         PaddedItem(
           child: Text(
-            Strings.morphologyTitle,
-            style: context.headlineMedium,
+            Strings.morphologyReproductive,
+            style: context.headlineSmall,
           ),
         ),
         const PaddedItem(
@@ -46,6 +46,35 @@ class MorphologyContent extends StatelessWidget {
             style: context.bodyLarge,
           ),
         ),
+        const SizedBox(height: 16),
+        PaddedItem(
+          child: Text(
+            Strings.morphologyCalyx,
+            style: context.headlineSmall,
+          ),
+        ),
+        const PaddedItem(
+          alignment: AlignmentDirectional.center,
+          child: Image(
+            image: AssetImage('assets/images/sepals.jpg'),
+            width: 200,
+            height: 200,
+          ),
+        ),
+        PaddedItem(
+          child: Text(
+            Strings.morphologySepals,
+            style: context.bodyLarge,
+          ),
+        ),
+        const SizedBox(height: 16),
+        PaddedItem(
+          child: Text(
+            Strings.morphologyCredit,
+            style: context.bodySmall,
+          ),
+        ),
+        const SizedBox(height: 16),
       ],
     );
   }
