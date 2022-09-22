@@ -1,6 +1,7 @@
 class Strings {
   static const appName = 'FlashBotany';
   static const heroCta = 'Learn all!';
+  static const flowerCta = 'Flowers 101';
   static const familySearchHint = 'Family search:';
   static const darkModeKey = 'darkMode';
   static const usefulTerms = 'Useful terms:';

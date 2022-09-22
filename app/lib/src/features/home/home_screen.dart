@@ -7,6 +7,7 @@ import '../../shared/models/family.dart';
 import '../../shared/strings.dart';
 import '../../shared/util_widgets.dart';
 import '../../shared/views/custom_app_bar.dart';
+import 'components/basic_button.dart';
 import 'components/family_button.dart';
 import 'components/hero_quiz_button.dart';
 
@@ -52,8 +53,13 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
         shrinkWrap: true,
         children: [
           PlatformSized(
-            child: HeroQuizButton(onTap: () {
+            child: BasicButton(onTap: () {
               GoRouter.of(context).push(Destination.morphology.path);
+            }),
+          ),
+          PlatformSized(
+            child: HeroQuizButton(onTap: () {
+              GoRouter.of(context).push(Destination.quiz.path);
             }),
           ),
           const SizedBox(height: 32),
