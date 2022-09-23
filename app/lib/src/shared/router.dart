@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../features/family/family_screen.dart';
 import '../features/home/home_screen.dart';
+import '../features/morphology/morphology_screen.dart';
 import '../features/quiz/view/quiz_screen.dart';
 import 'destinations.dart';
 import 'models/family.dart';
@@ -52,6 +53,18 @@ final appRouter = GoRouter(
           return SlideTransition(position: anim.drive(_slide), child: child);
         },
         child: const QuizScreen(),
+      ),
+    ),
+    //MorphologyScreen
+    GoRoute(
+      path: Destination.morphology.path,
+      pageBuilder: (context, state) => CustomTransitionPage<void>(
+        key: Destination.morphology.key,
+        transitionsBuilder: (_, anim, __, child) {
+          if (kIsWeb) return child;
+          return SlideTransition(position: anim.drive(_slide), child: child);
+        },
+        child: const MorphologyScreen(),
       ),
     ),
     //FamilyScreen

@@ -1,10 +1,18 @@
 class Strings {
   static const appName = 'FlashBotany';
   static const heroCta = 'Learn all!';
+  static const flowerCta = 'Flowers 101';
   static const familySearchHint = 'Family search:';
   static const darkModeKey = 'darkMode';
   static const usefulTerms = 'Useful terms:';
   static const attributions = 'Image attributions:';
-  static String credit(String? attribution) => 'Credit: $attribution';
+  static const morphologyReproductive = 'Reproductive Parts';
+  static const morphologyBody =
+      'Stamen: Male — distributes pollen.\n\n'
+      'Pistil: Female — receives pollen, and develops into a fruit with seeds.';
+  static const morphologyCalyx = 'Calyx';
+  static const morphologySepals = 'Many flowers have a protective ‘cup’ called a calyx. These are made of numerous sepals.';
+  static const morphologyCredit = 'Image credit:\n© Alexander Dubynin, (CC-BY-NC)\n© arlybenitez, (CC-BY-NC)';
 
+  static String credit(String? attribution) => 'Credit: $attribution';
 }

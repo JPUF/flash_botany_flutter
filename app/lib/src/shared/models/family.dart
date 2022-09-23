@@ -34,7 +34,7 @@ enum Family {
     'Carrot Family, Umbellifers',
     'https://en.wikipedia.org/wiki/Apiaceae',
     'Umbel inflorescence. Each individual flower is small. 5 petals, often white or similarly pale.\n\n'
-        '5 stamens and 2 stigmas. Inferior ovary.\n\n'
+        '5 stamens and 2 pistils. Inferior ovary.\n\n'
         'Stems are often lanky and hollow. Leaves are divided into leaflets.',
     [
       GlossaryTerm.umbel,
@@ -124,7 +124,7 @@ enum Family {
         'The banner is the top petal, typically the largest.\n'
         'The 2 wings spread side to side.\n'
         'The keel is 2 petals fused to form a tube.\n\n'
-        'The keel houses 10 stamens (often fused) and a style. '
+        'The keel houses 10 stamens (often fused) and a pistil. '
         'Its superior ovary matures into typical pea pods.\n\n'
         'Leaves are pinnate or trifoliate, or pinnate.',
     [
@@ -150,7 +150,7 @@ enum Family {
     'Zygomorphic flowers. Arranged in whorls around the stem. '
         'Petals often fused into a tube, with an upper & lower lip.\n\n'
         'The lower lip can act as a landing pad for pollinators.\n\n'
-        'Usually 4 stamens, in pairs, with one pair shorter in length. 1 style. '
+        'Usually 4 stamens, in pairs, with one pair shorter in length. 1 pistil. '
         'Sepals fused to form a calyx.\n\n'
         'Plant stems are square in cross–section. With serrate leaves in opposite pairs.',
     [
