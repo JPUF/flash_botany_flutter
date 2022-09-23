@@ -11,7 +11,7 @@ class Strings {
       'Stamen: Male — distributes pollen.\n\n'
       'Pistil: Female — receives pollen, and develops into a fruit with seeds.';
   static const morphologyCalyx = 'Calyx';
-  static const morphologySepals = 'Many flowers have a protective ‘cup’ called a calyx. These are made of numerous sepals.';
+  static const morphologySepals = 'Many flowers have a protective ‘cup’ called a calyx. This is made of numerous little leaves, called sepals.';
   static const morphologyCredit = 'Image credit:\n© Alexander Dubynin, (CC-BY-NC)\n© arlybenitez, (CC-BY-NC)';
 
   static String credit(String? attribution) => 'Credit: $attribution';
