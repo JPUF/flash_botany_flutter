@@ -44583,7 +44583,7 @@ A.MC.prototype={
 G(a){return B.OW}}
 A.MB.prototype={
 G(a){var s=null
-return A.bV(B.fV,A.fW(A.b([new A.du(A.ca("Reproductive Parts",s,s,s,s,A.kG(a),s,s),s),B.aI,B.Ov,B.aI,new A.du(A.ca("Stamen: Male \u2014 distributes pollen.\n\nPistil: Female \u2014 receives pollen, and develops into a fruit with seeds.",s,s,s,s,A.auv(a),s,s),s),B.e4,new A.du(A.ca("Calyx",s,s,s,s,A.kG(a),s,s),s),B.aI,B.Ou,B.aI,new A.du(A.ca("Many flowers have a protective \u2018cup\u2019 called a calyx. These are made of numerous sepals.",s,s,s,s,A.auv(a),s,s),s),B.QC,new A.du(A.ca("Image credit:\n\xa9 Alexander Dubynin, (CC-BY-NC)\n\xa9 arlybenitez, (CC-BY-NC)",s,s,s,s,A.aAh(a),s,s),s),B.aI],t.p),B.cw,s,B.ao,B.V),B.l,s,s,s,s,s,s,s,B.cz,s,s,1/0)}}
+return A.bV(B.fV,A.fW(A.b([new A.du(A.ca("Reproductive Parts",s,s,s,s,A.kG(a),s,s),s),B.aI,B.Ov,B.aI,new A.du(A.ca("Stamen: Male \u2014 distributes pollen.\n\nPistil: Female \u2014 receives pollen, and develops into a fruit with seeds.",s,s,s,s,A.auv(a),s,s),s),B.e4,new A.du(A.ca("Calyx",s,s,s,s,A.kG(a),s,s),s),B.aI,B.Ou,B.aI,new A.du(A.ca("Many flowers have a protective \u2018cup\u2019 called a calyx. This is made of numerous little leaves, called sepals.",s,s,s,s,A.auv(a),s,s),s),B.QC,new A.du(A.ca("Image credit:\n\xa9 Alexander Dubynin, (CC-BY-NC)\n\xa9 arlybenitez, (CC-BY-NC)",s,s,s,s,A.aAh(a),s,s),s),B.aI],t.p),B.cw,s,B.ao,B.V),B.l,s,s,s,s,s,s,s,B.cz,s,s,1/0)}}
 A.IM.prototype={
 G(a){var s,r=null,q=A.a3(a).as,p=q.dx
 if(p==null)p=q.cy
