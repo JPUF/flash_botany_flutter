@@ -53,14 +53,24 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
         shrinkWrap: true,
         children: [
           PlatformSized(
-            child: BasicButton(onTap: () {
-              GoRouter.of(context).push(Destination.morphology.path);
-            }),
+            child: BasicButton(
+                text: Strings.flowerCta,
+                onTap: () {
+                  GoRouter.of(context).push(Destination.morphology.path);
+                }),
           ),
           PlatformSized(
             child: HeroQuizButton(onTap: () {
               GoRouter.of(context).push(Destination.quiz.path);
             }),
+          ),
+          const SizedBox(height: 32),
+          PlatformSized(
+            child: BasicButton(
+                text: 'Roses & Daisies',
+                onTap: () {
+                  GoRouter.of(context).push(Destination.quiz.path);
+                }),
           ),
           const SizedBox(height: 32),
           PlatformSized(child: _familySearchField()),
