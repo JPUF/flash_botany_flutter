@@ -22,8 +22,9 @@ class PromptBloc extends Bloc<PromptEvent, PromptState> {
   }
 
   void _nextPrompt(NextPrompt event, Emitter<PromptState> emit) {
-    final nextSpecies = _getNextSpecies(event.prevSpecies);
+    final nextSpecies = _getNextSpecies(event.quizId, event.prevSpecies);
     emit(state.copyWith(
+      quizId: event.quizId,
       promptSpecies: nextSpecies,
       familyOptions: _getFamilyOptions(nextSpecies.family),
     ));
@@ -35,12 +36,12 @@ class PromptBloc extends Bloc<PromptEvent, PromptState> {
     emit(state.copyWith(correct: correct));
   }
 
-  Species _getNextSpecies(Species? prevSpecies) {
-    List<Species> localAllSpecies = SpeciesData.allSpecies.toList();
+  Species _getNextSpecies(QuizId quizId, Species? prevSpecies) {
+    List<Species> localSpecies = quizId.speciesSet.toList();
     if (prevSpecies != null) {
-      localAllSpecies.remove(prevSpecies);
+      localSpecies.remove(prevSpecies);
     }
-    return localAllSpecies[Random().nextInt(localAllSpecies.length)];
+    return localSpecies[Random().nextInt(localSpecies.length)];
   }
 
   List<Family> _getFamilyOptions(Family correctFamily) {

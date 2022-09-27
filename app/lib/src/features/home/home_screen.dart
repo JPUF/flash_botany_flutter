@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../shared/data/species_data.dart';
 import '../../shared/destinations.dart';
 import '../../shared/extensions.dart';
 import '../../shared/models/family.dart';
@@ -61,7 +62,10 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
           ),
           PlatformSized(
             child: HeroQuizButton(onTap: () {
-              GoRouter.of(context).push(Destination.quiz.path);
+              GoRouter.of(context).push(
+                Destination.quiz.path,
+                extra: QuizId.all,
+              );
             }),
           ),
           const SizedBox(height: 32),
@@ -69,7 +73,10 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
             child: BasicButton(
                 text: 'Roses & Daisies',
                 onTap: () {
-                  GoRouter.of(context).push(Destination.quiz.path);
+                  GoRouter.of(context).push(
+                    Destination.quiz.path,
+                    extra: QuizId.asteraceaeRosaceae,
+                  );
                 }),
           ),
           const SizedBox(height: 32),
