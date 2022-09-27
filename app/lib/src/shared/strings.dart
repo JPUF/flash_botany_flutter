@@ -2,7 +2,10 @@ class Strings {
   static const appName = 'FlashBotany';
   static const heroCta = 'Learn all!';
   static const flowerCta = 'Flowers 101';
+  static const lessonAsteraceaeRosaceae = 'Daisies & Roses';
+  static const lessonBrassicaceaeLamiaceae = 'Mustards & Mints';
   static const familySearchHint = 'Family search:';
+  static const familySearchNoResults = 'No search results';
   static const darkModeKey = 'darkMode';
   static const usefulTerms = 'Useful terms:';
   static const attributions = 'Image attributions:';

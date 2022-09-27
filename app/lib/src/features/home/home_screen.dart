@@ -61,23 +61,22 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                 }),
           ),
           PlatformSized(
-            child: HeroQuizButton(onTap: () {
-              GoRouter.of(context).push(
-                Destination.quiz.path,
-                extra: QuizId.all,
-              );
-            }),
+            child: HeroQuizButton(
+              onTap: () => _toQuiz(QuizId.all),
+            ),
           ),
           const SizedBox(height: 32),
           PlatformSized(
             child: BasicButton(
-                text: 'Roses & Daisies',
-                onTap: () {
-                  GoRouter.of(context).push(
-                    Destination.quiz.path,
-                    extra: QuizId.asteraceaeRosaceae,
-                  );
-                }),
+              text: Strings.lessonAsteraceaeRosaceae,
+              onTap: () => _toQuiz(QuizId.asteraceaeRosaceae),
+            ),
+          ),
+          PlatformSized(
+            child: BasicButton(
+              text: Strings.lessonBrassicaceaeLamiaceae,
+              onTap: () => _toQuiz(QuizId.brassicaceaeLamiaceae),
+            ),
           ),
           const SizedBox(height: 32),
           PlatformSized(child: _familySearchField()),
@@ -117,7 +116,7 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
     if (families.isEmpty) {
       rows.add(TableRow(children: [
         Text(
-          'No search results',
+          Strings.familySearchNoResults,
           style: context.bodyLarge,
           textAlign: TextAlign.center,
         )
@@ -139,5 +138,9 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
         .where(
             (f) => f.latinName.toLowerCase().contains(searchTerm.toLowerCase()))
         .toList();
+  }
+
+  void _toQuiz(QuizId quizId) {
+    GoRouter.of(context).push(Destination.quiz.path, extra: quizId);
   }
 }

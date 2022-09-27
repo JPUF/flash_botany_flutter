@@ -29,6 +29,11 @@ class SpeciesData {
     ...AsteraceaeData.speciesList,
     ...RosaceaeData.speciesList,
   ];
+
+  static const List<Species> brassicaceaeLamiaceae = [
+    ...BrassicaceaeData.speciesList,
+    ...LamiaceaeData.speciesList,
+  ];
 }
 
 enum QuizId {
@@ -36,6 +41,10 @@ enum QuizId {
   asteraceaeRosaceae(
     [Family.asteraceae, Family.rosaceae],
     SpeciesData.asteraceaeRosaceae,
+  ),
+  brassicaceaeLamiaceae(
+    [Family.brassicaceae, Family.lamiaceae],
+    SpeciesData.brassicaceaeLamiaceae,
   );
 
   final List<Family> familySet;
