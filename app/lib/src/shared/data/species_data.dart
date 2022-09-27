@@ -25,7 +25,7 @@ class SpeciesData {
     ...RosaceaeData.speciesList,
   ];
 
-  static const List<Species> aR = [
+  static const List<Species> asteraceaeRosaceae = [
     ...AsteraceaeData.speciesList,
     ...RosaceaeData.speciesList,
   ];
@@ -33,10 +33,10 @@ class SpeciesData {
 
 enum QuizId {
   all(Family.values, SpeciesData.allSpecies),
-  asteraceaeRosaceae([
-    Family.asteraceae,
-    Family.rosaceae,
-  ], SpeciesData.aR);
+  asteraceaeRosaceae(
+    [Family.asteraceae, Family.rosaceae],
+    SpeciesData.asteraceaeRosaceae,
+  );
 
   final List<Family> familySet;
   final List<Species> speciesSet;
