@@ -22,10 +22,11 @@ class PromptBloc extends Bloc<PromptEvent, PromptState> {
   }
 
   void _nextPrompt(NextPrompt event, Emitter<PromptState> emit) {
-    final nextSpecies = _getNextSpecies(event.prevSpecies);
+    final nextSpecies = _getNextSpecies(event.quizId, event.prevSpecies);
     emit(state.copyWith(
+      quizId: event.quizId,
       promptSpecies: nextSpecies,
-      familyOptions: _getFamilyOptions(nextSpecies.family),
+      familyOptions: _getFamilyOptions(event.quizId, nextSpecies.family),
     ));
   }
 
@@ -35,22 +36,30 @@ class PromptBloc extends Bloc<PromptEvent, PromptState> {
     emit(state.copyWith(correct: correct));
   }
 
-  Species _getNextSpecies(Species? prevSpecies) {
-    List<Species> localAllSpecies = SpeciesData.allSpecies.toList();
+  Species _getNextSpecies(QuizId quizId, Species? prevSpecies) {
+    List<Species> localSpecies = quizId.speciesSet.toList();
     if (prevSpecies != null) {
-      localAllSpecies.remove(prevSpecies);
+      localSpecies.remove(prevSpecies);
     }
-    return localAllSpecies[Random().nextInt(localAllSpecies.length)];
+    return localSpecies[Random().nextInt(localSpecies.length)];
   }
 
-  List<Family> _getFamilyOptions(Family correctFamily) {
+  List<Family> _getFamilyOptions(QuizId quizId, Family correctFamily) {
     final newOptions = <Family>[];
     final r = Random();
-    List<Family> remainingFamilies = Family.values.toList();
+    List<Family> remainingFamilies = quizId.familySet.toList();
     remainingFamilies.remove(correctFamily);
     remainingFamilies.shuffle();
-    final correctIndex = r.nextInt(4);
-    for (int i = 0; i < 4; i++) {
+    remainingFamilies.take(min(quizId.familySet.length, 3)).toList();
+    remainingFamilies.add(correctFamily);
+    remainingFamilies.shuffle();
+
+    return remainingFamilies;
+    remainingFamilies.remove(correctFamily);
+    remainingFamilies.shuffle();
+    final finalIndex = min(4, quizId.familySet.length);
+    final correctIndex = r.nextInt(finalIndex);
+    for (int i = 0; i < finalIndex; i++) {
       final isCorrect = i == correctIndex;
       newOptions.add(isCorrect ? correctFamily : remainingFamilies[i]);
     }

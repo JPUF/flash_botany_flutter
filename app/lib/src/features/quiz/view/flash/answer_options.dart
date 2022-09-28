@@ -38,7 +38,7 @@ class _AnswerOptionsState extends State<AnswerOptions> {
         child: BlocBuilder<PromptBloc, PromptState>(
           builder: (context, state) {
             final options = state.familyOptions;
-            return options != null && options.length == 4
+            return options != null && options.isNotEmpty
                 ? AnswerButtonTable(
                     familyOptions: options,
                     onAnswerSelected: widget.onAnswerSelected,
@@ -63,29 +63,33 @@ class AnswerButtonTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Table(
-      children: [
-        TableRow(children: [
-          CustomButton(
-            title: familyOptions[0].latinName,
-            onTapped: () => onAnswerSelected(familyOptions[0]),
-          ),
-          CustomButton(
-            title: familyOptions[1].latinName,
-            onTapped: () => onAnswerSelected(familyOptions[1]),
-          ),
-        ]),
-        TableRow(children: [
-          CustomButton(
-            title: familyOptions[2].latinName,
-            onTapped: () => onAnswerSelected(familyOptions[2]),
-          ),
-          CustomButton(
-            title: familyOptions[3].latinName,
-            onTapped: () => onAnswerSelected(familyOptions[3]),
-          ),
-        ])
-      ],
-    );
+    return Table(children: _answerButtonList(familyOptions));
+  }
+
+  List<TableRow> _answerButtonList(List<Family> familyOptions) {
+    List<TableRow> rows = [];
+    rows.add(TableRow(children: [
+      CustomButton(
+        title: familyOptions[0].latinName,
+        onTapped: () => onAnswerSelected(familyOptions[0]),
+      ),
+      CustomButton(
+        title: familyOptions[1].latinName,
+        onTapped: () => onAnswerSelected(familyOptions[1]),
+      ),
+    ]));
+    if (familyOptions.length >= 4) {
+      rows.add(TableRow(children: [
+        CustomButton(
+          title: familyOptions[2].latinName,
+          onTapped: () => onAnswerSelected(familyOptions[2]),
+        ),
+        CustomButton(
+          title: familyOptions[3].latinName,
+          onTapped: () => onAnswerSelected(familyOptions[3]),
+        ),
+      ]));
+    }
+    return rows;
   }
 }

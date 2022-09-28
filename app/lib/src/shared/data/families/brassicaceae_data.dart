@@ -5,8 +5,8 @@ import '../species_data.dart';
 
 class BrassicaceaeData {
   static const _base = SpeciesData.baseImageUrl;
-  static final speciesList = [
-    const Species(
+  static const speciesList = [
+    Species(
       latinName: 'Cardamine pratensis',
       commonName: 'Cuckooflower',
       family: Family.brassicaceae,
@@ -15,7 +15,7 @@ class BrassicaceaeData {
         AttributedUrl(_base + 'cardamine_pratensis_2.jpg' , '© philippe_geniez (CC-BY-NC)'),
       ],
     ),
-    const Species(
+    Species(
       latinName: 'Allilaria petiolata',
       commonName: 'Garlic Mustard',
       family: Family.brassicaceae,
@@ -25,7 +25,7 @@ class BrassicaceaeData {
         AttributedUrl(_base + 'allilaria_petiolata_3.jpg', '© Сергей (CC-BY-NC)'),
       ],
     ),
-    const Species(
+    Species(
       latinName: 'Capsella bursa-pastoris',
       commonName: 'Shepherd’s-Purse',
       family: Family.brassicaceae,
@@ -35,7 +35,7 @@ class BrassicaceaeData {
         AttributedUrl(_base + 'capsella_bursapastoris_3.jpg', '© Andreas Stiller (CC-BY-NC)'),
       ],
     ),
-    const Species(
+    Species(
       latinName: 'Lunaria annua',
       commonName: 'Annual Honesty',
       family: Family.brassicaceae,
@@ -44,7 +44,7 @@ class BrassicaceaeData {
         AttributedUrl(_base + 'lunaria_annua_2.jpg', '© olekje (CC-BY-NC)'),
       ],
     ),
-    const Species(
+    Species(
       latinName: 'Cakile maritima',
       commonName: 'Searocket',
       family: Family.brassicaceae,

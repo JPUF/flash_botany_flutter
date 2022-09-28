@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
 import '../../../shared/extensions.dart';
-import '../../../shared/strings.dart';
 
 class BasicButton extends StatelessWidget {
   const BasicButton({
     Key? key,
+    required this.text,
     required this.onTap,
   }) : super(key: key);
 
+  final String text;
   final VoidCallback onTap;
 
   @override
@@ -20,7 +21,7 @@ class BasicButton extends StatelessWidget {
       child: Material(
         child: InkWell(
           onTap: onTap,
-          child: const HeroButtonContent(),
+          child: HeroButtonContent(text: text),
         ),
       ),
     );
@@ -28,7 +29,9 @@ class BasicButton extends StatelessWidget {
 }
 
 class HeroButtonContent extends StatelessWidget {
-  const HeroButtonContent({Key? key}) : super(key: key);
+  const HeroButtonContent({Key? key, required this.text}) : super(key: key);
+
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +42,7 @@ class HeroButtonContent extends StatelessWidget {
       alignment: AlignmentDirectional.center,
       color: colors.onInverseSurface,
       child: Text(
-        Strings.flowerCta,
+        text,
         textAlign: TextAlign.center,
         style: context.headlineSmall,
       ),

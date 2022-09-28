@@ -6,6 +6,7 @@ import '../features/family/family_screen.dart';
 import '../features/home/home_screen.dart';
 import '../features/morphology/morphology_screen.dart';
 import '../features/quiz/view/quiz_screen.dart';
+import 'data/species_data.dart';
 import 'destinations.dart';
 import 'models/family.dart';
 
@@ -52,7 +53,7 @@ final appRouter = GoRouter(
           if (kIsWeb) return child;
           return SlideTransition(position: anim.drive(_slide), child: child);
         },
-        child: const QuizScreen(),
+        child: QuizScreen(quizId: state.extra as QuizId),
       ),
     ),
     //MorphologyScreen

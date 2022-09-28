@@ -1,3 +1,4 @@
+import '../models/family.dart';
 import '../models/species.dart';
 import 'families/apiaceae_data.dart';
 import 'families/asteraceae_data.dart';
@@ -9,11 +10,11 @@ import 'families/lamiaceae_data.dart';
 import 'families/rosaceae_data.dart';
 
 class SpeciesData {
-  static const allowCORSEndPoint = 'https://api.allorigins.win/raw?url=';
+  static const _allowCORSEndPoint = 'https://api.allorigins.win/raw?url=';
   static const baseImageUrl =
-      allowCORSEndPoint + 'https://f003.backblazeb2.com/file/prompt-images/';
+      _allowCORSEndPoint + 'https://f003.backblazeb2.com/file/prompt-images/';
 
-  static final List<Species> allSpecies = [
+  static const List<Species> allSpecies = [
     ...AsteraceaeData.speciesList,
     ...BrassicaceaeData.speciesList,
     ...ApiaceaeData.speciesList,
@@ -23,4 +24,31 @@ class SpeciesData {
     ...LamiaceaeData.speciesList,
     ...RosaceaeData.speciesList,
   ];
+
+  static const List<Species> asteraceaeRosaceae = [
+    ...AsteraceaeData.speciesList,
+    ...RosaceaeData.speciesList,
+  ];
+
+  static const List<Species> brassicaceaeLamiaceae = [
+    ...BrassicaceaeData.speciesList,
+    ...LamiaceaeData.speciesList,
+  ];
+}
+
+enum QuizId {
+  all(Family.values, SpeciesData.allSpecies),
+  asteraceaeRosaceae(
+    [Family.asteraceae, Family.rosaceae],
+    SpeciesData.asteraceaeRosaceae,
+  ),
+  brassicaceaeLamiaceae(
+    [Family.brassicaceae, Family.lamiaceae],
+    SpeciesData.brassicaceaeLamiaceae,
+  );
+
+  final List<Family> familySet;
+  final List<Species> speciesSet;
+
+  const QuizId(this.familySet, this.speciesSet);
 }

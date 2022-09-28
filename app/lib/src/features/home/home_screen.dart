@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../shared/data/species_data.dart';
 import '../../shared/destinations.dart';
 import '../../shared/extensions.dart';
 import '../../shared/models/family.dart';
@@ -53,14 +54,29 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
         shrinkWrap: true,
         children: [
           PlatformSized(
-            child: BasicButton(onTap: () {
-              GoRouter.of(context).push(Destination.morphology.path);
-            }),
+            child: BasicButton(
+                text: Strings.flowerCta,
+                onTap: () {
+                  GoRouter.of(context).push(Destination.morphology.path);
+                }),
           ),
           PlatformSized(
-            child: HeroQuizButton(onTap: () {
-              GoRouter.of(context).push(Destination.quiz.path);
-            }),
+            child: HeroQuizButton(
+              onTap: () => _toQuiz(QuizId.all),
+            ),
+          ),
+          const SizedBox(height: 32),
+          PlatformSized(
+            child: BasicButton(
+              text: Strings.lessonAsteraceaeRosaceae,
+              onTap: () => _toQuiz(QuizId.asteraceaeRosaceae),
+            ),
+          ),
+          PlatformSized(
+            child: BasicButton(
+              text: Strings.lessonBrassicaceaeLamiaceae,
+              onTap: () => _toQuiz(QuizId.brassicaceaeLamiaceae),
+            ),
           ),
           const SizedBox(height: 32),
           PlatformSized(child: _familySearchField()),
@@ -100,7 +116,7 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
     if (families.isEmpty) {
       rows.add(TableRow(children: [
         Text(
-          'No search results',
+          Strings.familySearchNoResults,
           style: context.bodyLarge,
           textAlign: TextAlign.center,
         )
@@ -122,5 +138,9 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
         .where(
             (f) => f.latinName.toLowerCase().contains(searchTerm.toLowerCase()))
         .toList();
+  }
+
+  void _toQuiz(QuizId quizId) {
+    GoRouter.of(context).push(Destination.quiz.path, extra: quizId);
   }
 }
