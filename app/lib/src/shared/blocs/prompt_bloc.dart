@@ -45,10 +45,10 @@ class PromptBloc extends Bloc<PromptEvent, PromptState> {
   }
 
   List<Family> _getFamilyOptions(QuizId quizId, Family correctFamily) {
-    List<Family> remainingFamilies = quizId.familySet.toList();
-    remainingFamilies.remove(correctFamily);
-    remainingFamilies.shuffle();
-    remainingFamilies.take(min(quizId.familySet.length, 3)).toList();
+    List<Family> allFamilies = quizId.familySet.toList();
+    allFamilies.remove(correctFamily);
+    allFamilies.shuffle();
+    List<Family> remainingFamilies = allFamilies.take(min(quizId.familySet.length, 3)).toList();
     remainingFamilies.add(correctFamily);
     remainingFamilies.shuffle();
 
