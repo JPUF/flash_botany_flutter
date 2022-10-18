@@ -11,8 +11,8 @@ class LamiaceaeData {
       commonName: 'Red Deadnettle',
       family: Family.lamiaceae,
       images: [
-        AttributedUrl(_base + 'lamium_purpureum_1.jpg', '© Douglas Goldman (CC-BY-NC)'),
-        AttributedUrl(_base + 'lamium_purpureum_2.jpg', '© Сергей Крыленко (CC-BY-NC)'),
+        AttributedUrl(url: _base + 'lamium_purpureum_1.jpg', attribution: '© Douglas Goldman (CC-BY-NC)'),
+        AttributedUrl(url: _base + 'lamium_purpureum_2.jpg', attribution: '© Сергей Крыленко (CC-BY-NC)'),
       ],
     ),
     Species(
@@ -20,8 +20,8 @@ class LamiaceaeData {
       commonName: 'Betony',
       family: Family.lamiaceae,
       images: [
-        AttributedUrl(_base + 'betonica_officinalis_1.jpg', '© carlobraunert (CC-BY-NC)'),
-        AttributedUrl(_base + 'betonica_officinalis_2.jpg', '© ahmedm (CC-BY-NC)'),
+        AttributedUrl(url: _base + 'betonica_officinalis_1.jpg', attribution: '© carlobraunert (CC-BY-NC)'),
+        AttributedUrl(url: _base + 'betonica_officinalis_2.jpg', attribution: '© ahmedm (CC-BY-NC)'),
       ],
     ),
     Species(
@@ -29,8 +29,8 @@ class LamiaceaeData {
       commonName: 'Large-flowered Hemp-Nettle',
       family: Family.lamiaceae,
       images: [
-        AttributedUrl(_base + 'galeopsis_speciosa_1.jpg', '© Jakob Fahr (CC-BY-NC)'),
-        AttributedUrl(_base + 'galeopsis_speciosa_2.jpg', '© tomschnee (CC-BY-NC)'),
+        AttributedUrl(url: _base + 'galeopsis_speciosa_1.jpg', attribution: '© Jakob Fahr (CC-BY-NC)'),
+        AttributedUrl(url: _base + 'galeopsis_speciosa_2.jpg', attribution: '© tomschnee (CC-BY-NC)'),
       ],
     ),
     Species(
@@ -38,9 +38,9 @@ class LamiaceaeData {
       commonName: 'Wild Basil',
       family: Family.lamiaceae,
       images: [
-        AttributedUrl(_base + 'clinopodium_vulgare_1.jpg', '© Nils N (CC-BY-NC)'),
-        AttributedUrl(_base + 'clinopodium_vulgare_2.jpg', '© sblumen (CC-BY-NC)'),
-        AttributedUrl(_base + 'clinopodium_vulgare_3.jpg', '© Иван Матершев (CC-BY-NC)'),
+        AttributedUrl(url: _base + 'clinopodium_vulgare_1.jpg', attribution: '© Nils N (CC-BY-NC)'),
+        AttributedUrl(url: _base + 'clinopodium_vulgare_2.jpg', attribution: '© sblumen (CC-BY-NC)'),
+        AttributedUrl(url: _base + 'clinopodium_vulgare_3.jpg', attribution: '© Иван Матершев (CC-BY-NC)'),
       ],
     ),
     Species(
@@ -48,8 +48,8 @@ class LamiaceaeData {
       commonName: 'Lemon Balm',
       family: Family.lamiaceae,
       images: [
-        AttributedUrl(_base + 'melissa_officinalis_1.jpg', '© James Bailey (CC-BY-NC)'),
-        AttributedUrl(_base + 'melissa_officinalis_2.jpg', '© Andrey Danilin (CC-BY-NC)'),
+        AttributedUrl(url: _base + 'melissa_officinalis_1.jpg', attribution: '© James Bailey (CC-BY-NC)'),
+        AttributedUrl(url: _base + 'melissa_officinalis_2.jpg', attribution: '© Andrey Danilin (CC-BY-NC)'),
       ],
     ),
   ];

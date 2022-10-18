@@ -11,9 +11,9 @@ class FabaceaeData {
       commonName: 'Common Bird’s-foot Trefoil',
       family: Family.fabaceae,
       images: [
-        AttributedUrl(_base + 'lotus_corniculatus_1.jpg', '© Martin A. Prinz (CC-BY-NC)'),
-        AttributedUrl(_base + 'lotus_corniculatus_2.jpg', '© jansson (CC-BY-NC)'),
-        AttributedUrl(_base + 'lotus_corniculatus_3.jpg', '© Jane Tatlock (CC-BY-NC)'),
+        AttributedUrl(url: _base + 'lotus_corniculatus_1.jpg', attribution: '© Martin A. Prinz (CC-BY-NC)'),
+        AttributedUrl(url: _base + 'lotus_corniculatus_2.jpg', attribution: '© jansson (CC-BY-NC)'),
+        AttributedUrl(url: _base + 'lotus_corniculatus_3.jpg', attribution: '© Jane Tatlock (CC-BY-NC)'),
       ],
     ),
     Species(
@@ -21,8 +21,8 @@ class FabaceaeData {
       commonName: 'Red Clover',
       family: Family.fabaceae,
       images: [
-        AttributedUrl(_base + 'trifolium_pratense_1.jpg', '© Peter Jessen (CC-BY-NC)'),
-        AttributedUrl(_base + 'trifolium_pratense_2.jpg', '© Javier Peralta de Andrés (CC-BY-NC)'),
+        AttributedUrl(url: _base + 'trifolium_pratense_1.jpg', attribution: '© Peter Jessen (CC-BY-NC)'),
+        AttributedUrl(url: _base + 'trifolium_pratense_2.jpg', attribution: '© Javier Peralta de Andrés (CC-BY-NC)'),
       ],
     ),
     Species(
@@ -30,9 +30,9 @@ class FabaceaeData {
       commonName: 'Common Vetch',
       family: Family.fabaceae,
       images: [
-        AttributedUrl(_base + 'vicia_sativa_1.jpg', '© Papageorgiou Nikolaos (CC-BY-NC)'),
-        AttributedUrl(_base + 'vicia_sativa_2.jpg', '© Emily Scherer (CC-BY-NC)'),
-        AttributedUrl(_base + 'vicia_sativa_3.jpg', '© Linda Jo Conn (CC-BY-NC)'),
+        AttributedUrl(url: _base + 'vicia_sativa_1.jpg', attribution: '© Papageorgiou Nikolaos (CC-BY-NC)'),
+        AttributedUrl(url: _base + 'vicia_sativa_2.jpg', attribution: '© Emily Scherer (CC-BY-NC)'),
+        AttributedUrl(url: _base + 'vicia_sativa_3.jpg', attribution: '© Linda Jo Conn (CC-BY-NC)'),
       ],
     ),
     Species(
@@ -40,8 +40,8 @@ class FabaceaeData {
       commonName: 'Broom',
       family: Family.fabaceae,
       images: [
-        AttributedUrl(_base + 'cytisus_scoparius_1.jpg', '© kelseya (CC-BY-NC)'),
-        AttributedUrl(_base + 'cytisus_scoparius_2.jpg', '© Chris Nelson (CC-BY-NC)'),
+        AttributedUrl(url: _base + 'cytisus_scoparius_1.jpg', attribution: '© kelseya (CC-BY-NC)'),
+        AttributedUrl(url: _base + 'cytisus_scoparius_2.jpg', attribution: '© Chris Nelson (CC-BY-NC)'),
       ],
     ),
     Species(
@@ -49,8 +49,8 @@ class FabaceaeData {
       commonName: 'Common Restharrow',
       family: Family.fabaceae,
       images: [
-        AttributedUrl(_base + 'ononis_repens_1.jpg', '© A Emmerson (CC-BY-NC)'),
-        AttributedUrl(_base + 'ononis_repens_2.jpg', '© Janice Sutton (CC-BY-NC)'),
+        AttributedUrl(url: _base + 'ononis_repens_1.jpg', attribution: '© A Emmerson (CC-BY-NC)'),
+        AttributedUrl(url: _base + 'ononis_repens_2.jpg', attribution: '© Janice Sutton (CC-BY-NC)'),
       ],
     ),
   ];

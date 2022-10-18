@@ -4,6 +4,7 @@ import 'attributed_url.dart';
 import 'family.dart';
 
 part 'species.freezed.dart';
+part 'species.g.dart';
 
 @Freezed()
 class Species with _$Species {
@@ -13,4 +14,6 @@ class Species with _$Species {
     required Family family,
     required List<AttributedUrl> images,
   }) = _Species;
+
+  factory Species.fromJson(Map<String, Object?> json) => _$SpeciesFromJson(json);
 }

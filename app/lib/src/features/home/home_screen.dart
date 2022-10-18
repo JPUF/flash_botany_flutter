@@ -11,6 +11,7 @@ import '../../shared/views/custom_app_bar.dart';
 import 'components/basic_button.dart';
 import 'components/family_button.dart';
 import 'components/hero_quiz_button.dart';
+import 'components/lesson_section.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -66,18 +67,7 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
             ),
           ),
           const SizedBox(height: 32),
-          PlatformSized(
-            child: BasicButton(
-              text: Strings.lessonAsteraceaeRosaceae,
-              onTap: () => _toQuiz(QuizId.asteraceaeRosaceae),
-            ),
-          ),
-          PlatformSized(
-            child: BasicButton(
-              text: Strings.lessonBrassicaceaeLamiaceae,
-              onTap: () => _toQuiz(QuizId.brassicaceaeLamiaceae),
-            ),
-          ),
+          LessonSection(),
           const SizedBox(height: 32),
           PlatformSized(child: _familySearchField()),
           const SizedBox(height: 16),

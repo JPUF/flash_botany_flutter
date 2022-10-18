@@ -11,9 +11,9 @@ class AsteraceaeData {
       commonName: 'Daisy',
       family: Family.asteraceae,
       images: [
-        AttributedUrl(_base + 'bellis_perennis_1.jpg', 'Jürgen Schimmitat, bayernflora.de'),
-        AttributedUrl(_base + 'bellis_perennis_2.jpg', 'Jürgen Schimmitat, bayernflora.de'),
-        AttributedUrl(_base + 'bellis_perennis_3.jpg', 'Paulo Ventura Araújo, flora-on.pt'),
+        AttributedUrl(url: _base + 'bellis_perennis_1.jpg', attribution: 'Jürgen Schimmitat, bayernflora.de'),
+        AttributedUrl(url: _base + 'bellis_perennis_2.jpg', attribution: 'Jürgen Schimmitat, bayernflora.de'),
+        AttributedUrl(url: _base + 'bellis_perennis_3.jpg', attribution: 'Paulo Ventura Araújo, flora-on.pt'),
       ],
     ),
     Species(
@@ -21,9 +21,9 @@ class AsteraceaeData {
       commonName: 'Ragwort',
       family: Family.asteraceae,
       images: [
-        AttributedUrl(_base + 'jacobaea_vulgaris_1.jpg', 'commons.wikimedia.org/wiki/User:Strobilomyces'),
-        AttributedUrl(_base + 'jacobaea_vulgaris_2.jpg'),
-        AttributedUrl(_base + 'jacobaea_vulgaris_3.jpg', 'commons.wikimedia.org/wiki/User:Julia_W'),
+        AttributedUrl(url: _base + 'jacobaea_vulgaris_1.jpg', attribution: 'commons.wikimedia.org/wiki/User:Strobilomyces'),
+        AttributedUrl(url: _base + 'jacobaea_vulgaris_2.jpg', attribution: null),
+        AttributedUrl(url: _base + 'jacobaea_vulgaris_3.jpg', attribution: 'commons.wikimedia.org/wiki/User:Julia_W'),
       ],
     ),
     Species(
@@ -31,9 +31,9 @@ class AsteraceaeData {
       commonName: 'Chicory',
       family: Family.asteraceae,
       images: [
-        AttributedUrl(_base + 'cichorium_intybus_1.jpg', '© Anthony Zammit (CC-BY-NC)'),
-        AttributedUrl(_base + 'cichorium_intybus_2.jpg', '© igor_olshanskyi (CC-BY-NC)'),
-        AttributedUrl(_base + 'cichorium_intybus_3.jpg', '© nhunterjr (CC-BY-NC)'),
+        AttributedUrl(url: _base + 'cichorium_intybus_1.jpg', attribution: '© Anthony Zammit (CC-BY-NC)'),
+        AttributedUrl(url: _base + 'cichorium_intybus_2.jpg', attribution: '© igor_olshanskyi (CC-BY-NC)'),
+        AttributedUrl(url: _base + 'cichorium_intybus_3.jpg', attribution: '© nhunterjr (CC-BY-NC)'),
       ],
     ),
     Species(
@@ -41,9 +41,9 @@ class AsteraceaeData {
       commonName: 'Colt’s Foot',
       family: Family.asteraceae,
       images: [
-        AttributedUrl(_base + 'tussilago_farfara_1.jpg', '© lydwin, some rights reserved (CC-BY-NC)'),
-        AttributedUrl(_base + 'tussilago_farfara_2.jpg', '© eliegaget (CC-BY-NC)'),
-        AttributedUrl(_base + 'tussilago_farfara_3.jpg', '© Peter Jessen (CC-BY-NC)'),
+        AttributedUrl(url: _base + 'tussilago_farfara_1.jpg', attribution: '© lydwin, some rights reserved (CC-BY-NC)'),
+        AttributedUrl(url: _base + 'tussilago_farfara_2.jpg', attribution: '© eliegaget (CC-BY-NC)'),
+        AttributedUrl(url: _base + 'tussilago_farfara_3.jpg', attribution: '© Peter Jessen (CC-BY-NC)'),
       ],
     ),
     Species(
@@ -51,8 +51,8 @@ class AsteraceaeData {
       commonName: 'Fox-and-Cubs',
       family: Family.asteraceae,
       images: [
-        AttributedUrl(_base + 'pilosella_aurantica_1.jpg', '© Andrea Kreuzhage (CC-BY-NC)'),
-        AttributedUrl(_base + 'pilosella_aurantica_2.jpg', '© Andrea Kreuzhage (CC-BY-NC)'),
+        AttributedUrl(url: _base + 'pilosella_aurantica_1.jpg', attribution: '© Andrea Kreuzhage (CC-BY-NC)'),
+        AttributedUrl(url: _base + 'pilosella_aurantica_2.jpg', attribution: '© Andrea Kreuzhage (CC-BY-NC)'),
       ],
     )
   ];
