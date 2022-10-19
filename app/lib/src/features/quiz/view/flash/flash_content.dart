@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../shared/blocs/prompt_bloc.dart';
-import '../../../../shared/data/species_data.dart';
 import '../../../../shared/extensions.dart';
 import '../../../../shared/models/family.dart';
+import '../../../../shared/models/lesson.dart';
 import '../../../../shared/models/species.dart';
 import 'answer_options.dart';
 import 'feedback_container.dart';
@@ -54,10 +54,10 @@ class _FlashContentState extends State<FlashContent> {
 
   void onNext(Species? currentSpecies) {
     setState(() => _isAnswering = true);
-    final QuizId? localQuizId = widget.promptState.quizId;
-    if (localQuizId != null) {
+    final Lesson? localLesson = widget.promptState.lesson;
+    if (localLesson != null) {
       BlocProvider.of<PromptBloc>(context).add(PromptEvent.nextPrompt(
-        localQuizId,
+        localLesson,
         currentSpecies,
       ));
     }

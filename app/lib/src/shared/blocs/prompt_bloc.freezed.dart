@@ -18,19 +18,19 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$PromptEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(QuizId quizId, Species? prevSpecies) nextPrompt,
+    required TResult Function(Lesson lesson, Species? prevSpecies) nextPrompt,
     required TResult Function(Family selectedFamily) getFeedback,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(QuizId quizId, Species? prevSpecies)? nextPrompt,
+    TResult Function(Lesson lesson, Species? prevSpecies)? nextPrompt,
     TResult Function(Family selectedFamily)? getFeedback,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(QuizId quizId, Species? prevSpecies)? nextPrompt,
+    TResult Function(Lesson lesson, Species? prevSpecies)? nextPrompt,
     TResult Function(Family selectedFamily)? getFeedback,
     required TResult orElse(),
   }) =>
@@ -77,8 +77,9 @@ abstract class _$$NextPromptCopyWith<$Res> {
   factory _$$NextPromptCopyWith(
           _$NextPrompt value, $Res Function(_$NextPrompt) then) =
       __$$NextPromptCopyWithImpl<$Res>;
-  $Res call({QuizId quizId, Species? prevSpecies});
+  $Res call({Lesson lesson, Species? prevSpecies});
 
+  $LessonCopyWith<$Res> get lesson;
   $SpeciesCopyWith<$Res>? get prevSpecies;
 }
 
@@ -94,19 +95,26 @@ class __$$NextPromptCopyWithImpl<$Res> extends _$PromptEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? quizId = freezed,
+    Object? lesson = freezed,
     Object? prevSpecies = freezed,
   }) {
     return _then(_$NextPrompt(
-      quizId == freezed
-          ? _value.quizId
-          : quizId // ignore: cast_nullable_to_non_nullable
-              as QuizId,
+      lesson == freezed
+          ? _value.lesson
+          : lesson // ignore: cast_nullable_to_non_nullable
+              as Lesson,
       prevSpecies == freezed
           ? _value.prevSpecies
           : prevSpecies // ignore: cast_nullable_to_non_nullable
               as Species?,
     ));
+  }
+
+  @override
+  $LessonCopyWith<$Res> get lesson {
+    return $LessonCopyWith<$Res>(_value.lesson, (value) {
+      return _then(_value.copyWith(lesson: value));
+    });
   }
 
   @override
@@ -124,16 +132,16 @@ class __$$NextPromptCopyWithImpl<$Res> extends _$PromptEventCopyWithImpl<$Res>
 /// @nodoc
 
 class _$NextPrompt implements NextPrompt {
-  const _$NextPrompt(this.quizId, this.prevSpecies);
+  const _$NextPrompt(this.lesson, this.prevSpecies);
 
   @override
-  final QuizId quizId;
+  final Lesson lesson;
   @override
   final Species? prevSpecies;
 
   @override
   String toString() {
-    return 'PromptEvent.nextPrompt(quizId: $quizId, prevSpecies: $prevSpecies)';
+    return 'PromptEvent.nextPrompt(lesson: $lesson, prevSpecies: $prevSpecies)';
   }
 
   @override
@@ -141,7 +149,7 @@ class _$NextPrompt implements NextPrompt {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$NextPrompt &&
-            const DeepCollectionEquality().equals(other.quizId, quizId) &&
+            const DeepCollectionEquality().equals(other.lesson, lesson) &&
             const DeepCollectionEquality()
                 .equals(other.prevSpecies, prevSpecies));
   }
@@ -149,7 +157,7 @@ class _$NextPrompt implements NextPrompt {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(quizId),
+      const DeepCollectionEquality().hash(lesson),
       const DeepCollectionEquality().hash(prevSpecies));
 
   @JsonKey(ignore: true)
@@ -160,30 +168,30 @@ class _$NextPrompt implements NextPrompt {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(QuizId quizId, Species? prevSpecies) nextPrompt,
+    required TResult Function(Lesson lesson, Species? prevSpecies) nextPrompt,
     required TResult Function(Family selectedFamily) getFeedback,
   }) {
-    return nextPrompt(quizId, prevSpecies);
+    return nextPrompt(lesson, prevSpecies);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(QuizId quizId, Species? prevSpecies)? nextPrompt,
+    TResult Function(Lesson lesson, Species? prevSpecies)? nextPrompt,
     TResult Function(Family selectedFamily)? getFeedback,
   }) {
-    return nextPrompt?.call(quizId, prevSpecies);
+    return nextPrompt?.call(lesson, prevSpecies);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(QuizId quizId, Species? prevSpecies)? nextPrompt,
+    TResult Function(Lesson lesson, Species? prevSpecies)? nextPrompt,
     TResult Function(Family selectedFamily)? getFeedback,
     required TResult orElse(),
   }) {
     if (nextPrompt != null) {
-      return nextPrompt(quizId, prevSpecies);
+      return nextPrompt(lesson, prevSpecies);
     }
     return orElse();
   }
@@ -221,10 +229,10 @@ class _$NextPrompt implements NextPrompt {
 }
 
 abstract class NextPrompt implements PromptEvent {
-  const factory NextPrompt(final QuizId quizId, final Species? prevSpecies) =
+  const factory NextPrompt(final Lesson lesson, final Species? prevSpecies) =
       _$NextPrompt;
 
-  QuizId get quizId;
+  Lesson get lesson;
   Species? get prevSpecies;
   @JsonKey(ignore: true)
   _$$NextPromptCopyWith<_$NextPrompt> get copyWith =>
@@ -296,7 +304,7 @@ class _$GetFeedback implements GetFeedback {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(QuizId quizId, Species? prevSpecies) nextPrompt,
+    required TResult Function(Lesson lesson, Species? prevSpecies) nextPrompt,
     required TResult Function(Family selectedFamily) getFeedback,
   }) {
     return getFeedback(selectedFamily);
@@ -305,7 +313,7 @@ class _$GetFeedback implements GetFeedback {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(QuizId quizId, Species? prevSpecies)? nextPrompt,
+    TResult Function(Lesson lesson, Species? prevSpecies)? nextPrompt,
     TResult Function(Family selectedFamily)? getFeedback,
   }) {
     return getFeedback?.call(selectedFamily);
@@ -314,7 +322,7 @@ class _$GetFeedback implements GetFeedback {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(QuizId quizId, Species? prevSpecies)? nextPrompt,
+    TResult Function(Lesson lesson, Species? prevSpecies)? nextPrompt,
     TResult Function(Family selectedFamily)? getFeedback,
     required TResult orElse(),
   }) {
@@ -369,7 +377,7 @@ abstract class GetFeedback implements PromptEvent {
 mixin _$PromptState {
   Species? get promptSpecies => throw _privateConstructorUsedError;
   List<Family>? get familyOptions => throw _privateConstructorUsedError;
-  QuizId? get quizId => throw _privateConstructorUsedError;
+  Lesson? get lesson => throw _privateConstructorUsedError;
   bool? get correct => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -385,10 +393,11 @@ abstract class $PromptStateCopyWith<$Res> {
   $Res call(
       {Species? promptSpecies,
       List<Family>? familyOptions,
-      QuizId? quizId,
+      Lesson? lesson,
       bool? correct});
 
   $SpeciesCopyWith<$Res>? get promptSpecies;
+  $LessonCopyWith<$Res>? get lesson;
 }
 
 /// @nodoc
@@ -403,7 +412,7 @@ class _$PromptStateCopyWithImpl<$Res> implements $PromptStateCopyWith<$Res> {
   $Res call({
     Object? promptSpecies = freezed,
     Object? familyOptions = freezed,
-    Object? quizId = freezed,
+    Object? lesson = freezed,
     Object? correct = freezed,
   }) {
     return _then(_value.copyWith(
@@ -415,10 +424,10 @@ class _$PromptStateCopyWithImpl<$Res> implements $PromptStateCopyWith<$Res> {
           ? _value.familyOptions
           : familyOptions // ignore: cast_nullable_to_non_nullable
               as List<Family>?,
-      quizId: quizId == freezed
-          ? _value.quizId
-          : quizId // ignore: cast_nullable_to_non_nullable
-              as QuizId?,
+      lesson: lesson == freezed
+          ? _value.lesson
+          : lesson // ignore: cast_nullable_to_non_nullable
+              as Lesson?,
       correct: correct == freezed
           ? _value.correct
           : correct // ignore: cast_nullable_to_non_nullable
@@ -436,6 +445,17 @@ class _$PromptStateCopyWithImpl<$Res> implements $PromptStateCopyWith<$Res> {
       return _then(_value.copyWith(promptSpecies: value));
     });
   }
+
+  @override
+  $LessonCopyWith<$Res>? get lesson {
+    if (_value.lesson == null) {
+      return null;
+    }
+
+    return $LessonCopyWith<$Res>(_value.lesson!, (value) {
+      return _then(_value.copyWith(lesson: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -448,11 +468,13 @@ abstract class _$$_PromptStateCopyWith<$Res>
   $Res call(
       {Species? promptSpecies,
       List<Family>? familyOptions,
-      QuizId? quizId,
+      Lesson? lesson,
       bool? correct});
 
   @override
   $SpeciesCopyWith<$Res>? get promptSpecies;
+  @override
+  $LessonCopyWith<$Res>? get lesson;
 }
 
 /// @nodoc
@@ -469,7 +491,7 @@ class __$$_PromptStateCopyWithImpl<$Res> extends _$PromptStateCopyWithImpl<$Res>
   $Res call({
     Object? promptSpecies = freezed,
     Object? familyOptions = freezed,
-    Object? quizId = freezed,
+    Object? lesson = freezed,
     Object? correct = freezed,
   }) {
     return _then(_$_PromptState(
@@ -481,10 +503,10 @@ class __$$_PromptStateCopyWithImpl<$Res> extends _$PromptStateCopyWithImpl<$Res>
           ? _value._familyOptions
           : familyOptions // ignore: cast_nullable_to_non_nullable
               as List<Family>?,
-      quizId: quizId == freezed
-          ? _value.quizId
-          : quizId // ignore: cast_nullable_to_non_nullable
-              as QuizId?,
+      lesson: lesson == freezed
+          ? _value.lesson
+          : lesson // ignore: cast_nullable_to_non_nullable
+              as Lesson?,
       correct: correct == freezed
           ? _value.correct
           : correct // ignore: cast_nullable_to_non_nullable
@@ -499,7 +521,7 @@ class _$_PromptState implements _PromptState {
   const _$_PromptState(
       {this.promptSpecies = null,
       final List<Family>? familyOptions = null,
-      this.quizId = null,
+      this.lesson = null,
       this.correct = null})
       : _familyOptions = familyOptions;
 
@@ -518,14 +540,14 @@ class _$_PromptState implements _PromptState {
 
   @override
   @JsonKey()
-  final QuizId? quizId;
+  final Lesson? lesson;
   @override
   @JsonKey()
   final bool? correct;
 
   @override
   String toString() {
-    return 'PromptState(promptSpecies: $promptSpecies, familyOptions: $familyOptions, quizId: $quizId, correct: $correct)';
+    return 'PromptState(promptSpecies: $promptSpecies, familyOptions: $familyOptions, lesson: $lesson, correct: $correct)';
   }
 
   @override
@@ -537,7 +559,7 @@ class _$_PromptState implements _PromptState {
                 .equals(other.promptSpecies, promptSpecies) &&
             const DeepCollectionEquality()
                 .equals(other._familyOptions, _familyOptions) &&
-            const DeepCollectionEquality().equals(other.quizId, quizId) &&
+            const DeepCollectionEquality().equals(other.lesson, lesson) &&
             const DeepCollectionEquality().equals(other.correct, correct));
   }
 
@@ -546,7 +568,7 @@ class _$_PromptState implements _PromptState {
       runtimeType,
       const DeepCollectionEquality().hash(promptSpecies),
       const DeepCollectionEquality().hash(_familyOptions),
-      const DeepCollectionEquality().hash(quizId),
+      const DeepCollectionEquality().hash(lesson),
       const DeepCollectionEquality().hash(correct));
 
   @JsonKey(ignore: true)
@@ -559,7 +581,7 @@ abstract class _PromptState implements PromptState {
   const factory _PromptState(
       {final Species? promptSpecies,
       final List<Family>? familyOptions,
-      final QuizId? quizId,
+      final Lesson? lesson,
       final bool? correct}) = _$_PromptState;
 
   @override
@@ -567,7 +589,7 @@ abstract class _PromptState implements PromptState {
   @override
   List<Family>? get familyOptions;
   @override
-  QuizId? get quizId;
+  Lesson? get lesson;
   @override
   bool? get correct;
   @override

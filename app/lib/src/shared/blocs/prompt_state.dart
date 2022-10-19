@@ -5,7 +5,7 @@ class PromptState with _$PromptState {
   const factory PromptState({
     @Default(null) Species? promptSpecies,
     @Default(null) List<Family>? familyOptions,
-    @Default(null) QuizId? quizId,
+    @Default(null) Lesson? lesson,
     @Default(null) bool? correct
   }) = _PromptState;
 
