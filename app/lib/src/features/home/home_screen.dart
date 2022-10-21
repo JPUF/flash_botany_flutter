@@ -64,7 +64,7 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
           ),
           PlatformSized(
             child: HeroQuizButton(
-              onTap: () => _toQuiz(LessonData.allSpeciesLesson),
+              onTap: () => _toQuiz(LessonData.lessons.first),
             ),
           ),
           const SizedBox(height: 32),

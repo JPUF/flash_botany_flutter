@@ -4,13 +4,12 @@ import '../strings.dart';
 import 'species_data.dart';
 
 class LessonData {
-  static const allSpeciesLesson = Lesson(
-    title: Strings.heroCta,
-    familySet: Family.values,
-    speciesSet: SpeciesData.allSpecies,
-  );
-
   static const List<Lesson> lessons = [
+    Lesson(
+      title: Strings.heroCta,
+      familySet: Family.values,
+      speciesSet: SpeciesData.allSpecies,
+    ),
     Lesson(
       title: Strings.lessonAsteraceaeRosaceae,
       familySet: [Family.asteraceae, Family.rosaceae],

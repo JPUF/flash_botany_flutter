@@ -49,7 +49,10 @@ class _FlashContentState extends State<FlashContent> {
 
   void onAnswerSelected(Family family) {
     setState(() => _isAnswering = false);
-    BlocProvider.of<PromptBloc>(context).add(PromptEvent.getFeedback(family));
+    final lesson = widget.promptState.lesson;
+    if (lesson == null) return;
+    BlocProvider.of<PromptBloc>(context)
+        .add(PromptEvent.getFeedback(lesson, family));
   }
 
   void onNext(Species? currentSpecies) {

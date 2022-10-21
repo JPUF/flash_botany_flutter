@@ -423,6 +423,7 @@ mixin _$PromptState {
   List<Family>? get familyOptions => throw _privateConstructorUsedError;
   Lesson? get lesson => throw _privateConstructorUsedError;
   bool? get correct => throw _privateConstructorUsedError;
+  int get progression => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PromptStateCopyWith<PromptState> get copyWith =>
@@ -438,7 +439,8 @@ abstract class $PromptStateCopyWith<$Res> {
       {Species? promptSpecies,
       List<Family>? familyOptions,
       Lesson? lesson,
-      bool? correct});
+      bool? correct,
+      int progression});
 
   $SpeciesCopyWith<$Res>? get promptSpecies;
   $LessonCopyWith<$Res>? get lesson;
@@ -458,6 +460,7 @@ class _$PromptStateCopyWithImpl<$Res> implements $PromptStateCopyWith<$Res> {
     Object? familyOptions = freezed,
     Object? lesson = freezed,
     Object? correct = freezed,
+    Object? progression = freezed,
   }) {
     return _then(_value.copyWith(
       promptSpecies: promptSpecies == freezed
@@ -476,6 +479,10 @@ class _$PromptStateCopyWithImpl<$Res> implements $PromptStateCopyWith<$Res> {
           ? _value.correct
           : correct // ignore: cast_nullable_to_non_nullable
               as bool?,
+      progression: progression == freezed
+          ? _value.progression
+          : progression // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 
@@ -513,7 +520,8 @@ abstract class _$$_PromptStateCopyWith<$Res>
       {Species? promptSpecies,
       List<Family>? familyOptions,
       Lesson? lesson,
-      bool? correct});
+      bool? correct,
+      int progression});
 
   @override
   $SpeciesCopyWith<$Res>? get promptSpecies;
@@ -537,6 +545,7 @@ class __$$_PromptStateCopyWithImpl<$Res> extends _$PromptStateCopyWithImpl<$Res>
     Object? familyOptions = freezed,
     Object? lesson = freezed,
     Object? correct = freezed,
+    Object? progression = freezed,
   }) {
     return _then(_$_PromptState(
       promptSpecies: promptSpecies == freezed
@@ -555,6 +564,10 @@ class __$$_PromptStateCopyWithImpl<$Res> extends _$PromptStateCopyWithImpl<$Res>
           ? _value.correct
           : correct // ignore: cast_nullable_to_non_nullable
               as bool?,
+      progression: progression == freezed
+          ? _value.progression
+          : progression // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -566,7 +579,8 @@ class _$_PromptState implements _PromptState {
       {this.promptSpecies = null,
       final List<Family>? familyOptions = null,
       this.lesson = null,
-      this.correct = null})
+      this.correct = null,
+      this.progression = 0})
       : _familyOptions = familyOptions;
 
   @override
@@ -588,10 +602,13 @@ class _$_PromptState implements _PromptState {
   @override
   @JsonKey()
   final bool? correct;
+  @override
+  @JsonKey()
+  final int progression;
 
   @override
   String toString() {
-    return 'PromptState(promptSpecies: $promptSpecies, familyOptions: $familyOptions, lesson: $lesson, correct: $correct)';
+    return 'PromptState(promptSpecies: $promptSpecies, familyOptions: $familyOptions, lesson: $lesson, correct: $correct, progression: $progression)';
   }
 
   @override
@@ -604,7 +621,9 @@ class _$_PromptState implements _PromptState {
             const DeepCollectionEquality()
                 .equals(other._familyOptions, _familyOptions) &&
             const DeepCollectionEquality().equals(other.lesson, lesson) &&
-            const DeepCollectionEquality().equals(other.correct, correct));
+            const DeepCollectionEquality().equals(other.correct, correct) &&
+            const DeepCollectionEquality()
+                .equals(other.progression, progression));
   }
 
   @override
@@ -613,7 +632,8 @@ class _$_PromptState implements _PromptState {
       const DeepCollectionEquality().hash(promptSpecies),
       const DeepCollectionEquality().hash(_familyOptions),
       const DeepCollectionEquality().hash(lesson),
-      const DeepCollectionEquality().hash(correct));
+      const DeepCollectionEquality().hash(correct),
+      const DeepCollectionEquality().hash(progression));
 
   @JsonKey(ignore: true)
   @override
@@ -626,7 +646,8 @@ abstract class _PromptState implements PromptState {
       {final Species? promptSpecies,
       final List<Family>? familyOptions,
       final Lesson? lesson,
-      final bool? correct}) = _$_PromptState;
+      final bool? correct,
+      final int progression}) = _$_PromptState;
 
   @override
   Species? get promptSpecies;
@@ -636,6 +657,8 @@ abstract class _PromptState implements PromptState {
   Lesson? get lesson;
   @override
   bool? get correct;
+  @override
+  int get progression;
   @override
   @JsonKey(ignore: true)
   _$$_PromptStateCopyWith<_$_PromptState> get copyWith =>

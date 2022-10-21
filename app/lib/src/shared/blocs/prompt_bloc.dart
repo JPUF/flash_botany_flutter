@@ -6,15 +6,16 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../models/family.dart';
 import '../models/lesson.dart';
 import '../models/species.dart';
+import '../repositories/lesson_repository.dart';
 
 part 'prompt_bloc.freezed.dart';
-
 part 'prompt_event.dart';
-
 part 'prompt_state.dart';
 
 class PromptBloc extends Bloc<PromptEvent, PromptState> {
-  PromptBloc() : super(PromptState.initial()) {
+  final LessonRepository _lessonRepository;
+
+  PromptBloc(this._lessonRepository) : super(PromptState.initial()) {
     on<PromptEvent>(
       (event, emit) => event.map(
         nextPrompt: (event) => _nextPrompt(event, emit),
@@ -25,27 +26,28 @@ class PromptBloc extends Bloc<PromptEvent, PromptState> {
 
   void _nextPrompt(NextPrompt event, Emitter<PromptState> emit) {
     final nextSpecies = _getNextSpecies(event.lesson, event.prevSpecies);
-    emit(state.copyWith(
-      lesson: event.lesson,
-      promptSpecies: nextSpecies,
-      familyOptions: _getFamilyOptions(event.lesson, nextSpecies.family),
-    ));
+    emit(
+      state.copyWith(
+          lesson: event.lesson,
+          promptSpecies: nextSpecies,
+          familyOptions: _getFamilyOptions(event.lesson, nextSpecies.family),
+          progression: _lessonRepository.lessonProgressions[event.lesson] ?? 0),
+    );
   }
 
   void _getFeedback(GetFeedback event, Emitter<PromptState> emit) {
     final family = event.selectedFamily;
     final correct = family == state.promptSpecies?.family;
-    int progress = event.lesson.progress;
+
     if (correct) {
-      progress += 1;
+      _lessonRepository.incrementLessonProgression(event.lesson);
     }
 
-    emit(
-      state.copyWith(
-        correct: correct,
-        lesson: event.lesson.copyWith(progress: progress),
-      ),
-    );
+    emit(state.copyWith(
+      correct: correct,
+      lesson: event.lesson,
+      progression: _lessonRepository.lessonProgressions[event.lesson] ?? 0,
+    ));
   }
 
   Species _getNextSpecies(Lesson lesson, Species? prevSpecies) {

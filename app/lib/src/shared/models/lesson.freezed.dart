@@ -23,7 +23,6 @@ mixin _$Lesson {
   String get title => throw _privateConstructorUsedError;
   List<Family> get familySet => throw _privateConstructorUsedError;
   List<Species> get speciesSet => throw _privateConstructorUsedError;
-  int get progress => throw _privateConstructorUsedError;
   bool get passed => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,7 +38,6 @@ abstract class $LessonCopyWith<$Res> {
       {String title,
       List<Family> familySet,
       List<Species> speciesSet,
-      int progress,
       bool passed});
 }
 
@@ -56,7 +54,6 @@ class _$LessonCopyWithImpl<$Res> implements $LessonCopyWith<$Res> {
     Object? title = freezed,
     Object? familySet = freezed,
     Object? speciesSet = freezed,
-    Object? progress = freezed,
     Object? passed = freezed,
   }) {
     return _then(_value.copyWith(
@@ -72,10 +69,6 @@ class _$LessonCopyWithImpl<$Res> implements $LessonCopyWith<$Res> {
           ? _value.speciesSet
           : speciesSet // ignore: cast_nullable_to_non_nullable
               as List<Species>,
-      progress: progress == freezed
-          ? _value.progress
-          : progress // ignore: cast_nullable_to_non_nullable
-              as int,
       passed: passed == freezed
           ? _value.passed
           : passed // ignore: cast_nullable_to_non_nullable
@@ -93,7 +86,6 @@ abstract class _$$_LessonCopyWith<$Res> implements $LessonCopyWith<$Res> {
       {String title,
       List<Family> familySet,
       List<Species> speciesSet,
-      int progress,
       bool passed});
 }
 
@@ -111,7 +103,6 @@ class __$$_LessonCopyWithImpl<$Res> extends _$LessonCopyWithImpl<$Res>
     Object? title = freezed,
     Object? familySet = freezed,
     Object? speciesSet = freezed,
-    Object? progress = freezed,
     Object? passed = freezed,
   }) {
     return _then(_$_Lesson(
@@ -127,10 +118,6 @@ class __$$_LessonCopyWithImpl<$Res> extends _$LessonCopyWithImpl<$Res>
           ? _value._speciesSet
           : speciesSet // ignore: cast_nullable_to_non_nullable
               as List<Species>,
-      progress: progress == freezed
-          ? _value.progress
-          : progress // ignore: cast_nullable_to_non_nullable
-              as int,
       passed: passed == freezed
           ? _value.passed
           : passed // ignore: cast_nullable_to_non_nullable
@@ -146,7 +133,6 @@ class _$_Lesson implements _Lesson {
       {required this.title,
       required final List<Family> familySet,
       required final List<Species> speciesSet,
-      this.progress = 0,
       this.passed = false})
       : _familySet = familySet,
         _speciesSet = speciesSet;
@@ -172,14 +158,11 @@ class _$_Lesson implements _Lesson {
 
   @override
   @JsonKey()
-  final int progress;
-  @override
-  @JsonKey()
   final bool passed;
 
   @override
   String toString() {
-    return 'Lesson(title: $title, familySet: $familySet, speciesSet: $speciesSet, progress: $progress, passed: $passed)';
+    return 'Lesson(title: $title, familySet: $familySet, speciesSet: $speciesSet, passed: $passed)';
   }
 
   @override
@@ -192,7 +175,6 @@ class _$_Lesson implements _Lesson {
                 .equals(other._familySet, _familySet) &&
             const DeepCollectionEquality()
                 .equals(other._speciesSet, _speciesSet) &&
-            const DeepCollectionEquality().equals(other.progress, progress) &&
             const DeepCollectionEquality().equals(other.passed, passed));
   }
 
@@ -203,7 +185,6 @@ class _$_Lesson implements _Lesson {
       const DeepCollectionEquality().hash(title),
       const DeepCollectionEquality().hash(_familySet),
       const DeepCollectionEquality().hash(_speciesSet),
-      const DeepCollectionEquality().hash(progress),
       const DeepCollectionEquality().hash(passed));
 
   @JsonKey(ignore: true)
@@ -224,7 +205,6 @@ abstract class _Lesson implements Lesson {
       {required final String title,
       required final List<Family> familySet,
       required final List<Species> speciesSet,
-      final int progress,
       final bool passed}) = _$_Lesson;
 
   factory _Lesson.fromJson(Map<String, dynamic> json) = _$_Lesson.fromJson;
@@ -235,8 +215,6 @@ abstract class _Lesson implements Lesson {
   List<Family> get familySet;
   @override
   List<Species> get speciesSet;
-  @override
-  int get progress;
   @override
   bool get passed;
   @override

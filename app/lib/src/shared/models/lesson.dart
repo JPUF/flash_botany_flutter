@@ -12,7 +12,6 @@ class Lesson with _$Lesson {
     required String title,
     required List<Family> familySet,
     required List<Species> speciesSet,
-    @Default(0) int progress,
     @Default(false) bool passed,
   }) = _Lesson;
 

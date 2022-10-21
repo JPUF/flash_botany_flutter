@@ -14,8 +14,10 @@ class LessonSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final lessonsExcludingAll = LessonData.lessons.toList();
+    lessonsExcludingAll.removeAt(0);
     return Column(
-      children: LessonData.lessons
+      children: lessonsExcludingAll
           .map((lesson) => PlatformSized(
                   child: BasicButton(
                 text: lesson.title,
