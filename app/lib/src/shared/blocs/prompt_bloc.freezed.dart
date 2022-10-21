@@ -16,22 +16,23 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$PromptEvent {
+  Lesson get lesson => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Lesson lesson, Species? prevSpecies) nextPrompt,
-    required TResult Function(Family selectedFamily) getFeedback,
+    required TResult Function(Lesson lesson, Family selectedFamily) getFeedback,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Lesson lesson, Species? prevSpecies)? nextPrompt,
-    TResult Function(Family selectedFamily)? getFeedback,
+    TResult Function(Lesson lesson, Family selectedFamily)? getFeedback,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Lesson lesson, Species? prevSpecies)? nextPrompt,
-    TResult Function(Family selectedFamily)? getFeedback,
+    TResult Function(Lesson lesson, Family selectedFamily)? getFeedback,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -54,6 +55,10 @@ mixin _$PromptEvent {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $PromptEventCopyWith<PromptEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -61,6 +66,9 @@ abstract class $PromptEventCopyWith<$Res> {
   factory $PromptEventCopyWith(
           PromptEvent value, $Res Function(PromptEvent) then) =
       _$PromptEventCopyWithImpl<$Res>;
+  $Res call({Lesson lesson});
+
+  $LessonCopyWith<$Res> get lesson;
 }
 
 /// @nodoc
@@ -70,15 +78,37 @@ class _$PromptEventCopyWithImpl<$Res> implements $PromptEventCopyWith<$Res> {
   final PromptEvent _value;
   // ignore: unused_field
   final $Res Function(PromptEvent) _then;
+
+  @override
+  $Res call({
+    Object? lesson = freezed,
+  }) {
+    return _then(_value.copyWith(
+      lesson: lesson == freezed
+          ? _value.lesson
+          : lesson // ignore: cast_nullable_to_non_nullable
+              as Lesson,
+    ));
+  }
+
+  @override
+  $LessonCopyWith<$Res> get lesson {
+    return $LessonCopyWith<$Res>(_value.lesson, (value) {
+      return _then(_value.copyWith(lesson: value));
+    });
+  }
 }
 
 /// @nodoc
-abstract class _$$NextPromptCopyWith<$Res> {
+abstract class _$$NextPromptCopyWith<$Res>
+    implements $PromptEventCopyWith<$Res> {
   factory _$$NextPromptCopyWith(
           _$NextPrompt value, $Res Function(_$NextPrompt) then) =
       __$$NextPromptCopyWithImpl<$Res>;
+  @override
   $Res call({Lesson lesson, Species? prevSpecies});
 
+  @override
   $LessonCopyWith<$Res> get lesson;
   $SpeciesCopyWith<$Res>? get prevSpecies;
 }
@@ -108,13 +138,6 @@ class __$$NextPromptCopyWithImpl<$Res> extends _$PromptEventCopyWithImpl<$Res>
           : prevSpecies // ignore: cast_nullable_to_non_nullable
               as Species?,
     ));
-  }
-
-  @override
-  $LessonCopyWith<$Res> get lesson {
-    return $LessonCopyWith<$Res>(_value.lesson, (value) {
-      return _then(_value.copyWith(lesson: value));
-    });
   }
 
   @override
@@ -169,7 +192,7 @@ class _$NextPrompt implements NextPrompt {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Lesson lesson, Species? prevSpecies) nextPrompt,
-    required TResult Function(Family selectedFamily) getFeedback,
+    required TResult Function(Lesson lesson, Family selectedFamily) getFeedback,
   }) {
     return nextPrompt(lesson, prevSpecies);
   }
@@ -178,7 +201,7 @@ class _$NextPrompt implements NextPrompt {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Lesson lesson, Species? prevSpecies)? nextPrompt,
-    TResult Function(Family selectedFamily)? getFeedback,
+    TResult Function(Lesson lesson, Family selectedFamily)? getFeedback,
   }) {
     return nextPrompt?.call(lesson, prevSpecies);
   }
@@ -187,7 +210,7 @@ class _$NextPrompt implements NextPrompt {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Lesson lesson, Species? prevSpecies)? nextPrompt,
-    TResult Function(Family selectedFamily)? getFeedback,
+    TResult Function(Lesson lesson, Family selectedFamily)? getFeedback,
     required TResult orElse(),
   }) {
     if (nextPrompt != null) {
@@ -232,19 +255,26 @@ abstract class NextPrompt implements PromptEvent {
   const factory NextPrompt(final Lesson lesson, final Species? prevSpecies) =
       _$NextPrompt;
 
+  @override
   Lesson get lesson;
   Species? get prevSpecies;
+  @override
   @JsonKey(ignore: true)
   _$$NextPromptCopyWith<_$NextPrompt> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$GetFeedbackCopyWith<$Res> {
+abstract class _$$GetFeedbackCopyWith<$Res>
+    implements $PromptEventCopyWith<$Res> {
   factory _$$GetFeedbackCopyWith(
           _$GetFeedback value, $Res Function(_$GetFeedback) then) =
       __$$GetFeedbackCopyWithImpl<$Res>;
-  $Res call({Family selectedFamily});
+  @override
+  $Res call({Lesson lesson, Family selectedFamily});
+
+  @override
+  $LessonCopyWith<$Res> get lesson;
 }
 
 /// @nodoc
@@ -259,9 +289,14 @@ class __$$GetFeedbackCopyWithImpl<$Res> extends _$PromptEventCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? lesson = freezed,
     Object? selectedFamily = freezed,
   }) {
     return _then(_$GetFeedback(
+      lesson == freezed
+          ? _value.lesson
+          : lesson // ignore: cast_nullable_to_non_nullable
+              as Lesson,
       selectedFamily == freezed
           ? _value.selectedFamily
           : selectedFamily // ignore: cast_nullable_to_non_nullable
@@ -273,14 +308,16 @@ class __$$GetFeedbackCopyWithImpl<$Res> extends _$PromptEventCopyWithImpl<$Res>
 /// @nodoc
 
 class _$GetFeedback implements GetFeedback {
-  const _$GetFeedback(this.selectedFamily);
+  const _$GetFeedback(this.lesson, this.selectedFamily);
 
+  @override
+  final Lesson lesson;
   @override
   final Family selectedFamily;
 
   @override
   String toString() {
-    return 'PromptEvent.getFeedback(selectedFamily: $selectedFamily)';
+    return 'PromptEvent.getFeedback(lesson: $lesson, selectedFamily: $selectedFamily)';
   }
 
   @override
@@ -288,13 +325,16 @@ class _$GetFeedback implements GetFeedback {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GetFeedback &&
+            const DeepCollectionEquality().equals(other.lesson, lesson) &&
             const DeepCollectionEquality()
                 .equals(other.selectedFamily, selectedFamily));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(selectedFamily));
+      runtimeType,
+      const DeepCollectionEquality().hash(lesson),
+      const DeepCollectionEquality().hash(selectedFamily));
 
   @JsonKey(ignore: true)
   @override
@@ -305,29 +345,29 @@ class _$GetFeedback implements GetFeedback {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Lesson lesson, Species? prevSpecies) nextPrompt,
-    required TResult Function(Family selectedFamily) getFeedback,
+    required TResult Function(Lesson lesson, Family selectedFamily) getFeedback,
   }) {
-    return getFeedback(selectedFamily);
+    return getFeedback(lesson, selectedFamily);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Lesson lesson, Species? prevSpecies)? nextPrompt,
-    TResult Function(Family selectedFamily)? getFeedback,
+    TResult Function(Lesson lesson, Family selectedFamily)? getFeedback,
   }) {
-    return getFeedback?.call(selectedFamily);
+    return getFeedback?.call(lesson, selectedFamily);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Lesson lesson, Species? prevSpecies)? nextPrompt,
-    TResult Function(Family selectedFamily)? getFeedback,
+    TResult Function(Lesson lesson, Family selectedFamily)? getFeedback,
     required TResult orElse(),
   }) {
     if (getFeedback != null) {
-      return getFeedback(selectedFamily);
+      return getFeedback(lesson, selectedFamily);
     }
     return orElse();
   }
@@ -365,9 +405,13 @@ class _$GetFeedback implements GetFeedback {
 }
 
 abstract class GetFeedback implements PromptEvent {
-  const factory GetFeedback(final Family selectedFamily) = _$GetFeedback;
+  const factory GetFeedback(final Lesson lesson, final Family selectedFamily) =
+      _$GetFeedback;
 
+  @override
+  Lesson get lesson;
   Family get selectedFamily;
+  @override
   @JsonKey(ignore: true)
   _$$GetFeedbackCopyWith<_$GetFeedback> get copyWith =>
       throw _privateConstructorUsedError;

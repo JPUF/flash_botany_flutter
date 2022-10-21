@@ -8,7 +8,9 @@ import '../models/lesson.dart';
 import '../models/species.dart';
 
 part 'prompt_bloc.freezed.dart';
+
 part 'prompt_event.dart';
+
 part 'prompt_state.dart';
 
 class PromptBloc extends Bloc<PromptEvent, PromptState> {
@@ -33,7 +35,17 @@ class PromptBloc extends Bloc<PromptEvent, PromptState> {
   void _getFeedback(GetFeedback event, Emitter<PromptState> emit) {
     final family = event.selectedFamily;
     final correct = family == state.promptSpecies?.family;
-    emit(state.copyWith(correct: correct));
+    int progress = event.lesson.progress;
+    if (correct) {
+      progress += 1;
+    }
+
+    emit(
+      state.copyWith(
+        correct: correct,
+        lesson: event.lesson.copyWith(progress: progress),
+      ),
+    );
   }
 
   Species _getNextSpecies(Lesson lesson, Species? prevSpecies) {
