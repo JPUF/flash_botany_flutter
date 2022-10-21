@@ -4,6 +4,8 @@ import '../strings.dart';
 import 'species_data.dart';
 
 class LessonData {
+  static const maxProgression = 5;
+
   static const List<Lesson> lessons = [
     Lesson(
       title: Strings.heroCta,

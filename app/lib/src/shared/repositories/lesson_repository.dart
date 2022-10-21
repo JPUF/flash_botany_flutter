@@ -8,7 +8,7 @@ class LessonRepository {
 
   void incrementLessonProgression(Lesson lesson) {
     final progress = lessonProgressions[lesson];
-    if(progress != null) {
+    if (progress != null && progress < LessonData.maxProgression) {
       lessonProgressions[LessonData.lessons[1]] = progress + 1;
     }
   }

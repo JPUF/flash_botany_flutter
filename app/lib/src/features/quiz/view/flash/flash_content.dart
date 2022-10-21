@@ -8,6 +8,7 @@ import '../../../../shared/models/lesson.dart';
 import '../../../../shared/models/species.dart';
 import 'answer_options.dart';
 import 'feedback_container.dart';
+import 'progression_indicator.dart';
 import 'prompt_content.dart';
 
 class FlashContent extends StatefulWidget {
@@ -29,6 +30,9 @@ class _FlashContentState extends State<FlashContent> {
         widthFactor: constraints.isMobile ? 1 : 0.5,
         child: Column(
           children: [
+            ProgressionIndicator(
+              currentProgression: widget.promptState.progression,
+            ),
             Expanded(
               flex: 5,
               child: PromptContent(promptState: widget.promptState),
