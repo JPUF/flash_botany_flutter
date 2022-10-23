@@ -34,7 +34,8 @@ mixin _$Lesson {
 /// @nodoc
 abstract class $LessonCopyWith<$Res> {
   factory $LessonCopyWith(Lesson value, $Res Function(Lesson) then) =
-      _$LessonCopyWithImpl<$Res>;
+      _$LessonCopyWithImpl<$Res, Lesson>;
+  @useResult
   $Res call(
       {String id,
       String title,
@@ -44,43 +45,46 @@ abstract class $LessonCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$LessonCopyWithImpl<$Res> implements $LessonCopyWith<$Res> {
+class _$LessonCopyWithImpl<$Res, $Val extends Lesson>
+    implements $LessonCopyWith<$Res> {
   _$LessonCopyWithImpl(this._value, this._then);
 
-  final Lesson _value;
   // ignore: unused_field
-  final $Res Function(Lesson) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? title = freezed,
-    Object? familySet = freezed,
-    Object? speciesSet = freezed,
-    Object? passed = freezed,
+    Object? id = null,
+    Object? title = null,
+    Object? familySet = null,
+    Object? speciesSet = null,
+    Object? passed = null,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      title: title == freezed
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      familySet: familySet == freezed
+      familySet: null == familySet
           ? _value.familySet
           : familySet // ignore: cast_nullable_to_non_nullable
               as List<Family>,
-      speciesSet: speciesSet == freezed
+      speciesSet: null == speciesSet
           ? _value.speciesSet
           : speciesSet // ignore: cast_nullable_to_non_nullable
               as List<Species>,
-      passed: passed == freezed
+      passed: null == passed
           ? _value.passed
           : passed // ignore: cast_nullable_to_non_nullable
               as bool,
-    ));
+    ) as $Val);
   }
 }
 
@@ -89,6 +93,7 @@ abstract class _$$_LessonCopyWith<$Res> implements $LessonCopyWith<$Res> {
   factory _$$_LessonCopyWith(_$_Lesson value, $Res Function(_$_Lesson) then) =
       __$$_LessonCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String id,
       String title,
@@ -98,40 +103,39 @@ abstract class _$$_LessonCopyWith<$Res> implements $LessonCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LessonCopyWithImpl<$Res> extends _$LessonCopyWithImpl<$Res>
+class __$$_LessonCopyWithImpl<$Res>
+    extends _$LessonCopyWithImpl<$Res, _$_Lesson>
     implements _$$_LessonCopyWith<$Res> {
   __$$_LessonCopyWithImpl(_$_Lesson _value, $Res Function(_$_Lesson) _then)
-      : super(_value, (v) => _then(v as _$_Lesson));
+      : super(_value, _then);
 
-  @override
-  _$_Lesson get _value => super._value as _$_Lesson;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? title = freezed,
-    Object? familySet = freezed,
-    Object? speciesSet = freezed,
-    Object? passed = freezed,
+    Object? id = null,
+    Object? title = null,
+    Object? familySet = null,
+    Object? speciesSet = null,
+    Object? passed = null,
   }) {
     return _then(_$_Lesson(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      title: title == freezed
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      familySet: familySet == freezed
+      familySet: null == familySet
           ? _value._familySet
           : familySet // ignore: cast_nullable_to_non_nullable
               as List<Family>,
-      speciesSet: speciesSet == freezed
+      speciesSet: null == speciesSet
           ? _value._speciesSet
           : speciesSet // ignore: cast_nullable_to_non_nullable
               as List<Species>,
-      passed: passed == freezed
+      passed: null == passed
           ? _value.passed
           : passed // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -186,27 +190,28 @@ class _$_Lesson implements _Lesson {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Lesson &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.title, title) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title) &&
             const DeepCollectionEquality()
                 .equals(other._familySet, _familySet) &&
             const DeepCollectionEquality()
                 .equals(other._speciesSet, _speciesSet) &&
-            const DeepCollectionEquality().equals(other.passed, passed));
+            (identical(other.passed, passed) || other.passed == passed));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(title),
+      id,
+      title,
       const DeepCollectionEquality().hash(_familySet),
       const DeepCollectionEquality().hash(_speciesSet),
-      const DeepCollectionEquality().hash(passed));
+      passed);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LessonCopyWith<_$_Lesson> get copyWith =>
       __$$_LessonCopyWithImpl<_$_Lesson>(this, _$identity);
 

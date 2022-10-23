@@ -29,5 +29,7 @@ class LessonData {
       familySet: [Family.brassicaceae, Family.lamiaceae],
       speciesSet: SpeciesData.brassicaceaeLamiaceae,
     ),
+    //Probably need to increment DB 'version' when this list is augmented.
+    // (if app has been released, otherwise just reinstall app on device)
   ];
 }

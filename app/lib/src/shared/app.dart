@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'blocs/prompt_bloc.dart';
 import 'providers/theme.dart';
-import 'repositories/lesson_repository.dart';
 import 'router.dart';
 import 'scroll_behaviour.dart';
 import 'strings.dart';
@@ -31,7 +30,7 @@ class _FlashAppState extends State<FlashApp> {
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     return BlocProvider<PromptBloc>(
-      create: (context) => PromptBloc(LessonRepository()), // Consider getIt https://stackoverflow.com/a/72418884
+      create: (context) => PromptBloc(),
       child: DynamicColorBuilder(
         builder: (lightDynamic, darkDynamic) => ThemeProvider(
             lightDynamic: lightDynamic,

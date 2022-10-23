@@ -25,8 +25,8 @@ mixin _$PromptEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Lesson lesson, Species? prevSpecies)? nextPrompt,
-    TResult Function(Lesson lesson, Family selectedFamily)? getFeedback,
+    TResult? Function(Lesson lesson, Species? prevSpecies)? nextPrompt,
+    TResult? Function(Lesson lesson, Family selectedFamily)? getFeedback,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,8 +44,8 @@ mixin _$PromptEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(NextPrompt value)? nextPrompt,
-    TResult Function(GetFeedback value)? getFeedback,
+    TResult? Function(NextPrompt value)? nextPrompt,
+    TResult? Function(GetFeedback value)? getFeedback,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,36 +65,41 @@ mixin _$PromptEvent {
 abstract class $PromptEventCopyWith<$Res> {
   factory $PromptEventCopyWith(
           PromptEvent value, $Res Function(PromptEvent) then) =
-      _$PromptEventCopyWithImpl<$Res>;
+      _$PromptEventCopyWithImpl<$Res, PromptEvent>;
+  @useResult
   $Res call({Lesson lesson});
 
   $LessonCopyWith<$Res> get lesson;
 }
 
 /// @nodoc
-class _$PromptEventCopyWithImpl<$Res> implements $PromptEventCopyWith<$Res> {
+class _$PromptEventCopyWithImpl<$Res, $Val extends PromptEvent>
+    implements $PromptEventCopyWith<$Res> {
   _$PromptEventCopyWithImpl(this._value, this._then);
 
-  final PromptEvent _value;
   // ignore: unused_field
-  final $Res Function(PromptEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? lesson = freezed,
+    Object? lesson = null,
   }) {
     return _then(_value.copyWith(
-      lesson: lesson == freezed
+      lesson: null == lesson
           ? _value.lesson
           : lesson // ignore: cast_nullable_to_non_nullable
               as Lesson,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $LessonCopyWith<$Res> get lesson {
     return $LessonCopyWith<$Res>(_value.lesson, (value) {
-      return _then(_value.copyWith(lesson: value));
+      return _then(_value.copyWith(lesson: value) as $Val);
     });
   }
 }
@@ -106,6 +111,7 @@ abstract class _$$NextPromptCopyWith<$Res>
           _$NextPrompt value, $Res Function(_$NextPrompt) then) =
       __$$NextPromptCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({Lesson lesson, Species? prevSpecies});
 
   @override
@@ -114,26 +120,25 @@ abstract class _$$NextPromptCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$NextPromptCopyWithImpl<$Res> extends _$PromptEventCopyWithImpl<$Res>
+class __$$NextPromptCopyWithImpl<$Res>
+    extends _$PromptEventCopyWithImpl<$Res, _$NextPrompt>
     implements _$$NextPromptCopyWith<$Res> {
   __$$NextPromptCopyWithImpl(
       _$NextPrompt _value, $Res Function(_$NextPrompt) _then)
-      : super(_value, (v) => _then(v as _$NextPrompt));
+      : super(_value, _then);
 
-  @override
-  _$NextPrompt get _value => super._value as _$NextPrompt;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? lesson = freezed,
+    Object? lesson = null,
     Object? prevSpecies = freezed,
   }) {
     return _then(_$NextPrompt(
-      lesson == freezed
+      null == lesson
           ? _value.lesson
           : lesson // ignore: cast_nullable_to_non_nullable
               as Lesson,
-      prevSpecies == freezed
+      freezed == prevSpecies
           ? _value.prevSpecies
           : prevSpecies // ignore: cast_nullable_to_non_nullable
               as Species?,
@@ -141,6 +146,7 @@ class __$$NextPromptCopyWithImpl<$Res> extends _$PromptEventCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $SpeciesCopyWith<$Res>? get prevSpecies {
     if (_value.prevSpecies == null) {
       return null;
@@ -172,19 +178,17 @@ class _$NextPrompt implements NextPrompt {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$NextPrompt &&
-            const DeepCollectionEquality().equals(other.lesson, lesson) &&
-            const DeepCollectionEquality()
-                .equals(other.prevSpecies, prevSpecies));
+            (identical(other.lesson, lesson) || other.lesson == lesson) &&
+            (identical(other.prevSpecies, prevSpecies) ||
+                other.prevSpecies == prevSpecies));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(lesson),
-      const DeepCollectionEquality().hash(prevSpecies));
+  int get hashCode => Object.hash(runtimeType, lesson, prevSpecies);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$NextPromptCopyWith<_$NextPrompt> get copyWith =>
       __$$NextPromptCopyWithImpl<_$NextPrompt>(this, _$identity);
 
@@ -200,8 +204,8 @@ class _$NextPrompt implements NextPrompt {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Lesson lesson, Species? prevSpecies)? nextPrompt,
-    TResult Function(Lesson lesson, Family selectedFamily)? getFeedback,
+    TResult? Function(Lesson lesson, Species? prevSpecies)? nextPrompt,
+    TResult? Function(Lesson lesson, Family selectedFamily)? getFeedback,
   }) {
     return nextPrompt?.call(lesson, prevSpecies);
   }
@@ -231,8 +235,8 @@ class _$NextPrompt implements NextPrompt {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(NextPrompt value)? nextPrompt,
-    TResult Function(GetFeedback value)? getFeedback,
+    TResult? Function(NextPrompt value)? nextPrompt,
+    TResult? Function(GetFeedback value)? getFeedback,
   }) {
     return nextPrompt?.call(this);
   }
@@ -271,6 +275,7 @@ abstract class _$$GetFeedbackCopyWith<$Res>
           _$GetFeedback value, $Res Function(_$GetFeedback) then) =
       __$$GetFeedbackCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({Lesson lesson, Family selectedFamily});
 
   @override
@@ -278,26 +283,25 @@ abstract class _$$GetFeedbackCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$GetFeedbackCopyWithImpl<$Res> extends _$PromptEventCopyWithImpl<$Res>
+class __$$GetFeedbackCopyWithImpl<$Res>
+    extends _$PromptEventCopyWithImpl<$Res, _$GetFeedback>
     implements _$$GetFeedbackCopyWith<$Res> {
   __$$GetFeedbackCopyWithImpl(
       _$GetFeedback _value, $Res Function(_$GetFeedback) _then)
-      : super(_value, (v) => _then(v as _$GetFeedback));
+      : super(_value, _then);
 
-  @override
-  _$GetFeedback get _value => super._value as _$GetFeedback;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? lesson = freezed,
-    Object? selectedFamily = freezed,
+    Object? lesson = null,
+    Object? selectedFamily = null,
   }) {
     return _then(_$GetFeedback(
-      lesson == freezed
+      null == lesson
           ? _value.lesson
           : lesson // ignore: cast_nullable_to_non_nullable
               as Lesson,
-      selectedFamily == freezed
+      null == selectedFamily
           ? _value.selectedFamily
           : selectedFamily // ignore: cast_nullable_to_non_nullable
               as Family,
@@ -325,19 +329,17 @@ class _$GetFeedback implements GetFeedback {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GetFeedback &&
-            const DeepCollectionEquality().equals(other.lesson, lesson) &&
-            const DeepCollectionEquality()
-                .equals(other.selectedFamily, selectedFamily));
+            (identical(other.lesson, lesson) || other.lesson == lesson) &&
+            (identical(other.selectedFamily, selectedFamily) ||
+                other.selectedFamily == selectedFamily));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(lesson),
-      const DeepCollectionEquality().hash(selectedFamily));
+  int get hashCode => Object.hash(runtimeType, lesson, selectedFamily);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$GetFeedbackCopyWith<_$GetFeedback> get copyWith =>
       __$$GetFeedbackCopyWithImpl<_$GetFeedback>(this, _$identity);
 
@@ -353,8 +355,8 @@ class _$GetFeedback implements GetFeedback {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Lesson lesson, Species? prevSpecies)? nextPrompt,
-    TResult Function(Lesson lesson, Family selectedFamily)? getFeedback,
+    TResult? Function(Lesson lesson, Species? prevSpecies)? nextPrompt,
+    TResult? Function(Lesson lesson, Family selectedFamily)? getFeedback,
   }) {
     return getFeedback?.call(lesson, selectedFamily);
   }
@@ -384,8 +386,8 @@ class _$GetFeedback implements GetFeedback {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(NextPrompt value)? nextPrompt,
-    TResult Function(GetFeedback value)? getFeedback,
+    TResult? Function(NextPrompt value)? nextPrompt,
+    TResult? Function(GetFeedback value)? getFeedback,
   }) {
     return getFeedback?.call(this);
   }
@@ -434,7 +436,8 @@ mixin _$PromptState {
 abstract class $PromptStateCopyWith<$Res> {
   factory $PromptStateCopyWith(
           PromptState value, $Res Function(PromptState) then) =
-      _$PromptStateCopyWithImpl<$Res>;
+      _$PromptStateCopyWithImpl<$Res, PromptState>;
+  @useResult
   $Res call(
       {Species? promptSpecies,
       List<Family>? familyOptions,
@@ -447,64 +450,69 @@ abstract class $PromptStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PromptStateCopyWithImpl<$Res> implements $PromptStateCopyWith<$Res> {
+class _$PromptStateCopyWithImpl<$Res, $Val extends PromptState>
+    implements $PromptStateCopyWith<$Res> {
   _$PromptStateCopyWithImpl(this._value, this._then);
 
-  final PromptState _value;
   // ignore: unused_field
-  final $Res Function(PromptState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? promptSpecies = freezed,
     Object? familyOptions = freezed,
     Object? lesson = freezed,
     Object? correct = freezed,
-    Object? progression = freezed,
+    Object? progression = null,
   }) {
     return _then(_value.copyWith(
-      promptSpecies: promptSpecies == freezed
+      promptSpecies: freezed == promptSpecies
           ? _value.promptSpecies
           : promptSpecies // ignore: cast_nullable_to_non_nullable
               as Species?,
-      familyOptions: familyOptions == freezed
+      familyOptions: freezed == familyOptions
           ? _value.familyOptions
           : familyOptions // ignore: cast_nullable_to_non_nullable
               as List<Family>?,
-      lesson: lesson == freezed
+      lesson: freezed == lesson
           ? _value.lesson
           : lesson // ignore: cast_nullable_to_non_nullable
               as Lesson?,
-      correct: correct == freezed
+      correct: freezed == correct
           ? _value.correct
           : correct // ignore: cast_nullable_to_non_nullable
               as bool?,
-      progression: progression == freezed
+      progression: null == progression
           ? _value.progression
           : progression // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $SpeciesCopyWith<$Res>? get promptSpecies {
     if (_value.promptSpecies == null) {
       return null;
     }
 
     return $SpeciesCopyWith<$Res>(_value.promptSpecies!, (value) {
-      return _then(_value.copyWith(promptSpecies: value));
+      return _then(_value.copyWith(promptSpecies: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $LessonCopyWith<$Res>? get lesson {
     if (_value.lesson == null) {
       return null;
     }
 
     return $LessonCopyWith<$Res>(_value.lesson!, (value) {
-      return _then(_value.copyWith(lesson: value));
+      return _then(_value.copyWith(lesson: value) as $Val);
     });
   }
 }
@@ -516,6 +524,7 @@ abstract class _$$_PromptStateCopyWith<$Res>
           _$_PromptState value, $Res Function(_$_PromptState) then) =
       __$$_PromptStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {Species? promptSpecies,
       List<Family>? familyOptions,
@@ -530,41 +539,40 @@ abstract class _$$_PromptStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PromptStateCopyWithImpl<$Res> extends _$PromptStateCopyWithImpl<$Res>
+class __$$_PromptStateCopyWithImpl<$Res>
+    extends _$PromptStateCopyWithImpl<$Res, _$_PromptState>
     implements _$$_PromptStateCopyWith<$Res> {
   __$$_PromptStateCopyWithImpl(
       _$_PromptState _value, $Res Function(_$_PromptState) _then)
-      : super(_value, (v) => _then(v as _$_PromptState));
+      : super(_value, _then);
 
-  @override
-  _$_PromptState get _value => super._value as _$_PromptState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? promptSpecies = freezed,
     Object? familyOptions = freezed,
     Object? lesson = freezed,
     Object? correct = freezed,
-    Object? progression = freezed,
+    Object? progression = null,
   }) {
     return _then(_$_PromptState(
-      promptSpecies: promptSpecies == freezed
+      promptSpecies: freezed == promptSpecies
           ? _value.promptSpecies
           : promptSpecies // ignore: cast_nullable_to_non_nullable
               as Species?,
-      familyOptions: familyOptions == freezed
+      familyOptions: freezed == familyOptions
           ? _value._familyOptions
           : familyOptions // ignore: cast_nullable_to_non_nullable
               as List<Family>?,
-      lesson: lesson == freezed
+      lesson: freezed == lesson
           ? _value.lesson
           : lesson // ignore: cast_nullable_to_non_nullable
               as Lesson?,
-      correct: correct == freezed
+      correct: freezed == correct
           ? _value.correct
           : correct // ignore: cast_nullable_to_non_nullable
               as bool?,
-      progression: progression == freezed
+      progression: null == progression
           ? _value.progression
           : progression // ignore: cast_nullable_to_non_nullable
               as int,
@@ -616,27 +624,28 @@ class _$_PromptState implements _PromptState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PromptState &&
-            const DeepCollectionEquality()
-                .equals(other.promptSpecies, promptSpecies) &&
+            (identical(other.promptSpecies, promptSpecies) ||
+                other.promptSpecies == promptSpecies) &&
             const DeepCollectionEquality()
                 .equals(other._familyOptions, _familyOptions) &&
-            const DeepCollectionEquality().equals(other.lesson, lesson) &&
-            const DeepCollectionEquality().equals(other.correct, correct) &&
-            const DeepCollectionEquality()
-                .equals(other.progression, progression));
+            (identical(other.lesson, lesson) || other.lesson == lesson) &&
+            (identical(other.correct, correct) || other.correct == correct) &&
+            (identical(other.progression, progression) ||
+                other.progression == progression));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(promptSpecies),
+      promptSpecies,
       const DeepCollectionEquality().hash(_familyOptions),
-      const DeepCollectionEquality().hash(lesson),
-      const DeepCollectionEquality().hash(correct),
-      const DeepCollectionEquality().hash(progression));
+      lesson,
+      correct,
+      progression);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_PromptStateCopyWith<_$_PromptState> get copyWith =>
       __$$_PromptStateCopyWithImpl<_$_PromptState>(this, _$identity);
 }

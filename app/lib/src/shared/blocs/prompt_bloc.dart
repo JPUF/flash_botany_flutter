@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../injection.dart';
 import '../models/family.dart';
 import '../models/lesson.dart';
 import '../models/species.dart';
@@ -13,9 +14,9 @@ part 'prompt_event.dart';
 part 'prompt_state.dart';
 
 class PromptBloc extends Bloc<PromptEvent, PromptState> {
-  final LessonRepository _lessonRepository;
+  final LessonRepository _lessonRepo = getIt<LessonRepository>();
 
-  PromptBloc(this._lessonRepository) : super(PromptState.initial()) {
+  PromptBloc() : super(PromptState.initial()) {
     on<PromptEvent>(
       (event, emit) => event.map(
         nextPrompt: (event) => _nextPrompt(event, emit),
@@ -24,28 +25,28 @@ class PromptBloc extends Bloc<PromptEvent, PromptState> {
     );
   }
 
-  void _nextPrompt(NextPrompt event, Emitter<PromptState> emit) {
+  _nextPrompt(NextPrompt event, Emitter<PromptState> emit) async {
     final nextSpecies = _getNextSpecies(event.lesson, event.prevSpecies);
+    final progression = await _lessonRepo.getProgression(event.lesson) ?? 0;
     emit(state.copyWith(
       lesson: event.lesson,
       promptSpecies: nextSpecies,
       familyOptions: _getFamilyOptions(event.lesson, nextSpecies.family),
-      progression: _lessonRepository.getProgression(event.lesson) ?? 0,
+      progression: progression,
     ));
   }
 
-  void _getFeedback(GetFeedback event, Emitter<PromptState> emit) {
+  _getFeedback(GetFeedback event, Emitter<PromptState> emit) async {
     final family = event.selectedFamily;
     final correct = family == state.promptSpecies?.family;
-
     if (correct) {
-      _lessonRepository.incrementLessonProgression(event.lesson);
+      await _lessonRepo.incrementLessonProgression(event.lesson);
     }
-
+    final progression = await _lessonRepo.getProgression(event.lesson) ?? 0;
     emit(state.copyWith(
       correct: correct,
       lesson: event.lesson,
-      progression: _lessonRepository.getProgression(event.lesson) ?? 0,
+      progression: progression,
     ));
   }
 
@@ -58,6 +59,9 @@ class PromptBloc extends Bloc<PromptEvent, PromptState> {
   }
 
   List<Family> _getFamilyOptions(Lesson lesson, Family correctFamily) {
+    if (lesson.familySet.length <= 4) {
+      return lesson.familySet;
+    }
     List<Family> allFamilies = lesson.familySet.toList();
     allFamilies.remove(correctFamily);
     allFamilies.shuffle();

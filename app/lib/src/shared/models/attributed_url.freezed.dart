@@ -33,34 +33,37 @@ mixin _$AttributedUrl {
 abstract class $AttributedUrlCopyWith<$Res> {
   factory $AttributedUrlCopyWith(
           AttributedUrl value, $Res Function(AttributedUrl) then) =
-      _$AttributedUrlCopyWithImpl<$Res>;
+      _$AttributedUrlCopyWithImpl<$Res, AttributedUrl>;
+  @useResult
   $Res call({String url, String? attribution});
 }
 
 /// @nodoc
-class _$AttributedUrlCopyWithImpl<$Res>
+class _$AttributedUrlCopyWithImpl<$Res, $Val extends AttributedUrl>
     implements $AttributedUrlCopyWith<$Res> {
   _$AttributedUrlCopyWithImpl(this._value, this._then);
 
-  final AttributedUrl _value;
   // ignore: unused_field
-  final $Res Function(AttributedUrl) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? url = freezed,
+    Object? url = null,
     Object? attribution = freezed,
   }) {
     return _then(_value.copyWith(
-      url: url == freezed
+      url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
-      attribution: attribution == freezed
+      attribution: freezed == attribution
           ? _value.attribution
           : attribution // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -71,31 +74,30 @@ abstract class _$$_AttributedUrlCopyWith<$Res>
           _$_AttributedUrl value, $Res Function(_$_AttributedUrl) then) =
       __$$_AttributedUrlCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String url, String? attribution});
 }
 
 /// @nodoc
 class __$$_AttributedUrlCopyWithImpl<$Res>
-    extends _$AttributedUrlCopyWithImpl<$Res>
+    extends _$AttributedUrlCopyWithImpl<$Res, _$_AttributedUrl>
     implements _$$_AttributedUrlCopyWith<$Res> {
   __$$_AttributedUrlCopyWithImpl(
       _$_AttributedUrl _value, $Res Function(_$_AttributedUrl) _then)
-      : super(_value, (v) => _then(v as _$_AttributedUrl));
+      : super(_value, _then);
 
-  @override
-  _$_AttributedUrl get _value => super._value as _$_AttributedUrl;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? url = freezed,
+    Object? url = null,
     Object? attribution = freezed,
   }) {
     return _then(_$_AttributedUrl(
-      url: url == freezed
+      url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
-      attribution: attribution == freezed
+      attribution: freezed == attribution
           ? _value.attribution
           : attribution // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -126,20 +128,18 @@ class _$_AttributedUrl implements _AttributedUrl {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AttributedUrl &&
-            const DeepCollectionEquality().equals(other.url, url) &&
-            const DeepCollectionEquality()
-                .equals(other.attribution, attribution));
+            (identical(other.url, url) || other.url == url) &&
+            (identical(other.attribution, attribution) ||
+                other.attribution == attribution));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(url),
-      const DeepCollectionEquality().hash(attribution));
+  int get hashCode => Object.hash(runtimeType, url, attribution);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AttributedUrlCopyWith<_$_AttributedUrl> get copyWith =>
       __$$_AttributedUrlCopyWithImpl<_$_AttributedUrl>(this, _$identity);
 
