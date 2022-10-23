@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'blocs/prompt_bloc.dart';
+import 'blocs/progression/progression_bloc.dart';
+import 'blocs/prompt/prompt_bloc.dart';
 import 'providers/theme.dart';
 import 'router.dart';
 import 'scroll_behaviour.dart';
@@ -29,8 +30,15 @@ class _FlashAppState extends State<FlashApp> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-    return BlocProvider<PromptBloc>(
-      create: (context) => PromptBloc(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<PromptBloc>(
+          create: (context) => PromptBloc(),
+        ),
+        BlocProvider<ProgressionBloc>(
+          create: (context) => ProgressionBloc(),
+        ),
+      ],
       child: DynamicColorBuilder(
         builder: (lightDynamic, darkDynamic) => ThemeProvider(
             lightDynamic: lightDynamic,

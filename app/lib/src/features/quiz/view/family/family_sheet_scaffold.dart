@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../shared/blocs/prompt_bloc.dart';
+import '../../../../shared/blocs/prompt/prompt_bloc.dart';
 import '../flash/prompt_content.dart';
 import 'family_info.dart';
 

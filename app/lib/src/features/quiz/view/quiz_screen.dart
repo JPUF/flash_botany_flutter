@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:snapping_sheet/snapping_sheet.dart';
 
-import '../../../shared/blocs/prompt_bloc.dart';
+import '../../../shared/blocs/prompt/prompt_bloc.dart';
 import '../../../shared/extensions.dart';
 import '../../../shared/models/lesson.dart';
 import '../../../shared/strings.dart';

@@ -3,7 +3,7 @@ import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../shared/blocs/prompt_bloc.dart';
+import '../../../../shared/blocs/prompt/prompt_bloc.dart';
 import '../../../../shared/extensions.dart';
 import '../../../../shared/strings.dart';
 

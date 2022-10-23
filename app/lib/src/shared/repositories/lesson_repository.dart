@@ -16,6 +16,10 @@ class LessonRepository {
     return savedLesson?.progression;
   }
 
+  Future<List<LessonProgression>> getAllProgressions() async {
+    return await _db.lessonProgressions();
+  }
+
   Future<void> incrementLessonProgression(Lesson lesson) async {
     final progress = await getProgression(lesson);
     if (progress == null) return;

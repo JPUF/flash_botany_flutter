@@ -3,11 +3,11 @@ import 'dart:math';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../injection.dart';
-import '../models/family.dart';
-import '../models/lesson.dart';
-import '../models/species.dart';
-import '../repositories/lesson_repository.dart';
+import '../../injection.dart';
+import '../../models/family.dart';
+import '../../models/lesson.dart';
+import '../../models/species.dart';
+import '../../repositories/lesson_repository.dart';
 
 part 'prompt_bloc.freezed.dart';
 part 'prompt_event.dart';
