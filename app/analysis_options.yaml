@@ -3,7 +3,6 @@ include: package:flutter_lints/flutter.yaml
 analyzer:
   strong-mode:
     implicit-casts: false
-    implicit-dynamic: false
   exclude:
     # ignore warnings in files from json_serializable, built_value and most generators
     - "**/*.g.dart"

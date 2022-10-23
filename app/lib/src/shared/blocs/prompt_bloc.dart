@@ -26,13 +26,12 @@ class PromptBloc extends Bloc<PromptEvent, PromptState> {
 
   void _nextPrompt(NextPrompt event, Emitter<PromptState> emit) {
     final nextSpecies = _getNextSpecies(event.lesson, event.prevSpecies);
-    emit(
-      state.copyWith(
-          lesson: event.lesson,
-          promptSpecies: nextSpecies,
-          familyOptions: _getFamilyOptions(event.lesson, nextSpecies.family),
-          progression: _lessonRepository.lessonProgressions[event.lesson] ?? 0),
-    );
+    emit(state.copyWith(
+      lesson: event.lesson,
+      promptSpecies: nextSpecies,
+      familyOptions: _getFamilyOptions(event.lesson, nextSpecies.family),
+      progression: _lessonRepository.getProgression(event.lesson) ?? 0,
+    ));
   }
 
   void _getFeedback(GetFeedback event, Emitter<PromptState> emit) {
@@ -46,7 +45,7 @@ class PromptBloc extends Bloc<PromptEvent, PromptState> {
     emit(state.copyWith(
       correct: correct,
       lesson: event.lesson,
-      progression: _lessonRepository.lessonProgressions[event.lesson] ?? 0,
+      progression: _lessonRepository.getProgression(event.lesson) ?? 0,
     ));
   }
 

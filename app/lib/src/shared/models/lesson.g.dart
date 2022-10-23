@@ -7,6 +7,7 @@ part of 'lesson.dart';
 // **************************************************************************
 
 _$_Lesson _$$_LessonFromJson(Map<String, dynamic> json) => _$_Lesson(
+      id: json['id'] as String,
       title: json['title'] as String,
       familySet: (json['familySet'] as List<dynamic>)
           .map((e) => $enumDecode(_$FamilyEnumMap, e))
@@ -18,6 +19,7 @@ _$_Lesson _$$_LessonFromJson(Map<String, dynamic> json) => _$_Lesson(
     );
 
 Map<String, dynamic> _$$_LessonToJson(_$_Lesson instance) => <String, dynamic>{
+      'id': instance.id,
       'title': instance.title,
       'familySet': instance.familySet.map((e) => _$FamilyEnumMap[e]!).toList(),
       'speciesSet': instance.speciesSet,

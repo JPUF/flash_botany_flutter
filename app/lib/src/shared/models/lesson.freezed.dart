@@ -20,6 +20,7 @@ Lesson _$LessonFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Lesson {
+  String get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   List<Family> get familySet => throw _privateConstructorUsedError;
   List<Species> get speciesSet => throw _privateConstructorUsedError;
@@ -35,7 +36,8 @@ abstract class $LessonCopyWith<$Res> {
   factory $LessonCopyWith(Lesson value, $Res Function(Lesson) then) =
       _$LessonCopyWithImpl<$Res>;
   $Res call(
-      {String title,
+      {String id,
+      String title,
       List<Family> familySet,
       List<Species> speciesSet,
       bool passed});
@@ -51,12 +53,17 @@ class _$LessonCopyWithImpl<$Res> implements $LessonCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? title = freezed,
     Object? familySet = freezed,
     Object? speciesSet = freezed,
     Object? passed = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -83,7 +90,8 @@ abstract class _$$_LessonCopyWith<$Res> implements $LessonCopyWith<$Res> {
       __$$_LessonCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String title,
+      {String id,
+      String title,
       List<Family> familySet,
       List<Species> speciesSet,
       bool passed});
@@ -100,12 +108,17 @@ class __$$_LessonCopyWithImpl<$Res> extends _$LessonCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? title = freezed,
     Object? familySet = freezed,
     Object? speciesSet = freezed,
     Object? passed = freezed,
   }) {
     return _then(_$_Lesson(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -130,7 +143,8 @@ class __$$_LessonCopyWithImpl<$Res> extends _$LessonCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Lesson implements _Lesson {
   const _$_Lesson(
-      {required this.title,
+      {required this.id,
+      required this.title,
       required final List<Family> familySet,
       required final List<Species> speciesSet,
       this.passed = false})
@@ -140,6 +154,8 @@ class _$_Lesson implements _Lesson {
   factory _$_Lesson.fromJson(Map<String, dynamic> json) =>
       _$$_LessonFromJson(json);
 
+  @override
+  final String id;
   @override
   final String title;
   final List<Family> _familySet;
@@ -162,7 +178,7 @@ class _$_Lesson implements _Lesson {
 
   @override
   String toString() {
-    return 'Lesson(title: $title, familySet: $familySet, speciesSet: $speciesSet, passed: $passed)';
+    return 'Lesson(id: $id, title: $title, familySet: $familySet, speciesSet: $speciesSet, passed: $passed)';
   }
 
   @override
@@ -170,6 +186,7 @@ class _$_Lesson implements _Lesson {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Lesson &&
+            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.title, title) &&
             const DeepCollectionEquality()
                 .equals(other._familySet, _familySet) &&
@@ -182,6 +199,7 @@ class _$_Lesson implements _Lesson {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(title),
       const DeepCollectionEquality().hash(_familySet),
       const DeepCollectionEquality().hash(_speciesSet),
@@ -202,13 +220,16 @@ class _$_Lesson implements _Lesson {
 
 abstract class _Lesson implements Lesson {
   const factory _Lesson(
-      {required final String title,
+      {required final String id,
+      required final String title,
       required final List<Family> familySet,
       required final List<Species> speciesSet,
       final bool passed}) = _$_Lesson;
 
   factory _Lesson.fromJson(Map<String, dynamic> json) = _$_Lesson.fromJson;
 
+  @override
+  String get id;
   @override
   String get title;
   @override

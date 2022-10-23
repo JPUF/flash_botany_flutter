@@ -9,6 +9,7 @@ part 'lesson.g.dart';
 @freezed
 class Lesson with _$Lesson {
   const factory Lesson({
+    required String id,
     required String title,
     required List<Family> familySet,
     required List<Species> speciesSet,
