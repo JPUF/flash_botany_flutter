@@ -16,6 +16,7 @@ _$_Lesson _$$_LessonFromJson(Map<String, dynamic> json) => _$_Lesson(
           .map((e) => Species.fromJson(e as Map<String, dynamic>))
           .toList(),
       passed: json['passed'] as bool? ?? false,
+      indefinite: json['indefinite'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$_LessonToJson(_$_Lesson instance) => <String, dynamic>{
@@ -24,6 +25,7 @@ Map<String, dynamic> _$$_LessonToJson(_$_Lesson instance) => <String, dynamic>{
       'familySet': instance.familySet.map((e) => _$FamilyEnumMap[e]!).toList(),
       'speciesSet': instance.speciesSet,
       'passed': instance.passed,
+      'indefinite': instance.indefinite,
     };
 
 const _$FamilyEnumMap = {

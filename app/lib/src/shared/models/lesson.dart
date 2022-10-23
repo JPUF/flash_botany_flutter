@@ -14,6 +14,7 @@ class Lesson with _$Lesson {
     required List<Family> familySet,
     required List<Species> speciesSet,
     @Default(false) bool passed,
+    @Default(false) bool indefinite,
   }) = _Lesson;
 
   factory Lesson.fromJson(Map<String, Object?> json) => _$LessonFromJson(json);

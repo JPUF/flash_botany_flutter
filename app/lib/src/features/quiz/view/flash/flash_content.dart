@@ -30,8 +30,11 @@ class _FlashContentState extends State<FlashContent> {
         widthFactor: constraints.isMobile ? 1 : 0.5,
         child: Column(
           children: [
-            ProgressionIndicator(
-              currentProgression: widget.promptState.progression,
+            Visibility(
+              visible: widget.promptState.lesson?.indefinite != true,
+              child: ProgressionIndicator(
+                currentProgression: widget.promptState.progression,
+              ),
             ),
             Expanded(
               flex: 5,

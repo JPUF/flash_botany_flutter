@@ -12,15 +12,16 @@ class ProgressionIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Row(
       children: [
         Expanded(
           flex: currentProgression,
-          child: Container(height: 5, color: Colors.deepOrange),
+          child: Container(height: 5, color: colors.tertiary),
         ),
         Expanded(
           flex: LessonData.maxProgression - currentProgression,
-          child: Container(height: 5, color: Colors.black),
+          child: Container(height: 5, color: colors.surface),
         ),
       ],
     );

@@ -39,7 +39,7 @@ class PromptBloc extends Bloc<PromptEvent, PromptState> {
   _getFeedback(GetFeedback event, Emitter<PromptState> emit) async {
     final family = event.selectedFamily;
     final correct = family == state.promptSpecies?.family;
-    if (correct) {
+    if (correct && !event.lesson.indefinite ) {
       await _lessonRepo.incrementLessonProgression(event.lesson);
     }
     final progression = await _lessonRepo.getProgression(event.lesson) ?? 0;

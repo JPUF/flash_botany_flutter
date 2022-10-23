@@ -16,6 +16,7 @@ class LessonData {
       title: Strings.heroCta,
       familySet: Family.values,
       speciesSet: SpeciesData.allSpecies,
+      indefinite: true
     ),
     Lesson(
       id: asteraceaeRosaceaeId,

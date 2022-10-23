@@ -25,6 +25,7 @@ mixin _$Lesson {
   List<Family> get familySet => throw _privateConstructorUsedError;
   List<Species> get speciesSet => throw _privateConstructorUsedError;
   bool get passed => throw _privateConstructorUsedError;
+  bool get indefinite => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,7 +42,8 @@ abstract class $LessonCopyWith<$Res> {
       String title,
       List<Family> familySet,
       List<Species> speciesSet,
-      bool passed});
+      bool passed,
+      bool indefinite});
 }
 
 /// @nodoc
@@ -62,6 +64,7 @@ class _$LessonCopyWithImpl<$Res, $Val extends Lesson>
     Object? familySet = null,
     Object? speciesSet = null,
     Object? passed = null,
+    Object? indefinite = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -84,6 +87,10 @@ class _$LessonCopyWithImpl<$Res, $Val extends Lesson>
           ? _value.passed
           : passed // ignore: cast_nullable_to_non_nullable
               as bool,
+      indefinite: null == indefinite
+          ? _value.indefinite
+          : indefinite // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -99,7 +106,8 @@ abstract class _$$_LessonCopyWith<$Res> implements $LessonCopyWith<$Res> {
       String title,
       List<Family> familySet,
       List<Species> speciesSet,
-      bool passed});
+      bool passed,
+      bool indefinite});
 }
 
 /// @nodoc
@@ -117,6 +125,7 @@ class __$$_LessonCopyWithImpl<$Res>
     Object? familySet = null,
     Object? speciesSet = null,
     Object? passed = null,
+    Object? indefinite = null,
   }) {
     return _then(_$_Lesson(
       id: null == id
@@ -139,6 +148,10 @@ class __$$_LessonCopyWithImpl<$Res>
           ? _value.passed
           : passed // ignore: cast_nullable_to_non_nullable
               as bool,
+      indefinite: null == indefinite
+          ? _value.indefinite
+          : indefinite // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -151,7 +164,8 @@ class _$_Lesson implements _Lesson {
       required this.title,
       required final List<Family> familySet,
       required final List<Species> speciesSet,
-      this.passed = false})
+      this.passed = false,
+      this.indefinite = false})
       : _familySet = familySet,
         _speciesSet = speciesSet;
 
@@ -179,10 +193,13 @@ class _$_Lesson implements _Lesson {
   @override
   @JsonKey()
   final bool passed;
+  @override
+  @JsonKey()
+  final bool indefinite;
 
   @override
   String toString() {
-    return 'Lesson(id: $id, title: $title, familySet: $familySet, speciesSet: $speciesSet, passed: $passed)';
+    return 'Lesson(id: $id, title: $title, familySet: $familySet, speciesSet: $speciesSet, passed: $passed, indefinite: $indefinite)';
   }
 
   @override
@@ -196,7 +213,9 @@ class _$_Lesson implements _Lesson {
                 .equals(other._familySet, _familySet) &&
             const DeepCollectionEquality()
                 .equals(other._speciesSet, _speciesSet) &&
-            (identical(other.passed, passed) || other.passed == passed));
+            (identical(other.passed, passed) || other.passed == passed) &&
+            (identical(other.indefinite, indefinite) ||
+                other.indefinite == indefinite));
   }
 
   @JsonKey(ignore: true)
@@ -207,7 +226,8 @@ class _$_Lesson implements _Lesson {
       title,
       const DeepCollectionEquality().hash(_familySet),
       const DeepCollectionEquality().hash(_speciesSet),
-      passed);
+      passed,
+      indefinite);
 
   @JsonKey(ignore: true)
   @override
@@ -229,7 +249,8 @@ abstract class _Lesson implements Lesson {
       required final String title,
       required final List<Family> familySet,
       required final List<Species> speciesSet,
-      final bool passed}) = _$_Lesson;
+      final bool passed,
+      final bool indefinite}) = _$_Lesson;
 
   factory _Lesson.fromJson(Map<String, dynamic> json) = _$_Lesson.fromJson;
 
@@ -243,6 +264,8 @@ abstract class _Lesson implements Lesson {
   List<Species> get speciesSet;
   @override
   bool get passed;
+  @override
+  bool get indefinite;
   @override
   @JsonKey(ignore: true)
   _$$_LessonCopyWith<_$_Lesson> get copyWith =>
