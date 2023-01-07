@@ -15,12 +15,12 @@ class ProgressionBloc extends Bloc<ProgressionEvent, ProgressionState> {
   ProgressionBloc() : super(ProgressionState.initial()) {
     on<ProgressionEvent>(
       (event, emit) => event.map(
-        getProgressions: (event) => _getProgressions(event, emit),
+        getProgressions: (event) => _getProgress(event, emit),
       ),
     );
   }
 
-  _getProgressions(event, Emitter<ProgressionState> emit) async {
+  _getProgress(GetProgressions event, Emitter<ProgressionState> emit) async {
     final progressions = await _lessonRepo.getAllProgressions();
     emit(state.copyWith(progressions: progressions));
   }
