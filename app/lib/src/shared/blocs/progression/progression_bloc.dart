@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../data/drift_progression_database.dart';
 import '../../injection.dart';
-import '../../models/lesson_progression.dart';
 import '../../repositories/lesson_repository.dart';
 
 part 'progression_bloc.freezed.dart';
