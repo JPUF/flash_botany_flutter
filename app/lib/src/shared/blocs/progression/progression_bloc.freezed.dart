@@ -166,7 +166,7 @@ abstract class GetProgressions implements ProgressionEvent {
 
 /// @nodoc
 mixin _$ProgressionState {
-  List<LessonProgression>? get progressions =>
+  List<DriftLessonProgression>? get progressions =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -180,7 +180,7 @@ abstract class $ProgressionStateCopyWith<$Res> {
           ProgressionState value, $Res Function(ProgressionState) then) =
       _$ProgressionStateCopyWithImpl<$Res, ProgressionState>;
   @useResult
-  $Res call({List<LessonProgression>? progressions});
+  $Res call({List<DriftLessonProgression>? progressions});
 }
 
 /// @nodoc
@@ -202,7 +202,7 @@ class _$ProgressionStateCopyWithImpl<$Res, $Val extends ProgressionState>
       progressions: freezed == progressions
           ? _value.progressions
           : progressions // ignore: cast_nullable_to_non_nullable
-              as List<LessonProgression>?,
+              as List<DriftLessonProgression>?,
     ) as $Val);
   }
 }
@@ -215,7 +215,7 @@ abstract class _$$_ProgressionStateCopyWith<$Res>
       __$$_ProgressionStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<LessonProgression>? progressions});
+  $Res call({List<DriftLessonProgression>? progressions});
 }
 
 /// @nodoc
@@ -235,7 +235,7 @@ class __$$_ProgressionStateCopyWithImpl<$Res>
       progressions: freezed == progressions
           ? _value._progressions
           : progressions // ignore: cast_nullable_to_non_nullable
-              as List<LessonProgression>?,
+              as List<DriftLessonProgression>?,
     ));
   }
 }
@@ -244,13 +244,13 @@ class __$$_ProgressionStateCopyWithImpl<$Res>
 
 class _$_ProgressionState implements _ProgressionState {
   const _$_ProgressionState(
-      {final List<LessonProgression>? progressions = null})
+      {final List<DriftLessonProgression>? progressions = null})
       : _progressions = progressions;
 
-  final List<LessonProgression>? _progressions;
+  final List<DriftLessonProgression>? _progressions;
   @override
   @JsonKey()
-  List<LessonProgression>? get progressions {
+  List<DriftLessonProgression>? get progressions {
     final value = _progressions;
     if (value == null) return null;
     // ignore: implicit_dynamic_type
@@ -284,10 +284,10 @@ class _$_ProgressionState implements _ProgressionState {
 
 abstract class _ProgressionState implements ProgressionState {
   const factory _ProgressionState(
-      {final List<LessonProgression>? progressions}) = _$_ProgressionState;
+      {final List<DriftLessonProgression>? progressions}) = _$_ProgressionState;
 
   @override
-  List<LessonProgression>? get progressions;
+  List<DriftLessonProgression>? get progressions;
   @override
   @JsonKey(ignore: true)
   _$$_ProgressionStateCopyWith<_$_ProgressionState> get copyWith =>

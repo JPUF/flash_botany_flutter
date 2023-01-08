@@ -1,7 +1,6 @@
+import '../data/species_data.dart';
 import 'attributed_url.dart';
 import 'glossary_term.dart';
-
-const _baseUrl = 'https://f003.backblazeb2.com/file/family-images/';
 
 enum Family {
   asteraceae(
@@ -21,13 +20,13 @@ enum Family {
     ],
     [
       AttributedUrl(
-          url: _baseUrl + 'asteraceae_anuus.jpg',
+          url: SpeciesData.baseImageUrl + 'asteraceae_anuus.jpg',
           attribution: 'commons.wikimedia.org/wiki/User:Dalgial'),
       AttributedUrl(
-          url: _baseUrl + 'asteraceae_arnica.jpg',
+          url: SpeciesData.baseImageUrl + 'asteraceae_arnica.jpg',
           attribution: 'Mary Ellen (Mel) Harte, Bugwood.org'),
       AttributedUrl(
-          url: _baseUrl + 'asteraceae_centaurea.jpg',
+          url: SpeciesData.baseImageUrl + 'asteraceae_centaurea.jpg',
           attribution: 'Rob Routledge, Sault College, Bugwood.org'),
     ],
     'assets/images/asteraceae.png',
@@ -45,12 +44,12 @@ enum Family {
       GlossaryTerm.inferiorOvary,
     ],
     [
-      AttributedUrl(url: _baseUrl + 'apiaceae_anethum.jpg', attribution: null),
+      AttributedUrl(url: SpeciesData.baseImageUrl + 'apiaceae_anethum.jpg', attribution: null),
       AttributedUrl(
-          url: _baseUrl + 'apiaceae_heracleum.jpg',
+          url: SpeciesData.baseImageUrl + 'apiaceae_heracleum.jpg',
           attribution: 'commons.wikimedia.org/wiki/User:Llez'),
       AttributedUrl(
-          url: _baseUrl + 'apiaceae_osmorhiza.jpg',
+          url: SpeciesData.baseImageUrl + 'apiaceae_osmorhiza.jpg',
           attribution: 'Mary Ellen (Mel) Harte, Bugwood.org'),
     ],
     'assets/images/apiaceae.png',
@@ -71,13 +70,13 @@ enum Family {
     ],
     [
       AttributedUrl(
-          url: _baseUrl + 'boraginaceae_phacelia.jpg',
+          url: SpeciesData.baseImageUrl + 'boraginaceae_phacelia.jpg',
           attribution: 'commons.wikimedia.org/wiki/User:Stan_Shebs'),
       AttributedUrl(
-          url: _baseUrl + 'boraginaceae_amsinckia.jpg',
+          url: SpeciesData.baseImageUrl + 'boraginaceae_amsinckia.jpg',
           attribution: 'Mary Ellen (Mel) Harte, Bugwood.org'),
       AttributedUrl(
-          url: _baseUrl + 'boraginaceae_symphytum.jpg', attribution: null),
+          url: SpeciesData.baseImageUrl + 'boraginaceae_symphytum.jpg', attribution: null),
     ],
     'assets/images/boraginaceae.png',
   ),
@@ -95,12 +94,12 @@ enum Family {
     ],
     [
       AttributedUrl(
-          url: _baseUrl + 'brassicaceae_coincya.jpg',
+          url: SpeciesData.baseImageUrl + 'brassicaceae_coincya.jpg',
           attribution: 'commons.wikimedia.org/wiki/User:Hectonichus'),
       AttributedUrl(
-          url: _baseUrl + 'brassicaceae_erysimum.jpg', attribution: null),
+          url: SpeciesData.baseImageUrl + 'brassicaceae_erysimum.jpg', attribution: null),
       AttributedUrl(
-          url: _baseUrl + 'brassicaceae_nasturtium.jpg',
+          url: SpeciesData.baseImageUrl + 'brassicaceae_nasturtium.jpg',
           attribution:
               'Leslie J. Mehrhoff, University of Connecticut, Bugwood.org'),
     ],
@@ -120,13 +119,13 @@ enum Family {
     ],
     [
       AttributedUrl(
-          url: _baseUrl + 'caryophyllaceae_cerastium.jpg',
+          url: SpeciesData.baseImageUrl + 'caryophyllaceae_cerastium.jpg',
           attribution: 'montereywildflowers.com/caryophyllaceae-misc'),
       AttributedUrl(
-          url: _baseUrl + 'caryophyllaceae_silene.jpg',
+          url: SpeciesData.baseImageUrl + 'caryophyllaceae_silene.jpg',
           attribution: 'www.stridvall.se'),
       AttributedUrl(
-          url: _baseUrl + 'caryophyllaceae_dianthus.jpg',
+          url: SpeciesData.baseImageUrl + 'caryophyllaceae_dianthus.jpg',
           attribution: 'David Cappaert, Bugwood.org'),
     ],
     'assets/images/caryophyllaceae.png',
@@ -151,12 +150,12 @@ enum Family {
     ],
     [
       AttributedUrl(
-          url: _baseUrl + 'fabaceae_adesmia.jpg',
+          url: SpeciesData.baseImageUrl + 'fabaceae_adesmia.jpg',
           attribution: 'Juan Campá, MGAP, Bugwood.org'),
       AttributedUrl(
-          url: _baseUrl + 'fabaceae_hedysarum.jpg',
+          url: SpeciesData.baseImageUrl + 'fabaceae_hedysarum.jpg',
           attribution: 'commons.wikimedia.org/wiki/User:Hectonichus'),
-      AttributedUrl(url: _baseUrl + 'fabaceae_lathyrus.jpg', attribution: null),
+      AttributedUrl(url: SpeciesData.baseImageUrl + 'fabaceae_lathyrus.jpg', attribution: null),
     ],
     'assets/images/fabaceae.png',
   ),
@@ -178,14 +177,14 @@ enum Family {
     ],
     [
       AttributedUrl(
-          url: _baseUrl + 'lamiaceae_melittis.jpg',
+          url: SpeciesData.baseImageUrl + 'lamiaceae_melittis.jpg',
           attribution: 'Pilar Alonso'),
       AttributedUrl(
-          url: _baseUrl + 'lamiaceae_salvia.jpg',
+          url: SpeciesData.baseImageUrl + 'lamiaceae_salvia.jpg',
           attribution:
               'Dobromir K. commons.wikimedia.org/wiki/File:Salvia_flower.jpg'),
       AttributedUrl(
-          url: _baseUrl + 'lamiaceae_stachys.jpg',
+          url: SpeciesData.baseImageUrl + 'lamiaceae_stachys.jpg',
           attribution:
               'commons.wikimedia.org/wiki/File:Stachys_palustris20110630_07.jpg'),
     ],
@@ -208,14 +207,14 @@ enum Family {
     ],
     [
       AttributedUrl(
-          url: _baseUrl + 'rosaceae_rubus.jpg',
+          url: SpeciesData.baseImageUrl + 'rosaceae_rubus.jpg',
           attribution: 'Ansel Oommen, Bugwood.org'),
       AttributedUrl(
-          url: _baseUrl + 'rosaceae_rosa.jpg',
+          url: SpeciesData.baseImageUrl + 'rosaceae_rosa.jpg',
           attribution:
               'William M. Ciesla, Forest Health Management International, Bugwood.org'),
       AttributedUrl(
-          url: _baseUrl + 'rosaceae_raphiolepsis.jpg',
+          url: SpeciesData.baseImageUrl + 'rosaceae_raphiolepsis.jpg',
           attribution:
               'Dryas — commons.wikimedia.org/wiki/File:Rhaphiolepis_indica_RBGK.JPG'),
     ],
