@@ -9,8 +9,6 @@ import 'families/lamiaceae_data.dart';
 import 'families/rosaceae_data.dart';
 
 class SpeciesData {
-  static const baseImageUrl =
-      'https://f003.backblazeb2.com/file/prompt-images/';
 
   static const List<Species> allSpecies = [
     ...AsteraceaeData.speciesList,

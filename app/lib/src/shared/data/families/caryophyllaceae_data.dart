@@ -1,10 +1,10 @@
 import '../../models/attributed_url.dart';
 import '../../models/family.dart';
 import '../../models/species.dart';
-import '../species_data.dart';
+import '../network/network_data.dart';
 
 class CaryophyllaceaeData {
-  static const _base = SpeciesData.baseImageUrl;
+  static const _base = basePromptUrl;
   static const speciesList = [
     Species(
       latinName: 'Silene latifolia',
