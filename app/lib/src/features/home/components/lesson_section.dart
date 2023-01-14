@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../shared/blocs/progression/progression_bloc.dart';
-import '../../../shared/data/drift_progression_database.dart';
+import '../../../shared/data/database/progression_database.dart';
 import '../../../shared/data/lesson_data.dart';
 import '../../../shared/destinations.dart';
 import '../../../shared/models/lesson.dart';
@@ -33,7 +33,8 @@ class _LessonSectionState extends State<LessonSection> {
     lessonsExcludingAll.removeAt(0);
     return BlocBuilder<ProgressionBloc, ProgressionState>(
       builder: (context, state) {
-        final List<DriftLessonProgression>? progressions = state.progressions?.toList();
+        final List<LessonProgression>? progressions =
+            state.progressions?.toList();
         if (progressions == null) return Container();
         progressions.removeAt(0); // To remove 'all families' from this section
         return Column(children: _progressionsList(progressions, context));
@@ -42,7 +43,7 @@ class _LessonSectionState extends State<LessonSection> {
   }
 
   List<StatelessWidget> _progressionsList(
-      List<DriftLessonProgression> progressions, BuildContext context) {
+      List<LessonProgression> progressions, BuildContext context) {
     return progressions.map(
       (p) {
         final lesson = LessonData.lessons.firstWhereOrNull((l) => l.id == p.id);
@@ -54,7 +55,7 @@ class _LessonSectionState extends State<LessonSection> {
 
   PlatformSized _lessonButton(
     Lesson lesson,
-    DriftLessonProgression progression,
+    LessonProgression progression,
     BuildContext context,
   ) {
     return PlatformSized(

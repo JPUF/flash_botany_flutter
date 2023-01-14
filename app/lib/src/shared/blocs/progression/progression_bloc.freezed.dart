@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'progression_bloc.dart';
 
@@ -166,7 +166,7 @@ abstract class GetProgressions implements ProgressionEvent {
 
 /// @nodoc
 mixin _$ProgressionState {
-  List<DriftLessonProgression>? get progressions =>
+  List<LessonProgression>? get progressions =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -180,7 +180,7 @@ abstract class $ProgressionStateCopyWith<$Res> {
           ProgressionState value, $Res Function(ProgressionState) then) =
       _$ProgressionStateCopyWithImpl<$Res, ProgressionState>;
   @useResult
-  $Res call({List<DriftLessonProgression>? progressions});
+  $Res call({List<LessonProgression>? progressions});
 }
 
 /// @nodoc
@@ -202,7 +202,7 @@ class _$ProgressionStateCopyWithImpl<$Res, $Val extends ProgressionState>
       progressions: freezed == progressions
           ? _value.progressions
           : progressions // ignore: cast_nullable_to_non_nullable
-              as List<DriftLessonProgression>?,
+              as List<LessonProgression>?,
     ) as $Val);
   }
 }
@@ -215,7 +215,7 @@ abstract class _$$_ProgressionStateCopyWith<$Res>
       __$$_ProgressionStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<DriftLessonProgression>? progressions});
+  $Res call({List<LessonProgression>? progressions});
 }
 
 /// @nodoc
@@ -235,7 +235,7 @@ class __$$_ProgressionStateCopyWithImpl<$Res>
       progressions: freezed == progressions
           ? _value._progressions
           : progressions // ignore: cast_nullable_to_non_nullable
-              as List<DriftLessonProgression>?,
+              as List<LessonProgression>?,
     ));
   }
 }
@@ -244,15 +244,16 @@ class __$$_ProgressionStateCopyWithImpl<$Res>
 
 class _$_ProgressionState implements _ProgressionState {
   const _$_ProgressionState(
-      {final List<DriftLessonProgression>? progressions = null})
+      {final List<LessonProgression>? progressions = null})
       : _progressions = progressions;
 
-  final List<DriftLessonProgression>? _progressions;
+  final List<LessonProgression>? _progressions;
   @override
   @JsonKey()
-  List<DriftLessonProgression>? get progressions {
+  List<LessonProgression>? get progressions {
     final value = _progressions;
     if (value == null) return null;
+    if (_progressions is EqualUnmodifiableListView) return _progressions;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -284,10 +285,10 @@ class _$_ProgressionState implements _ProgressionState {
 
 abstract class _ProgressionState implements ProgressionState {
   const factory _ProgressionState(
-      {final List<DriftLessonProgression>? progressions}) = _$_ProgressionState;
+      {final List<LessonProgression>? progressions}) = _$_ProgressionState;
 
   @override
-  List<DriftLessonProgression>? get progressions;
+  List<LessonProgression>? get progressions;
   @override
   @JsonKey(ignore: true)
   _$$_ProgressionStateCopyWith<_$_ProgressionState> get copyWith =>

@@ -1,14 +1,14 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'drift_progression_database.dart';
+part of 'progression_database.dart';
 
 // ignore_for_file: type=lint
-class $DriftLessonProgressionsTable extends DriftLessonProgressions
-    with TableInfo<$DriftLessonProgressionsTable, DriftLessonProgression> {
+class $LessonProgressionsTable extends LessonProgressions
+    with TableInfo<$LessonProgressionsTable, LessonProgression> {
   @override
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
-  $DriftLessonProgressionsTable(this.attachedDatabase, [this._alias]);
+  $LessonProgressionsTable(this.attachedDatabase, [this._alias]);
   static const VerificationMeta _idMeta = const VerificationMeta('id');
   @override
   late final GeneratedColumn<String> id = GeneratedColumn<String>(
@@ -31,12 +31,11 @@ class $DriftLessonProgressionsTable extends DriftLessonProgressions
   @override
   List<GeneratedColumn> get $columns => [id, progression, maxProgression];
   @override
-  String get aliasedName => _alias ?? 'drift_lesson_progressions';
+  String get aliasedName => _alias ?? 'lesson_progressions';
   @override
-  String get actualTableName => 'drift_lesson_progressions';
+  String get actualTableName => 'lesson_progressions';
   @override
-  VerificationContext validateIntegrity(
-      Insertable<DriftLessonProgression> instance,
+  VerificationContext validateIntegrity(Insertable<LessonProgression> instance,
       {bool isInserting = false}) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
@@ -65,9 +64,9 @@ class $DriftLessonProgressionsTable extends DriftLessonProgressions
   @override
   Set<GeneratedColumn> get $primaryKey => {id};
   @override
-  DriftLessonProgression map(Map<String, dynamic> data, {String? tablePrefix}) {
+  LessonProgression map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
-    return DriftLessonProgression(
+    return LessonProgression(
       id: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}id'])!,
       progression: attachedDatabase.typeMapping
@@ -78,17 +77,17 @@ class $DriftLessonProgressionsTable extends DriftLessonProgressions
   }
 
   @override
-  $DriftLessonProgressionsTable createAlias(String alias) {
-    return $DriftLessonProgressionsTable(attachedDatabase, alias);
+  $LessonProgressionsTable createAlias(String alias) {
+    return $LessonProgressionsTable(attachedDatabase, alias);
   }
 }
 
-class DriftLessonProgression extends DataClass
-    implements Insertable<DriftLessonProgression> {
+class LessonProgression extends DataClass
+    implements Insertable<LessonProgression> {
   final String id;
   final int progression;
   final int maxProgression;
-  const DriftLessonProgression(
+  const LessonProgression(
       {required this.id,
       required this.progression,
       required this.maxProgression});
@@ -101,18 +100,18 @@ class DriftLessonProgression extends DataClass
     return map;
   }
 
-  DriftLessonProgressionsCompanion toCompanion(bool nullToAbsent) {
-    return DriftLessonProgressionsCompanion(
+  LessonProgressionsCompanion toCompanion(bool nullToAbsent) {
+    return LessonProgressionsCompanion(
       id: Value(id),
       progression: Value(progression),
       maxProgression: Value(maxProgression),
     );
   }
 
-  factory DriftLessonProgression.fromJson(Map<String, dynamic> json,
+  factory LessonProgression.fromJson(Map<String, dynamic> json,
       {ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
-    return DriftLessonProgression(
+    return LessonProgression(
       id: serializer.fromJson<String>(json['id']),
       progression: serializer.fromJson<int>(json['progression']),
       maxProgression: serializer.fromJson<int>(json['maxProgression']),
@@ -128,16 +127,16 @@ class DriftLessonProgression extends DataClass
     };
   }
 
-  DriftLessonProgression copyWith(
+  LessonProgression copyWith(
           {String? id, int? progression, int? maxProgression}) =>
-      DriftLessonProgression(
+      LessonProgression(
         id: id ?? this.id,
         progression: progression ?? this.progression,
         maxProgression: maxProgression ?? this.maxProgression,
       );
   @override
   String toString() {
-    return (StringBuffer('DriftLessonProgression(')
+    return (StringBuffer('LessonProgression(')
           ..write('id: $id, ')
           ..write('progression: $progression, ')
           ..write('maxProgression: $maxProgression')
@@ -150,29 +149,28 @@ class DriftLessonProgression extends DataClass
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      (other is DriftLessonProgression &&
+      (other is LessonProgression &&
           other.id == this.id &&
           other.progression == this.progression &&
           other.maxProgression == this.maxProgression);
 }
 
-class DriftLessonProgressionsCompanion
-    extends UpdateCompanion<DriftLessonProgression> {
+class LessonProgressionsCompanion extends UpdateCompanion<LessonProgression> {
   final Value<String> id;
   final Value<int> progression;
   final Value<int> maxProgression;
-  const DriftLessonProgressionsCompanion({
+  const LessonProgressionsCompanion({
     this.id = const Value.absent(),
     this.progression = const Value.absent(),
     this.maxProgression = const Value.absent(),
   });
-  DriftLessonProgressionsCompanion.insert({
+  LessonProgressionsCompanion.insert({
     required String id,
     required int progression,
     this.maxProgression = const Value.absent(),
   })  : id = Value(id),
         progression = Value(progression);
-  static Insertable<DriftLessonProgression> custom({
+  static Insertable<LessonProgression> custom({
     Expression<String>? id,
     Expression<int>? progression,
     Expression<int>? maxProgression,
@@ -184,11 +182,11 @@ class DriftLessonProgressionsCompanion
     });
   }
 
-  DriftLessonProgressionsCompanion copyWith(
+  LessonProgressionsCompanion copyWith(
       {Value<String>? id,
       Value<int>? progression,
       Value<int>? maxProgression}) {
-    return DriftLessonProgressionsCompanion(
+    return LessonProgressionsCompanion(
       id: id ?? this.id,
       progression: progression ?? this.progression,
       maxProgression: maxProgression ?? this.maxProgression,
@@ -212,7 +210,7 @@ class DriftLessonProgressionsCompanion
 
   @override
   String toString() {
-    return (StringBuffer('DriftLessonProgressionsCompanion(')
+    return (StringBuffer('LessonProgressionsCompanion(')
           ..write('id: $id, ')
           ..write('progression: $progression, ')
           ..write('maxProgression: $maxProgression')
@@ -221,13 +219,13 @@ class DriftLessonProgressionsCompanion
   }
 }
 
-abstract class _$DriftProgressionDatabase extends GeneratedDatabase {
-  _$DriftProgressionDatabase(QueryExecutor e) : super(e);
-  late final $DriftLessonProgressionsTable driftLessonProgressions =
-      $DriftLessonProgressionsTable(this);
+abstract class _$ProgressionDatabase extends GeneratedDatabase {
+  _$ProgressionDatabase(QueryExecutor e) : super(e);
+  late final $LessonProgressionsTable lessonProgressions =
+      $LessonProgressionsTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
   @override
-  List<DatabaseSchemaEntity> get allSchemaEntities => [driftLessonProgressions];
+  List<DatabaseSchemaEntity> get allSchemaEntities => [lessonProgressions];
 }

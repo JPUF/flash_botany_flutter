@@ -1,13 +1,13 @@
 import 'package:collection/collection.dart';
 import 'package:drift/drift.dart';
 
-import '../data/drift_progression_database.dart';
+import '../data/database/progression_database.dart';
 import '../data/lesson_data.dart';
 import '../injection.dart';
 import '../models/lesson.dart';
 
 class LessonRepository {
-  final _dbDrift = getIt<DriftProgressionDatabase>();
+  final _db = getIt<ProgressionDatabase>();
 
   Future<int?> getProgression(Lesson lesson) async {
     var progression = await _getProgressionOrNull(lesson);
@@ -18,23 +18,23 @@ class LessonRepository {
     return progression?.progression;
   }
 
-  Future<DriftLessonProgression?> _getProgressionOrNull(Lesson lesson) async {
-    final select = _dbDrift.select(_dbDrift.driftLessonProgressions);
+  Future<LessonProgression?> _getProgressionOrNull(Lesson lesson) async {
+    final select = _db.select(_db.lessonProgressions);
     final query = select..where((tbl) => tbl.id.equals(lesson.id));
     final results = await query.get();
     return results.firstOrNull;
   }
 
   Future _insertProgression(Lesson lesson) async {
-    final into = _dbDrift.into(_dbDrift.driftLessonProgressions);
+    final into = _db.into(_db.lessonProgressions);
     await into.insert(
-      DriftLessonProgressionsCompanion.insert(id: lesson.id, progression: 0),
+      LessonProgressionsCompanion.insert(id: lesson.id, progression: 0),
       mode: InsertMode.insertOrIgnore,
     );
   }
 
-  Future<List<DriftLessonProgression>> getAllProgressions() async {
-    final selectAll = _dbDrift.select(_dbDrift.driftLessonProgressions);
+  Future<List<LessonProgression>> getAllProgressions() async {
+    final selectAll = _db.select(_db.lessonProgressions);
     var all = await selectAll.get();
     if (all.isEmpty) {
       await _insertInitialValues();
@@ -53,9 +53,9 @@ class LessonRepository {
     final progression = await _getProgressionOrNull(lesson);
     if (progression == null) return;
     if (progression.progression < LessonData.maxProgression) {
-      final update = _dbDrift.update(_dbDrift.driftLessonProgressions);
+      final update = _db.update(_db.lessonProgressions);
       final query = update..where((tbl) => tbl.id.equals(lesson.id));
-      query.write(DriftLessonProgressionsCompanion(
+      query.write(LessonProgressionsCompanion(
         progression: Value(progression.progression + 1),
       ));
     }

@@ -5,11 +5,11 @@ import 'package:drift/native.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 
-import 'lesson_data.dart';
+import '../lesson_data.dart';
 
-part 'drift_progression_database.g.dart';
+part 'progression_database.g.dart';
 
-class DriftLessonProgressions extends Table {
+class LessonProgressions extends Table {
   @override
   Set<Column> get primaryKey => {id};
 
@@ -21,9 +21,9 @@ class DriftLessonProgressions extends Table {
       integer().withDefault(const Constant(LessonData.maxProgression))();
 }
 
-@DriftDatabase(tables: [DriftLessonProgressions])
-class DriftProgressionDatabase extends _$DriftProgressionDatabase {
-  DriftProgressionDatabase() : super(_openConnection());
+@DriftDatabase(tables: [LessonProgressions])
+class ProgressionDatabase extends _$ProgressionDatabase {
+  ProgressionDatabase() : super(_openConnection());
 
   @override
   int get schemaVersion => 1;

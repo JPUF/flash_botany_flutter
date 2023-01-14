@@ -106,6 +106,12 @@
       <excludeFolder url="file://$MODULE_DIR$/app/ios/.symlinks/plugins/shared_preferences_ios/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/app/ios/.symlinks/plugins/shared_preferences_ios/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/app/ios/.symlinks/plugins/shared_preferences_ios/build" />
+      <excludeFolder url="file://$MODULE_DIR$/app/windows/flutter/ephemeral/.plugin_symlinks/sqlite3_flutter_libs/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/app/windows/flutter/ephemeral/.plugin_symlinks/sqlite3_flutter_libs/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/app/windows/flutter/ephemeral/.plugin_symlinks/sqlite3_flutter_libs/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/app/windows/flutter/ephemeral/.plugin_symlinks/sqlite3_flutter_libs/build" />
+      <excludeFolder url="file://$MODULE_DIR$/app/windows/flutter/ephemeral/.plugin_symlinks/sqlite3_flutter_libs/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/app/windows/flutter/ephemeral/.plugin_symlinks/sqlite3_flutter_libs/.dart_tool" />
     </content>
     <orderEntry type="jdk" jdkName="Android API 32 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
