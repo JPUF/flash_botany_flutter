@@ -45,24 +45,15 @@ class PromptBloc extends Bloc<PromptEvent, PromptState> {
   }
 
   List<Family> _getFamilyOptions(QuizId quizId, Family correctFamily) {
-    final newOptions = <Family>[];
-    final r = Random();
-    List<Family> remainingFamilies = quizId.familySet.toList();
-    remainingFamilies.remove(correctFamily);
-    remainingFamilies.shuffle();
-    remainingFamilies.take(min(quizId.familySet.length, 3)).toList();
-    remainingFamilies.add(correctFamily);
-    remainingFamilies.shuffle();
+    List<Family> remainingFamilies = quizId.familySet.toList()
+    ..remove(correctFamily)
+    ..shuffle();
 
-    return remainingFamilies;
-    remainingFamilies.remove(correctFamily);
-    remainingFamilies.shuffle();
-    final finalIndex = min(4, quizId.familySet.length);
-    final correctIndex = r.nextInt(finalIndex);
-    for (int i = 0; i < finalIndex; i++) {
-      final isCorrect = i == correctIndex;
-      newOptions.add(isCorrect ? correctFamily : remainingFamilies[i]);
-    }
-    return newOptions;
+    List<Family> finalFamilies =
+        remainingFamilies.take(min(quizId.familySet.length, 3)).toList()
+    ..add(correctFamily)
+    ..shuffle();
+
+    return finalFamilies;
   }
 }

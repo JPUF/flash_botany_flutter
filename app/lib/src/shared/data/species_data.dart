@@ -10,7 +10,6 @@ import 'families/lamiaceae_data.dart';
 import 'families/rosaceae_data.dart';
 
 class SpeciesData {
-  //TODO consider 'enabling CORS'. here we had https://api.allorigins.win/raw?url=https://f003.backblazeb2.com/file/prompt-images/
   static const baseImageUrl =
       'https://f003.backblazeb2.com/file/prompt-images/';
 
