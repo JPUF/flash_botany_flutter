@@ -6,6 +6,6 @@ import 'repositories/lesson_repository.dart';
 final getIt = GetIt.instance;
 
 void setupInjection() {
-  getIt.registerSingleton<ProgressionDatabase>(ProgressionDatabase());
+  getIt.registerSingleton<ProgressionDatabase>(constructDb());
   getIt.registerSingleton<LessonRepository>(LessonRepository());
 }
