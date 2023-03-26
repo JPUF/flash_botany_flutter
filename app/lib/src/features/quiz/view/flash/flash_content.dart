@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../shared/blocs/progression/progression_bloc.dart';
 import '../../../../shared/blocs/prompt/prompt_bloc.dart';
 import '../../../../shared/extensions.dart';
 import '../../../../shared/models/family.dart';

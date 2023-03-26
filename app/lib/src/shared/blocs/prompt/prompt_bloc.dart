@@ -8,6 +8,7 @@ import '../../models/family.dart';
 import '../../models/lesson.dart';
 import '../../models/species.dart';
 import '../../repositories/lesson_repository.dart';
+import '../progression/progression_bloc.dart';
 
 part 'prompt_bloc.freezed.dart';
 part 'prompt_event.dart';
@@ -16,7 +17,9 @@ part 'prompt_state.dart';
 class PromptBloc extends Bloc<PromptEvent, PromptState> {
   final LessonRepository _lessonRepo = getIt<LessonRepository>();
 
-  PromptBloc() : super(PromptState.initial()) {
+  final ProgressionBloc progressionBloc;
+
+  PromptBloc({required this.progressionBloc}) : super(PromptState.initial()) {
     on<PromptEvent>(
       (event, emit) => event.map(
         nextPrompt: (event) => _nextPrompt(event, emit),
@@ -39,8 +42,9 @@ class PromptBloc extends Bloc<PromptEvent, PromptState> {
   _getFeedback(GetFeedback event, Emitter<PromptState> emit) async {
     final family = event.selectedFamily;
     final correct = family == state.promptSpecies?.family;
-    if (correct && !event.lesson.indefinite ) {
+    if (correct && !event.lesson.indefinite) {
       await _lessonRepo.incrementLessonProgression(event.lesson);
+      progressionBloc.add(const ProgressionEvent.getProgressions());
     }
     final progression = await _lessonRepo.getProgression(event.lesson) ?? 0;
     emit(state.copyWith(

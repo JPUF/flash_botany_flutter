@@ -32,9 +32,6 @@ class _FlashAppState extends State<FlashApp> {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     return MultiBlocProvider(
       providers: [
-        BlocProvider<PromptBloc>(
-          create: (context) => PromptBloc(),
-        ),
         BlocProvider<ProgressionBloc>(
           create: (context) => ProgressionBloc(),
         ),
@@ -64,15 +61,20 @@ class _FlashAppState extends State<FlashApp> {
                   if (!initialThemeSet) {
                     theme.initialThemeMode(widget.isDark, context);
                   }
-                  return MaterialApp.router(
-                    title: Strings.appName,
-                    debugShowCheckedModeBanner: false,
-                    scrollBehavior: AppScrollBehavior(),
-                    theme: theme.light(settings.value.sourceColor),
-                    darkTheme: theme.dark(settings.value.sourceColor),
-                    themeMode: theme.themeMode(),
-                    routeInformationParser: appRouter.routeInformationParser,
-                    routerDelegate: appRouter.routerDelegate,
+                  return BlocProvider(
+                    create: (context) => PromptBloc(
+                        progressionBloc:
+                            BlocProvider.of<ProgressionBloc>(context)),
+                    child: MaterialApp.router(
+                      title: Strings.appName,
+                      debugShowCheckedModeBanner: false,
+                      scrollBehavior: AppScrollBehavior(),
+                      theme: theme.light(settings.value.sourceColor),
+                      darkTheme: theme.dark(settings.value.sourceColor),
+                      themeMode: theme.themeMode(),
+                      routeInformationParser: appRouter.routeInformationParser,
+                      routerDelegate: appRouter.routerDelegate,
+                    ),
                   );
                 },
               ),
