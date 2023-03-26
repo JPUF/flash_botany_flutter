@@ -12,6 +12,7 @@ import '../../shared/views/custom_app_bar.dart';
 import 'components/basic_button.dart';
 import 'components/family_button.dart';
 import 'components/hero_quiz_button.dart';
+import 'components/lesson_progress_indicator.dart';
 import 'components/lesson_section.dart';
 
 class HomeScreen extends StatelessWidget {

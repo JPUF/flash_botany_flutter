@@ -10,6 +10,7 @@ import '../../../shared/destinations.dart';
 import '../../../shared/models/lesson.dart';
 import '../../../shared/util_widgets.dart';
 import 'basic_button.dart';
+import 'lesson_progress_indicator.dart';
 
 class LessonSection extends StatefulWidget {
   const LessonSection({Key? key}) : super(key: key);
@@ -62,6 +63,7 @@ class _LessonSectionState extends State<LessonSection> {
       child: BasicButton(
         text: '${lesson.title} ${progression.progression}',
         onTap: () => _toQuiz(lesson, context),
+        trailingWidget: LessonProgressIndicator(progress: progression),
       ),
     );
   }
