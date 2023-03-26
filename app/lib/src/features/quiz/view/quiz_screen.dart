@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:snapping_sheet/snapping_sheet.dart';
 
-import '../../../shared/blocs/prompt_bloc.dart';
-import '../../../shared/data/species_data.dart';
+import '../../../shared/blocs/prompt/prompt_bloc.dart';
 import '../../../shared/extensions.dart';
+import '../../../shared/models/lesson.dart';
 import '../../../shared/strings.dart';
 import '../../../shared/views/brightness_toggle.dart';
 import '../../../shared/views/coloured_safe_area.dart';
@@ -15,9 +15,9 @@ import 'family/family_sheet_scaffold.dart';
 import 'flash/flash_container.dart';
 
 class QuizScreen extends StatefulWidget {
-  const QuizScreen({Key? key, required this.quizId}) : super(key: key);
+  const QuizScreen({Key? key, required this.lesson}) : super(key: key);
 
-  final QuizId quizId;
+  final Lesson lesson;
 
   @override
   State<QuizScreen> createState() => _QuizScreenState();
@@ -44,7 +44,7 @@ class _QuizScreenState extends State<QuizScreen> {
   void initState() {
     super.initState();
     BlocProvider.of<PromptBloc>(context)
-        .add(PromptEvent.nextPrompt(widget.quizId, null));
+        .add(PromptEvent.nextPrompt(widget.lesson, null));
   }
 
   @override

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../shared/blocs/prompt_bloc.dart';
+import '../../../../shared/blocs/prompt/prompt_bloc.dart';
 import '../../../../shared/models/family.dart';
 import 'custom_button.dart';
 import 'prompt_content.dart';

@@ -7,10 +7,12 @@ class BasicButton extends StatelessWidget {
     Key? key,
     required this.text,
     required this.onTap,
+    this.trailingWidget,
   }) : super(key: key);
 
   final String text;
   final VoidCallback onTap;
+  final Widget? trailingWidget;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,7 @@ class BasicButton extends StatelessWidget {
       child: Material(
         child: InkWell(
           onTap: onTap,
-          child: HeroButtonContent(text: text),
+          child: HeroButtonContent(text: text, trailingWidget: trailingWidget),
         ),
       ),
     );
@@ -29,9 +31,14 @@ class BasicButton extends StatelessWidget {
 }
 
 class HeroButtonContent extends StatelessWidget {
-  const HeroButtonContent({Key? key, required this.text}) : super(key: key);
+  const HeroButtonContent({
+    Key? key,
+    required this.text,
+    this.trailingWidget,
+  }) : super(key: key);
 
   final String text;
+  final Widget? trailingWidget;
 
   @override
   Widget build(BuildContext context) {
@@ -41,10 +48,19 @@ class HeroButtonContent extends StatelessWidget {
       height: 60,
       alignment: AlignmentDirectional.center,
       color: colors.onInverseSurface,
-      child: Text(
-        text,
-        textAlign: TextAlign.center,
-        style: context.headlineSmall,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget?>[
+          Expanded(
+            child: Text(
+              text,
+              textAlign: TextAlign.center,
+              style: context.headlineSmall,
+            ),
+            flex: 1,
+          ),
+          trailingWidget
+        ].whereType<Widget>().toList(),
       ),
     );
   }

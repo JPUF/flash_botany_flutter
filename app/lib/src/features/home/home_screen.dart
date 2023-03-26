@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../shared/data/species_data.dart';
+import '../../shared/data/lesson_data.dart';
 import '../../shared/destinations.dart';
 import '../../shared/extensions.dart';
 import '../../shared/models/family.dart';
+import '../../shared/models/lesson.dart';
 import '../../shared/strings.dart';
 import '../../shared/util_widgets.dart';
 import '../../shared/views/custom_app_bar.dart';
 import 'components/basic_button.dart';
 import 'components/family_button.dart';
 import 'components/hero_quiz_button.dart';
+import 'components/lesson_progress_indicator.dart';
+import 'components/lesson_section.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -62,22 +65,11 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
           ),
           PlatformSized(
             child: HeroQuizButton(
-              onTap: () => _toQuiz(QuizId.all),
+              onTap: () => _toQuiz(LessonData.lessons.first),
             ),
           ),
           const SizedBox(height: 32),
-          PlatformSized(
-            child: BasicButton(
-              text: Strings.lessonAsteraceaeRosaceae,
-              onTap: () => _toQuiz(QuizId.asteraceaeRosaceae),
-            ),
-          ),
-          PlatformSized(
-            child: BasicButton(
-              text: Strings.lessonBrassicaceaeLamiaceae,
-              onTap: () => _toQuiz(QuizId.brassicaceaeLamiaceae),
-            ),
-          ),
+          const LessonSection(),
           const SizedBox(height: 32),
           PlatformSized(child: _familySearchField()),
           const SizedBox(height: 16),
@@ -140,7 +132,7 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
         .toList();
   }
 
-  void _toQuiz(QuizId quizId) {
-    GoRouter.of(context).push(Destination.quiz.path, extra: quizId);
+  void _toQuiz(Lesson lesson) {
+    GoRouter.of(context).push(Destination.quiz.path, extra: lesson);
   }
 }

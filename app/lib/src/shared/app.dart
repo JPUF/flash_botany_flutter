@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'blocs/prompt_bloc.dart';
+import 'blocs/progression/progression_bloc.dart';
+import 'blocs/prompt/prompt_bloc.dart';
 import 'providers/theme.dart';
 import 'router.dart';
 import 'scroll_behaviour.dart';
@@ -19,7 +20,6 @@ class FlashApp extends StatefulWidget {
 }
 
 class _FlashAppState extends State<FlashApp> {
-
   bool initialThemeSet = false;
 
   final settings = ValueNotifier(ThemeSettings(
@@ -30,8 +30,12 @@ class _FlashAppState extends State<FlashApp> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-    return BlocProvider<PromptBloc>(
-      create: (context) => PromptBloc(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<ProgressionBloc>(
+          create: (context) => ProgressionBloc(),
+        ),
+      ],
       child: DynamicColorBuilder(
         builder: (lightDynamic, darkDynamic) => ThemeProvider(
             lightDynamic: lightDynamic,
@@ -40,11 +44,10 @@ class _FlashAppState extends State<FlashApp> {
             child: NotificationListener<ThemeSettingChange>(
               onNotification: (notification) {
                 final isDark = widget.isDark;
-                if(isDark != null && !initialThemeSet) {
+                if (isDark != null && !initialThemeSet) {
                   settings.value = ThemeSettings(
                       sourceColor: notification.settings.sourceColor,
-                      themeMode: isDark ? ThemeMode.dark : ThemeMode.light
-                  );
+                      themeMode: isDark ? ThemeMode.dark : ThemeMode.light);
                   initialThemeSet = true;
                 } else {
                   settings.value = notification.settings;
@@ -55,18 +58,23 @@ class _FlashAppState extends State<FlashApp> {
                 valueListenable: settings,
                 builder: (context, value, _) {
                   final theme = ThemeProvider.of(context);
-                  if(!initialThemeSet) {
+                  if (!initialThemeSet) {
                     theme.initialThemeMode(widget.isDark, context);
                   }
-                  return MaterialApp.router(
-                    title: Strings.appName,
-                    debugShowCheckedModeBanner: false,
-                    scrollBehavior: AppScrollBehavior(),
-                    theme: theme.light(settings.value.sourceColor),
-                    darkTheme: theme.dark(settings.value.sourceColor),
-                    themeMode: theme.themeMode(),
-                    routeInformationParser: appRouter.routeInformationParser,
-                    routerDelegate: appRouter.routerDelegate,
+                  return BlocProvider(
+                    create: (context) => PromptBloc(
+                        progressionBloc:
+                            BlocProvider.of<ProgressionBloc>(context)),
+                    child: MaterialApp.router(
+                      title: Strings.appName,
+                      debugShowCheckedModeBanner: false,
+                      scrollBehavior: AppScrollBehavior(),
+                      theme: theme.light(settings.value.sourceColor),
+                      darkTheme: theme.dark(settings.value.sourceColor),
+                      themeMode: theme.themeMode(),
+                      routeInformationParser: appRouter.routeInformationParser,
+                      routerDelegate: appRouter.routerDelegate,
+                    ),
                   );
                 },
               ),

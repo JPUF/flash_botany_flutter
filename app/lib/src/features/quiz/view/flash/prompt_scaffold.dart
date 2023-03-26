@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../shared/blocs/prompt_bloc.dart';
+import '../../../../shared/blocs/prompt/prompt_bloc.dart';
 import '../../../../shared/extensions.dart';
 import '../flash/prompt_content.dart';
 

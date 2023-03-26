@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../shared/blocs/prompt_bloc.dart';
+import '../../../../shared/blocs/prompt/prompt_bloc.dart';
 import 'flash_content.dart';
 
 class FlashContainerDesktop extends StatelessWidget {

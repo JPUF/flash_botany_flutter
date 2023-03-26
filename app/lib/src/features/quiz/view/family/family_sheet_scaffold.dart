@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../shared/blocs/prompt_bloc.dart';
+import '../../../../shared/blocs/prompt/prompt_bloc.dart';
 import '../flash/prompt_content.dart';
 import 'family_info.dart';
 
@@ -19,13 +19,7 @@ class FamilySheetContent extends StatefulWidget {
 
 class _FamilySheetContentState extends State<FamilySheetContent>
     with TickerProviderStateMixin {
-  late TabController _tabController;
-
-  @override
-  void initState() {
-    super.initState();
-    _tabController = TabController(initialIndex: 0, length: 4, vsync: this);
-  }
+  TabController? _controller;
 
   @override
   Widget build(BuildContext context) {
@@ -45,16 +39,21 @@ class _FamilySheetContentState extends State<FamilySheetContent>
 
   BlocBuilder<PromptBloc, PromptState> _familySheetBody() {
     return BlocBuilder<PromptBloc, PromptState>(
+      buildWhen: (prev, curr) => prev.familyOptions != curr.familyOptions,
       builder: (context, state) {
         final families = state.familyOptions;
-        return families != null && families.length == 4
-            ? TabBarView(
-                controller: _tabController,
-                children: families.map((f) => FamilyInfo(family: f)).toList(),
-              )
-            : const SizedLoadSpinner();
+        if (families == null) return const SizedLoadSpinner();
+        _initTabController(families.length);
+        return TabBarView(
+          controller: _controller,
+          children: families.map((f) => FamilyInfo(family: f)).toList(),
+        );
       },
     );
+  }
+
+  void _initTabController(int length) {
+    _controller = TabController(initialIndex: 0, length: length, vsync: this);
   }
 
   AppBar _familySheetAppBar(Color bgColor) {
@@ -67,19 +66,17 @@ class _FamilySheetContentState extends State<FamilySheetContent>
             return previous.promptSpecies != current.promptSpecies;
           },
           listener: (_, __) {
-            _tabController.index = 0;
+            _controller?.index = 0;
           },
           child: BlocBuilder<PromptBloc, PromptState>(
             builder: (context, state) {
               final families = state.familyOptions;
-              return families != null && families.length == 4
-                  ? TabBar(
-                      controller: _tabController,
-                      isScrollable: true,
-                      tabs:
-                          families.map((f) => Tab(text: f.latinName)).toList(),
-                    )
-                  : Container();
+              if (families == null) return Container();
+              return TabBar(
+                controller: _controller,
+                isScrollable: true,
+                tabs: families.map((f) => Tab(text: f.latinName)).toList(),
+              );
             },
           ),
         ),

@@ -14,6 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Species _$SpeciesFromJson(Map<String, dynamic> json) {
+  return _Species.fromJson(json);
+}
+
 /// @nodoc
 mixin _$Species {
   String get latinName => throw _privateConstructorUsedError;
@@ -21,6 +25,7 @@ mixin _$Species {
   Family get family => throw _privateConstructorUsedError;
   List<AttributedUrl> get images => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SpeciesCopyWith<Species> get copyWith => throw _privateConstructorUsedError;
 }
@@ -28,7 +33,8 @@ mixin _$Species {
 /// @nodoc
 abstract class $SpeciesCopyWith<$Res> {
   factory $SpeciesCopyWith(Species value, $Res Function(Species) then) =
-      _$SpeciesCopyWithImpl<$Res>;
+      _$SpeciesCopyWithImpl<$Res, Species>;
+  @useResult
   $Res call(
       {String latinName,
       String commonName,
@@ -37,38 +43,41 @@ abstract class $SpeciesCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SpeciesCopyWithImpl<$Res> implements $SpeciesCopyWith<$Res> {
+class _$SpeciesCopyWithImpl<$Res, $Val extends Species>
+    implements $SpeciesCopyWith<$Res> {
   _$SpeciesCopyWithImpl(this._value, this._then);
 
-  final Species _value;
   // ignore: unused_field
-  final $Res Function(Species) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? latinName = freezed,
-    Object? commonName = freezed,
-    Object? family = freezed,
-    Object? images = freezed,
+    Object? latinName = null,
+    Object? commonName = null,
+    Object? family = null,
+    Object? images = null,
   }) {
     return _then(_value.copyWith(
-      latinName: latinName == freezed
+      latinName: null == latinName
           ? _value.latinName
           : latinName // ignore: cast_nullable_to_non_nullable
               as String,
-      commonName: commonName == freezed
+      commonName: null == commonName
           ? _value.commonName
           : commonName // ignore: cast_nullable_to_non_nullable
               as String,
-      family: family == freezed
+      family: null == family
           ? _value.family
           : family // ignore: cast_nullable_to_non_nullable
               as Family,
-      images: images == freezed
+      images: null == images
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
               as List<AttributedUrl>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -78,6 +87,7 @@ abstract class _$$_SpeciesCopyWith<$Res> implements $SpeciesCopyWith<$Res> {
           _$_Species value, $Res Function(_$_Species) then) =
       __$$_SpeciesCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String latinName,
       String commonName,
@@ -86,35 +96,34 @@ abstract class _$$_SpeciesCopyWith<$Res> implements $SpeciesCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_SpeciesCopyWithImpl<$Res> extends _$SpeciesCopyWithImpl<$Res>
+class __$$_SpeciesCopyWithImpl<$Res>
+    extends _$SpeciesCopyWithImpl<$Res, _$_Species>
     implements _$$_SpeciesCopyWith<$Res> {
   __$$_SpeciesCopyWithImpl(_$_Species _value, $Res Function(_$_Species) _then)
-      : super(_value, (v) => _then(v as _$_Species));
+      : super(_value, _then);
 
-  @override
-  _$_Species get _value => super._value as _$_Species;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? latinName = freezed,
-    Object? commonName = freezed,
-    Object? family = freezed,
-    Object? images = freezed,
+    Object? latinName = null,
+    Object? commonName = null,
+    Object? family = null,
+    Object? images = null,
   }) {
     return _then(_$_Species(
-      latinName: latinName == freezed
+      latinName: null == latinName
           ? _value.latinName
           : latinName // ignore: cast_nullable_to_non_nullable
               as String,
-      commonName: commonName == freezed
+      commonName: null == commonName
           ? _value.commonName
           : commonName // ignore: cast_nullable_to_non_nullable
               as String,
-      family: family == freezed
+      family: null == family
           ? _value.family
           : family // ignore: cast_nullable_to_non_nullable
               as Family,
-      images: images == freezed
+      images: null == images
           ? _value._images
           : images // ignore: cast_nullable_to_non_nullable
               as List<AttributedUrl>,
@@ -123,7 +132,7 @@ class __$$_SpeciesCopyWithImpl<$Res> extends _$SpeciesCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_Species implements _Species {
   const _$_Species(
       {required this.latinName,
@@ -131,6 +140,9 @@ class _$_Species implements _Species {
       required this.family,
       required final List<AttributedUrl> images})
       : _images = images;
+
+  factory _$_Species.fromJson(Map<String, dynamic> json) =>
+      _$$_SpeciesFromJson(json);
 
   @override
   final String latinName;
@@ -155,25 +167,31 @@ class _$_Species implements _Species {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Species &&
-            const DeepCollectionEquality().equals(other.latinName, latinName) &&
-            const DeepCollectionEquality()
-                .equals(other.commonName, commonName) &&
-            const DeepCollectionEquality().equals(other.family, family) &&
+            (identical(other.latinName, latinName) ||
+                other.latinName == latinName) &&
+            (identical(other.commonName, commonName) ||
+                other.commonName == commonName) &&
+            (identical(other.family, family) || other.family == family) &&
             const DeepCollectionEquality().equals(other._images, _images));
   }
 
+  @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(latinName),
-      const DeepCollectionEquality().hash(commonName),
-      const DeepCollectionEquality().hash(family),
+  int get hashCode => Object.hash(runtimeType, latinName, commonName, family,
       const DeepCollectionEquality().hash(_images));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SpeciesCopyWith<_$_Species> get copyWith =>
       __$$_SpeciesCopyWithImpl<_$_Species>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_SpeciesToJson(
+      this,
+    );
+  }
 }
 
 abstract class _Species implements Species {
@@ -182,6 +200,8 @@ abstract class _Species implements Species {
       required final String commonName,
       required final Family family,
       required final List<AttributedUrl> images}) = _$_Species;
+
+  factory _Species.fromJson(Map<String, dynamic> json) = _$_Species.fromJson;
 
   @override
   String get latinName;

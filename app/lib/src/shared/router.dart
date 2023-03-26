@@ -6,9 +6,9 @@ import '../features/family/family_screen.dart';
 import '../features/home/home_screen.dart';
 import '../features/morphology/morphology_screen.dart';
 import '../features/quiz/view/quiz_screen.dart';
-import 'data/species_data.dart';
 import 'destinations.dart';
 import 'models/family.dart';
+import 'models/lesson.dart';
 
 class NavigationDestination {
   const NavigationDestination({
@@ -53,7 +53,7 @@ final appRouter = GoRouter(
           if (kIsWeb) return child;
           return SlideTransition(position: anim.drive(_slide), child: child);
         },
-        child: QuizScreen(quizId: state.extra as QuizId),
+        child: QuizScreen(lesson: state.extra as Lesson),
       ),
     ),
     //MorphologyScreen
