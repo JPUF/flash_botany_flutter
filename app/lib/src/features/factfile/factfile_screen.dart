@@ -5,7 +5,7 @@ import '../../shared/models/family.dart';
 import '../../shared/strings.dart';
 import '../../shared/util_widgets.dart';
 import '../../shared/views/custom_app_bar.dart';
-import '../home/components/family_button.dart';
+import 'family_button.dart';
 
 class FactfileScreen extends StatelessWidget {
   const FactfileScreen({Key? key}) : super(key: key);

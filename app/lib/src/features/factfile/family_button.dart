@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../shared/destinations.dart';
-import '../../../shared/extensions.dart';
-import '../../../shared/models/family.dart';
+import '../../shared/destinations.dart';
+import '../../shared/extensions.dart';
+import '../../shared/models/family.dart';
 
 class FamilyButton extends StatelessWidget {
   const FamilyButton({Key? key, required this.family}) : super(key: key);
