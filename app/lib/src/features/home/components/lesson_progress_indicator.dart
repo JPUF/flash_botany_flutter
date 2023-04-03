@@ -21,7 +21,7 @@ class LessonProgressIndicator extends StatelessWidget {
       width: size,
       child: CircularProgressIndicator(
         value: progressValue,
-        color: colors.onSurfaceVariant,
+        color: colors.surfaceTint,
         strokeWidth: size,
         backgroundColor: colors.surfaceVariant,
       ),
