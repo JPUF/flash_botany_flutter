@@ -64,6 +64,13 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                 }),
           ),
           PlatformSized(
+            child: BasicButton(
+                text: Strings.factfileCta,
+                onTap: () {
+                  GoRouter.of(context).push(Destination.factfile.path);
+                }),
+          ),
+          PlatformSized(
             child: HeroQuizButton(
               onTap: () => _toQuiz(LessonData.lessons.first),
             ),

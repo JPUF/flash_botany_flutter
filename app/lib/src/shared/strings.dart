@@ -2,6 +2,7 @@ class Strings {
   static const appName = 'FlashBotany';
   static const heroCta = 'Learn all!';
   static const flowerCta = 'Flowers 101';
+  static const factfileCta = 'Family Factfile';
   static const lessonAsteraceaeRosaceae = 'Daisies & Roses';
   static const lessonBrassicaceaeLamiaceae = 'Mustards & Mints';
   static const familySearchHint = 'Family search:';
