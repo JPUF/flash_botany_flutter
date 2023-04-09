@@ -19,11 +19,14 @@ class LessonProgressIndicator extends StatelessWidget {
     return SizedBox(
       height: size,
       width: size,
-      child: CircularProgressIndicator(
-        value: progressValue,
-        color: colors.onSurfaceVariant,
-        strokeWidth: size,
-        backgroundColor: colors.surfaceVariant,
+      child: Visibility(
+        visible: progress.progression > 0,
+        child: CircularProgressIndicator(
+          value: progressValue,
+          color: colors.surfaceTint,
+          strokeWidth: size,
+          backgroundColor: colors.surfaceVariant,
+        ),
       ),
     );
   }

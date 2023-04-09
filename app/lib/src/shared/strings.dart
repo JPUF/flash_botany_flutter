@@ -1,7 +1,10 @@
 class Strings {
   static const appName = 'FlashBotany';
-  static const heroCta = 'Learn all!';
+  static const allLessonCta = 'Test yourself!';
+  static const allLessonSubheader = 'A quiz with all the families';
   static const flowerCta = 'Flowers 101';
+  static const factfileCta = 'Family Factfile';
+  static const lessonHeader = 'Lessons';
   static const lessonAsteraceaeRosaceae = 'Daisies & Roses';
   static const lessonBrassicaceaeLamiaceae = 'Mustards & Mints';
   static const familySearchHint = 'Family search:';

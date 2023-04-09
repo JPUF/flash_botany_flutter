@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../features/factfile/factfile_screen.dart';
 import '../features/family/family_screen.dart';
 import '../features/home/home_screen.dart';
 import '../features/morphology/morphology_screen.dart';
@@ -66,6 +67,17 @@ final appRouter = GoRouter(
           return SlideTransition(position: anim.drive(_slide), child: child);
         },
         child: const MorphologyScreen(),
+      ),
+    ),
+    GoRoute(
+      path: Destination.factfile.path,
+      pageBuilder: (context, state) => CustomTransitionPage<void>(
+        key: Destination.factfile.key,
+        transitionsBuilder: (_, anim, __, child) {
+          if (kIsWeb) return child;
+          return SlideTransition(position: anim.drive(_slide), child: child);
+        },
+        child: const FactfileScreen(),
       ),
     ),
     //FamilyScreen
