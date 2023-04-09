@@ -41,10 +41,21 @@ class HeroButtonContent extends StatelessWidget {
         child: Stack(
           alignment: Alignment.center,
           children: [
-            Text(
-              Strings.heroCta,
-              textAlign: TextAlign.center,
-              style: context.headlineMedium,
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  Strings.allLessonCta,
+                  textAlign: TextAlign.center,
+                  style: context.headlineMedium,
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  Strings.allLessonSubheader,
+                  textAlign: TextAlign.center,
+                  style: context.bodyLarge,
+                ),
+              ],
             ),
             const Align(
                 alignment: AlignmentDirectional.centerEnd,

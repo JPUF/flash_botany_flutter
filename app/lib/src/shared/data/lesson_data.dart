@@ -13,7 +13,7 @@ class LessonData {
   static const List<Lesson> lessons = [
     Lesson(
       id: allFamiliesId,
-      title: Strings.heroCta,
+      title: Strings.allLessonCta,
       familySet: Family.values,
       speciesSet: SpeciesData.allSpecies,
       indefinite: true

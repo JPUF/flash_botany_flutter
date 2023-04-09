@@ -56,6 +56,9 @@ class HomeScreenContent extends StatelessWidget {
                   GoRouter.of(context).push(Destination.factfile.path);
                 }),
           ),
+          const SizedBox(height: 32),
+          const LessonSection(),
+          const SizedBox(height: 32),
           PlatformSized(
             child: HeroQuizButton(
               onTap: () => GoRouter.of(context).push(
@@ -64,8 +67,6 @@ class HomeScreenContent extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 32),
-          const LessonSection(),
           const SizedBox(height: 32),
         ],
       ),
