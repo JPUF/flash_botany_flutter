@@ -1,15 +1,15 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 import '../../../shared/blocs/progression/progression_bloc.dart';
 import '../../../shared/data/database/progression_database.dart';
 import '../../../shared/data/lesson_data.dart';
-import '../../../shared/destinations.dart';
 import '../../../shared/models/lesson.dart';
 import '../../../shared/strings.dart';
 import '../../../shared/util_widgets.dart';
+import '../../quiz/view/quiz_screen.dart';
 import 'basic_button.dart';
 import 'lesson_progress_indicator.dart';
 
@@ -83,13 +83,10 @@ class _LessonSectionState extends State<LessonSection> {
     return PlatformSized(
       child: BasicButton(
         text: lesson.title,
-        onTap: () => _toQuiz(lesson, context),
+        onTap: () => PersistentNavBarNavigator.pushNewScreen(context,
+            screen: QuizScreen(lesson: lesson)),
         trailingWidget: LessonProgressIndicator(progress: progression),
       ),
     );
-  }
-
-  void _toQuiz(Lesson lesson, BuildContext context) {
-    GoRouter.of(context).push(Destination.quiz.path, extra: lesson);
   }
 }

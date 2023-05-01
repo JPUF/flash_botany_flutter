@@ -7,7 +7,6 @@ import '../features/bottom_bar_scaffold.dart';
 import 'blocs/progression/progression_bloc.dart';
 import 'blocs/prompt/prompt_bloc.dart';
 import 'providers/theme.dart';
-import 'router.dart';
 import 'scroll_behaviour.dart';
 import 'strings.dart';
 

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../shared/extensions.dart';
 import '../../shared/models/family.dart';
@@ -41,7 +40,7 @@ class FamilyScaffoldWeb extends StatelessWidget {
         title: TextButton(
           child: Text(Strings.appName, style: context.headlineSmall),
           onPressed: () {
-            GoRouter.of(context).pop();
+            Navigator.pop(context);
           },
         ),
         actions: const [BrightnessToggle()],

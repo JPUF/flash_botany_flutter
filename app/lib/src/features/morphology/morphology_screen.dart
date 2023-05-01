@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../shared/extensions.dart';
 import '../../shared/strings.dart';
 import '../../shared/util_widgets.dart';
-import '../../shared/views/brightness_toggle.dart';
 import '../../shared/views/custom_app_bar.dart';
 
 class MorphologyScreen extends StatelessWidget {
@@ -27,18 +25,9 @@ class MorphologyScaffoldWeb extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: false,
-        title: TextButton(
-          child: Text(Strings.appName, style: context.headlineSmall),
-          onPressed: () {
-            GoRouter.of(context).pop();
-          },
-        ),
-        actions: const [BrightnessToggle()],
-      ),
-      body: const SafeArea(
+    return const Scaffold(
+      appBar: CustomAppBar(showBackButton: true),
+      body: SafeArea(
         child: SingleChildScrollView(
           child: MorphologyContent(),
         ),

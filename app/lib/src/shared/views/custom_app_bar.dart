@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import '../extensions.dart';
 import '../strings.dart';
@@ -26,7 +25,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
             visible: widget.showBackButton && constraints.isMobile,
             child: IconButton(
                 onPressed: () {
-                  GoRouter.of(baseContext).pop();
+                  Navigator.pop(baseContext);
                 },
                 icon: const Icon(Icons.chevron_left_rounded, size: 32))),
         centerTitle: true,

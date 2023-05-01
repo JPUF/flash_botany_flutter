@@ -44,7 +44,6 @@ class _BottomBarScaffoldState extends State<BottomBarScaffold> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-      appBar: const CustomAppBar(showBackButton: false),
       body: PersistentTabView(
         context,
         controller: _controller,
