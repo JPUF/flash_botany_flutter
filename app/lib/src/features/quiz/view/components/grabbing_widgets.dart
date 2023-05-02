@@ -2,6 +2,9 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
+import '../../../../shared/extensions.dart';
+import '../../../../shared/strings.dart';
+
 class BottomGrabbingWidget extends StatelessWidget {
   const BottomGrabbingWidget({
     Key? key,
@@ -22,14 +25,23 @@ class BottomGrabbingWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
-            margin: const EdgeInsets.only(top: 15),
+            margin: const EdgeInsets.only(top: 8),
             height: 7,
             width: 60,
-            decoration:  BoxDecoration(
+            decoration: BoxDecoration(
               color: colors.tertiary,
               borderRadius: const BorderRadius.all(Radius.circular(5)),
             ),
-          )
+          ),
+          Expanded(
+              child: Container(
+                margin: const EdgeInsets.only(bottom: 4),
+                alignment: Alignment.center,
+                child: Text(
+            Strings.familySheetGrabber,
+            style: context.bodyLarge,
+          ),
+              ))
         ],
       ),
     );

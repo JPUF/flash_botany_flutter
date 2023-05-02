@@ -6,6 +6,7 @@ class Strings {
   static const allLessonSubheader = 'A quiz with all the families';
   static const flowerCta = 'Flowers 101';
   static const factfileCta = 'Family Factfile';
+  static const familySheetGrabber = 'Family Information';
   static const lessonHeader = 'Lessons';
   static const lessonAsteraceaeRosaceae = 'Daisies & Roses';
   static const lessonBrassicaceaeLamiaceae = 'Mustards & Mints';

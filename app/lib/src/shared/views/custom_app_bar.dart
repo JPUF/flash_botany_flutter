@@ -31,6 +31,12 @@ class _CustomAppBarState extends State<CustomAppBar> {
         centerTitle: true,
         title: Text(Strings.appName, style: context.headlineSmall),
         actions: const [BrightnessToggle()],
+        bottom: PreferredSize(
+            child: Container(
+              color: Theme.of(context).colorScheme.onInverseSurface,
+              height: 1,
+            ),
+            preferredSize: const Size.fromHeight(1)),
       );
     });
   }

@@ -43,6 +43,7 @@ class HomeScreenContent extends StatelessWidget {
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
         children: [
+          const SizedBox(height: 32),
           PlatformSized(
             child: BasicButton(
                 text: Strings.flowerCta,
