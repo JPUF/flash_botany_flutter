@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
-import '../shared/views/custom_app_bar.dart';
 import 'factfile/factfile_screen.dart';
 import 'home/home_screen.dart';
 
@@ -20,31 +19,37 @@ class BottomBarScaffold extends StatefulWidget {
 class _BottomBarScaffoldState extends State<BottomBarScaffold> {
   final PersistentTabController _controller = PersistentTabController();
 
-  List<Widget> _buildScreens() => [
-        const HomeScreen(),
-        const FactfileScreen(),
-      ];
+  List<Widget> _buildScreens() =>
+      [const HomeScreen(), const FactfileScreen(), Container()];
 
   List<PersistentBottomNavBarItem> _navBarsItems() {
+    final activeColor = Theme.of(context).colorScheme.onBackground;
+    const inactiveColor = Colors.grey;
     return [
       PersistentBottomNavBarItem(
         icon: const Icon(Icons.home),
         title: 'Home',
-        activeColorPrimary: Theme.of(context).primaryColor,
-        inactiveColorPrimary: Colors.grey,
+        activeColorPrimary: activeColor,
+        inactiveColorPrimary: inactiveColor,
       ),
       PersistentBottomNavBarItem(
         icon: const Icon(Icons.info),
         title: 'Info',
-        activeColorPrimary: Theme.of(context).primaryColor,
-        inactiveColorPrimary: Colors.grey,
+        activeColorPrimary: activeColor,
+        inactiveColorPrimary: inactiveColor,
+      ),
+      PersistentBottomNavBarItem(
+        icon: const Icon(Icons.radar),
+        title: 'Other',
+        activeColorPrimary: activeColor,
+        inactiveColorPrimary: inactiveColor,
       ),
     ];
   }
 
   @override
   Widget build(BuildContext context) => Scaffold(
-      body: PersistentTabView(
+          body: PersistentTabView(
         context,
         controller: _controller,
         screens: _buildScreens(),
@@ -58,5 +63,7 @@ class _BottomBarScaffoldState extends State<BottomBarScaffold> {
           animateTabTransition: true,
         ),
         navBarStyle: NavBarStyle.style6,
+        backgroundColor: Theme.of(context).colorScheme.onInverseSurface,
+        navBarHeight: 64,
       ));
 }
