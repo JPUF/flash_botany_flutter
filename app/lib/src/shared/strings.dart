@@ -1,5 +1,7 @@
 class Strings {
   static const appName = 'FlashBotany';
+  static const String lessonsTab = 'Lessons';
+  static const String infoTab = 'Info';
   static const allLessonCta = 'Test yourself!';
   static const allLessonSubheader = 'A quiz with all the families';
   static const flowerCta = 'Flowers 101';

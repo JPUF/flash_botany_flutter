@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
-import '../../shared/destinations.dart';
 import '../../shared/extensions.dart';
 import '../../shared/models/family.dart';
+import '../family/family_screen.dart';
 
 class FamilyButton extends StatelessWidget {
   const FamilyButton({Key? key, required this.family}) : super(key: key);
@@ -15,7 +15,8 @@ class FamilyButton extends StatelessWidget {
     return SizedBox(
       width: 100,
       child: InkWell(
-        onTap: () => _navigateToFamilyScreen(context, family),
+        onTap: () => PersistentNavBarNavigator.pushNewScreen(context,
+            screen: FamilyScreen(family: family)),
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
           child: Stack(
@@ -28,10 +29,6 @@ class FamilyButton extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  void _navigateToFamilyScreen(BuildContext c, Family family) {
-    GoRouter.of(c).push(Destination.family.path + '/${family.latinName}');
   }
 }
 

@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../features/bottom_bar_scaffold.dart';
 import 'blocs/progression/progression_bloc.dart';
 import 'blocs/prompt/prompt_bloc.dart';
 import 'providers/theme.dart';
-import 'router.dart';
 import 'scroll_behaviour.dart';
 import 'strings.dart';
 
@@ -65,15 +65,14 @@ class _FlashAppState extends State<FlashApp> {
                     create: (context) => PromptBloc(
                         progressionBloc:
                             BlocProvider.of<ProgressionBloc>(context)),
-                    child: MaterialApp.router(
+                    child: MaterialApp(
                       title: Strings.appName,
                       debugShowCheckedModeBanner: false,
                       scrollBehavior: AppScrollBehavior(),
                       theme: theme.light(settings.value.sourceColor),
                       darkTheme: theme.dark(settings.value.sourceColor),
                       themeMode: theme.themeMode(),
-                      routeInformationParser: appRouter.routeInformationParser,
-                      routerDelegate: appRouter.routerDelegate,
+                      home: BottomBarScaffold(menuContext: context),
                     ),
                   );
                 },

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:snapping_sheet/snapping_sheet.dart';
 
 import '../../../shared/blocs/prompt/prompt_bloc.dart';
@@ -77,7 +76,7 @@ class _QuizScreenState extends State<QuizScreen> {
                 title: TextButton(
                   child: Text(Strings.appName, style: context.headlineSmall),
                   onPressed: () {
-                    GoRouter.of(context).pop();
+                    Navigator.pop(context);
                   },
                 ),
                 actions: const [BrightnessToggle()],
