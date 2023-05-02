@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
+import '../shared/strings.dart';
 import 'factfile/factfile_screen.dart';
 import 'home/home_screen.dart';
 
@@ -20,27 +21,21 @@ class _BottomBarScaffoldState extends State<BottomBarScaffold> {
   final PersistentTabController _controller = PersistentTabController();
 
   List<Widget> _buildScreens() =>
-      [const HomeScreen(), const FactfileScreen(), Container()];
+      [const HomeScreen(), const FactfileScreen()];
 
   List<PersistentBottomNavBarItem> _navBarsItems() {
     final activeColor = Theme.of(context).colorScheme.onBackground;
     const inactiveColor = Colors.grey;
     return [
       PersistentBottomNavBarItem(
-        icon: const Icon(Icons.home),
-        title: 'Home',
+        icon: const Icon(Icons.grade),
+        title: Strings.lessonsTab,
         activeColorPrimary: activeColor,
         inactiveColorPrimary: inactiveColor,
       ),
       PersistentBottomNavBarItem(
         icon: const Icon(Icons.info),
-        title: 'Info',
-        activeColorPrimary: activeColor,
-        inactiveColorPrimary: inactiveColor,
-      ),
-      PersistentBottomNavBarItem(
-        icon: const Icon(Icons.radar),
-        title: 'Other',
+        title: Strings.infoTab,
         activeColorPrimary: activeColor,
         inactiveColorPrimary: inactiveColor,
       ),
