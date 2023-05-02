@@ -6,6 +6,7 @@ import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import '../../../shared/blocs/progression/progression_bloc.dart';
 import '../../../shared/data/database/progression_database.dart';
 import '../../../shared/data/lesson_data.dart';
+import '../../../shared/extensions.dart';
 import '../../../shared/models/lesson.dart';
 import '../../../shared/strings.dart';
 import '../../../shared/util_widgets.dart';
@@ -50,7 +51,7 @@ class _LessonSectionState extends State<LessonSection> {
             children: [
               Text(
                 Strings.lessonHeader,
-                style: Theme.of(context).textTheme.headlineSmall,
+                style: context.headlineSmall,
               ),
               const SizedBox(height: 16),
               _progressionsList(progressions, context),
