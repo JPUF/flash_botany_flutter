@@ -8,8 +8,8 @@ class Strings {
   static const factfileCta = 'Family Factfile';
   static const familySheetGrabber = 'Family Information';
   static const lessonHeader = 'Lessons';
-  static const lessonAsteraceaeRosaceae = 'Daisies & Roses';
-  static const lessonBrassicaceaeLamiaceae = 'Mustards & Mints';
+  static const lessonAsteraceaeRosaceae = 'Daisies\nRoses';
+  static const lessonBrassicaceaeLamiaceae = 'Mustards\nMints';
   static const familySearchHint = 'Family search:';
   static const familySearchNoResults = 'No search results';
   static const darkModeKey = 'darkMode';

@@ -11,8 +11,7 @@ import '../../../shared/models/lesson.dart';
 import '../../../shared/strings.dart';
 import '../../../shared/util_widgets.dart';
 import '../../quiz/view/quiz_screen.dart';
-import 'basic_button.dart';
-import 'lesson_progress_indicator.dart';
+import 'lesson_button.dart';
 
 class LessonSection extends StatefulWidget {
   const LessonSection({Key? key}) : super(key: key);
@@ -41,10 +40,7 @@ class _LessonSectionState extends State<LessonSection> {
         if (progressions == null) return Container();
         progressions.removeAt(0); // To remove 'all families' from this section
         return Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            color: Theme.of(context).colorScheme.surfaceVariant,
-          ),
+
           padding: const EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -82,11 +78,11 @@ class _LessonSectionState extends State<LessonSection> {
     BuildContext context,
   ) {
     return PlatformSized(
-      child: BasicButton(
-        text: lesson.title,
+      child: LessonButton(
+        lesson: lesson,
+        progression: progression,
         onTap: () => PersistentNavBarNavigator.pushNewScreen(context,
             screen: QuizScreen(lesson: lesson)),
-        trailingWidget: LessonProgressIndicator(progress: progression),
       ),
     );
   }

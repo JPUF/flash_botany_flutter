@@ -13,10 +13,12 @@ class LessonProgressIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
+    if(progress.progression == 0) return Container();
     final progressValue =
         progress.progression.toDouble() / progress.maxProgression.toDouble();
     const size = 15.0;
-    return SizedBox(
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 16),
       height: size,
       width: size,
       child: Visibility(

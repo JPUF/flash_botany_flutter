@@ -58,7 +58,7 @@ class _BottomBarScaffoldState extends State<BottomBarScaffold> {
           animateTabTransition: true,
         ),
         navBarStyle: NavBarStyle.style6,
-        backgroundColor: Theme.of(context).colorScheme.onInverseSurface,
+        backgroundColor: Theme.of(context).colorScheme.surfaceVariant,
         navBarHeight: 64,
       ));
 }
