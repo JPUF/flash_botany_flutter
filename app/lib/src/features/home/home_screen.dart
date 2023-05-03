@@ -39,7 +39,6 @@ class HomeScreenContent extends StatelessWidget {
     return ScrollConfiguration(
       behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
       child: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 12),
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
         children: [
