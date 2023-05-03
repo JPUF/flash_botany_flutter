@@ -119,6 +119,8 @@ class FamilyInfo extends StatelessWidget {
               'assets/images/wiki_logo.svg',
               semanticsLabel: 'Wikipedia',
               color: colors.onBackground,
+              width: 32,
+              height: 32,
             ),
           )
         ],
