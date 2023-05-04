@@ -15,6 +15,7 @@ class Strings {
   static const familySearchNoResults = 'No search results';
   static const darkModeKey = 'darkMode';
   static const onboardedKey = 'onboarded';
+  static const begin = 'Begin';
   static const usefulTerms = 'Useful terms:';
   static const attributions = 'Image attributions:';
   static const morphologyReproductive = 'Reproductive Parts';

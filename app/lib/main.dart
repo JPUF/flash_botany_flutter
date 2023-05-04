@@ -11,5 +11,6 @@ void main() async {
   final prefs = await SharedPreferences.getInstance();
   final isDark = prefs.getBool(Strings.darkModeKey);
   final hasOnboarded = prefs.getBool(Strings.onboardedKey) ?? false;
-  runApp(FlashApp(isDark: isDark, hasOnboarded: hasOnboarded));
+  // TODO use hasOnboarded
+  runApp(FlashApp(isDark: isDark, hasOnboarded: false));
 }
