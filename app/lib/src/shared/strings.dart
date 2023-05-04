@@ -10,6 +10,7 @@ class Strings {
   static const lessonHeader = 'Lessons';
   static const lessonAsteraceaeRosaceae = 'Daisies\nRoses';
   static const lessonBrassicaceaeLamiaceae = 'Mustards\nMints';
+  static const lessonApiaceaeCaryophyllaceae = 'Carrots\nCarnations';
   static const familySearchHint = 'Family search:';
   static const familySearchNoResults = 'No search results';
   static const darkModeKey = 'darkMode';
