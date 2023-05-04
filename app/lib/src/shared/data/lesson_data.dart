@@ -9,6 +9,7 @@ class LessonData {
   static const allFamiliesId = 'allFamilies';
   static const asteraceaeRosaceaeId = 'asteraceaeRosaceae';
   static const brassicaceaeLamiaceaeId = 'brassicaceaeLamiaceae';
+  static const apiaceaeCaryophyllaceaeId = 'apiaceaeCaryophyllaceae';
 
   static const List<Lesson> lessons = [
     Lesson(
@@ -29,6 +30,12 @@ class LessonData {
       title: Strings.lessonBrassicaceaeLamiaceae,
       familySet: [Family.brassicaceae, Family.lamiaceae],
       speciesSet: SpeciesData.brassicaceaeLamiaceae,
+    ),
+    Lesson(
+      id: apiaceaeCaryophyllaceaeId,
+      title: Strings.lessonApiaceaeCaryophyllaceae,
+      familySet: [Family.apiaceae, Family.caryophyllaceae],
+      speciesSet: SpeciesData.apiaceaeCaryophyllaceae,
     ),
     //Probably need to increment DB 'version' when this list is augmented.
     // (if app has been released, otherwise just reinstall app on device)

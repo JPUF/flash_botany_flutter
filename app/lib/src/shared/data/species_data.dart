@@ -30,4 +30,9 @@ class SpeciesData {
     ...BrassicaceaeData.speciesList,
     ...LamiaceaeData.speciesList,
   ];
+
+  static const List<Species> apiaceaeCaryophyllaceae = [
+    ...ApiaceaeData.speciesList,
+    ...CaryophyllaceaeData.speciesList,
+  ];
 }
