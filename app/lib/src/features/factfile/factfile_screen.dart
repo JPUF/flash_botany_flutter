@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 import '../../shared/extensions.dart';
 import '../../shared/models/family.dart';
 import '../../shared/strings.dart';
 import '../../shared/util_widgets.dart';
 import '../../shared/views/custom_app_bar.dart';
+import '../home/components/basic_button.dart';
+import '../morphology/morphology_screen.dart';
 import 'family_button.dart';
 
 class FactfileScreen extends StatelessWidget {
@@ -43,6 +46,15 @@ class _FactfileContentState extends State<FactfileContent> {
       alignment: AlignmentDirectional.topCenter,
       child: Column(
         children: [
+          const SizedBox(height: 32),
+          PlatformSized(
+            child: BasicButton(
+                text: Strings.flowerCta,
+                onTap: () {
+                  PersistentNavBarNavigator.pushNewScreen(context,
+                      screen: const MorphologyScreen());
+                }),
+          ),
           const SizedBox(height: 16),
           PlatformSized(child: _familySearchField()),
           const SizedBox(height: 16),

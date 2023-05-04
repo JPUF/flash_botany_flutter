@@ -3,14 +3,14 @@ import 'package:introduction_screen/introduction_screen.dart';
 
 import '../bottom_bar_scaffold.dart';
 
-class OnBoardingPage extends StatefulWidget {
-  const OnBoardingPage({Key? key}) : super(key: key);
+class OnboardingCarousel extends StatefulWidget {
+  const OnboardingCarousel({Key? key}) : super(key: key);
 
   @override
-  OnBoardingPageState createState() => OnBoardingPageState();
+  _OnboardingCarouselState createState() => _OnboardingCarouselState();
 }
 
-class OnBoardingPageState extends State<OnBoardingPage> {
+class _OnboardingCarouselState extends State<OnboardingCarousel> {
   final introKey = GlobalKey<IntroductionScreenState>();
 
   void _onIntroEnd(BuildContext context) {

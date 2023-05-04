@@ -107,7 +107,7 @@ class FirstScreen extends StatelessWidget {
       return BottomBarScaffold(menuContext: context);
     } else {
       _setHasOnboarded();
-      return const OnBoardingPage();
+      return const OnboardingCarousel();
     }
   }
 }
