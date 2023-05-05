@@ -68,6 +68,7 @@ class MorphologyContent extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          const SizedBox(height: 16),
           PlatformSized(
             child: Text(
               Strings.morphologyReproductive,

@@ -42,12 +42,10 @@ class HeroButtonContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = Theme.of(context).colorScheme;
     return Container(
       padding: const EdgeInsets.all(16),
       height: 60,
       alignment: AlignmentDirectional.center,
-      color: colors.onInverseSurface,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget?>[

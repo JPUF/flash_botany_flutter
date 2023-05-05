@@ -40,14 +40,14 @@ class HomeScreenContent extends StatelessWidget {
         shrinkWrap: true,
         children: [
           const SizedBox(height: 32),
-          const LessonSection(),
-          const SizedBox(height: 32),
           PlatformSized(
             child: HeroQuizButton(
               onTap: () => PersistentNavBarNavigator.pushNewScreen(context,
                   screen: QuizScreen(lesson: LessonData.lessons.first)),
             ),
           ),
+          const SizedBox(height: 32),
+          const LessonSection(),
           const SizedBox(height: 32),
         ],
       ),

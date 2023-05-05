@@ -12,20 +12,17 @@ class HeroQuizButton extends StatelessWidget {
   final VoidCallback onTap;
 
   @override
-  Widget build(BuildContext context) {
-
-    return Card(
-      elevation: 4,
-      margin: const EdgeInsets.all(8),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      child: Material(
-        child: InkWell(
-          onTap: onTap,
-          child: const HeroButtonContent(),
+  Widget build(BuildContext context) => Card(
+        elevation: 4,
+        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        child: Material(
+          child: InkWell(
+            onTap: onTap,
+            child: const HeroButtonContent(),
+          ),
         ),
-      ),
-    );
-  }
+      );
 }
 
 class HeroButtonContent extends StatelessWidget {
@@ -33,11 +30,9 @@ class HeroButtonContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = Theme.of(context).colorScheme;
     return Container(
         padding: const EdgeInsets.all(16),
         height: 150,
-        color: colors.onInverseSurface,
         child: Stack(
           alignment: Alignment.center,
           children: [
