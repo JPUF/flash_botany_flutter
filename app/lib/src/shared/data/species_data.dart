@@ -35,4 +35,9 @@ class SpeciesData {
     ...ApiaceaeData.speciesList,
     ...CaryophyllaceaeData.speciesList,
   ];
+
+  static const List<Species> boraginaceaeFabaceae = [
+    ...BoraginaceaeData.speciesList,
+    ...FabaceaeData.speciesList,
+  ];
 }
