@@ -1,7 +1,6 @@
 import '../models/family.dart';
 import '../models/lesson.dart';
 import '../strings.dart';
-import 'families/ranunculaceae_data.dart';
 import 'species_data.dart';
 
 class LessonData {
@@ -12,15 +11,15 @@ class LessonData {
   static const brassicaceaeLamiaceaeId = 'brassicaceaeLamiaceae';
   static const apiaceaeCaryophyllaceaeId = 'apiaceaeCaryophyllaceae';
   static const boraginaceaeFabaceaeId = 'boraginaceaeFabaceae';
+  static const ranunculaceaeOrchidaceaeId = 'ranunculaceaeOrchidaceae';
 
   static const List<Lesson> lessons = [
     Lesson(
-      id: allFamiliesId,
-      title: Strings.allLessonCta,
-      familySet: Family.values,
-      speciesSet: SpeciesData.allSpecies,
-      indefinite: true
-    ),
+        id: allFamiliesId,
+        title: Strings.allLessonCta,
+        familySet: Family.values,
+        speciesSet: SpeciesData.allSpecies,
+        indefinite: true),
     Lesson(
       id: asteraceaeRosaceaeId,
       title: Strings.lessonAsteraceaeRosaceae,
@@ -45,13 +44,11 @@ class LessonData {
       familySet: [Family.boraginaceae, Family.fabaceae],
       speciesSet: SpeciesData.boraginaceaeFabaceae,
     ),
-    //TODO do this properly for ranunc + another
     Lesson(
-      id: '123',
-      title: Strings.lessonBoraginaceaeFabaceae,
-      familySet: [Family.ranunculaceae, Family.fabaceae],
-      speciesSet: RanunculaceaeData.speciesList,
-    ),
+        id: ranunculaceaeOrchidaceaeId,
+        title: Strings.lessonRanunculaceaeOrchidaceae,
+        familySet: [Family.ranunculaceae, Family.orchidaceae],
+        speciesSet: SpeciesData.ranunculaceaeOrchidaceae),
     //Probably need to increment DB 'version' when this list is augmented.
     // (if app has been released, otherwise just reinstall app on device)
   ];

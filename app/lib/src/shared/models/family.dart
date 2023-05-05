@@ -190,6 +190,40 @@ enum Family {
     ],
     'assets/images/lamiaceae.png',
   ),
+  orchidaceae(
+    'Orchidaceae',
+    'Orchid Family',
+    'https://en.wikipedia.org/wiki/Orchidaceae',
+    'A huge family of monocots with zygomorphic flowers. Can be single or compound, often arranged in a spike or raceme.\n\n'
+        'The flower is composed of 3 sepals and 3 petals. '
+        'The stamens and pistil are fused into a column. '
+        'The lower petal is the lip, which is often highly modified.\n\n'
+        'The lip is often a landing pad for pollinators.\n\n'
+        'The leaves are simple, and in opposite pairs.',
+    [
+      GlossaryTerm.monocot,
+      GlossaryTerm.zygomorphic,
+      GlossaryTerm.spike,
+      GlossaryTerm.raceme,
+    ],
+    [
+      AttributedUrl(
+          url: baseFamilyUrl + 'orchidaceae_orchis.jpg',
+          attribution: '© Яна Брезицкая (CC-BY-NC)'),
+      AttributedUrl(
+          url: baseFamilyUrl + 'orchidaceae_cypripedium.jpg',
+          attribution: '© Anne-Hélène Paradis (CC-BY-NC)'),
+      AttributedUrl(
+          url: baseFamilyUrl + 'orchidaceae_neotinea.jpg',
+          attribution:
+              '© yanndu (CC-BY-NC)'),
+      AttributedUrl(
+          url: baseFamilyUrl + 'orchidaceae_anacamptis.jpg',
+          attribution:
+              '© chelle_1661, some rights reserved (CC-BY-NC)'),
+    ],
+    'assets/images/orchidaceae.png',
+  ),
   ranunculaceae(
     'Ranunculaceae',
     'Buttercup Family',

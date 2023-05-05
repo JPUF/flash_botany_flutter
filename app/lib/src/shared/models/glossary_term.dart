@@ -5,6 +5,9 @@ enum GlossaryTerm {
       'Radially symmetrical. The flower is mirrored in 3 planes or more.'),
   zygomorphic('Zygomorphic',
       'Bilaterally symmetrical. The flower is only mirrored in one plane.'),
+  monocot('Monocot',
+      'One of the two major groups of flowering plants. Monocots have one cotyledon (leaf when sprouting).\n'
+          'They typically have long narrow leaves with parallel veins, and flower parts in multiples of 3.'),
   openFlower('Open flower',
       'When the reproductive parts are visible, with unfolded organs. E.g. no tubes.'),
   inflorescence(
@@ -19,6 +22,8 @@ enum GlossaryTerm {
   midrib('Midrib', 'A leaf’s central vein.'),
   whorl('Whorl', 'Arranged in a ring.'),
   corolla('Corolla', 'The collective term for the petals of a flower.'),
+  spike('Spike', 'Flowers arranged in a long, unbranched stem, with each flower attached directly to the stem.'),
+  raceme('Raceme', 'Flowers arranged along a central stalk, with each flower attached to a small stalk of its own, called a pedicel.'),
   calyx('Calyx',
       'The collective term for the sepals of a flower. A cup–like green whorl that acts as a layer of protection over the petals.'),
   carpel('Carpel',
