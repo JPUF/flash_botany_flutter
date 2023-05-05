@@ -21,6 +21,8 @@ enum GlossaryTerm {
   corolla('Corolla', 'The collective term for the petals of a flower.'),
   calyx('Calyx',
       'The collective term for the sepals of a flower. A cup–like green whorl that acts as a layer of protection over the petals.'),
+  carpel('Carpel',
+      'The female reproductive organ of a flower. Made of the ovary, style, and stigma.'),
   umbel('Umbel',
       'An inflorescence where the stem of each flower originates from a shared point. Resembles an umbrella. Compound umbels have an umbel on each stem.'),
   scorpioidCyme('Scorpioid cyme',
@@ -31,6 +33,7 @@ enum GlossaryTerm {
       'The seed containing organ is beneath where other organs (petals, sepals, etc) are attached.'),
   silique('Silique', 'A long and thin seed capsule or fruit.'),
   simpleLeaf('Simple leaf', 'The leaf is not divided.'),
+  lobedLeaf('Lobed leaf', 'Divided into distinct sections, each typically separated by a deep indentation. Can be either rounded or pointed and may have smooth or serrated margins.'),
   compoundLeaf('Compound leaf', 'The leaf is divided into 2 or more leaflets.'),
   floret(
       'Floret', 'A flower that is part of a cluster or collection of flowers.'),

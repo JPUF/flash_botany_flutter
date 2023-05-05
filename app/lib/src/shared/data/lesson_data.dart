@@ -1,6 +1,7 @@
 import '../models/family.dart';
 import '../models/lesson.dart';
 import '../strings.dart';
+import 'families/ranunculaceae_data.dart';
 import 'species_data.dart';
 
 class LessonData {
@@ -43,6 +44,13 @@ class LessonData {
       title: Strings.lessonBoraginaceaeFabaceae,
       familySet: [Family.boraginaceae, Family.fabaceae],
       speciesSet: SpeciesData.boraginaceaeFabaceae,
+    ),
+    //TODO do this properly for ranunc + another
+    Lesson(
+      id: '123',
+      title: Strings.lessonBoraginaceaeFabaceae,
+      familySet: [Family.ranunculaceae, Family.fabaceae],
+      speciesSet: RanunculaceaeData.speciesList,
     ),
     //Probably need to increment DB 'version' when this list is augmented.
     // (if app has been released, otherwise just reinstall app on device)

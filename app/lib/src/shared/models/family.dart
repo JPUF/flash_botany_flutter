@@ -190,6 +190,31 @@ enum Family {
     ],
     'assets/images/lamiaceae.png',
   ),
+  ranunculaceae(
+    'Ranunculaceae',
+    'Buttercup Family',
+    'https://en.wikipedia.org/wiki/Ranunculaceae',
+    'Usually Actinomorphic flowers. Often yellow. Typically 5 (glossy) petals and 5 sepals. '
+        'Many stamens. Many carpels.\n\n'
+        'The leaves are lobed.',
+    [
+      GlossaryTerm.actinomorphic,
+      GlossaryTerm.carpel,
+      GlossaryTerm.lobedLeaf,
+    ],
+    [
+      AttributedUrl(
+          url: baseFamilyUrl + 'ranunculaceae_ranunculus.jpg',
+          attribution: 'Leslie J. Mehrhoff, University of Connecticut, Bugwood.org'),
+      AttributedUrl(
+          url: baseFamilyUrl + 'ranunculaceae_anemone.jpg',
+          attribution: 'Boris Gaberšček, tecen.si'),
+      AttributedUrl(
+          url: baseFamilyUrl + 'ranunculaceae_anemonoides.jpg',
+          attribution: 'David Eberly'),
+    ],
+    'assets/images/ranunculaceae.png',
+  ),
   rosaceae(
     'Rosaceae',
     'Rose Family',
