@@ -9,5 +9,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   setupInjection();
   final prefs = await SharedPreferences.getInstance();
-  runApp(FlashApp(isDark: prefs.getBool(Strings.darkModeKey)));
+  final isDark = prefs.getBool(Strings.darkModeKey);
+  final hasOnboarded = prefs.getBool(Strings.onboardedKey) ?? false;
+  runApp(FlashApp(isDark: isDark, hasOnboarded: hasOnboarded));
 }

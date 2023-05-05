@@ -14,6 +14,13 @@ class Strings {
   static const familySearchHint = 'Family search:';
   static const familySearchNoResults = 'No search results';
   static const darkModeKey = 'darkMode';
+  static const onboardedKey = 'onboarded';
+  static const onboardingWelcomeTitle = 'Welcome botanists!';
+  static const onboardingWelcomeBody = 'Learn to recognise common plant families in the wild!';
+  static const onboardingLessonTitle= 'Lessons!';
+  static const onboardingLessonBody = 'You’ll be presented with a flower image. You must decipher its family!\n\nCompare with family info and example images.';
+  static const onboarding101Body = 'See visual examples of important plant parts!\n\nThis can be found in the "Info" tab.';
+  static const begin = 'Begin';
   static const usefulTerms = 'Useful terms:';
   static const attributions = 'Image attributions:';
   static const morphologyReproductive = 'Reproductive Parts';
