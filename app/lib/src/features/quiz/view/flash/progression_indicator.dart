@@ -21,7 +21,7 @@ class ProgressionIndicator extends StatelessWidget {
         ),
         Expanded(
           flex: LessonData.maxProgression - currentProgression,
-          child: Container(height: 5, color: colors.surface),
+          child: Container(height: 5, color: Colors.transparent),
         ),
       ],
     );

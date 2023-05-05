@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../shared/data/database/progression_database.dart';
 import '../../../shared/extensions.dart';
 import '../../../shared/models/lesson.dart';
+import '../../quiz/view/flash/progression_indicator.dart';
 import 'lesson_progress_indicator.dart';
 
 class LessonButton extends StatelessWidget {
@@ -27,7 +28,7 @@ class LessonButton extends StatelessWidget {
             onTap: onTap,
             child: _LessonButtonContent(
               lesson: lesson,
-              progression: progression,
+              lessonProgression: progression,
             ),
           ),
         ),
@@ -38,66 +39,52 @@ class _LessonButtonContent extends StatelessWidget {
   const _LessonButtonContent({
     Key? key,
     required this.lesson,
-    required this.progression,
+    required this.lessonProgression,
   }) : super(key: key);
 
   final Lesson lesson;
-  final LessonProgression progression;
+  final LessonProgression lessonProgression;
 
   @override
   Widget build(BuildContext context) {
     const imgSize = 75.0;
-    return Container(
-      margin: const EdgeInsets.all(4),
-      child: Row(
-        children: [
-          ClipOval(
-            child: Image(
-              image: AssetImage(lesson.familySet.first.assetImgPath),
-              width: imgSize,
-              height: imgSize,
-            ),
+    return Column(
+      children: [
+        Container(
+          margin: const EdgeInsets.all(4),
+          child: Row(
+            children: [
+              ClipOval(
+                child: Image(
+                  image: AssetImage(lesson.familySet.first.assetImgPath),
+                  width: imgSize,
+                  height: imgSize,
+                ),
+              ),
+              Expanded(
+                child: Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 16),
+                  child: Text(
+                    lesson.title,
+                    textAlign: TextAlign.center,
+                    style: context.titleLarge,
+                  ),
+                ),
+              ),
+              ClipOval(
+                child: Image(
+                  image: AssetImage(lesson.familySet[1].assetImgPath),
+                  width: imgSize,
+                  height: imgSize,
+                ),
+              ),
+            ],
           ),
-          Expanded(
-            child: _LessonTitleProgress(
-              lesson: lesson,
-              progression: progression,
-            ),
-          ),
-          ClipOval(
-            child: Image(
-              image: AssetImage(lesson.familySet[1].assetImgPath),
-              width: imgSize,
-              height: imgSize,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _LessonTitleProgress extends StatelessWidget {
-  const _LessonTitleProgress({required this.lesson, required this.progression});
-
-  final Lesson lesson;
-  final LessonProgression progression;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            lesson.title,
-            textAlign: TextAlign.center,
-            style: context.titleLarge,
-          ),
-          LessonProgressIndicator(progress: progression),
-        ],
-      ),
+        ),
+        ProgressionIndicator(
+          currentProgression: lessonProgression.progression,
+        )
+      ],
     );
   }
 }
