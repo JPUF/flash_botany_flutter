@@ -42,15 +42,29 @@ class _OnboardingCarouselState extends State<OnboardingCarousel> {
       allowImplicitScrolling: true,
       pages: [
         PageViewModel(
-          title: 'Fractional shares',
-          body:
-              'Instead of having to buy an entire share, invest any amount you want.',
+          title: Strings.onboardingWelcomeTitle,
+          body: Strings.onboardingWelcomeBody,
           decoration: pageDecoration,
+          image: const Image(
+            image: AssetImage('assets/images/rosaceae.png'),
+            width: 350,
+            height: 250,
+          ),
         ),
         PageViewModel(
-          title: 'Learn as you go',
+          title: Strings.onboardingLessonTitle,
+          body: Strings.onboardingLessonBody,
+          decoration: pageDecoration,
+          image: const Image(
+            image: AssetImage('assets/images/asteraceae.png'),
+            width: 350,
+            height: 250,
+          ),
+        ),
+        PageViewModel(
+          title: Strings.flowerCta,
           body:
-              'Download the Stockpile app and master the market with our mini-lesson.',
+              Strings.onboarding101Body,
           decoration: pageDecoration,
           image: const Image(
             image: AssetImage('assets/images/lily.png'),
@@ -61,8 +75,6 @@ class _OnboardingCarouselState extends State<OnboardingCarousel> {
       ],
       onDone: () => _onIntroEnd(context),
       showSkipButton: false,
-      skipOrBackFlex: 0,
-      nextFlex: 0,
       showBackButton: true,
       back: const Icon(Icons.arrow_back),
       next: const Icon(Icons.arrow_forward),
