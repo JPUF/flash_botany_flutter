@@ -49,6 +49,11 @@ class LessonData {
         title: Strings.lessonRanunculaceaeOrchidaceae,
         familySet: [Family.ranunculaceae, Family.orchidaceae],
         speciesSet: SpeciesData.ranunculaceaeOrchidaceae),
+    Lesson(
+        id: "add second new family to this",
+        title: Strings.lessonGeraniaceaePrimulaceae,
+        familySet: [Family.geraniaceae, Family.orchidaceae],
+        speciesSet: SpeciesData.geraniaceae),
     //Probably need to increment DB 'version' when this list is augmented.
     // (if app has been released, otherwise just reinstall app on device)
   ];

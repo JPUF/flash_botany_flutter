@@ -20,6 +20,7 @@ enum GlossaryTerm {
   pinnate('Pinnate', 'Multiple leaflets arranged either side of the midrib.'),
   trifoliate('Trifoliate', 'Each leaf is composed of 3 leaflets.'),
   midrib('Midrib', 'A leaf’s central vein.'),
+  open('Open', 'A flower with clearly visible & accessible reproductive parts.'),
   whorl('Whorl', 'Arranged in a ring.'),
   corolla('Corolla', 'The collective term for the petals of a flower.'),
   spike('Spike', 'Flowers arranged in a long, unbranched stem, with each flower attached directly to the stem.'),
@@ -39,6 +40,7 @@ enum GlossaryTerm {
   silique('Silique', 'A long and thin seed capsule or fruit.'),
   simpleLeaf('Simple leaf', 'The leaf is not divided.'),
   lobedLeaf('Lobed leaf', 'Divided into distinct sections, each typically separated by a deep indentation. Can be either rounded or pointed and may have smooth or serrated margins.'),
+  palmate('Palmate', 'Leaf/leaflets arranged like fingers on a hand.'),
   compoundLeaf('Compound leaf', 'The leaf is divided into 2 or more leaflets.'),
   floret(
       'Floret', 'A flower that is part of a cluster or collection of flowers.'),

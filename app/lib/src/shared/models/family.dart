@@ -159,6 +159,32 @@ enum Family {
     ],
     'assets/images/fabaceae.png',
   ),
+  geraniaceae(
+    'Geraniaceae',
+    'Geranium Family',
+    'https://en.wikipedia.org/wiki/Geraniaceae',
+    'Actinomorphic and open flowers. 5 petals, usually pink or purple. 5 separate sepals.\n\n'
+        '10 stamens (fused at the base). Superior ovary.\n\n'
+        'Leaves are palmately lobed.',
+    [
+      GlossaryTerm.actinomorphic,
+      GlossaryTerm.open,
+      GlossaryTerm.superiorOvary,
+      GlossaryTerm.palmate,
+      GlossaryTerm.lobedLeaf,
+    ],
+    [
+      AttributedUrl(
+          url: baseFamilyUrl + 'geraniaceae_sanguineum.jpg',
+          attribution: '© roywe (CC-BY-NC)'),
+      AttributedUrl(
+          url: baseFamilyUrl + 'geraniaceae_potentilloides.jpg',
+          attribution: '© georgetelehin (CC-BY-NC)'),
+      AttributedUrl(url: baseFamilyUrl + 'geraniaceae_pelargonium.jpg',
+          attribution: '© happy_wanderer (CC-BY-NC)'),
+    ],
+    'assets/images/geraniaceae.png',
+  ),
   lamiaceae(
     'Lamiaceae',
     'Mint Family, Sage Family',
