@@ -5,6 +5,12 @@ enum GlossaryTerm {
       'Radially symmetrical. The flower is mirrored in 3 planes or more.'),
   zygomorphic('Zygomorphic',
       'Bilaterally symmetrical. The flower is only mirrored in one plane.'),
+  tepal('Tepal',
+      'The petals and sepals of a flower, when they are indistinguishable from each other.'),
+  node('Node',
+      'The point at which a leaf/flower attaches to the stem.'),
+  stipule('Stipule',
+      'A small leaf-like structure at the base of a leaf stalk.'),
   monocot('Monocot',
       'One of the two major groups of flowering plants. Monocots have one cotyledon (leaf when sprouting).\n'
           'They typically have long narrow leaves with parallel veins, and flower parts in multiples of 3.'),

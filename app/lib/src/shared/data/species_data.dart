@@ -8,6 +8,7 @@ import 'families/fabaceae_data.dart';
 import 'families/geraniaceae_data.dart';
 import 'families/lamiaceae_data.dart';
 import 'families/orchidaceae_data.dart';
+import 'families/polygonaceae_data.dart';
 import 'families/ranunculaceae_data.dart';
 import 'families/rosaceae_data.dart';
 
@@ -51,8 +52,8 @@ class SpeciesData {
     ...OrchidaceaeData.speciesList,
   ];
 
-  static const List<Species> geraniaceae = [
+  static const List<Species> geraniaceaePolygonaceae = [
     ...GeraniaceaeData.speciesList,
-    ...OrchidaceaeData.speciesList,
+    ...PolygonaceaeData.speciesList,
   ];
 }

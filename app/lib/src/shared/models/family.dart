@@ -250,6 +250,38 @@ enum Family {
     ],
     'assets/images/orchidaceae.png',
   ),
+  polygonaceae(
+    'Polygonaceae',
+    'Knotweed Family',
+    'https://en.wikipedia.org/wiki/Polygonaceae',
+    'Flowers typically in clusters on stems. No defined petals or sepals, but often 3–6 tepals.\n\n'
+        '6–9 stamens. 1 pistil. Superior ovary.\n\n'
+        'Leaves are simple. Nodes are often swollen, with a papery sheath (stipule) around the stem.',
+    [
+      GlossaryTerm.tepal,
+      GlossaryTerm.superiorOvary,
+      GlossaryTerm.simpleLeaf,
+      GlossaryTerm.node,
+      GlossaryTerm.stipule,
+    ],
+    [
+      AttributedUrl(
+          url: baseFamilyUrl + 'polygonaceae_rumex.jpg',
+          attribution: '© jfgodeau (CC-BY-NC)'),
+      AttributedUrl(
+          url: baseFamilyUrl + 'polygonaceae_persicaria.jpg',
+          attribution: '© Alexey P. Seregin (CC-BY-NC)'),
+      AttributedUrl(
+          url: baseFamilyUrl + 'polygonaceae_maculosa.jpg',
+          attribution:
+              '© francesedana (CC-BY-NC)'),
+      AttributedUrl(
+          url: baseFamilyUrl + 'polygonaceae_fagopyrum.jpg',
+          attribution:
+              '© eugenezakharov (CC-BY-NC)'),
+    ],
+    'assets/images/polygonaceae.png',
+  ),
   ranunculaceae(
     'Ranunculaceae',
     'Buttercup Family',

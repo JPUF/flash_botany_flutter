@@ -13,7 +13,7 @@ class Strings {
   static const lessonApiaceaeCaryophyllaceae = 'Carrots\nCarnations';
   static const lessonBoraginaceaeFabaceae = 'Borages\nPeas';
   static const lessonRanunculaceaeOrchidaceae = 'Buttercups\nOrchids';
-  static const lessonGeraniaceaePrimulaceae = 'Geraniums\nPrimroses';
+  static const lessonGeraniaceaePolygonaceae = 'Geraniums\nKnotweeds';
   static const familySearchHint = 'Family search:';
   static const familySearchNoResults = 'No search results';
   static const darkModeKey = 'darkMode';
