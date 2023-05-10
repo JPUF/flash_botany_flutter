@@ -216,6 +216,30 @@ enum Family {
     ],
     'assets/images/lamiaceae.png',
   ),
+  onagraceae(
+    'Onagraceae',
+    'Evening Primrose Family',
+    'https://en.wikipedia.org/wiki/Onagraceae',
+    '',
+    [
+      GlossaryTerm.actinomorphic,
+      GlossaryTerm.superiorOvary,
+      GlossaryTerm.pinnate,
+      GlossaryTerm.lobedLeaf,
+    ],
+    [
+      AttributedUrl(
+          url: baseFamilyUrl + 'onagraceae_epilobium.jpg',
+          attribution: '© Keith Lester (CC-BY-NC)'),
+      AttributedUrl(
+          url: baseFamilyUrl + 'onagraceae_chamaenerion.jpg',
+          attribution: '© Johannes Lund Rasmussen (CC-BY-NC)'),
+      AttributedUrl(
+          url: baseFamilyUrl + 'onagraceae_oenothera.jpg',
+          attribution: '© Jovaras Večkys (CC-BY-NC)'),
+    ],
+    'assets/images/onagraceae.png',
+  ),
   orchidaceae(
     'Orchidaceae',
     'Orchid Family',

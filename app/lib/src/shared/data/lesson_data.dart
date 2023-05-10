@@ -55,6 +55,11 @@ class LessonData {
         title: Strings.lessonGeraniaceaePolygonaceae,
         familySet: [Family.geraniaceae, Family.polygonaceae],
         speciesSet: SpeciesData.geraniaceaePolygonaceae),
+    Lesson(
+        id: "",
+        title: "lesson string",
+        familySet: [Family.onagraceae, Family.polygonaceae],
+        speciesSet: SpeciesData.onagraceae),
     //Probably need to increment DB 'version' when this list is augmented.
     // (if app has been released, otherwise just reinstall app on device)
   ];
