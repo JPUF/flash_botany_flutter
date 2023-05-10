@@ -1,5 +1,4 @@
 import '../../models/attributed_url.dart';
-import '../../models/family.dart';
 import '../../models/species.dart';
 import '../network/network_data.dart';
 
@@ -9,7 +8,6 @@ class ApiaceaeData {
     Species(
       latinName: 'Crithmium maritimum',
       commonName: 'Rock Samphire',
-      family: Family.apiaceae,
       images: [
         AttributedUrl(
             url: _base + 'crithmium_maritimum_1.jpg',
@@ -25,7 +23,6 @@ class ApiaceaeData {
     Species(
       latinName: 'Pimpinella saxifraga',
       commonName: 'Rock Samphire',
-      family: Family.apiaceae,
       images: [
         AttributedUrl(
             url: _base + 'pimpinella_saxifraga_1.jpg',
@@ -41,7 +38,6 @@ class ApiaceaeData {
     Species(
       latinName: 'Aegopodium podagraria',
       commonName: 'Ground-Elder',
-      family: Family.apiaceae,
       images: [
         AttributedUrl(
             url: _base + 'aegopodium_podagraria_1.jpg',
@@ -54,7 +50,6 @@ class ApiaceaeData {
     Species(
       latinName: 'Conium maculatum',
       commonName: 'Poison Hemlock',
-      family: Family.apiaceae,
       images: [
         AttributedUrl(
             url: _base + 'conium_maculatum_1.jpg',
@@ -70,7 +65,6 @@ class ApiaceaeData {
     Species(
       latinName: 'Oenanthe crocata',
       commonName: 'Hemlock Water-Dropwort',
-      family: Family.apiaceae,
       images: [
         AttributedUrl(
             url: _base + 'oenanthe_crocata_1.jpg',

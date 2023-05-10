@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'lesson.dart';
 
@@ -20,10 +20,8 @@ Lesson _$LessonFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Lesson {
-  String get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   List<Family> get familySet => throw _privateConstructorUsedError;
-  List<Species> get speciesSet => throw _privateConstructorUsedError;
   bool get passed => throw _privateConstructorUsedError;
   bool get indefinite => throw _privateConstructorUsedError;
 
@@ -38,12 +36,7 @@ abstract class $LessonCopyWith<$Res> {
       _$LessonCopyWithImpl<$Res, Lesson>;
   @useResult
   $Res call(
-      {String id,
-      String title,
-      List<Family> familySet,
-      List<Species> speciesSet,
-      bool passed,
-      bool indefinite});
+      {String title, List<Family> familySet, bool passed, bool indefinite});
 }
 
 /// @nodoc
@@ -59,18 +52,12 @@ class _$LessonCopyWithImpl<$Res, $Val extends Lesson>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
     Object? title = null,
     Object? familySet = null,
-    Object? speciesSet = null,
     Object? passed = null,
     Object? indefinite = null,
   }) {
     return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -79,10 +66,6 @@ class _$LessonCopyWithImpl<$Res, $Val extends Lesson>
           ? _value.familySet
           : familySet // ignore: cast_nullable_to_non_nullable
               as List<Family>,
-      speciesSet: null == speciesSet
-          ? _value.speciesSet
-          : speciesSet // ignore: cast_nullable_to_non_nullable
-              as List<Species>,
       passed: null == passed
           ? _value.passed
           : passed // ignore: cast_nullable_to_non_nullable
@@ -102,12 +85,7 @@ abstract class _$$_LessonCopyWith<$Res> implements $LessonCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String id,
-      String title,
-      List<Family> familySet,
-      List<Species> speciesSet,
-      bool passed,
-      bool indefinite});
+      {String title, List<Family> familySet, bool passed, bool indefinite});
 }
 
 /// @nodoc
@@ -120,18 +98,12 @@ class __$$_LessonCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
     Object? title = null,
     Object? familySet = null,
-    Object? speciesSet = null,
     Object? passed = null,
     Object? indefinite = null,
   }) {
     return _then(_$_Lesson(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -140,10 +112,6 @@ class __$$_LessonCopyWithImpl<$Res>
           ? _value._familySet
           : familySet // ignore: cast_nullable_to_non_nullable
               as List<Family>,
-      speciesSet: null == speciesSet
-          ? _value._speciesSet
-          : speciesSet // ignore: cast_nullable_to_non_nullable
-              as List<Species>,
       passed: null == passed
           ? _value.passed
           : passed // ignore: cast_nullable_to_non_nullable
@@ -160,34 +128,23 @@ class __$$_LessonCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Lesson implements _Lesson {
   const _$_Lesson(
-      {required this.id,
-      required this.title,
+      {required this.title,
       required final List<Family> familySet,
-      required final List<Species> speciesSet,
       this.passed = false,
       this.indefinite = false})
-      : _familySet = familySet,
-        _speciesSet = speciesSet;
+      : _familySet = familySet;
 
   factory _$_Lesson.fromJson(Map<String, dynamic> json) =>
       _$$_LessonFromJson(json);
 
   @override
-  final String id;
-  @override
   final String title;
   final List<Family> _familySet;
   @override
   List<Family> get familySet {
+    if (_familySet is EqualUnmodifiableListView) return _familySet;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_familySet);
-  }
-
-  final List<Species> _speciesSet;
-  @override
-  List<Species> get speciesSet {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_speciesSet);
   }
 
   @override
@@ -199,7 +156,7 @@ class _$_Lesson implements _Lesson {
 
   @override
   String toString() {
-    return 'Lesson(id: $id, title: $title, familySet: $familySet, speciesSet: $speciesSet, passed: $passed, indefinite: $indefinite)';
+    return 'Lesson(title: $title, familySet: $familySet, passed: $passed, indefinite: $indefinite)';
   }
 
   @override
@@ -207,12 +164,9 @@ class _$_Lesson implements _Lesson {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Lesson &&
-            (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             const DeepCollectionEquality()
                 .equals(other._familySet, _familySet) &&
-            const DeepCollectionEquality()
-                .equals(other._speciesSet, _speciesSet) &&
             (identical(other.passed, passed) || other.passed == passed) &&
             (identical(other.indefinite, indefinite) ||
                 other.indefinite == indefinite));
@@ -220,14 +174,8 @@ class _$_Lesson implements _Lesson {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      title,
-      const DeepCollectionEquality().hash(_familySet),
-      const DeepCollectionEquality().hash(_speciesSet),
-      passed,
-      indefinite);
+  int get hashCode => Object.hash(runtimeType, title,
+      const DeepCollectionEquality().hash(_familySet), passed, indefinite);
 
   @JsonKey(ignore: true)
   @override
@@ -245,23 +193,17 @@ class _$_Lesson implements _Lesson {
 
 abstract class _Lesson implements Lesson {
   const factory _Lesson(
-      {required final String id,
-      required final String title,
+      {required final String title,
       required final List<Family> familySet,
-      required final List<Species> speciesSet,
       final bool passed,
       final bool indefinite}) = _$_Lesson;
 
   factory _Lesson.fromJson(Map<String, dynamic> json) = _$_Lesson.fromJson;
 
   @override
-  String get id;
-  @override
   String get title;
   @override
   List<Family> get familySet;
-  @override
-  List<Species> get speciesSet;
   @override
   bool get passed;
   @override

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'species.dart';
 
@@ -22,7 +22,6 @@ Species _$SpeciesFromJson(Map<String, dynamic> json) {
 mixin _$Species {
   String get latinName => throw _privateConstructorUsedError;
   String get commonName => throw _privateConstructorUsedError;
-  Family get family => throw _privateConstructorUsedError;
   List<AttributedUrl> get images => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,11 +34,7 @@ abstract class $SpeciesCopyWith<$Res> {
   factory $SpeciesCopyWith(Species value, $Res Function(Species) then) =
       _$SpeciesCopyWithImpl<$Res, Species>;
   @useResult
-  $Res call(
-      {String latinName,
-      String commonName,
-      Family family,
-      List<AttributedUrl> images});
+  $Res call({String latinName, String commonName, List<AttributedUrl> images});
 }
 
 /// @nodoc
@@ -57,7 +52,6 @@ class _$SpeciesCopyWithImpl<$Res, $Val extends Species>
   $Res call({
     Object? latinName = null,
     Object? commonName = null,
-    Object? family = null,
     Object? images = null,
   }) {
     return _then(_value.copyWith(
@@ -69,10 +63,6 @@ class _$SpeciesCopyWithImpl<$Res, $Val extends Species>
           ? _value.commonName
           : commonName // ignore: cast_nullable_to_non_nullable
               as String,
-      family: null == family
-          ? _value.family
-          : family // ignore: cast_nullable_to_non_nullable
-              as Family,
       images: null == images
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
@@ -88,11 +78,7 @@ abstract class _$$_SpeciesCopyWith<$Res> implements $SpeciesCopyWith<$Res> {
       __$$_SpeciesCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String latinName,
-      String commonName,
-      Family family,
-      List<AttributedUrl> images});
+  $Res call({String latinName, String commonName, List<AttributedUrl> images});
 }
 
 /// @nodoc
@@ -107,7 +93,6 @@ class __$$_SpeciesCopyWithImpl<$Res>
   $Res call({
     Object? latinName = null,
     Object? commonName = null,
-    Object? family = null,
     Object? images = null,
   }) {
     return _then(_$_Species(
@@ -119,10 +104,6 @@ class __$$_SpeciesCopyWithImpl<$Res>
           ? _value.commonName
           : commonName // ignore: cast_nullable_to_non_nullable
               as String,
-      family: null == family
-          ? _value.family
-          : family // ignore: cast_nullable_to_non_nullable
-              as Family,
       images: null == images
           ? _value._images
           : images // ignore: cast_nullable_to_non_nullable
@@ -137,7 +118,6 @@ class _$_Species implements _Species {
   const _$_Species(
       {required this.latinName,
       required this.commonName,
-      required this.family,
       required final List<AttributedUrl> images})
       : _images = images;
 
@@ -148,18 +128,17 @@ class _$_Species implements _Species {
   final String latinName;
   @override
   final String commonName;
-  @override
-  final Family family;
   final List<AttributedUrl> _images;
   @override
   List<AttributedUrl> get images {
+    if (_images is EqualUnmodifiableListView) return _images;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_images);
   }
 
   @override
   String toString() {
-    return 'Species(latinName: $latinName, commonName: $commonName, family: $family, images: $images)';
+    return 'Species(latinName: $latinName, commonName: $commonName, images: $images)';
   }
 
   @override
@@ -171,13 +150,12 @@ class _$_Species implements _Species {
                 other.latinName == latinName) &&
             (identical(other.commonName, commonName) ||
                 other.commonName == commonName) &&
-            (identical(other.family, family) || other.family == family) &&
             const DeepCollectionEquality().equals(other._images, _images));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, latinName, commonName, family,
+  int get hashCode => Object.hash(runtimeType, latinName, commonName,
       const DeepCollectionEquality().hash(_images));
 
   @JsonKey(ignore: true)
@@ -198,7 +176,6 @@ abstract class _Species implements Species {
   const factory _Species(
       {required final String latinName,
       required final String commonName,
-      required final Family family,
       required final List<AttributedUrl> images}) = _$_Species;
 
   factory _Species.fromJson(Map<String, dynamic> json) = _$_Species.fromJson;
@@ -207,8 +184,6 @@ abstract class _Species implements Species {
   String get latinName;
   @override
   String get commonName;
-  @override
-  Family get family;
   @override
   List<AttributedUrl> get images;
   @override

@@ -1,6 +1,21 @@
+import '../data/families/apiaceae_data.dart';
+import '../data/families/asteraceae_data.dart';
+import '../data/families/boraginaceae_data.dart';
+import '../data/families/brassicaceae_data.dart';
+import '../data/families/caryophyllaceae_data.dart';
+import '../data/families/euphorbiaceae_data.dart';
+import '../data/families/fabaceae_data.dart';
+import '../data/families/geraniaceae_data.dart';
+import '../data/families/lamiaceae_data.dart';
+import '../data/families/onagraceae_data.dart';
+import '../data/families/orchidaceae_data.dart';
+import '../data/families/polygonaceae_data.dart';
+import '../data/families/ranunculaceae_data.dart';
+import '../data/families/rosaceae_data.dart';
 import '../data/network/network_data.dart';
 import 'attributed_url.dart';
 import 'glossary_term.dart';
+import 'species.dart';
 
 enum Family {
   asteraceae(
@@ -29,6 +44,7 @@ enum Family {
           url: baseFamilyUrl + 'asteraceae_centaurea.jpg',
           attribution: 'Rob Routledge, Sault College, Bugwood.org'),
     ],
+    AsteraceaeData.speciesList,
     'assets/images/asteraceae.png',
   ),
   apiaceae(
@@ -52,6 +68,7 @@ enum Family {
           url: baseFamilyUrl + 'apiaceae_osmorhiza.jpg',
           attribution: 'Mary Ellen (Mel) Harte, Bugwood.org'),
     ],
+    ApiaceaeData.speciesList,
     'assets/images/apiaceae.png',
   ),
   boraginaceae(
@@ -78,6 +95,7 @@ enum Family {
       AttributedUrl(
           url: baseFamilyUrl + 'boraginaceae_symphytum.jpg', attribution: null),
     ],
+    BoraginaceaeData.speciesList,
     'assets/images/boraginaceae.png',
   ),
   brassicaceae(
@@ -103,6 +121,7 @@ enum Family {
           attribution:
               'Leslie J. Mehrhoff, University of Connecticut, Bugwood.org'),
     ],
+    BrassicaceaeData.speciesList,
     'assets/images/brassicaceae.png',
   ),
   caryophyllaceae(
@@ -128,6 +147,7 @@ enum Family {
           url: baseFamilyUrl + 'caryophyllaceae_dianthus.jpg',
           attribution: 'David Cappaert, Bugwood.org'),
     ],
+    CaryophyllaceaeData.speciesList,
     'assets/images/caryophyllaceae.png',
   ),
   euphorbiaceae(
@@ -157,6 +177,7 @@ enum Family {
           url: baseFamilyUrl + 'euphorbiaceae_nicaeensis.jpg',
           attribution: '© sbrogers725 (CC-BY-NC)'),
     ],
+    EuphorbiaceaeData.speciesList,
     'assets/images/euphorbiaceae.png',
   ),
   fabaceae(
@@ -186,6 +207,7 @@ enum Family {
           attribution: 'commons.wikimedia.org/wiki/User:Hectonichus'),
       AttributedUrl(url: baseFamilyUrl + 'fabaceae_lathyrus.jpg', attribution: null),
     ],
+    FabaceaeData.speciesList,
     'assets/images/fabaceae.png',
   ),
   geraniaceae(
@@ -212,6 +234,7 @@ enum Family {
       AttributedUrl(url: baseFamilyUrl + 'geraniaceae_pelargonium.jpg',
           attribution: '© happy_wanderer (CC-BY-NC)'),
     ],
+    GeraniaceaeData.speciesList,
     'assets/images/geraniaceae.png',
   ),
   lamiaceae(
@@ -243,6 +266,7 @@ enum Family {
           attribution:
               'commons.wikimedia.org/wiki/File:Stachys_palustris20110630_07.jpg'),
     ],
+    LamiaceaeData.speciesList,
     'assets/images/lamiaceae.png',
   ),
   onagraceae(
@@ -269,6 +293,7 @@ enum Family {
           url: baseFamilyUrl + 'onagraceae_oenothera.jpg',
           attribution: '© Jovaras Večkys (CC-BY-NC)'),
     ],
+    OnagraceaeData.speciesList,
     'assets/images/onagraceae.png',
   ),
   orchidaceae(
@@ -303,6 +328,7 @@ enum Family {
           attribution:
               '© chelle_1661, some rights reserved (CC-BY-NC)'),
     ],
+    OrchidaceaeData.speciesList,
     'assets/images/orchidaceae.png',
   ),
   polygonaceae(
@@ -335,6 +361,7 @@ enum Family {
           attribution:
               '© eugenezakharov (CC-BY-NC)'),
     ],
+    PolygonaceaeData.speciesList,
     'assets/images/polygonaceae.png',
   ),
   ranunculaceae(
@@ -360,6 +387,7 @@ enum Family {
           url: baseFamilyUrl + 'ranunculaceae_anemonoides.jpg',
           attribution: 'David Eberly'),
     ],
+    RanunculaceaeData.speciesList,
     'assets/images/ranunculaceae.png',
   ),
   rosaceae(
@@ -390,6 +418,7 @@ enum Family {
           attribution:
               'Dryas — commons.wikimedia.org/wiki/File:Rhaphiolepis_indica_RBGK.JPG'),
     ],
+    RosaceaeData.speciesList,
     'assets/images/rosaceae.png',
   );
 
@@ -399,6 +428,7 @@ enum Family {
   final String description;
   final List<GlossaryTerm> glossaryTerms;
   final List<AttributedUrl> images;
+  final List<Species> speciesList;
   final String assetImgPath;
 
   const Family(
@@ -408,6 +438,7 @@ enum Family {
     this.description,
     this.glossaryTerms,
     this.images,
+    this.speciesList,
     this.assetImgPath,
   );
 }

@@ -55,11 +55,11 @@ class PromptBloc extends Bloc<PromptEvent, PromptState> {
   }
 
   Species _getNextSpecies(Lesson lesson, Species? prevSpecies) {
-    List<Species> localSpecies = lesson.speciesSet.toList();
+    List<Species> localSpeciesSet = lesson.speciesSet.toList();
     if (prevSpecies != null) {
-      localSpecies.remove(prevSpecies);
+      localSpeciesSet.remove(prevSpecies);
     }
-    return localSpecies[Random().nextInt(localSpecies.length)];
+    return localSpeciesSet[Random().nextInt(localSpeciesSet.length)];
   }
 
   List<Family> _getFamilyOptions(Lesson lesson, Family correctFamily) {
