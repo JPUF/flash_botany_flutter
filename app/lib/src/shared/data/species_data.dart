@@ -4,6 +4,7 @@ import 'families/asteraceae_data.dart';
 import 'families/boraginaceae_data.dart';
 import 'families/brassicaceae_data.dart';
 import 'families/caryophyllaceae_data.dart';
+import 'families/euphorbiaceae_data.dart';
 import 'families/fabaceae_data.dart';
 import 'families/geraniaceae_data.dart';
 import 'families/lamiaceae_data.dart';
@@ -26,6 +27,10 @@ class SpeciesData {
     ...RosaceaeData.speciesList,
     ...RanunculaceaeData.speciesList,
     ...OrchidaceaeData.speciesList,
+    ...GeraniaceaeData.speciesList,
+    ...PolygonaceaeData.speciesList,
+    ...OnagraceaeData.speciesList,
+    ...EuphorbiaceaeData.speciesList,
   ];
 
   static const List<Species> asteraceaeRosaceae = [
@@ -58,7 +63,8 @@ class SpeciesData {
     ...PolygonaceaeData.speciesList,
   ];
 
-  static const List<Species> onagraceae = [
+  static const List<Species> onagraceaeEuphorbiaceae = [
     ...OnagraceaeData.speciesList,
+    ...EuphorbiaceaeData.speciesList,
   ];
 }

@@ -130,6 +130,35 @@ enum Family {
     ],
     'assets/images/caryophyllaceae.png',
   ),
+  euphorbiaceae(
+    'Euphorbiaceae',
+    'Spurge Family',
+    'https://en.wikipedia.org/wiki/Euphorbiaceae',
+    'Actinomorphic unisex flowers. No petals or sepals, but instead have'
+        ' bracts that may be brightly colored and appear petal-like. Often pale green.\n\n'
+        'Superior ovary. Many excrete a milky latex/sap when broken.\n\n'
+        'Leaves often lanceolate. Flowers formed as a \'cyathium\'.',
+    [
+      GlossaryTerm.actinomorphic,
+      GlossaryTerm.unisex,
+      GlossaryTerm.bract,
+      GlossaryTerm.superiorOvary,
+      GlossaryTerm.lanceolate,
+      GlossaryTerm.cyathium,
+    ],
+    [
+      AttributedUrl(
+          url: baseFamilyUrl + 'euphorbiaceae_segetalis.jpg',
+          attribution: '© rudyclaeys (CC-BY-NC)'),
+      AttributedUrl(
+          url: baseFamilyUrl + 'euphorbiaceae_lathyris.jpg',
+          attribution: '© Valentina (CC-BY-NC)'),
+      AttributedUrl(
+          url: baseFamilyUrl + 'euphorbiaceae_nicaeensis.jpg',
+          attribution: '© sbrogers725 (CC-BY-NC)'),
+    ],
+    'assets/images/euphorbiaceae.png',
+  ),
   fabaceae(
     'Fabaceae',
     'Pea Family, Legumes',
