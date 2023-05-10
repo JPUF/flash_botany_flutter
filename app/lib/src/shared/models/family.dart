@@ -220,12 +220,14 @@ enum Family {
     'Onagraceae',
     'Evening Primrose Family',
     'https://en.wikipedia.org/wiki/Onagraceae',
-    '',
+    'Typically actinomorphic, with flower parts in multiples of 4. '
+        '4 sepals, 4 petals, 4/8 stamens, 4 stigma lobes.\n\n'
+        'Superior ovary. Leaves are simple and often pointy.',
     [
       GlossaryTerm.actinomorphic,
+      GlossaryTerm.stigma,
       GlossaryTerm.superiorOvary,
-      GlossaryTerm.pinnate,
-      GlossaryTerm.lobedLeaf,
+      GlossaryTerm.simpleLeaf,
     ],
     [
       AttributedUrl(

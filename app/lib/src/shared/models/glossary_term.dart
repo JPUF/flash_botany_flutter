@@ -43,6 +43,8 @@ enum GlossaryTerm {
       'The seed containing organ is above where other organs (petals, sepals, etc) are attached.'),
   inferiorOvary('Inferior ovary',
       'The seed containing organ is beneath where other organs (petals, sepals, etc) are attached.'),
+  stigma('Stigma',
+      'The uppermost part of a flower\'s female reproductive system. It receives pollen. Often sticky.'),
   silique('Silique', 'A long and thin seed capsule or fruit.'),
   simpleLeaf('Simple leaf', 'The leaf is not divided.'),
   lobedLeaf('Lobed leaf', 'Divided into distinct sections, each typically separated by a deep indentation. Can be either rounded or pointed and may have smooth or serrated margins.'),
