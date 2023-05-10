@@ -5,11 +5,10 @@ import '../network/network_data.dart';
 
 class AsteraceaeData {
   static const _base = basePromptUrl;
-  static const speciesList = [
+  static const List<Species> speciesList = [
     Species(
       latinName: 'Bellis perennis',
       commonName: 'Daisy',
-      family: Family.asteraceae,
       images: [
         AttributedUrl(url: _base + 'bellis_perennis_1.jpg', attribution: 'Jürgen Schimmitat, bayernflora.de'),
         AttributedUrl(url: _base + 'bellis_perennis_2.jpg', attribution: 'Jürgen Schimmitat, bayernflora.de'),
@@ -19,7 +18,6 @@ class AsteraceaeData {
     Species(
       latinName: 'Jacobaea vulgaris',
       commonName: 'Ragwort',
-      family: Family.asteraceae,
       images: [
         AttributedUrl(url: _base + 'jacobaea_vulgaris_1.jpg', attribution: 'commons.wikimedia.org/wiki/User:Strobilomyces'),
         AttributedUrl(url: _base + 'jacobaea_vulgaris_2.jpg', attribution: null),
@@ -29,7 +27,6 @@ class AsteraceaeData {
     Species(
       latinName: 'Cichorium intybus',
       commonName: 'Chicory',
-      family: Family.asteraceae,
       images: [
         AttributedUrl(url: _base + 'cichorium_intybus_1.jpg', attribution: '© Anthony Zammit (CC-BY-NC)'),
         AttributedUrl(url: _base + 'cichorium_intybus_2.jpg', attribution: '© igor_olshanskyi (CC-BY-NC)'),
@@ -39,7 +36,6 @@ class AsteraceaeData {
     Species(
       latinName: 'Tussilago farfara',
       commonName: 'Colt’s Foot',
-      family: Family.asteraceae,
       images: [
         AttributedUrl(url: _base + 'tussilago_farfara_1.jpg', attribution: '© lydwin, some rights reserved (CC-BY-NC)'),
         AttributedUrl(url: _base + 'tussilago_farfara_2.jpg', attribution: '© eliegaget (CC-BY-NC)'),
@@ -49,7 +45,6 @@ class AsteraceaeData {
     Species(
       latinName: 'Pilosella aurantiaca',
       commonName: 'Fox-and-Cubs',
-      family: Family.asteraceae,
       images: [
         AttributedUrl(url: _base + 'pilosella_aurantica_1.jpg', attribution: '© Andrea Kreuzhage (CC-BY-NC)'),
         AttributedUrl(url: _base + 'pilosella_aurantica_2.jpg', attribution: '© Andrea Kreuzhage (CC-BY-NC)'),

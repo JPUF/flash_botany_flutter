@@ -11,9 +11,14 @@ class Species with _$Species {
   const factory Species({
     required String latinName,
     required String commonName,
-    required Family family,
     required List<AttributedUrl> images,
   }) = _Species;
 
-  factory Species.fromJson(Map<String, Object?> json) => _$SpeciesFromJson(json);
+  factory Species.fromJson(Map<String, Object?> json) =>
+      _$SpeciesFromJson(json);
+}
+
+extension SpeciesFamily on Species {
+  Family get family =>
+      Family.values.where((family) => family.speciesList.contains(this)).first;
 }

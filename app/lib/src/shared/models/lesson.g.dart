@@ -34,7 +34,13 @@ const _$FamilyEnumMap = {
   Family.boraginaceae: 'boraginaceae',
   Family.brassicaceae: 'brassicaceae',
   Family.caryophyllaceae: 'caryophyllaceae',
+  Family.euphorbiaceae: 'euphorbiaceae',
   Family.fabaceae: 'fabaceae',
+  Family.geraniaceae: 'geraniaceae',
   Family.lamiaceae: 'lamiaceae',
+  Family.onagraceae: 'onagraceae',
+  Family.orchidaceae: 'orchidaceae',
+  Family.polygonaceae: 'polygonaceae',
+  Family.ranunculaceae: 'ranunculaceae',
   Family.rosaceae: 'rosaceae',
 };
