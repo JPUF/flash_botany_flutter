@@ -16,42 +16,43 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$FamilySelectionEvent {
-  Family get family => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Family family) toggleFamily,
+    required TResult Function() clearSelection,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Family family)? toggleFamily,
+    TResult? Function()? clearSelection,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Family family)? toggleFamily,
+    TResult Function()? clearSelection,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ToggleFamily value) toggleFamily,
+    required TResult Function(ClearSelection value) clearSelection,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ToggleFamily value)? toggleFamily,
+    TResult? Function(ClearSelection value)? clearSelection,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ToggleFamily value)? toggleFamily,
+    TResult Function(ClearSelection value)? clearSelection,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $FamilySelectionEventCopyWith<FamilySelectionEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -60,8 +61,6 @@ abstract class $FamilySelectionEventCopyWith<$Res> {
   factory $FamilySelectionEventCopyWith(FamilySelectionEvent value,
           $Res Function(FamilySelectionEvent) then) =
       _$FamilySelectionEventCopyWithImpl<$Res, FamilySelectionEvent>;
-  @useResult
-  $Res call({Family family});
 }
 
 /// @nodoc
@@ -74,28 +73,13 @@ class _$FamilySelectionEventCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? family = null,
-  }) {
-    return _then(_value.copyWith(
-      family: null == family
-          ? _value.family
-          : family // ignore: cast_nullable_to_non_nullable
-              as Family,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$ToggleFamilyCopyWith<$Res>
-    implements $FamilySelectionEventCopyWith<$Res> {
+abstract class _$$ToggleFamilyCopyWith<$Res> {
   factory _$$ToggleFamilyCopyWith(
           _$ToggleFamily value, $Res Function(_$ToggleFamily) then) =
       __$$ToggleFamilyCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({Family family});
 }
@@ -156,6 +140,7 @@ class _$ToggleFamily implements ToggleFamily {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Family family) toggleFamily,
+    required TResult Function() clearSelection,
   }) {
     return toggleFamily(family);
   }
@@ -164,6 +149,7 @@ class _$ToggleFamily implements ToggleFamily {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Family family)? toggleFamily,
+    TResult? Function()? clearSelection,
   }) {
     return toggleFamily?.call(family);
   }
@@ -172,6 +158,7 @@ class _$ToggleFamily implements ToggleFamily {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Family family)? toggleFamily,
+    TResult Function()? clearSelection,
     required TResult orElse(),
   }) {
     if (toggleFamily != null) {
@@ -184,6 +171,7 @@ class _$ToggleFamily implements ToggleFamily {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ToggleFamily value) toggleFamily,
+    required TResult Function(ClearSelection value) clearSelection,
   }) {
     return toggleFamily(this);
   }
@@ -192,6 +180,7 @@ class _$ToggleFamily implements ToggleFamily {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ToggleFamily value)? toggleFamily,
+    TResult? Function(ClearSelection value)? clearSelection,
   }) {
     return toggleFamily?.call(this);
   }
@@ -200,6 +189,7 @@ class _$ToggleFamily implements ToggleFamily {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ToggleFamily value)? toggleFamily,
+    TResult Function(ClearSelection value)? clearSelection,
     required TResult orElse(),
   }) {
     if (toggleFamily != null) {
@@ -212,12 +202,112 @@ class _$ToggleFamily implements ToggleFamily {
 abstract class ToggleFamily implements FamilySelectionEvent {
   const factory ToggleFamily(final Family family) = _$ToggleFamily;
 
-  @override
   Family get family;
-  @override
   @JsonKey(ignore: true)
   _$$ToggleFamilyCopyWith<_$ToggleFamily> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ClearSelectionCopyWith<$Res> {
+  factory _$$ClearSelectionCopyWith(
+          _$ClearSelection value, $Res Function(_$ClearSelection) then) =
+      __$$ClearSelectionCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ClearSelectionCopyWithImpl<$Res>
+    extends _$FamilySelectionEventCopyWithImpl<$Res, _$ClearSelection>
+    implements _$$ClearSelectionCopyWith<$Res> {
+  __$$ClearSelectionCopyWithImpl(
+      _$ClearSelection _value, $Res Function(_$ClearSelection) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ClearSelection implements ClearSelection {
+  const _$ClearSelection();
+
+  @override
+  String toString() {
+    return 'FamilySelectionEvent.clearSelection()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ClearSelection);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Family family) toggleFamily,
+    required TResult Function() clearSelection,
+  }) {
+    return clearSelection();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Family family)? toggleFamily,
+    TResult? Function()? clearSelection,
+  }) {
+    return clearSelection?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Family family)? toggleFamily,
+    TResult Function()? clearSelection,
+    required TResult orElse(),
+  }) {
+    if (clearSelection != null) {
+      return clearSelection();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ToggleFamily value) toggleFamily,
+    required TResult Function(ClearSelection value) clearSelection,
+  }) {
+    return clearSelection(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ToggleFamily value)? toggleFamily,
+    TResult? Function(ClearSelection value)? clearSelection,
+  }) {
+    return clearSelection?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ToggleFamily value)? toggleFamily,
+    TResult Function(ClearSelection value)? clearSelection,
+    required TResult orElse(),
+  }) {
+    if (clearSelection != null) {
+      return clearSelection(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ClearSelection implements FamilySelectionEvent {
+  const factory ClearSelection() = _$ClearSelection;
 }
 
 /// @nodoc

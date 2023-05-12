@@ -13,6 +13,7 @@ class FamilySelectionBloc
     on<FamilySelectionEvent>(
       (event, emit) => event.map(
         toggleFamily: (event) => _toggleFamily(event, emit),
+        clearSelection: (_) => emit(FamilySelectionState.initial()),
       ),
     );
   }

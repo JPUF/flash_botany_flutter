@@ -29,8 +29,7 @@ class CustomLessonScreen extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(16, 24, 16, 128),
                       child: const _CustomLessonContent()),
                 ),
-                if (state.canProgress)
-                  _nextButton(context)
+                if (state.canProgress) _nextButton(context)
               ],
             );
           },
@@ -40,33 +39,37 @@ class CustomLessonScreen extends StatelessWidget {
   }
 
   Widget _nextButton(BuildContext context) => Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
-    child: ElevatedButton(
-      onPressed: () => PersistentNavBarNavigator.pushNewScreen(
-        context,
-        screen: QuizScreen(lesson: Lesson(
-          title: Strings.customLessonTitle,
-          familySet: context.read<FamilySelectionBloc>().state.selectedFamilies,
-        )),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(Strings.customSelectionBegin, style: context.titleLarge),
-          const SizedBox(width: 8),
-          Icon(Icons.arrow_forward, color: Theme.of(context).colorScheme.tertiary),
-        ],
-      ),
-      style: ElevatedButton.styleFrom(
-        elevation: 16,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(16)),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
+      child: ElevatedButton(
+        onPressed: () => PersistentNavBarNavigator.pushNewScreen(
+          context,
+          screen: QuizScreen(
+              lesson: Lesson(
+            title: Strings.customLessonTitle,
+            indefinite: true,
+            familySet:
+                context.read<FamilySelectionBloc>().state.selectedFamilies,
+
+          )),
         ),
-        padding: const EdgeInsets.all(20),
-        backgroundColor: Theme.of(context).colorScheme.tertiaryContainer,
-      ),
-    )
-  );
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(Strings.customSelectionBegin, style: context.titleLarge),
+            const SizedBox(width: 8),
+            Icon(Icons.arrow_forward,
+                color: Theme.of(context).colorScheme.tertiary),
+          ],
+        ),
+        style: ElevatedButton.styleFrom(
+          elevation: 16,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(16)),
+          ),
+          padding: const EdgeInsets.all(20),
+          backgroundColor: Theme.of(context).colorScheme.tertiaryContainer,
+        ),
+      ));
 }
 
 class _CustomLessonContent extends StatelessWidget {
@@ -74,18 +77,40 @@ class _CustomLessonContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(Strings.customSelectionPrompt, style: context.headlineSmall),
-        const SizedBox(height: 16),
-        BlocBuilder<FamilySelectionBloc, FamilySelectionState>(
-          builder: (context, state) => Table(
+    return BlocBuilder<FamilySelectionBloc, FamilySelectionState>(
+      builder: (context, state) => Column(
+        children: [
+          Text(Strings.customSelectionPrompt, style: context.headlineSmall),
+          const SizedBox(height: 8),
+          Visibility(
+            visible: state.selectedFamilies.isNotEmpty,
+            maintainSize: true,
+            maintainAnimation: true,
+            maintainState: true,
+            child: Align(
+              alignment: Alignment.centerRight,
+              child: _clearButton(context),
+            ),
+          ),
+          const SizedBox(height: 8),
+          Table(
             children: _familyRows(context, state.selectedFamilies),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
+
+  MaterialButton _clearButton(BuildContext context) => MaterialButton(
+        onPressed: () => context
+              .read<FamilySelectionBloc>()
+              .add(const FamilySelectionEvent.clearSelection())
+        ,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        child:
+            Icon(Icons.delete, color: Theme.of(context).colorScheme.secondary),
+        color: Theme.of(context).colorScheme.secondaryContainer,
+      );
 
   List<TableRow> _familyRows(
     BuildContext context,
