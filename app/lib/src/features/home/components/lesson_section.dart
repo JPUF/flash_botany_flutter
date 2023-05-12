@@ -33,9 +33,6 @@ class _LessonSectionState extends State<LessonSection> {
   Widget build(BuildContext context) {
     return BlocBuilder<ProgressionBloc, ProgressionState>(
       builder: (context, state) {
-        final List<LessonProgression>? progressions =
-            state.progressions?.toList();
-        if (progressions == null) return Container();
         return Container(
           padding: const EdgeInsets.all(16),
           child: Column(
@@ -46,7 +43,7 @@ class _LessonSectionState extends State<LessonSection> {
                 style: context.headlineSmall,
               ),
               const SizedBox(height: 16),
-              _progressionsList(progressions, context),
+              _progressionsList(state.progressions, context),
             ],
           ),
         );

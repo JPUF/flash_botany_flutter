@@ -166,7 +166,7 @@ abstract class GetProgressions implements ProgressionEvent {
 
 /// @nodoc
 mixin _$ProgressionState {
-  List<LessonProgression>? get progressions =>
+  List<LessonProgression> get progressions =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -180,7 +180,7 @@ abstract class $ProgressionStateCopyWith<$Res> {
           ProgressionState value, $Res Function(ProgressionState) then) =
       _$ProgressionStateCopyWithImpl<$Res, ProgressionState>;
   @useResult
-  $Res call({List<LessonProgression>? progressions});
+  $Res call({List<LessonProgression> progressions});
 }
 
 /// @nodoc
@@ -196,13 +196,13 @@ class _$ProgressionStateCopyWithImpl<$Res, $Val extends ProgressionState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? progressions = freezed,
+    Object? progressions = null,
   }) {
     return _then(_value.copyWith(
-      progressions: freezed == progressions
+      progressions: null == progressions
           ? _value.progressions
           : progressions // ignore: cast_nullable_to_non_nullable
-              as List<LessonProgression>?,
+              as List<LessonProgression>,
     ) as $Val);
   }
 }
@@ -215,7 +215,7 @@ abstract class _$$_ProgressionStateCopyWith<$Res>
       __$$_ProgressionStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<LessonProgression>? progressions});
+  $Res call({List<LessonProgression> progressions});
 }
 
 /// @nodoc
@@ -229,13 +229,13 @@ class __$$_ProgressionStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? progressions = freezed,
+    Object? progressions = null,
   }) {
     return _then(_$_ProgressionState(
-      progressions: freezed == progressions
+      progressions: null == progressions
           ? _value._progressions
           : progressions // ignore: cast_nullable_to_non_nullable
-              as List<LessonProgression>?,
+              as List<LessonProgression>,
     ));
   }
 }
@@ -244,18 +244,16 @@ class __$$_ProgressionStateCopyWithImpl<$Res>
 
 class _$_ProgressionState implements _ProgressionState {
   const _$_ProgressionState(
-      {final List<LessonProgression>? progressions = null})
+      {final List<LessonProgression> progressions = const []})
       : _progressions = progressions;
 
-  final List<LessonProgression>? _progressions;
+  final List<LessonProgression> _progressions;
   @override
   @JsonKey()
-  List<LessonProgression>? get progressions {
-    final value = _progressions;
-    if (value == null) return null;
+  List<LessonProgression> get progressions {
     if (_progressions is EqualUnmodifiableListView) return _progressions;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_progressions);
   }
 
   @override
@@ -285,10 +283,10 @@ class _$_ProgressionState implements _ProgressionState {
 
 abstract class _ProgressionState implements ProgressionState {
   const factory _ProgressionState(
-      {final List<LessonProgression>? progressions}) = _$_ProgressionState;
+      {final List<LessonProgression> progressions}) = _$_ProgressionState;
 
   @override
-  List<LessonProgression>? get progressions;
+  List<LessonProgression> get progressions;
   @override
   @JsonKey(ignore: true)
   _$$_ProgressionStateCopyWith<_$_ProgressionState> get copyWith =>
