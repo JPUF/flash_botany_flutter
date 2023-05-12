@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../features/bottom_bar_scaffold.dart';
 import '../features/onboarding/onboarding_carousel.dart';
+import 'blocs/familySelection/family_selection_bloc.dart';
 import 'blocs/progression/progression_bloc.dart';
 import 'blocs/prompt/prompt_bloc.dart';
 import 'providers/theme.dart';
@@ -42,6 +43,10 @@ class _FlashAppState extends State<FlashApp> {
         BlocProvider<ProgressionBloc>(
           create: (context) => ProgressionBloc(),
         ),
+        BlocProvider<FamilySelectionBloc>(
+          create: (context) => FamilySelectionBloc(),
+        ),
+
       ],
       child: DynamicColorBuilder(
         builder: (lightDynamic, darkDynamic) => ThemeProvider(

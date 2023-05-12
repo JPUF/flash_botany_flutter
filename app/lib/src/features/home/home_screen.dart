@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 import '../../shared/data/lesson_data.dart';
+import '../../shared/models/family.dart';
+import '../../shared/models/lesson.dart';
+import '../../shared/strings.dart';
 import '../../shared/util_widgets.dart';
 import '../../shared/views/custom_app_bar.dart';
+import '../customLesson/custom_lesson_screen.dart';
 import '../quiz/view/quiz_screen.dart';
+import 'components/custom_quiz_button.dart';
 import 'components/hero_quiz_button.dart';
 import 'components/lesson_section.dart';
 
@@ -31,6 +36,14 @@ class HomeScreenContent extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
+  void _toQuizScreen(
+    BuildContext context,
+    Lesson lesson,
+  ) => PersistentNavBarNavigator.pushNewScreen(
+    context,
+    screen: QuizScreen(lesson: lesson),
+  );
+
   @override
   Widget build(BuildContext context) {
     return ScrollConfiguration(
@@ -42,8 +55,20 @@ class HomeScreenContent extends StatelessWidget {
           const SizedBox(height: 32),
           PlatformSized(
             child: HeroQuizButton(
-              onTap: () => PersistentNavBarNavigator.pushNewScreen(context,
-                  screen: QuizScreen(lesson: LessonData.lessons.first)),
+              onTap: () => _toQuizScreen(context, const Lesson(
+                title: Strings.allLessonCta,
+                familySet: Family.values,
+                indefinite: true,
+              )),
+            ),
+          ),
+          const SizedBox(height: 8),
+          PlatformSized(
+            child: CustomQuizButton(
+              onTap: () => PersistentNavBarNavigator.pushNewScreen(
+                context,
+                screen: const CustomLessonScreen(),
+              ),
             ),
           ),
           const SizedBox(height: 32),
