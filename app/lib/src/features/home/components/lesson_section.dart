@@ -36,7 +36,6 @@ class _LessonSectionState extends State<LessonSection> {
         final List<LessonProgression>? progressions =
             state.progressions?.toList();
         if (progressions == null) return Container();
-        progressions.removeAt(0); // To remove 'all families' from this section
         return Container(
           padding: const EdgeInsets.all(16),
           child: Column(
