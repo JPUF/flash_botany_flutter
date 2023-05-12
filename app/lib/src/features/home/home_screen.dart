@@ -7,6 +7,7 @@ import '../../shared/models/lesson.dart';
 import '../../shared/strings.dart';
 import '../../shared/util_widgets.dart';
 import '../../shared/views/custom_app_bar.dart';
+import '../customLesson/custom_lesson_screen.dart';
 import '../quiz/view/quiz_screen.dart';
 import 'components/custom_quiz_button.dart';
 import 'components/hero_quiz_button.dart';
@@ -64,11 +65,10 @@ class HomeScreenContent extends StatelessWidget {
           const SizedBox(height: 8),
           PlatformSized(
             child: CustomQuizButton(
-              onTap: () => _toQuizScreen(context, const Lesson(
-                title: 'Custom',
-                familySet: [Family.orchidaceae, Family.rosaceae],
-                indefinite: true,
-              )),
+              onTap: () => PersistentNavBarNavigator.pushNewScreen(
+                context,
+                screen: const CustomLessonScreen(),
+              ),
             ),
           ),
           const SizedBox(height: 32),

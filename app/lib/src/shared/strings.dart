@@ -6,6 +6,7 @@ class Strings {
   static const allLessonSubheader = 'A quiz with all the families';
   static const customLessonCta = 'Custom!';
   static const customLessonSubheader = 'Choose families to compare';
+  static const customSelectionPrompt = 'Select 2+ families to compare';
   static const flowerCta = 'Flowers 101';
   static const factfileCta = 'Family Factfile';
   static const familySheetGrabber = 'Family Information';
