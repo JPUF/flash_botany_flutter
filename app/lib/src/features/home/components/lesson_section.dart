@@ -31,8 +31,6 @@ class _LessonSectionState extends State<LessonSection> {
 
   @override
   Widget build(BuildContext context) {
-    final lessonsExcludingAll = LessonData.lessons.toList();
-    lessonsExcludingAll.removeAt(0);
     return BlocBuilder<ProgressionBloc, ProgressionState>(
       builder: (context, state) {
         final List<LessonProgression>? progressions =
@@ -40,7 +38,6 @@ class _LessonSectionState extends State<LessonSection> {
         if (progressions == null) return Container();
         progressions.removeAt(0); // To remove 'all families' from this section
         return Container(
-
           padding: const EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

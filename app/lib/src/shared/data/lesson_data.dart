@@ -7,10 +7,6 @@ class LessonData {
 
   static const List<Lesson> lessons = [
     Lesson(
-        title: Strings.allLessonCta,
-        familySet: Family.values,
-        indefinite: true),
-    Lesson(
       title: Strings.lessonAsteraceaeRosaceae,
       familySet: [Family.asteraceae, Family.rosaceae],
     ),

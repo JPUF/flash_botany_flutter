@@ -4,6 +4,8 @@ class Strings {
   static const String infoTab = 'Info';
   static const allLessonCta = 'Test yourself!';
   static const allLessonSubheader = 'A quiz with all the families';
+  static const customLessonCta = 'Custom!';
+  static const customLessonSubheader = 'Choose families to compare';
   static const flowerCta = 'Flowers 101';
   static const factfileCta = 'Family Factfile';
   static const familySheetGrabber = 'Family Information';
