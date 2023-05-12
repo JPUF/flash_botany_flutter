@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 import '../../shared/blocs/familySelection/family_selection_bloc.dart';
 import '../../shared/extensions.dart';
 import '../../shared/models/family.dart';
+import '../../shared/models/lesson.dart';
 import '../../shared/strings.dart';
 import '../../shared/views/custom_app_bar.dart';
+import '../quiz/view/quiz_screen.dart';
 import 'family_option.dart';
 
 class CustomLessonScreen extends StatelessWidget {
@@ -39,13 +42,19 @@ class CustomLessonScreen extends StatelessWidget {
   Widget _nextButton(BuildContext context) => Padding(
     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
     child: ElevatedButton(
-      onPressed: () {},
+      onPressed: () => PersistentNavBarNavigator.pushNewScreen(
+        context,
+        screen: QuizScreen(lesson: Lesson(
+          title: Strings.customLessonTitle,
+          familySet: context.read<FamilySelectionBloc>().state.selectedFamilies,
+        )),
+      ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(Strings.customSelectionBegin, style: context.titleLarge),
           const SizedBox(width: 8),
-          Icon(Icons.arrow_forward, color: Theme.of(context).colorScheme.primary),
+          Icon(Icons.arrow_forward, color: Theme.of(context).colorScheme.tertiary),
         ],
       ),
       style: ElevatedButton.styleFrom(
@@ -54,7 +63,7 @@ class CustomLessonScreen extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(16)),
         ),
         padding: const EdgeInsets.all(20),
-        backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+        backgroundColor: Theme.of(context).colorScheme.tertiaryContainer,
       ),
     )
   );

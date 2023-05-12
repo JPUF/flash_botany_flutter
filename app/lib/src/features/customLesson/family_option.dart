@@ -17,26 +17,23 @@ class FamilyOption extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //TODO ripple effect
-    return GestureDetector(
-      onTap: onTap,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(8),
-          child: Container(
-            color: Theme.of(context).colorScheme.onInverseSurface,
-            padding: const EdgeInsets.all(4),
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                _FamilyOptionContent(family: family),
-                if (isSelected)
-                  const Align(alignment: Alignment.centerRight,
-                      child: Icon(Icons.check_circle, color: Colors.green, size: 24)),
-              ],
-            ),
-          ),
+    return Padding(
+      padding: const EdgeInsets.all(4),
+      child: MaterialButton(
+        onPressed: onTap,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        color: Theme.of(context).colorScheme.onInverseSurface,
+        padding: const EdgeInsets.all(8),
+        elevation: 0,
+        highlightElevation: 0,
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            _FamilyOptionContent(family: family),
+            if (isSelected)
+              const Align(alignment: Alignment.centerRight,
+                  child: Icon(Icons.check_circle, color: Colors.green, size: 24)),
+          ],
         ),
       ),
     );
@@ -57,7 +54,7 @@ class _FamilyOptionContent extends StatelessWidget {
           CircleAvatar(
             radius: 35,
             foregroundImage: AssetImage(family.assetImgPath),
-            backgroundColor: Theme.of(context).colorScheme.onInverseSurface,
+            backgroundColor: Colors.transparent,
           ),
           const SizedBox(height: 8),
           Text(family.latinName, style: context.titleMedium),
