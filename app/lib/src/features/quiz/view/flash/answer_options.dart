@@ -78,6 +78,15 @@ class AnswerButtonTable extends StatelessWidget {
         onTapped: () => onAnswerSelected(familyOptions[1]),
       ),
     ]));
+    if(familyOptions.length == 3) {
+      rows.add(TableRow(children: [
+        CustomButton(
+          title: familyOptions[2].latinName,
+          onTapped: () => onAnswerSelected(familyOptions[2]),
+        ),
+        Container(),
+      ]));
+    }
     if (familyOptions.length >= 4) {
       rows.add(TableRow(children: [
         CustomButton(

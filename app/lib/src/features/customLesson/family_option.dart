@@ -18,7 +18,7 @@ class FamilyOption extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(4),
+      padding: const EdgeInsets.all(8),
       child: MaterialButton(
         onPressed: onTap,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
