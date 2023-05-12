@@ -60,7 +60,8 @@ class _FamilyOptionContent extends StatelessWidget {
             backgroundColor: Theme.of(context).colorScheme.onInverseSurface,
           ),
           const SizedBox(height: 8),
-          Text(family.latinName, style: context.bodyLarge),
+          Text(family.latinName, style: context.titleMedium),
+          const SizedBox(height: 4),
         ],
       ),
     );
