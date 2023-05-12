@@ -44,6 +44,7 @@ class _BottomBarScaffoldState extends State<BottomBarScaffold> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
+      resizeToAvoidBottomInset: false,
           body: PersistentTabView(
         context,
         controller: _controller,

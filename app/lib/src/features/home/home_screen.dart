@@ -62,7 +62,7 @@ class HomeScreenContent extends StatelessWidget {
               )),
             ),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 16),
           PlatformSized(
             child: CustomQuizButton(
               onTap: () => PersistentNavBarNavigator.pushNewScreen(

@@ -4,7 +4,7 @@ class Strings {
   static const String infoTab = 'Info';
   static const allLessonCta = 'Test yourself!';
   static const allLessonSubheader = 'A quiz with all the families';
-  static const customLessonCta = 'Custom!';
+  static const customLessonCta = 'Custom quiz!';
   static const customLessonTitle = 'Custom Lesson';
   static const customLessonSubheader = 'Choose families to compare';
   static const customSelectionPrompt = 'Select 2+ families to compare';

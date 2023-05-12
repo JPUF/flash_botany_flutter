@@ -16,6 +16,7 @@ class FactfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: CustomAppBar(showBackButton: false),
       body: SafeArea(
         child: SingleChildScrollView(
