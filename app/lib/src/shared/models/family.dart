@@ -7,6 +7,7 @@ import '../data/families/euphorbiaceae_data.dart';
 import '../data/families/fabaceae_data.dart';
 import '../data/families/geraniaceae_data.dart';
 import '../data/families/lamiaceae_data.dart';
+import '../data/families/malvaceae_data.dart';
 import '../data/families/onagraceae_data.dart';
 import '../data/families/orchidaceae_data.dart';
 import '../data/families/polygonaceae_data.dart';
@@ -268,6 +269,34 @@ enum Family {
     ],
     LamiaceaeData.speciesList,
     'assets/images/lamiaceae.png',
+  ),
+  malvaceae(
+    'Malvaceae',
+    'Mallow Family',
+    'https://en.wikipedia.org/wiki/Malvaceae',
+    'Actinomorphic flowers. 5 separate petals.\n\n'
+        'Many stamens fused into a tube around the pistil. '
+        'Superior ovary.\n\n'
+        'Leaves are palmately lobed/veined.',
+    [
+      GlossaryTerm.actinomorphic,
+      GlossaryTerm.superiorOvary,
+      GlossaryTerm.palmate,
+      GlossaryTerm.lobedLeaf,
+    ],
+    [
+      AttributedUrl(
+          url: baseFamilyUrl + 'malvaceae_multiflora.jpg',
+          attribution: '© Quentin Scouflaire (CC-BY-NC)'),
+      AttributedUrl(
+          url: baseFamilyUrl + 'malvaceae_althaea.jpg',
+          attribution: '© Detlev Metzing (CC-BY-NC)'),
+      AttributedUrl(
+          url: baseFamilyUrl + 'malvaceae_sphaeralcae.jpg',
+          attribution: '© ramblinbotany (CC-BY-NC)'),
+    ],
+    MalvaceaeData.speciesList,
+    'assets/images/malvaceae.png',
   ),
   onagraceae(
     'Onagraceae',

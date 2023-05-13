@@ -1,3 +1,4 @@
+import '../models/family.dart';
 import '../models/species.dart';
 import 'families/apiaceae_data.dart';
 import 'families/asteraceae_data.dart';
@@ -8,6 +9,7 @@ import 'families/euphorbiaceae_data.dart';
 import 'families/fabaceae_data.dart';
 import 'families/geraniaceae_data.dart';
 import 'families/lamiaceae_data.dart';
+import 'families/malvaceae_data.dart';
 import 'families/onagraceae_data.dart';
 import 'families/orchidaceae_data.dart';
 import 'families/polygonaceae_data.dart';
@@ -31,6 +33,7 @@ class SpeciesData {
     ...PolygonaceaeData.speciesList,
     ...OnagraceaeData.speciesList,
     ...EuphorbiaceaeData.speciesList,
+    ...MalvaceaeData.speciesList,
   ];
 
   static const List<Species> asteraceaeRosaceae = [
