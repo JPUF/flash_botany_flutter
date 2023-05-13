@@ -21,6 +21,7 @@ class Strings {
   static const lessonRanunculaceaeOrchidaceae = 'Buttercups\nOrchids';
   static const lessonGeraniaceaePolygonaceae = 'Geraniums\nKnotweeds';
   static const lessonOnagraceaeEuphorbiaceae = 'Evening Primroses\n& Spurges';
+  static const lessonMalvaceaeEricaceae = 'Mallows\nBlueberries';
   static const familySearchHint = 'Family search:';
   static const familySearchNoResults = 'No search results';
   static const darkModeKey = 'darkMode';

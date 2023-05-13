@@ -3,6 +3,7 @@ import '../data/families/asteraceae_data.dart';
 import '../data/families/boraginaceae_data.dart';
 import '../data/families/brassicaceae_data.dart';
 import '../data/families/caryophyllaceae_data.dart';
+import '../data/families/ericaceae_data.dart';
 import '../data/families/euphorbiaceae_data.dart';
 import '../data/families/fabaceae_data.dart';
 import '../data/families/geraniaceae_data.dart';
@@ -19,6 +20,30 @@ import 'glossary_term.dart';
 import 'species.dart';
 
 enum Family {
+  apiaceae(
+    'Apiaceae',
+    'Carrot Family, Umbellifers',
+    'https://en.wikipedia.org/wiki/Apiaceae',
+    'Umbel inflorescence. Each individual flower is small. 5 petals, often white or similarly pale.\n\n'
+        '5 stamens and 2 pistils. Inferior ovary.\n\n'
+        'Stems are often lanky and hollow. Leaves are divided into leaflets.',
+    [
+      GlossaryTerm.umbel,
+      GlossaryTerm.inflorescence,
+      GlossaryTerm.inferiorOvary,
+    ],
+    [
+      AttributedUrl(url: baseFamilyUrl + 'apiaceae_anethum.jpg', attribution: null),
+      AttributedUrl(
+          url: baseFamilyUrl + 'apiaceae_heracleum.jpg',
+          attribution: 'commons.wikimedia.org/wiki/User:Llez'),
+      AttributedUrl(
+          url: baseFamilyUrl + 'apiaceae_osmorhiza.jpg',
+          attribution: 'Mary Ellen (Mel) Harte, Bugwood.org'),
+    ],
+    ApiaceaeData.speciesList,
+    'assets/images/apiaceae.png',
+  ),
   asteraceae(
     'Asteraceae',
     'Daisy Family, Sunflower Family, Compositae',
@@ -47,30 +72,6 @@ enum Family {
     ],
     AsteraceaeData.speciesList,
     'assets/images/asteraceae.png',
-  ),
-  apiaceae(
-    'Apiaceae',
-    'Carrot Family, Umbellifers',
-    'https://en.wikipedia.org/wiki/Apiaceae',
-    'Umbel inflorescence. Each individual flower is small. 5 petals, often white or similarly pale.\n\n'
-        '5 stamens and 2 pistils. Inferior ovary.\n\n'
-        'Stems are often lanky and hollow. Leaves are divided into leaflets.',
-    [
-      GlossaryTerm.umbel,
-      GlossaryTerm.inflorescence,
-      GlossaryTerm.inferiorOvary,
-    ],
-    [
-      AttributedUrl(url: baseFamilyUrl + 'apiaceae_anethum.jpg', attribution: null),
-      AttributedUrl(
-          url: baseFamilyUrl + 'apiaceae_heracleum.jpg',
-          attribution: 'commons.wikimedia.org/wiki/User:Llez'),
-      AttributedUrl(
-          url: baseFamilyUrl + 'apiaceae_osmorhiza.jpg',
-          attribution: 'Mary Ellen (Mel) Harte, Bugwood.org'),
-    ],
-    ApiaceaeData.speciesList,
-    'assets/images/apiaceae.png',
   ),
   boraginaceae(
     'Boraginaceae',
@@ -150,6 +151,31 @@ enum Family {
     ],
     CaryophyllaceaeData.speciesList,
     'assets/images/caryophyllaceae.png',
+  ),
+  ericaceae(
+    'Ericaceae',
+    'Heath Family, Blueberry Family',
+    'https://en.wikipedia.org/wiki/Ericaceae',
+    'Flowers often urn/bell shaped, with 4 or 5 petals fused together. Usually white or pink.\n\n'
+        '5 stamens. Superior ovary, which ripens into a berry or capsule.\n\n'
+        'Leaves are simple, and often evergreen.',
+    [
+      GlossaryTerm.superiorOvary,
+      GlossaryTerm.simpleLeaf,
+    ],
+    [
+      AttributedUrl(
+          url: baseFamilyUrl + 'ericaceae_arctostaphylos.jpg',
+          attribution: '© Julia Carr (CC-BY-NC)'),
+      AttributedUrl(
+          url: baseFamilyUrl + 'ericaceae_arbutus.jpg',
+          attribution: '© fern1956 (CC-BY-NC)'),
+      AttributedUrl(
+          url: baseFamilyUrl + 'ericaceae_gaultheria.jpg',
+          attribution: '© Dennis White (CC-BY-NC)'),
+    ],
+    EricaceaeData.speciesList,
+    'assets/images/ericaceae.png',
   ),
   euphorbiaceae(
     'Euphorbiaceae',

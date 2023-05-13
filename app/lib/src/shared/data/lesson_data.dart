@@ -31,6 +31,9 @@ class LessonData {
     Lesson(
         title: Strings.lessonOnagraceaeEuphorbiaceae,
         familySet: [Family.onagraceae, Family.euphorbiaceae]),
+    Lesson(
+        title: Strings.lessonMalvaceaeEricaceae,
+        familySet: [Family.malvaceae, Family.ericaceae]),
     //Probably need to increment DB 'version' when this list is augmented.
     // (if app has been released, otherwise just reinstall app on device)
   ];
