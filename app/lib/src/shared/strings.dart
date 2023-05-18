@@ -41,6 +41,7 @@ class Strings {
   static const morphologyCalyx = 'Calyx';
   static const morphologySepals = 'Many flowers have a protective ‘cup’ called a calyx. This is made of numerous little leaves, called sepals.';
   static const morphologyCredit = 'Image credit:\n© Alexander Dubynin, (CC-BY-NC)\n© arlybenitez, (CC-BY-NC)';
+  static const appIconCredit = 'App icon created by Freepik - Flaticon';
 
   static String credit(String? attribution) => 'Credit: $attribution';
 }
