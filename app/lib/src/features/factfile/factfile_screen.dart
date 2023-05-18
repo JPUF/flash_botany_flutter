@@ -35,11 +35,12 @@ class FactfileContent extends StatefulWidget {
 }
 
 class _FactfileContentState extends State<FactfileContent> {
-  String searchTerm = '';
+  final _textEditingController = TextEditingController();
+  var _searchTerm = '';
 
   @override
   Widget build(BuildContext context) {
-    List<TableRow> rows = _filteredFamilyButtons(searchTerm);
+    List<TableRow> rows = _filteredFamilyButtons(_searchTerm);
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -70,16 +71,19 @@ class _FactfileContentState extends State<FactfileContent> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: TextField(
-        onChanged: (text) {
-          setState(() => searchTerm = text);
-        },
+        onChanged: (value) => setState(() => _searchTerm = value),
+        controller: _textEditingController,
         style: context.bodyMedium,
+        textInputAction: TextInputAction.search,
         decoration: InputDecoration(
-            suffixIcon: searchTerm.isEmpty
+            suffixIcon: _textEditingController.text.isEmpty
                 ? const Icon(Icons.search)
                 : IconButton(
                     icon: const Icon(Icons.clear),
-                    onPressed: () => setState(() => searchTerm = '')),
+                    onPressed: () {
+                      _textEditingController.clear();
+                      setState(() => _searchTerm = '');
+                    }),
             border:
                 const OutlineInputBorder(borderSide: BorderSide(width: 0.5)),
             hintText: Strings.familySearchHint),
