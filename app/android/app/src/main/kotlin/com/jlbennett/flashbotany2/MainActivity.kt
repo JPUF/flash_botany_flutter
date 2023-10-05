@@ -1,4 +1,4 @@
-package com.jlbennett.flashbotany2
+package com.jlbennett.flashbotany3
 
 import io.flutter.embedding.android.FlutterActivity
 

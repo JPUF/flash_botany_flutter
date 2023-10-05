@@ -13,8 +13,8 @@ class BrightnessToggle extends StatelessWidget {
     final isDark = context.theme.brightness == Brightness.dark;
     return IconButton(
       icon: Theme.of(context).brightness == Brightness.light
-          ? const Icon(Icons.brightness_2_rounded)
-          : const Icon(Icons.brightness_7_rounded),
+          ? const Icon(Icons.dark_mode)
+          : const Icon(Icons.light_mode),
       onPressed: () {
         _saveThemePreference(!isDark);
         final themeProvider = ThemeProvider.of(context);

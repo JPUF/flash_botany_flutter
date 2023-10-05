@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.jlbennett.flashbotany2">
+    package="com.jlbennett.flashbotany3">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <application

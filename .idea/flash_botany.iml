@@ -115,6 +115,18 @@
       <excludeFolder url="file://$MODULE_DIR$/app/windows/flutter/ephemeral/.plugin_symlinks/flutter_keyboard_visibility_windows/build" />
       <excludeFolder url="file://$MODULE_DIR$/app/windows/flutter/ephemeral/.plugin_symlinks/flutter_keyboard_visibility_windows/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/app/windows/flutter/ephemeral/.plugin_symlinks/flutter_keyboard_visibility_windows/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/app/ios/.symlinks/plugins/sqlite3_flutter_libs/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/app/ios/.symlinks/plugins/sqlite3_flutter_libs/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/app/ios/.symlinks/plugins/sqlite3_flutter_libs/build" />
+      <excludeFolder url="file://$MODULE_DIR$/app/ios/.symlinks/plugins/sqlite3_flutter_libs/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/app/ios/.symlinks/plugins/sqlite3_flutter_libs/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/app/ios/.symlinks/plugins/sqlite3_flutter_libs/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/app/ios/.symlinks/plugins/flutter_keyboard_visibility/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/app/ios/.symlinks/plugins/flutter_keyboard_visibility/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/app/ios/.symlinks/plugins/flutter_keyboard_visibility/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/app/ios/.symlinks/plugins/flutter_keyboard_visibility/build" />
+      <excludeFolder url="file://$MODULE_DIR$/app/ios/.symlinks/plugins/flutter_keyboard_visibility/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/app/ios/.symlinks/plugins/flutter_keyboard_visibility/.pub" />
     </content>
     <orderEntry type="jdk" jdkName="Android API 32 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />

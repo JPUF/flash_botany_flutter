@@ -64,10 +64,22 @@ class _FactfileContentState extends State<FactfileContent> {
           const SizedBox(height: 32),
           Align(
             alignment: AlignmentDirectional.bottomEnd,
-            child: Text(
-              Strings.appIconCredit,
-              style: context.bodySmall
-                  ?.copyWith(color: Theme.of(context).colorScheme.secondary),
+            child: Column(
+              children: [
+                Text(
+                  Strings.contactAddress,
+                  textAlign: TextAlign.end,
+                  style: context.bodySmall?.copyWith(
+                      color: Theme.of(context).colorScheme.secondary),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  Strings.appIconCredit,
+                  textAlign: TextAlign.end,
+                  style: context.bodySmall?.copyWith(
+                      color: Theme.of(context).colorScheme.secondary),
+                ),
+              ],
             ),
           ),
           const SizedBox(height: 4),
