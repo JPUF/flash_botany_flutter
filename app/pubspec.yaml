@@ -1,7 +1,7 @@
 name: flash_botany
 description: A cross-platform plant family education.
 publish_to: "none"
-version: 1.0.1+5
+version: 1.0.1+6
 
 environment:
   sdk: ^2.17.0-0
